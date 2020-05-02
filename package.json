@@ -1,0 +1,15 @@
+{
+  "name": "core-engine-api",
+  "version": "0.1.0",
+  "dependencies": {
+    "grunt": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "typedoc": "^0.17.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-typedoc": "^0.2.4",
+    "typedoc-plugin-sourcefile-url": "^1.0.6"
+  }
+}

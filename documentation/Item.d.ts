@@ -1,0 +1,340 @@
+/**
+ * Module used to define items and their properties
+ */
+declare namespace Item {
+    /**
+     * @param id string id of the item
+     * @returns item numeric id by its string id or just returns its numeric id 
+     * if input was a numeric id
+     */
+    function getNumericId(id: string|number): number;
+
+    /**
+     * Gets NativeItem instance that can be used to apply some properties to the
+     * item
+     * @param id string id of the item
+     * @returns NativeItem instance associated with this item
+     */
+    function getItemById(id: string): NativeItem;
+
+    /**
+     * Creates new item using specified parameters
+     * @param namedID string id of the item. You should register it via 
+     * [[IDRegistry.genItemID]] call first
+     * @param name item name in English. Add translations to the name using
+     * [[Translation]] module, all translation to the item and block names are
+     * applied automatically
+     * @param texture texture data used to create item
+     * @param params additional item parameters
+     * @param params.stack maximum item stack size. Default value is 64
+     * @param params.isTech if true, the item will not be added to creative. 
+     * Default value is false
+     */
+    function createItem(namedID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean}): NativeItem;
+
+    /**
+     * Creates eatable item using specified parameters
+     * @param namedID string id of the item. You should register it via 
+     * [[IDRegistry.genItemID]] call first
+     * @param name item name in English. Add translations to the name using
+     * [[Translation]] module, all translation to the item and block names are
+     * applied automatically
+     * @param texture texture data used to create item
+     * @param params additional item parameters
+     * @param params.stack maximum item stack size. Default value is 64
+     * @param params.isTech if true, the item will not be added to creative. 
+     * Default value is false 
+     * @param params.food amount of hunger restored by this food. Default value
+     * is 1
+     */
+    function createFoodItem(namedID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean, food?: number}): NativeItem;
+
+    /**
+     * @deprecated Use [[Item.createItem]] and [[RecipeRegistry.addFurnaceFuel]]
+     * instead
+     */
+    function createFuelItem(namedID: string, name: string, texture: TextureData, params: object): void;
+
+    /**
+     * Creates armor item using specified parameters
+     * @param namedID string id of the item. You should register it via 
+     * [[IDRegistry.genItemID]] call first
+     * @param name item name in English. Add translations to the name using
+     * [[Translation]] module, all translation to the item and block names are
+     * applied automatically
+     * @param texture texture data used to create item
+     * @param params additional item parameters
+     * @param params.isTech if true, the item will not be added to creative. 
+     * Default value is false 
+     * @param params.durability armor durability, the more it is, the longer the 
+     * armor will last. Default value is 1
+     * @param params.armor armor protection. Default vaule is 0
+     * @param params.texture armor model texture path (in the assets), default
+     * value is 'textures/logo.png'
+     * @param params.type armor type, should be one of the 'helmet', 
+     * 'chestplate', 'leggings' or 'boots'
+     */
+    function createArmorItem(namedID: string, name: string, texture: TextureData, params: {durability: number, armor: number, texture: string, type: string}): void;
+
+    /**
+     * Creates throwable item using specified parameters
+     * @param namedID string id of the item. You should register it via 
+     * [[IDRegistry.genItemID]] call first
+     * @param name item name in English. Add translations to the name using
+     * [[Translation]] module, all translation to the item and block names are
+     * applied automatically
+     * @param texture texture data used to create item
+     * @param params additional item parameters
+     * @param params.stack maximum item stack size. Default value is 64
+     * @param params.isTech if true, the item will not be added to creative. 
+     * Default value is false 
+     */
+    function createThrowableItem(namedID: string, name: string, texture: TextureData, params: any): void;
+
+    /**
+     * @param id numeric item id
+     * @returns true if given item is vanilla item, false otherwise
+     */
+    function isNativeItem(id: number): boolean;
+
+    /**
+     * @param id numeric item id
+     * @returns maximum damage value for the specified item
+     */
+    function getMaxDamage(id: number): number;
+
+    /**
+     * @param id numeric item id
+     * @returns maximum stack size for the specified item
+     */
+    function getMaxStack(id: number): number;
+
+    /**
+     * @param id numeric item id
+     * @param data item data
+     * @param encode no longer supported, do not use this parameter
+     * @returns current item name
+     */
+    function getName(id: number, data: number, encode?: any): string;
+
+    /**
+     * @param id numeric item id
+     * @param data no longer supported, do not use this parameter
+     * @returns true, if an item with such id exists, false otherwise
+     */
+    function isValid(id: number, data: number): boolean;
+
+    /**
+     * Adds item to creative inventory
+     * @param id string or numeric item id
+     * @param count amount of the item to be added, generally should be 1
+     * @param data item data
+     */
+    function addToCreative(id: number|string, count: number, data: number): void;
+
+    /**
+     * Applies several properties via one method call
+     * @deprecated Consider using appropiate setters instead
+     * @param numericID numeric item id
+     * @param description 
+     */
+    function describeItem(numericID: number, description: {
+        category?
+    }): void;
+
+    /**
+     * Sets item creative category
+     * @param id string or numeric item id
+     * @param category item category, should be one of the 
+     * [[Native.ItemCategory]] values
+     */
+    function setCategory(id: number|string, category: number): void;
+
+    /**
+     * Specifies how the item can be enchanted
+     * @param id string or numeric item id
+     * @param enchant enchant type defining whan enchants can or cannot be 
+     * applied to this item, one of the [[Native.EnchantType]]
+     * @param value quality of the enchants that are applied, the higher this 
+     * value is, the better enchants you get with the same level
+     */
+    function setEnchantType(id: number|string, enchant: number, value: number): void;
+
+    /**
+     * Specifies what items can be used to repair this item in the envil
+     * @param id string or numeric item id
+     * @param items array of numeric item ids to be used as repair items
+     */
+    function addRepairItemIds(id: number|string, items: number[]): void;
+
+    /**
+     * Specifies how the player should hold the item
+     * @param id string or numeric item id
+     * @param enabled if true, player holds the item as a tool, not as a simple
+     * item
+     */
+    function setToolRender(id: number|string, enabled: boolean): void;
+
+    /**
+     * Sets item maximum data value
+     * @param id string or numeric item id
+     * @param maxdamage maximum data value for the item
+     */
+    function setMaxDamage(id: number|string, maxdamage: number): void;
+
+    /**
+     * Sets item as glint (like enchanted tools or golden apple)
+     * @param id string or numeric item id
+     * @param enabled if true, the item will be displayed as glint item
+     */
+    function setGlint(id: number|string, enabled: boolean): void;
+
+    /**
+     * 
+     * @param id string or numeric item id
+     * @param enabled 
+     */
+    function setLiquidClip(id: number|string, enabled: boolean): void;
+
+    /** 
+     * @deprecated No longer supported
+     */
+    function setStackedByData(id: number|string, enabled: boolean): void;
+
+    /**
+     * Sets additional properties for the item, uses Minecraft mechanisms to
+     * set them. Full list of properties is currently unavailable 
+     * @param id string or numeric item id
+     * @param props JSON string containing some of the properties
+     */
+    function setProperties(id: number|string, props: string): void;
+
+    /**
+     * Sets animation type for the item
+     * @param id string or numeric item id
+     * @param animType use animation type, one of the [[Native.ItemAnimation]] 
+     * values
+     */
+    function setUseAnimation(id: number|string, animType: number): void;
+
+    /**
+     * Limits maximum use duration. This is useful to create such items as bows
+     * @param id string or numeric item id
+     * @param duration maximum use duration in ticks
+     */
+    function setMaxUseDuration(id: number|string, duration: number): void;
+
+    /**
+     * Same as [[Item.refisterUseFunction]], but supports numeric ids only
+     */
+    function registerUseFunctionForID(numericID: number, useFunc: Callback.ItemUseFunction): void;
+
+    /**
+     * Registers function that is called when user touches some block in the 
+     * world with specified item
+     * @param namedID string or numeric id of the item
+     * @param useFunc function that is called when such an event occures
+     */
+    function registerUseFunction(namedID: string|number, useFunc: Callback.ItemUseFunction): void;
+
+    /**
+     * Same as [[Item.registerThrowableFunction]], but supports numeric ids only
+     */
+    function registerThrowableFunctionForID(numericID: number, useFunc: Callback.ProjectileHitFunction): void;
+
+    /**
+     * Registers function that is called when throwable item with specified id
+     * hits block or entity
+     * @param namedID string or numeric id of the item
+     * @param useFunc function that is called when such an event occures
+     */
+    function registerThrowableFunction(namedID: string|number, useFunc: Callback.ProjectileHitFunction): void;
+
+    /**
+     * Registers item id as requiring item icon override and registers function 
+     * to perform such an override
+     * @param namedID string or numeric id of the item
+     * @param func function that is called to override item icon. Should return 
+     * [[Item.TextureData]] object to be used for the item. See 
+     * [[Callback.ItemIconOverrideFunction]] documentation for details
+     */
+    function registerIconOverrideFunction(namedID: string|number, func: Callback.ItemIconOverrideFunction): void;
+
+    /**
+     * Registers function to perform item name override
+     * @param namedID string or numeric id of the item
+     * @param func function that is called to override item name. Should return 
+     * string to be used as new item name
+     */
+    function registerNameOverrideFunction(nameID: string|number, func: Callback.ItemNameOverrideFunction): void;
+
+    /**
+     * Registers function to be called when player uses item in the air (not on
+     * the block)
+     * @param nameID string or numeric id of the item
+     * @param func function that is called when such an event occures
+     */
+    function registerNoTargetUseFunction(nameID: string|number, func: Callback.ItemUseNoTargetFunction): void;
+
+    /**
+     * Registers function to be called when player doesn't complete using item 
+     * that has maximum use time set with [[Item.setMaxUseDuration]] funciton.
+     * Vanilla bow uses this function with max use duration of 72000 ticks
+     * @param nameID string or numeric id of the item
+     * @param func function that is called when such an event occures
+     */
+    function registerUsingReleasedFunction(nameID: string|number, func: Callback.ItemUsingReleasedFunction): void;
+
+    /**
+     * Registers function to be called when player completes using item 
+     * that has maximum use time set with [[Item.setMaxUseDuration]] funciton
+     * @param nameID string or numeric id of the item
+     * @param func function that is called when such an event occures
+     */
+    function registerUsingCompleteFunction(nameID: string|number, func: Callback.ItemUsingCompleteFunction): void;
+
+    /**
+     * Registers function to be called when item is dispensed from dispenser. 
+     * @param nameID string or numeric id of the item
+     * @param func function that is called when such an event occures
+     */
+    function registerDispenseFunction(nameID: string|number, func: Callback.ItemDispensedFunction): void;
+
+    /**
+     * @deprecated Should not be used in new mods, consider using [[Item]] 
+     * properties setters instead
+     */
+    function setPrototype(namedID: any, Prototype: any): void;
+
+    /**
+     * Class representing item used to set its properties
+     */
+    class NativeItem {
+
+    }
+
+    /**
+     * Represents item texture data. For example, if 'items-opaque' folder 
+     * contains file *nugget_iron_0.png*, you should pass *nugget_iron* as 
+     * texture name and 0 as texture index. _N suffix can be ommited, but it is 
+     * generally not recommended
+     */
+    interface TextureData {
+        /**
+         * Texture name, name of the file stored in the 'items-opaque' asset
+         * folder without extension and _N suffixes
+         */
+        name: string,
+
+        /**
+         * Texture index defined by _N texture suffix. Default value id 0
+         */
+        data?: number,
+
+        /**
+         * @deprecated same as data, so data is preferred in all cases
+         */
+        meta?: number
+    }
+
+}
