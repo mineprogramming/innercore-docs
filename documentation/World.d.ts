@@ -233,7 +233,7 @@ declare namespace World {
     /**
      * Plays standart Minecraft sound on the specified coordinates
      * @param name sound name
-     * @param volume sound volume from 0 to 100
+     * @param volume sound volume from 0 to 1
      * @param pitch sound pitch, from 0 to 1, 0.5 is default value
      */
     function playSound(x: number, y: number, z: number, name: string, volume: number, pitch: number): void;
@@ -241,7 +241,7 @@ declare namespace World {
     /**
      * Plays standart Minecraft sound from the specified entity
      * @param name sound name
-     * @param volume sound volume from 0 to 100
+     * @param volume sound volume from 0 to 1
      * @param pitch sound pitch, from 0 to 1, 0.5 is default value
      */
     function playSoundAtEntity(entity: number, name: string, volume: number, pitch: number): void;
