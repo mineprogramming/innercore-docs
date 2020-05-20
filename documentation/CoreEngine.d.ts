@@ -83,3 +83,9 @@ declare function getMCPEVersion():
  * @param arg 
  */
 declare function alert(arg: string): any;
+
+
+declare function LIBRARY(description: object): void;
+
+
+declare function EXPORT(name: string, lib: any): void;
