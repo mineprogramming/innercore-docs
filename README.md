@@ -9,4 +9,6 @@ npm install -g grunt-cli
 ```
 
 # Building documentation and headers
+Documentation repository is located at [GitHub](https://github.com/mineprogramming/innercore-docs).
+
 To build this repository locally, open this folder in Visual Studio Code and run (*Ctrl+Shift+B*) **Initialize Environment** task. This will install all required npm dependencies locally. To build typedoc documentation and headers, run **Run Typedoc** task.
