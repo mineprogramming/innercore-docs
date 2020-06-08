@@ -79,13 +79,61 @@ declare function getMCPEVersion():
 {str: string, array: number[], main: number};
 
 /**
- * 
+ * Displays [[android.widget.Toast]] with specified message. If this function is called
+ * more then once, messages are stacked and displayed together
  * @param arg 
  */
 declare function alert(arg: string): any;
 
 
-declare function LIBRARY(description: object): void;
+/**
+ * Library declaration, specifies all the information about library it is called from. 
+ * Cannot be called from user code.
+ * @param description object containing all the required information
+ * about the library
+ */
+declare function LIBRARY(description: {
+    /**
+     * Library name, used to avoid conflicts when several 
+     * mods have the same library installed
+     */
+    name: string,
+
+    /**
+     * Library version, used to load the lates library version
+     * if different mods have different library version installed
+     */
+    version: number,
+
+    /**
+     * API name, one of the "CoreEngine", "AdaptedScript" or "PrefsWinAPI" strings
+     */
+    api: string,
+
+    /**
+     * If set to true, the context of the library is shared between mods to 
+     * allow for better integration
+     */
+    shared: boolean,
+
+    /**
+     * List of names of libraries that should be loaded before the current library is loaded. 
+     * Every entry should be either just a library name or library name and version
+     * separated by a column (":")
+     */
+    dependencies: string[]
+}): void;
 
 
+/**
+ * Exports object from library using specified name
+ * @param name object name to be used when calling [[IMPORT]]. 
+ * If the name contains a column (":"), the number after column 
+ * is used to specify version of the library this export corresponds to.
+ * To provide backward compatibility, library authors can use multiple 
+ * exports for different library versions inside a single file. This mechanism 
+ * currently works only for library dependencies
+ * @param lib object to be exported with specified name, 
+ * can be of any valid js/java type
+ */
 declare function EXPORT(name: string, lib: any): void;
