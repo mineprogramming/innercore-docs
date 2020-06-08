@@ -1,0 +1,14 @@
+{
+    "groups": [
+        {
+            "title": "Documentation",
+            "pages": [
+                {
+                    "title": "Materials",
+                    "source": "./documentation/static-pages/materials.md"
+                }
+            ]
+        }
+    ],
+    "theme": "pages-plugin"
+}
