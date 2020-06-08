@@ -87,7 +87,6 @@ declare namespace GameObjectRegistry {
 
     function callForTypeSafe(): any;
 }
-declare function Render(params: any): any;
 declare class Texture {}
 declare function EntityModel(parentModel: any): any;
 declare function EntityModelWatcher(entity: number, model: any): any;
@@ -110,7 +109,7 @@ declare namespace IDData {
 }
 declare namespace BlockRenderer {
     class Model {
-        
+
     }
 }
 declare namespace ICRender {
