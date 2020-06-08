@@ -108,7 +108,15 @@ declare namespace IDData {
     namespace item {}
     namespace block {}
 }
-declare namespace BlockRenderer {}
-declare namespace ICRender {}
+declare namespace BlockRenderer {
+    class Model {
+        
+    }
+}
+declare namespace ICRender {
+    class Model {
+
+    }
+}
 declare function ItemExtraData(): any;
-declare function RenderMesh(): any;
+declare class RenderMesh {}
