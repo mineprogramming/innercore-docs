@@ -1,14 +1,18 @@
 {
     "groups": [
         {
-            "title": "Documentation",
+            "title": "Guides",
+            "output": "./",
             "pages": [
                 {
-                    "title": "Materials",
-                    "source": "./documentation/static-pages/materials.md"
+                    "title": "Materials and Shaders",
+                    "source": "./static-pages/materials.md"
                 }
             ]
         }
     ],
-    "theme": "pages-plugin"
+    "listInvalidPageLinks": true,
+	"output": "pages",
+	"reflectionNavigationTitle": "Development API",
+    "source": "./documentation"
 }

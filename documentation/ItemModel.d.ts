@@ -79,7 +79,8 @@ declare class ItemModel {
 
     /**
      * Sets item model's material in both player's invantory and in hand
-     * @param texture material name to be used for the model
+     * @param texture material name to be used for the model. See 
+     * {@page Materials and Shaders} for more information
      */
     setMaterial(texture: string): ItemModel;
     

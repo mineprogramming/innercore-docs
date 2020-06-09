@@ -23,6 +23,8 @@ module.exports = function (grunt) {
                     mode: 'file',
                     name: 'Core Engine API',
                     readme: 'readme.md',
+                    theme: 'pages-plugin',
+                    listInvalidSymbolLinks: 'true',
                     'sourcefile-url-prefix': 'https://github.com/zheka2304/innercore-mod-toolchain/tree/master/toolchain-mod/toolchain/jslibs/'
                 },
                 src: ['headers/core-engine.d.ts']
