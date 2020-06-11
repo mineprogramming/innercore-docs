@@ -9,7 +9,7 @@ declare namespace Dimensions {
         /**
          * Constructs a new dimension with specified name and preffered 
          * @param name dimension name, can be used to get dimension via 
-         * [[CustomDimension.getDimensionByName]] call
+         * [[Dimensions.getDimensionByName]] call
          * @param preferedId prefered dimension id. If id is already occupied 
          * by some another dimension, constructor will look for the next empty
          * dimension id and assign it to the current dimension

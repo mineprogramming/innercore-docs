@@ -50,7 +50,7 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
     /**
      * Occurs when entity this instance is assigned to this AI type 
      * instance, if you override this method, be sure to assign entity 
-     * parameter to [[EntityAIClass.EntityAIPrototype.entity]] field
+     * to [[EntityAIClass.EntityAIPrototype]]
      */
     public aiEntityChanged(entity: number): void;
 

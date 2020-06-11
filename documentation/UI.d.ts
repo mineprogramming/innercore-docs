@@ -589,7 +589,7 @@ declare namespace UI {
          * store some values containing window's current state. Note that these 
          * properties are not saved between Inner Core launches
          * @param name custom property name
-         * @returns value set by [[Window.setProperty]] or null if no value was
+         * @returns value set by [[Window.putProperty]] or null if no value was
          * specified for this name
          */
         getProperty(name: string): any|null;
@@ -1863,7 +1863,7 @@ declare namespace UI {
                 height?: number,
 
                 /**
-                 * If [[height]] is not specified, used to specify header height
+                 * If *height* is not specified, used to specify header height
                  * in units
                  */
                 width?: number,
@@ -1947,7 +1947,7 @@ declare namespace UI {
         drawing?: DrawingElement[],
 
         /**
-         * Object containing keys as gui elements names and [[UIElements]] 
+         * Object containing keys as gui elements names and [[UIElement]] 
          * instances as values. Gui elements are interactive components that are
          * used to create interfaces functionality
          */

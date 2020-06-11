@@ -79,7 +79,7 @@ declare function getMCPEVersion():
 {str: string, array: number[], main: number};
 
 /**
- * Displays [[android.widget.Toast]] with specified message. If this function is called
+ * Displays android.widget.Toast with specified message. If this function is called
  * more then once, messages are stacked and displayed together
  * @param arg 
  */

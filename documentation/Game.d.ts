@@ -10,14 +10,14 @@ declare namespace Game {
 
     /**
      * Writes message to the chat. Message can be formatted using 
-     * [[Native.ChatColor]] values
+     * [[Native.Color]] values
      * @param msg message to be displayed
      */
     function message(msg: string): void;
 
     /**
      * Writes message above the hot bar. Message can be formatted using 
-     * [[Native.ChatColor]] values
+     * [[Native.Color]] values
      * @param msg message to be displayed
      */
     function tipMessage(msg: string): void;

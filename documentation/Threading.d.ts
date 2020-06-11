@@ -34,7 +34,7 @@ declare namespace Threading {
      * @param priority priority of the thread (integer value). The higher 
      * priority is, the quicker the task will be executed. Default value is 0
      * @param isErrorFatal if true, all errors in the thread are considered 
-     * fatal and lead to fatal error AlertDialog, formatted with [[formatFunc]]
+     * fatal and lead to fatal error AlertDialog, formatted with *formatFunc*
      * @param formatFunc function that formats exceptions in the thread to 
      * display in fatal error AlertDialog
      * @return java.lang.Thread instance representing created thread

@@ -30,7 +30,7 @@ declare namespace Saver {
     /**
      * Registers object as scope saver
      * @param name saves scope name
-     * @param saver object that implements [[Scope.ScopeSaver]] interface and 
+     * @param saver object that implements [[Saver.ScopeSaver]] interface and 
      * can be loaded and saved via its functions calls
      */
     function registerScopeSaver(name: string, saver: any): ScopeSaver;

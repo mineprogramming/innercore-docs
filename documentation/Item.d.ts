@@ -50,7 +50,7 @@ declare namespace Item {
     function createFoodItem(namedID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean, food?: number}): NativeItem;
 
     /**
-     * @deprecated Use [[Item.createItem]] and [[RecipeRegistry.addFurnaceFuel]]
+     * @deprecated Use [[Item.createItem]] and [[Recipes.addFurnaceFuel]]
      * instead
      */
     function createFuelItem(namedID: string, name: string, texture: TextureData, params: object): void;
@@ -225,7 +225,7 @@ declare namespace Item {
     function setMaxUseDuration(id: number|string, duration: number): void;
 
     /**
-     * Same as [[Item.refisterUseFunction]], but supports numeric ids only
+     * Same as [[Item.registerUseFunction]], but supports numeric ids only
      */
     function registerUseFunctionForID(numericID: number, useFunc: Callback.ItemUseFunction): void;
 
