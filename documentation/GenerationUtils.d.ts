@@ -89,4 +89,15 @@ declare namespace GenerationUtils {
      * superflat worlds
      */
     function generateOre(x: number, y: number, z: number, id: number, data: number, amount: number, noStoneCheck: boolean): void;
+
+    /**
+     * Retrieves perlin noise value at the specified coordinates
+     * @param seed integer random generator seed. If not specified or set to 0, the default
+     * constant value is used
+     * @param scale noise size, to set the main octave size, use *1 / octave size*
+     * @param numOctaves number of octaves, the more octaves you use, the more 
+     * detailed is the generated noise. The next octave is two times smaller then 
+     * the previous one
+     */
+    function getPerlinNoise(x: number, y: number, z: number, seed?: number, scale?: number, numOctaves?: number): number;
 }

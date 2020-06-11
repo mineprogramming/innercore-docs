@@ -5,8 +5,16 @@
             "output": "./",
             "pages": [
                 {
+                    "title": "Callbacks",
+                    "source": "./static-pages/callbacks.md"
+                },
+                {
                     "title": "Materials and Shaders",
                     "source": "./static-pages/materials.md"
+                },
+                {
+                    "title": "Biomes",
+                    "source": "./static-pages/biomes.md"
                 }
             ]
         }

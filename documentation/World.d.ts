@@ -264,4 +264,22 @@ declare namespace World {
      * blocks are in the ids list, callback funciton will be called twice.
      */
     function registerBlockChangeCallback(ids: number|string|(string|number)[], callback: Callback.BlockChangedFunction): void;
+
+    /**
+     * Gets biome on the specified coordinates when generating biome map. 
+     * Should be called only in *GenerateBiomeMap* callback
+     * @param x block x coordinate
+     * @param z block y coordinate
+     * @returns biome's numeric id
+     */
+    function getBiomeMap(x: number, z: number): number;
+
+    /**
+     * Sets biome on the specified coordinates when generating biome map. 
+     * Should be called only in *GenerateBiomeMap* callback
+     * @param x block x coordinate
+     * @param z block y coordinate
+     * @param id biome id to be set on the specified coordinates
+     */
+    function setBiomeMap(x: number, z: number, id: number): void;
 }
