@@ -102,10 +102,6 @@ declare namespace Animation {
     function Item(x: number, y: number, z: number): any;
 }
 declare namespace Particles {}
-declare namespace IDData {
-    namespace item {}
-    namespace block {}
-}
 declare namespace BlockRenderer {
     class Model {
 

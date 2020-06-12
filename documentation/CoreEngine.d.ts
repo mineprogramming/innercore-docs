@@ -17,13 +17,31 @@ declare function runCustomSource(name: string, scope?: object): void;
  * Object containing string custom block string ids as keys and their numeric
  * ids as values
  */
-declare const BlockID: object;
+declare const BlockID: { [key: string]: number };
 
 /**
- * Object containing string custom block string ids as keys and their numeric
+ * Object containing string custom item string ids as keys and their numeric
  * ids as values
  */
-declare const ItemID: object;
+declare const ItemID: { [key: string]: number };
+
+/**
+ * Module containing [[ItemID]] and [[BlockID]] values
+ * @deprecated consider using [[ItemID]] and [[BlockID]] instead
+ */
+declare namespace IDData {
+    /**
+     * Object containing string custom item string ids as keys and their numeric
+     * ids as values
+     */
+    const item: { [key: string]: number };
+
+    /**
+     * Object containing string custom block string ids as keys and their numeric
+     * ids as values
+     */
+    const block: { [key: string]: number };
+}
 
 /**
  * Same as [[IMPORT]], consider using [[IMPORT]] instead 
