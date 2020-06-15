@@ -478,6 +478,13 @@ declare namespace Entity {
      * @deprecated No longer supported
      */
     function getProjectileItem(projectile: number): ItemInstance;
+
+    /**
+     * Creates an object used to change entity's attributes. See {@page Attributes} page
+     * for details.
+     * @returns object used to manipulate entity's attributes
+     */
+    function getAttribute(ent: number, attribute: string): AttributeInstance;
     
     /**
      * Class used to manipulate entity's health
@@ -557,6 +564,52 @@ declare namespace Entity {
          * Vector real length excluding Y corrdinate
          */
         xzsize: number
+    }
+
+    /**
+     * Interface used to modify attribute values
+     */
+    interface AttributeInstance {
+
+        /**
+         * @returns current attribute's value
+         */
+        getValue(): number;
+
+        /**
+         * @returns attribute's maximum value
+         */
+        getMaxValue(): number;
+
+        /**
+         * @returns attribute's minimum value
+         */
+        getMinValue(): number;
+
+        /**
+         * @returns attribute's default value
+         */
+        getDefaultValue(): number;    
+
+        /**
+         * Sets current attribute's value
+         */
+        setValue(value: number): void;    
+
+        /**
+         * Sets attribute's maximum value
+         */
+        setMaxValue(value: number): void;
+
+        /**
+         * Sets attribute's minimum value
+         */
+        setMinValue(value: number): void;
+
+        /**
+         * Sets attribute's default value
+         */
+        setDefaultValue(value: number): void;
     }
 }
 

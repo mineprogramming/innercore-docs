@@ -13,6 +13,10 @@
                     "source": "./static-pages/abilities.md"
                 },
                 {
+                    "title": "Attributes",
+                    "source": "./static-pages/attributes.md"
+                },
+                {
                     "title": "Materials and Shaders",
                     "source": "./static-pages/materials.md"
                 },
