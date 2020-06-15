@@ -9,12 +9,26 @@
                     "source": "./static-pages/callbacks.md"
                 },
                 {
+                    "title": "Abilities",
+                    "source": "./static-pages/abilities.md"
+                },
+                {
                     "title": "Materials and Shaders",
                     "source": "./static-pages/materials.md"
                 },
                 {
                     "title": "Biomes",
                     "source": "./static-pages/biomes.md"
+                }
+            ]
+        },
+        {
+            "title": "Additional Information",
+            "output": "./",
+            "pages": [
+                {
+                    "title": "Contributing",
+                    "source": "./static-pages/contributing.md"
                 }
             ]
         }

@@ -347,6 +347,34 @@ declare namespace Player {
     function resetCameraEntity(): void;
 
     /**
+     * Sets some of the player's {@page Abilities}. If the argument is of type 
+     * Boolean, sets the ability as the boolean one, otherwise as numeric one
+     * @param ability ability name constant, should be one of the 
+     * [[Native.PlayerAbility]] constants
+     * @param value the value to be set for the ability. Can be either boolean
+     * or number, depending on the ability
+     */
+    function setAbility(ability: string, value: boolean|number): void;
+
+    /**
+     * Gets one of the player's {@page Abilities} in a form of floating-point 
+     * number
+     * @param ability ability name constant, should be one of the 
+     * [[Native.PlayerAbility]] constants
+     * @returns the current value of the ability in a form of floating-point
+     * number
+     */
+    function getFloatAbility(ability: string): number;
+
+    /**
+     * Gets one of the player's {@page Abilities} in a boolean form 
+     * @param ability ability name constant, should be one of the 
+     * [[Native.PlayerAbility]] constants
+     * @returns the current value of the ability in a boolean form 
+     */
+    function getBooleanAbility(ability: string): number;
+
+    /**
      * Class used to manipulate player's experience
      * @deprecated Consider using [[Player.getExperience]], 
      * [[Player.setExperience]], [[Player.addExperience]]

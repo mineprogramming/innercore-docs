@@ -412,4 +412,28 @@ declare namespace Native {
         ADVENTURE = 2,
         SPECTATOR = 3,
     }
+
+    /**
+     * Defines player's abilities. See {@page Abilities} for details
+     */
+    enum PlayerAbility {
+        INVULNERABLE = "invulnerable",
+        FLYING = "flying",
+        INSTABUILD = "instabuild",
+        LIGHTNING = "lightning",
+        FLYSPEED = "flySpeed",
+        WALKSPEED = "walkSpeed",
+        NOCLIP = "noclip",
+        MAYFLY = "mayfly",
+        WORLDBUILDER = "worldbuilder",
+        MUTED = "mute",
+        BUILD = "build",
+        MINE = "mine",
+        DOORS_AND_SWITCHES = "doorsandswitches",
+        OPEN_CONTAINERS = "opencontainers",
+        ATTACK_PLAYERS = "attackplayers",
+        ATTACK_MOBS = "attackmobs",
+        OPERATOR_COMMANDS = "op",
+        TELEPORT = "teleport"
+    }
 }
