@@ -29,7 +29,7 @@ Native.PlayerAbility.BUILD = true
 ```
 
 ### DOORS_AND_SWITCHES
-Whether the player can operate doors, levers, etc
+Whether the player can operate doors, levers, etc.
 ```js
 Native.PlayerAbility.DOORS_AND_SWITCHES = true
 ```
