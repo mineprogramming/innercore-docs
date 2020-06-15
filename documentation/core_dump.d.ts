@@ -106,10 +106,4 @@ declare namespace BlockRenderer {
 
     }
 }
-declare namespace ICRender {
-    class Model {
-
-    }
-}
 declare function ItemExtraData(): any;
-declare class RenderMesh {}

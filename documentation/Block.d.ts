@@ -259,7 +259,7 @@ declare namespace Block {
      * @param id block id to register for random ticks
      * @param callback function to be called on random block tick
      */
-    function setRandomTickCallback(id: number, callback: RandomTickFunction): number;
+    function setRandomTickCallback(id: number, callback: RandomTickFunction): void;
 
     /**
      * Makes block invoke callback randomly depending on game speed. Occurs more 
@@ -268,7 +268,9 @@ declare namespace Block {
      * @param id block id to register
      * @param callback function to be called 
      */
-    function setAnimateTickCallback(id: number, callback: AnimateTickFunction): number;
+    function setAnimateTickCallback(id: number, callback: AnimateTickFunction): void;
+
+    function registerNeighbourChangeFunction(id: number, func: NeighourChangeFunction): void;
 
 
     /**
@@ -457,5 +459,9 @@ declare namespace Block {
      */
     interface AnimateTickFunction {
         (x: number, y: number, z: number, id: number, data: number): void
+    }
+
+    interface NeighourChangeFunction {
+        (coords: Vector, block: Tile, changedCoords: Vector): void
     }
 }
