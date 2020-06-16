@@ -192,14 +192,17 @@ declare namespace Entity {
     function setNameTag(ent: number, tag: string): void;
 
     /**
-     * @deprecated No longer supported
+     * Gets the attack target of current entity
+     * @returns target entity's unique id
      */
     function getTarget(ent: number): void;
 
     /**
-     * @deprecated No longer supported
+     * Sets the attack target for current entity. Works only for mobs that 
+     * actually can attack
+     * @param target target entity's unique id
      */
-    function setTarget(ent: number, target: any): void;
+    function setTarget(ent: number, target: number): void;
 
     /**
      * @returns true, if entity was immobilized
