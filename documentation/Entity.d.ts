@@ -515,45 +515,66 @@ declare namespace Entity {
          */
         moveToEntity(entity: number, speed: number): PathNavigation;
 
+        /**
+         * Sets function to be notified when path navigation is finished or aborted
+         * @param function function to be called when navigation is finished or aborted
+         */
+        setResultFunction(callback: PathNavigationResultFunction): PathNavigation;
+
         canPassDoors(): boolean;
-        setCanPassDoors(value: boolean): void;
+        setCanPassDoors(value: boolean): PathNavigation;
 
         isRiverFollowing(): boolean;
-        setIsRiverFollowing(value: boolean): void;
+        setIsRiverFollowing(value: boolean): PathNavigation;
 
         canOpenDoors(): boolean;
-        setCanOpenDoors(value: boolean): void;
+        setCanOpenDoors(value: boolean): PathNavigation;
 
-        setAvoidSun(value: boolean): void;
+        setAvoidSun(value: boolean): PathNavigation;
 
         getAvoidWater(): boolean;
-        setAvoidWater(value: boolean): void;
+        setAvoidWater(value: boolean): PathNavigation;
 
-        setEndPathRadius(value: boolean): void;
+        setEndPathRadius(value: boolean): PathNavigation;
 
         getCanSink(): boolean;
-        setCanSink(value: boolean): void;
+        setCanSink(value: boolean): PathNavigation;
 
         getAvoidDamageBlocks(): boolean;
-        setAvoidDamageBlocks(value: boolean): void;
+        setAvoidDamageBlocks(value: boolean): PathNavigation;
 
         getCanFloat(): boolean;
-        setCanFloat(value: boolean): void;
+        setCanFloat(value: boolean): PathNavigation;
 
         isAmphibious(): boolean;
-        setIsAmphibious(value: boolean): void;
+        setIsAmphibious(value: boolean): PathNavigation;
 
         getAvoidPortals(): boolean;
-        setAvoidPortals(value: boolean): void;
+        setAvoidPortals(value: boolean): PathNavigation;
 
         getCanBreach(): boolean;
-        setCanBreach(value: boolean): void;
+        setCanBreach(value: boolean): PathNavigation;
 
         getCanJump(): boolean;
-        setCanJump(value: boolean): void;
+        setCanJump(value: boolean): PathNavigation;
 
         getSpeed(): number;
-        setSpeed(value: number): void;
+        setSpeed(value: number): PathNavigation;
+    }
+
+    /**
+     * Occurs when path navigation is finished or aborted
+     * @param navigation [[PathNavigation]] that the handler is attached to
+     * @param result result code, one of the following:
+     * 
+     * 0 - success. You can call navigation.moveTo*** methods to resume path
+     * 
+     * 2 - entity was removed from the world
+     * 
+     * 4 - player left the world
+     */
+    interface PathNavigationResultFunction {
+        (navigation: PathNavigation, result: number): void
     }
     
     /**
