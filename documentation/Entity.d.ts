@@ -488,6 +488,73 @@ declare namespace Entity {
      * @returns object used to manipulate entity's attributes
      */
     function getAttribute(ent: number, attribute: string): AttributeInstance;
+
+    /**
+     * Creates or gets an existing [[PathNavigation]] instance for the specified mob
+     * @returns [[PathNavigation]] used to control entity's target position and
+     * the way to get there
+     */
+    function getPathNavigation(ent: number): PathNavigation;
+
+    /**
+     * Object used to build path and move mobs to the required coordinates using
+     * specified parameters. All the setters return current [[PathNavigation]] 
+     * instance to be able to produce chained calls. Some of the 
+     */
+    interface PathNavigation {
+        /**
+         * Builds path to the specified coordinates
+         * @param speed entity movement speed
+         */
+        moveToCoords(x: number, y: number, z: number, speed: number): PathNavigation;
+
+        /**
+         * Builds path to the specified entity. Note that current coordinates of
+         * entity are used, and are not updated
+         * @param speed entity movement speed
+         */
+        moveToEntity(entity: number, speed: number): PathNavigation;
+
+        canPassDoors(): boolean;
+        setCanPassDoors(value: boolean): void;
+
+        isRiverFollowing(): boolean;
+        setIsRiverFollowing(value: boolean): void;
+
+        canOpenDoors(): boolean;
+        setCanOpenDoors(value: boolean): void;
+
+        setAvoidSun(value: boolean): void;
+
+        getAvoidWater(): boolean;
+        setAvoidWater(value: boolean): void;
+
+        setEndPathRadius(value: boolean): void;
+
+        getCanSink(): boolean;
+        setCanSink(value: boolean): void;
+
+        getAvoidDamageBlocks(): boolean;
+        setAvoidDamageBlocks(value: boolean): void;
+
+        getCanFloat(): boolean;
+        setCanFloat(value: boolean): void;
+
+        isAmphibious(): boolean;
+        setIsAmphibious(value: boolean): void;
+
+        getAvoidPortals(): boolean;
+        setAvoidPortals(value: boolean): void;
+
+        getCanBreach(): boolean;
+        setCanBreach(value: boolean): void;
+
+        getCanJump(): boolean;
+        setCanJump(value: boolean): void;
+
+        getSpeed(): number;
+        setSpeed(value: number): void;
+    }
     
     /**
      * Class used to manipulate entity's health
