@@ -5,6 +5,10 @@
             "output": "./",
             "pages": [
                 {
+                    "title": "Mod Configuration Files",
+                    "source": "./static-pages/config.md"
+                },
+                {
                     "title": "Callbacks",
                     "source": "./static-pages/callbacks.md"
                 },

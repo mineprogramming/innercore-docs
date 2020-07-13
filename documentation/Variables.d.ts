@@ -14,7 +14,8 @@ declare var __name__: string;
 declare var __dir__: string;
 
 /**
- * Main mod configuration manager, settings are stored in config.json file
+ * Main mod configuration manager, settings are stored in config.json file. For 
+ * more information about config.json, see {@page Mod Configuration Files}
  */
 declare var __config__: Config;
 
