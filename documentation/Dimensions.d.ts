@@ -121,6 +121,13 @@ declare namespace Dimensions {
         constructor(baseType: number);
 
         /**
+         * Creates a new [[CustomGenerator]] instance using specified base type
+         * @param baseType base generator type constant, can be one of the 
+         * following: "overworld", "overworld1", "flat", "nether", "end"
+         */
+        constructor(baseType: string);
+
+        /**
          * Specifies whether to use vanilla biome surface cover blocks (grass, 
          * sand, podzol, etc.)
          * @param value if true, vanilla surface will be generated, default 
@@ -152,9 +159,25 @@ declare namespace Dimensions {
          * @returns reference to itself to be used in sequential calls
          */
         setTerrainGenerator(generator: AbstractTerrainGenerator|null): CustomGenerator;
-        
+
+        /**
+         * Specifies which of the generation [[Callback]]s to call, -1 to call 
+         * no mods generation, 0 to call overworld generation callback, 1 for nether, 
+         * 2 for end generation callbacks
+         * @param id generation callback to call
+         */
+        setModGenerationBaseDimension(id: number): CustomGenerator;
+
+        /**
+         * Disables mods generation in current generator
+         */
+        removeModGenerationBaseDimension(): CustomGenerator;
     }
 
+    /**
+     * Interface representing terrain generator. All terrain generators found
+     * in Inner Core API implement this interface
+     */
     interface AbstractTerrainGenerator {
 
     }
@@ -231,7 +254,7 @@ declare namespace Dimensions {
     }
 
     class NoiseOctave {
-        constructor(type?: number);
+        constructor(type?: number|string);
 
         setTranslate(x: number, y: number, z: number): NoiseOctave;
 
@@ -284,4 +307,115 @@ declare namespace Dimensions {
      */
     function transfer(entity: number, dimensionId: number): void;
 
+    /**
+     * Function used to simplify the creation of terrain generator by passing 
+     * a json-like structure as a single generator parameter. For detailed 
+     * explanations see {@See Custom Dimensions} page
+     * @param description object containing all the required generator information
+     */
+    function newGenerator(description: {
+        /**
+         * Specifies base generator, see [[CustomGenerator.constructor]] for 
+         * details
+         */
+        base: number|string,
+        /**
+         * Specifies whether to use vanilla biome surface cover blocks (grass, 
+         * sand, podzol, etc.).
+         * See [[CustomGenerator.setBuildVanillaSurfaces]] for details
+         */
+        buildVanillaSurfaces: boolean,
+        /**
+         * Specifies whether to generate minecraft vanilla structures.
+         * See [[CustomGenerator.setGenerateVanillaStructures]] for details
+         */
+        generateVanillaStructures: boolean,
+        /**
+         * Can be either string for an existing dimensions ("overworld", 
+         * "nether", "end") or -1 to disable mods generation. 
+         * See [[CustomGenerator.setModGenerationBaseDimension]] for details
+         */
+        modWorldgenDimension: number|string,
+        /**
+         * Specifies what generator type to use. Default and the only currently
+         * available option is "mono", that is equivalent to creating a 
+         * [[MonoBiomeTerrainGenerator]]
+         */
+        type: string,
+        /**
+         * Sets base biome for the current terrain, applicable only to "mono"
+         */
+        biome: number,
+
+        /**
+         * An array of terrain layers descriptions, each one representing its 
+         * own terrain layer. See [[MonoBiomeTerrainGenerator.addTerrainLayer]] 
+         * for detaild explanation
+         */
+        layers: TerrainLayerParams[]
+
+    }): CustomGenerator;
+
+
+    interface TerrainLayerParams {
+        minY: number,
+        maxY: number,
+        noise?: NoiseOctaveParams|NoiseLayerParams|NoiseGeneratorParams,
+        heightmap?: NoiseOctaveParams|NoiseLayerParams|NoiseGeneratorParams,
+        yConversion?: NoiseConversionParams,
+        material?: TerrainMaterialParams,
+        materials?: TerrainMaterialParams[],
+    }
+
+    interface TerrainMaterialParams {
+        noise?: NoiseOctaveParams|NoiseLayerParams|NoiseGeneratorParams,
+        base?: MaterialBlockData,
+        cover?: MaterialBlockData,
+        surface?: MaterialBlockData,
+        filling?: MaterialBlockData,
+        diffuse?: number
+    }
+
+    interface NoiseGeneratorParams {
+        layers: NoiseLayerParams[],
+        conversion?: NoiseConversionParams,
+    }
+
+    interface NoiseLayerParams {
+        octaves: NoiseOctaveParams[] | {
+            count?: number,
+            seed?: number,
+            weight?: number,
+            weight_factor?: number,
+            scale_factor?: number,
+            scale?: number
+        },
+        conversion?: NoiseConversionParams
+    }
+
+    interface NoiseOctaveParams {
+        type?: number|string,
+        scale?: Vec3Data,
+        translate?: Vec3Data,
+        weight?: number,
+        seed?: number,
+        conversion?: NoiseConversionParams
+    }
+
+    type NoiseConversionParams = string | Vec2Data[];
+
+    type MaterialBlockData = 
+        [number, number?, number?] |
+        {id: number, data?: number, width?: number} |
+        number;
+        
+    type Vec3Data =
+        [number, number, number] |
+        {x: number, y: number, z: number} |
+        number;
+
+    type Vec2Data = 
+        [number, number] |
+        {x: number, y: number} |
+        number
 }
