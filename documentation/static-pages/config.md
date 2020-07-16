@@ -20,7 +20,7 @@ As you can see, some of the settings may be nested, so that you can group them a
 
 ## config.info.json
 
-All the settings of the mod can be changed from Inner Core's Mods Manager module. By default, Mods Manager uses text inputs for numbers and strings and switches for boolean values. It also generates readable setting names from property names, e.g. *"some_sample_setting"* gets transformed into *"Some sample setting"*. Thus, in most cases, the settings are visualized correctly. However, you might want to change the controls' look, localize settings names or supply descriptions. To customize the way your settings are displayed, you can place a JSON file called *config.info.json* in the mod's root directory. A simple example of such a file is given below:
+All the settings of the mod can be changed from Inner Core's Mods Manager module. By default, Mods Manager uses text inputs for numbers and strings and switches for boolean values. It also generates readable setting names from property names, e.g. ```some_sample_setting``` gets transformed into **"Some sample setting"**. Thus, in most cases, the settings are visualized correctly. However, you might want to change the controls' look, localize settings names or supply descriptions. To customize the way your settings are displayed, you can place a JSON file called *config.info.json* in the mod's root directory. A simple example of such a file is given below:
 ```json
 {
     "description": "This is a global config description",
