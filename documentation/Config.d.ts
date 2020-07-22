@@ -57,7 +57,7 @@ declare class Config {
      * @return number config value specified in config or 0 if no value was
      * specified
      */
-    public getNumber(name: string): number;
+    public getNumber(name: string): java.lang.Number;
 
     /**
      * @param name option name, supports multi-layer calls, separated by '.'

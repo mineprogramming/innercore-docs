@@ -57,7 +57,7 @@ interface ItemInstance {
      * Item extra data. Contains some additional item data such as enchants, 
      * custom item name or some additional properties
      */
-    extra?: ItemExtra
+    extra?: ItemExtraData
 }
 
 /**
@@ -65,13 +65,6 @@ interface ItemInstance {
  * Used in many old functions and when extra data is not required
  */
 type ItemInstanceArray = number[];
-
-/**
- * Class representing item extra data
- */
-declare class ItemExtra {
-
-}
 
 /**
  * Object representing block in the world

@@ -74,9 +74,9 @@ declare namespace UI {
          * exists, creates an empty one with specified name and item
          * @param name slot name
          * @param extra item extra value. Note that it should be an instance of
-         * ItemExtra and not its numeric id
+         * ItemExtraData and not its numeric id
          */
-        setSlot(name: string, id: number, count: number, data: number, extra: ItemExtra): void;
+        setSlot(name: string, id: number, count: number, data: number, extra: ItemExtraData): void;
 
         /**
          * Validates slot contents. If the data value is less then 0, it becomes
@@ -1593,9 +1593,9 @@ declare namespace UI {
         /**
          * Sets the contents of the slot with extra value
          * @param extra item extra value. Note that it should be an instance of
-         * ItemExtra and not its numeric id
+         * ItemExtraData and not its numeric id
          */
-        set(id: number, count: number, data: number, extra: ItemExtra): void,
+        set(id: number, count: number, data: number, extra: ItemExtraData): void,
 
         /**
          * Puts any property to the js object that is wrapped by [[FullSlot]] 
@@ -1653,7 +1653,7 @@ declare namespace UI {
         /**
          * @returns item extra object
          */
-        getExtra(): ItemExtra,
+        getExtra(): ItemExtraData,
         
         /**
          * @returns new [[FullSlot]] instance created from the current one

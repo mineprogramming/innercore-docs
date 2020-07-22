@@ -58,14 +58,14 @@ declare namespace Player {
      * @param boolean if set to false, function drops items that could not be 
      * added to player's inventory, destroys them otherwise
      */
-    function addItemToInventory(id: number, count: number, data: number, extra?: ItemExtra, preventDrop?: boolean): void;
+    function addItemToInventory(id: number, count: number, data: number, extra?: ItemExtraData, preventDrop?: boolean): void;
 
     /**
      * @param handleEnchant No longer supported and should not be passed
      * @param handleNames No longer supported and should not be passed
      * @returns item in player's hand 
      */
-    function getCarriedItem(handleEnchant: boolean, handleNames: boolean): ItemInstance;
+    function getCarriedItem(): ItemInstance;
 
     /**
      * Sets item in player's hand
@@ -74,7 +74,7 @@ declare namespace Player {
      * @param data item data
      * @param extra item extra
      */
-    function setCarriedItem(id: number, count: number, data: number, extra?: ItemExtra): void;
+    function setCarriedItem(id: number, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * Decreases carried item count by specified number
@@ -97,7 +97,7 @@ declare namespace Player {
      * @param data item data
      * @param extra item extra
      */
-    function setInventorySlot(slot: number, id: number, count: number, data: number, extra?: ItemExtra): void;
+    function setInventorySlot(slot: number, id: number, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * @param slot armor slot id, should be one of the [[Native.ArmorType]] 
@@ -115,12 +115,12 @@ declare namespace Player {
      * @param data item data
      * @param extra item extra
      */
-    function setArmorSlot(slot: number, id: number, count: number, data: number, extra?: ItemExtra): void;
+    function setArmorSlot(slot: number, id: number, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * @returns currently selected inventory slot, from 0 to 8
      */
-    function getSelectedSlotId(): void;
+    function getSelectedSlotId(): number;
 
     /**
      * Selects currently selected inventory slot
@@ -155,7 +155,7 @@ declare namespace Player {
      * Get player's velocity
      * @returns [[Vector]] containing player's velocity
      */
-    function getVelocity(): void;
+    function getVelocity(): Vector;
 
     /**
      * Updates current entity's velocity by specified valus
@@ -196,7 +196,7 @@ declare namespace Player {
     /**
      * @returns player's current level
      */
-    function getLevel(): void;
+    function getLevel(): number;
 
     /**
      * Sets player's level
@@ -269,7 +269,7 @@ declare namespace Player {
     /**
      * @returns player's current hunger
      */
-    function getHunger(): void;
+    function getHunger(): number;
 
     /**
      * Sets player's hunger

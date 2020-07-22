@@ -14,13 +14,13 @@ declare function __debug_typecheck__(): void;
 declare function runCustomSource(name: string, scope?: object): void;
 
 /**
- * Object containing string custom block string ids as keys and their numeric
+ * Object containing custom block string ids  as keys and their numeric
  * ids as values
  */
 declare const BlockID: { [key: string]: number };
 
 /**
- * Object containing string custom item string ids as keys and their numeric
+ * Object containing custom item string ids as keys and their numeric
  * ids as values
  */
 declare const ItemID: { [key: string]: number };
@@ -31,13 +31,13 @@ declare const ItemID: { [key: string]: number };
  */
 declare namespace IDData {
     /**
-     * Object containing string custom item string ids as keys and their numeric
+     * Object containing custom item string ids as keys and their numeric
      * ids as values
      */
     const item: { [key: string]: number };
 
     /**
-     * Object containing string custom block string ids as keys and their numeric
+     * Object containing custom block string ids as keys and their numeric
      * ids as values
      */
     const block: { [key: string]: number };
@@ -86,22 +86,18 @@ declare function runOnMainThread(func: () => void): void;
 
 /**
  * @returns minecraft version information in some readable form
- * 
- */
-declare function getMCPEVersion(): 
-/**
  * @param str string version representation, three dot-separated numbers
  * @param array array containing three version numbers
  * @param main version number, calculated as *array[0] * 17 + array[1]*
  */
-{str: string, array: number[], main: number};
+declare function getMCPEVersion(): {str: string, array: number[], main: number};
 
 /**
  * Displays android.widget.Toast with specified message. If this function is called
  * more then once, messages are stacked and displayed together
  * @param arg 
  */
-declare function alert(arg: string): any;
+declare function alert(arg: any): any;
 
 
 /**
