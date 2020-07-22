@@ -116,9 +116,9 @@ declare namespace World {
     /**
      * If the block on the specified coordinates is a TileEntity block and is 
      * not initialized, initializes it and returns created [[TileEntity]] object
-     * @returns [[TileEntity]] if one was created, void otherwise
+     * @returns [[TileEntity]] if one was created, null otherwise
      */
-    function addTileEntity(x: number, y: number, z: number): TileEntity|void;
+    function addTileEntity(x: number, y: number, z: number): TileEntity|null;
 
     /**
      * If the block on the specified coordinates is a [[TileEntity]], destroys 
@@ -179,7 +179,7 @@ declare namespace World {
      * id
      * @returns created drop entity id
      */
-    function drop(x: number, y: number, z: number, id: number, count: number, data: number, extra?: ItemExtra): number;
+    function drop(x: number, y: number, z: number, id: number, count: number, data: number, extra?: ItemExtraData): number;
 
     /**
      * Creates an explosion on the sepcified coordinates

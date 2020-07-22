@@ -30,6 +30,7 @@ declare namespace TileEntity {
 
     function DeployDestroyChecker(tileEntity: number): any;
 }
+
 declare namespace MobRegistry {
     namespace customEntities {}
     namespace loadedEntities {}
@@ -48,6 +49,7 @@ declare namespace MobRegistry {
 
     function resetEngine(): any;
 }
+
 declare namespace MobSpawnRegistry {
     namespace spawnData {}
 
@@ -64,7 +66,11 @@ declare namespace MobSpawnRegistry {
 
     function onChunkGenerated(x: number, z: number): any;
 }
-declare function GameObject(name: any, Prototype: any): any;
+
+declare class GameObject {
+	constructor(name: any, Prototype: any)
+}
+
 declare namespace GameObjectRegistry {
     namespace gameObjectTypes {}
     namespace activeGameObjects {}

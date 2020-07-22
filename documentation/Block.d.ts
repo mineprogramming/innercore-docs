@@ -14,7 +14,7 @@ declare namespace Block {
 
     /**
      * Creates new block using specified params
-     * @param namedID string id of the block. You should register it via 
+     * @param nameID string id of the block. You should register it via 
      * [[IDRegistry.genBlockID]] call first
      * @param defineData array containing all variations of the block. Each 
      * variation corresponds to block data value, data values are assigned 
@@ -24,14 +24,14 @@ declare namespace Block {
      * you can also pass special type name, if the type was previously 
      * registered
      */
-    function createBlock(namedID: string, defineData: BlockVariation[], blockType: SpecialType|string): void;
+    function createBlock(nameID: string, defineData: BlockVariation[], blockType?: SpecialType|string): void;
 
     /**
      * Creates new block using specified params, creating four variations for 
      * each of the specified variations to be able to place it facing flayer 
      * with the front side and defines the appropriate behavior. Useful for 
      * different machines and mechanisms
-     * @param namedID string id of the block. You should register it via 
+     * @param nameID string id of the block. You should register it via 
      * [[IDRegistry.genBlockID]] call first
      * @param defineData array containing all variations of the block. Each 
      * variation corresponds to four block data values, data values are assigned 
@@ -41,7 +41,7 @@ declare namespace Block {
      * you can also pass special type name, if the type was previously 
      * registered
      */
-    function createBlockWithRotation(namedID: string, defineData: BlockVariation[], blockType: SpecialType|string): void;
+    function createBlockWithRotation(nameID: string, defineData: BlockVariation[], blockType?: SpecialType|string): void;
 
     /**
      * @param id numeric block id
@@ -80,7 +80,7 @@ declare namespace Block {
      * @returns true, if specified string or numeric id exists and the function
      * was registered correctly, false otherwise
      */
-    function registerDropFunction(namedID: string|number, dropFunc: DropFunction, level?: number): boolean;
+    function registerDropFunction(nameID: string|number, dropFunc: DropFunction, level?: number): boolean;
 
     /**
      * Same as [[Block.registerPopResourcesFunction]] but accepts only numeric 
@@ -91,13 +91,13 @@ declare namespace Block {
     /**
      * Registeres function used by Core Engine to determine block drop for the 
      * specified block id
-     * @param namedID tile string or numeric id 
+     * @param nameID tile string or numeric id 
      * @param func function to be called when a block in the world is broken by
      * environment (explosions, pistons, etc.)
      * @returns true, if specified string or numeric id exists and the function
      * was registered correctly, false otherwise
      */
-    function registerPopResourcesFunction(namedID: string|number, func: PopResourcesFunction): void;
+    function registerPopResourcesFunction(nameID: string|number, func: PopResourcesFunction): void;
 
     /**
      * Same as [[Block.setDestroyLevel]] but accepts only numeric 
@@ -108,18 +108,18 @@ declare namespace Block {
     /**
      * Registers a default destroy function for the specified block, considering
      * its digging level
-     * @param namedID tile string id
+     * @param nameID tile string id
      * @param level digging level of the block
      * @param resetData if true, the block is dropped with data equals to 0
      */
-    function setDestroyLevel(namedID: string|number, level: number, resetData: boolean): void;
+    function setDestroyLevel(nameID: string|number, level: number, resetData: boolean): void;
 
     /**
      * Sets destroy time for the block with specified id
-     * @param namedID string or numeric block id
+     * @param nameID string or numeric block id
      * @param time destroy time for the block, in ticks
      */
-    function setDestroyTime(namedID: string|number, time: number): void;
+    function setDestroyTime(nameID: string|number, time: number): void;
 
     /**
      * @param numericID numeric block id
@@ -185,20 +185,20 @@ declare namespace Block {
 
     /**
      * Registers material and digging level for the specified block
-     * @param namedID block numeric or string id
+     * @param nameID block numeric or string id
      * @param material material name
      * @param level block's digging level
      */
-    function setBlockMaterial(namedID: string|number, material: string, level: number): void;
+    function setBlockMaterial(nameID: string|number, material: string, level: number): void;
 
     /**
      * Makes block accept redstone signal
-     * @param namedID block numeric or string id
+     * @param nameID block numeric or string id
      * @param data block data, currently not used
      * @param isRedstone if true, the redstone changes at the block will notify
      * the "RedstoneSignal" callback
      */
-    function setRedstoneTile(namedID: string|number, data: number, isRedstone: boolean): void;
+    function setRedstoneTile(nameID: string|number, data: number, isRedstone: boolean): void;
 
     /**
      * Gets drop for the specified block. Used mostly by Core Engine's 
@@ -219,10 +219,10 @@ declare namespace Block {
 
     /**
      * Registers function to be called when the block is placed in the world
-     * @param namedID block numeric or string id
+     * @param nameID block numeric or string id
      * @param func function to be called when the block is placed in the world
      */
-    function registerPlaceFunction(namedID: string|number, func: PlaceFunction): void;
+    function registerPlaceFunction(nameID: string|number, func: PlaceFunction): void;
 
     /**
      * Sets block box shape
@@ -231,7 +231,7 @@ declare namespace Block {
      * @param pos2 block upper conner position, in voxels (1/16 of the block)
      * @param data block data
      */
-    function setBlockShape(id: number, pos1: Vector, pos2: Vector, data: number): void;
+    function setBlockShape(id: number, pos1: Vector, pos2: Vector, data?: number): void;
 
     /**
      * Same as [[Block.setBlockShape]], but accepts coordinates as scalar 
@@ -239,7 +239,7 @@ declare namespace Block {
      * @param id block numeric id
      * @param data  block data
      */
-    function setShape(id: number, x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, data: number): void;
+    function setShape(id: number, x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, data?: number): void;
 
     /**
      * Creates a new special type using specified params and registers it by 
@@ -252,7 +252,7 @@ declare namespace Block {
     /**
      * @deprecated No longer supported
      */
-    function setPrototype(namedID: string|number, Prototype: any): number;
+    function setPrototype(nameID: string|number, Prototype: any): number;
 
     /**
      * Makes block invoke callback randomly depending on game speed

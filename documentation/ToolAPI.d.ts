@@ -128,7 +128,7 @@ declare namespace ToolAPI {
      * @returns enchant data object, containing enchants used for blocks
      * destroy speeed calculations
      */
-    function getEnchantExtraData(extra?: ItemExtra): EnchantData;
+    function getEnchantExtraData(extra?: ItemExtraData): EnchantData;
 
     /**
      * Applies fortune drop modifier to the drop array

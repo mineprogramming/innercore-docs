@@ -23,7 +23,7 @@ declare namespace Entity {
     /** 
      * @deprecated No longer supported
      */
-    function putExtra(ent: number, name: string, extra?: ItemExtra): void;
+    function putExtra(ent: number, name: string, extra?: ItemExtraData): void;
 
     /**
      * @deprecated No longer supported
@@ -444,14 +444,14 @@ declare namespace Entity {
      * @param data item data
      * @param extra item extra
      */
-    function setArmorSlot(ent: number, slot: number, id: number, count: number, data: number, extra?: ItemExtra): void;
+    function setArmorSlot(ent: number, slot: number, id: number, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * @param bool1 parameter is no longer supported and should not be used
      * @param bool2 parameter is no longer supported and should not be used
      * @returns entity's current carried item information
      */
-    function getCarriedItem(ent: number, bool1?: boolean, bool2?: boolean): ItemInstance;
+    function getCarriedItem(ent: number): ItemInstance;
 
     /**
      * Sets currena carried item for the entity
@@ -460,7 +460,7 @@ declare namespace Entity {
      * @param data item data
      * @param extra item extra
      */
-    function setCarriedItem(ent: number, id: number, count: number, data: number, extra?: ItemExtra): void;
+    function setCarriedItem(ent: number, id: number, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * Gets item from specified drop entity
@@ -475,7 +475,7 @@ declare namespace Entity {
      * @param data item data
      * @param extra item extra
      */
-    function setDroppedItem(ent: number, id: number, count: number, data: number, extra?: ItemExtra): void;
+    function setDroppedItem(ent: number, id: number, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * @deprecated No longer supported

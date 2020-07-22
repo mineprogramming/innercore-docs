@@ -19,7 +19,7 @@ declare namespace Item {
 
     /**
      * Creates new item using specified parameters
-     * @param namedID string id of the item. You should register it via 
+     * @param nameID string id of the item. You should register it via 
      * [[IDRegistry.genItemID]] call first
      * @param name item name in English. Add translations to the name using
      * [[Translation]] module, all translation to the item and block names are
@@ -30,11 +30,11 @@ declare namespace Item {
      * @param params.isTech if true, the item will not be added to creative. 
      * Default value is false
      */
-    function createItem(namedID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean}): NativeItem;
+    function createItem(nameID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean}): NativeItem;
 
     /**
      * Creates eatable item using specified parameters
-     * @param namedID string id of the item. You should register it via 
+     * @param nameID string id of the item. You should register it via 
      * [[IDRegistry.genItemID]] call first
      * @param name item name in English. Add translations to the name using
      * [[Translation]] module, all translation to the item and block names are
@@ -47,17 +47,17 @@ declare namespace Item {
      * @param params.food amount of hunger restored by this food. Default value
      * is 1
      */
-    function createFoodItem(namedID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean, food?: number}): NativeItem;
+    function createFoodItem(nameID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean, food?: number}): NativeItem;
 
     /**
      * @deprecated Use [[Item.createItem]] and [[Recipes.addFurnaceFuel]]
      * instead
      */
-    function createFuelItem(namedID: string, name: string, texture: TextureData, params: object): void;
+    function createFuelItem(nameID: string, name: string, texture: TextureData, params: object): void;
 
     /**
      * Creates armor item using specified parameters
-     * @param namedID string id of the item. You should register it via 
+     * @param nameID string id of the item. You should register it via 
      * [[IDRegistry.genItemID]] call first
      * @param name item name in English. Add translations to the name using
      * [[Translation]] module, all translation to the item and block names are
@@ -74,11 +74,11 @@ declare namespace Item {
      * @param params.type armor type, should be one of the 'helmet', 
      * 'chestplate', 'leggings' or 'boots'
      */
-    function createArmorItem(namedID: string, name: string, texture: TextureData, params: {durability: number, armor: number, texture: string, type: string}): void;
+    function createArmorItem(nameID: string, name: string, texture: TextureData, params: {type: string, armor: number, durability: number, texture: string, isTech?: boolean}): void;
 
     /**
      * Creates throwable item using specified parameters
-     * @param namedID string id of the item. You should register it via 
+     * @param nameID string id of the item. You should register it via 
      * [[IDRegistry.genItemID]] call first
      * @param name item name in English. Add translations to the name using
      * [[Translation]] module, all translation to the item and block names are
@@ -89,7 +89,7 @@ declare namespace Item {
      * @param params.isTech if true, the item will not be added to creative. 
      * Default value is false 
      */
-    function createThrowableItem(namedID: string, name: string, texture: TextureData, params: any): void;
+    function createThrowableItem(nameID: string, name: string, texture: TextureData, params: any): void;
 
     /**
      * @param id numeric item id
@@ -232,10 +232,10 @@ declare namespace Item {
     /**
      * Registers function that is called when user touches some block in the 
      * world with specified item
-     * @param namedID string or numeric id of the item
+     * @param nameID string or numeric id of the item
      * @param useFunc function that is called when such an event occures
      */
-    function registerUseFunction(namedID: string|number, useFunc: Callback.ItemUseFunction): void;
+    function registerUseFunction(nameID: string|number, useFunc: Callback.ItemUseFunction): void;
 
     /**
      * Same as [[Item.registerThrowableFunction]], but supports numeric ids only
@@ -245,24 +245,24 @@ declare namespace Item {
     /**
      * Registers function that is called when throwable item with specified id
      * hits block or entity
-     * @param namedID string or numeric id of the item
+     * @param nameID string or numeric id of the item
      * @param useFunc function that is called when such an event occures
      */
-    function registerThrowableFunction(namedID: string|number, useFunc: Callback.ProjectileHitFunction): void;
+    function registerThrowableFunction(nameID: string|number, useFunc: Callback.ProjectileHitFunction): void;
 
     /**
      * Registers item id as requiring item icon override and registers function 
      * to perform such an override
-     * @param namedID string or numeric id of the item
+     * @param nameID string or numeric id of the item
      * @param func function that is called to override item icon. Should return 
      * [[Item.TextureData]] object to be used for the item. See 
      * [[Callback.ItemIconOverrideFunction]] documentation for details
      */
-    function registerIconOverrideFunction(namedID: string|number, func: Callback.ItemIconOverrideFunction): void;
+    function registerIconOverrideFunction(nameID: string|number, func: Callback.ItemIconOverrideFunction): void;
 
     /**
      * Registers function to perform item name override
-     * @param namedID string or numeric id of the item
+     * @param nameID string or numeric id of the item
      * @param func function that is called to override item name. Should return 
      * string to be used as new item name
      */
@@ -300,11 +300,19 @@ declare namespace Item {
      */
     function registerDispenseFunction(nameID: string|number, func: Callback.ItemDispensedFunction): void;
 
+	/**
+     * Creates group of creative items.
+     * @param name name of group
+     * @param displayedName name of group in game
+     * @param ids array of items in group
+     */
+	function addCreativeGroup(name: string, displayedName: string, ids: number[]): void
+
     /**
      * @deprecated Should not be used in new mods, consider using [[Item]] 
      * properties setters instead
      */
-    function setPrototype(namedID: any, Prototype: any): void;
+    function setPrototype(nameID: any, Prototype: any): void;
 
     /**
      * Class representing item used to set its properties
