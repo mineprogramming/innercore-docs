@@ -6,19 +6,19 @@ declare namespace GenerationUtils {
      * @param id numeric tile id
      * @returns true if block is solid and light blocking block, false otherwise
      */
-    function isTerrainBlock(id: number): void;
+    function isTerrainBlock(id: number): boolean;
 
     /**
      * @param id numeric tile id
      * @returns true if block is transparent, false otherwise
      */
-    function isTransparentBlock(id: number): void;
+    function isTransparentBlock(id: number): boolean;
 
     /**
      * @returns true, if one can see sky from the specified position, false 
      * othrwise
      */
-    function canSeeSky(x: number, y: number, z: number): void;
+    function canSeeSky(x: number, y: number, z: number): boolean;
 
     /**
      * Generates random x and z coordinates inside specified chunk
@@ -40,19 +40,19 @@ declare namespace GenerationUtils {
      * Finds nearest to the specified y coordinate empty space on the specified 
      * x and z coordinates
      */
-    function findSurface(x: number, y: number, z: number): void;
+    function findSurface(x: number, y: number, z: number): Vector;
 
     /**
      * Finds nearest to y=128 coordinate empty space on the specified x and z 
      * coordinates
      */
-    function findHighSurface(x: number, z: number): void;
+    function findHighSurface(x: number, z: number): Vector;
 
     /**
      * Finds nearest to y=64 coordinate empty space on the specified x and z 
      * coordinates
      */
-    function findLowSurface(x: number, z: number): void;
+    function findLowSurface(x: number, z: number): Vector;
 
     function lockInBlock(id: number, data: number, checkerTile: any, checkerMode: any): void;
 
