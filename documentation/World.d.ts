@@ -7,7 +7,7 @@ declare namespace World {
      * Core Engine, so you generally shouldn't call it yourself
      * @param isLoaded whether the world is loaded or not
      */
-    function setLoaded(isLoaded: boolean): void;
+    function setLoaded(isLoaded: boolean): boolean;
 
     /**
      * @returns whether the world is loaded or not

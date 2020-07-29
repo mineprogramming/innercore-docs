@@ -64,7 +64,7 @@ declare namespace Entity {
      * @param params additional params for the damage
      * @param params.attacker entity that caused damage, can be used as callback
      * cause param
-     * @param params.bool1 unknown param
+     * @param params.bool1 if true, damage is reduced by entity armor
      * @param params.bool2 unknown param
      */
     function damageEntity(ent: number, damage: number, cause?: number, params?: {attacker?: number, bool1?: boolean, bool2?: boolean}): void;
@@ -195,7 +195,7 @@ declare namespace Entity {
      * Gets the attack target of current entity
      * @returns target entity's unique id
      */
-    function getTarget(ent: number): void;
+    function getTarget(ent: number): number;
 
     /**
      * Sets the attack target for current entity. Works only for mobs that 
@@ -234,7 +234,7 @@ declare namespace Entity {
     /**
      * @returns entity that is ridden by specified entity
      */
-    function getRiding(ent: number): void;
+    function getRiding(ent: number): number;
 
     /**
      * Puts entity on fire
@@ -315,18 +315,18 @@ declare namespace Entity {
     /**
      * @returns distance between specified entity and a fixed coordinate set
      */
-    function getDistanceToCoords(ent: number, coords: any): void;
+    function getDistanceToCoords(ent: number, coords: any): number;
 
     /**
      * @returns distance in blocks between two entities
      */
-    function getDistanceToEntity(ent1: any, ent2: any): void;
+    function getDistanceToEntity(ent1: any, ent2: any): number;
 
     /**
      * @returns distance between player and entity, counting only x and z values
      * (y value is ignored)
      */
-    function getXZPlayerDis(ent: number): void;
+    function getXZPlayerDis(ent: number): number;
 
     /**
      * @returns entity's look angle in radians
