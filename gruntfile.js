@@ -33,10 +33,20 @@ module.exports = function (grunt) {
 
         copy: {
             main: {
-                expand: true,
-                src: 'headers/*',
-                flatten: true,
-                dest: 'out/',
+                files: [
+                    {
+                        expand: true,
+                        src: 'headers/*',
+                        flatten: true,
+                        dest: 'out/'
+                    },
+                    {
+                        expand: true,
+                        src: 'documentation/images/*',
+                        flatten: true,
+                        dest: 'out/assets/images/pages'
+                    }
+                ]                
             },
         },
     });

@@ -27,6 +27,10 @@
                 {
                     "title": "Biomes",
                     "source": "./static-pages/biomes.md"
+                },
+                {
+                    "title": "Dimensions",
+                    "source": "./static-pages/dimensions.md"
                 }
             ]
         },
