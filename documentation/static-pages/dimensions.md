@@ -48,7 +48,7 @@ using stone as the base material. We also use grass and dirt to build the upper 
 
 ## Single Layer Generation
 
-![Generation Example #1](../assets/images/pages/dimensions-1.jpg)
+![Generation Example #1](../images/dimensions-1.jpg)
 
 ```js
 var generator = Dimensions.newGenerator({
@@ -116,7 +116,7 @@ yConversion: [[0, 0.5], [1, -0.5]]
 Creates a landscape where most of the blocks are concentrated in the bottom part of
 the layer:
 
-![Generation Example #2](../assets/images/pages/dimensions-2.jpg)
+![Generation Example #2](../images/dimensions-2.jpg)
 
 ```js
 yConversion: [[0, 0.5], [0.5, -0.5], [1, 0.5]]
@@ -125,7 +125,7 @@ yConversion: [[0, 0.5], [0.5, -0.5], [1, 0.5]]
 Creates a landscape where most of the blocks are concentrated in the bottom and 
 the top parts of the layer, leaving the middle empty:
 
-![Generation Example #3](../assets/images/pages/dimensions-3.jpg)
+![Generation Example #3](../images/dimensions-3.jpg)
 
 ```js
 yConversion: [[0, 0.5], [0.25, -0.3], [0.5, 0.3], [0.75, -0.3], [1, 0.5]]
@@ -133,5 +133,5 @@ yConversion: [[0, 0.5], [0.25, -0.3], [0.5, 0.3], [0.75, -0.3], [1, 0.5]]
 
 Creates a more complex landscape like the one displayed on the image:
 
-![Generation Example #4](../assets/images/pages/dimensions-4.jpg)
+![Generation Example #4](../images/dimensions-4.jpg)
 
