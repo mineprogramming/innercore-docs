@@ -135,3 +135,62 @@ Creates a more complex landscape like the one displayed on the image:
 
 ![Generation Example #4](../assets/images/pages/dimensions-4.jpg)
 
+## Multilayer Generation
+
+When you need a more complex generation, you can use multiple layers. Layers are 
+generated in the order they were listed in the description object, so you should
+want to generate a water layer at first. Let's take a look at some example: 
+
+![Generation Example #5](../assets/images/pages/dimensions-5.jpg)
+
+```js
+var generator = Dimensions.newGenerator({
+    layers: [
+        {
+            minY: 0, maxY: 64,
+            material: {base: 8}, 
+        },
+        {
+            minY: 0, maxY: 128, 
+            yConversion: [[0, 1], [1, -1]], 
+            material: {base: 2, cover: 2}, 
+            noise: {
+                octaves: {count: 5, scale: 150}
+            }
+        },
+        {
+            minY: 0, maxY: 180, 
+            yConversion: [[0, 0.5], [0.6, -0.5], [1, -1]], 
+            material: {base: 1}, 
+            noise: {
+                octaves: {count: 2, scale: 70, seed: 100}
+            },
+            heightmap: {
+                octaves: {count: 3, scale: 600},
+                conversion: [[0, 0.5], [1, -0.5]]
+            }
+        }
+    ]
+});
+dimension.setGenerator(generator);
+```
+
+In this example we have three layers of generation:
+* Solid water layer at the height of 64
+* Grass layer with cover, a base landscape
+* Stone layer, a mountainous landscape with an additional heightmap
+
+Heightmap is a 2-dimensional (x, z) noise that is used to generate a general 
+height scheme of the layer. In our example it is used to generate mountains 
+only time to time. Note that we use 1 and -1 as values of ```yConversion``` function
+of grass layer to make the landscape more flat. 
+
+To make mountains less rounded, we can change the count of octaves of the stone layer. 
+Say, we had 6 octaves in the stone layer, the generation should look like this:
+
+![Generation Example #6](../assets/images/pages/dimensions-6.jpg)
+
+However, you should always think twice before adding a lot of octaves and layers. 
+Massive generation requires more time for calculations, so it is generally better 
+to use layer conversions and heightmap of the existing layer then create multiple 
+layers with more noise octaves.

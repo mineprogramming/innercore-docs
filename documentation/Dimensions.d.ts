@@ -396,7 +396,6 @@ declare namespace Dimensions {
     interface NoiseOctaveParams {
         type?: number|string,
         scale?: Vec3Data,
-        translate?: Vec3Data,
         weight?: number,
         seed?: number,
         conversion?: NoiseConversionParams
