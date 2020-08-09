@@ -5,7 +5,7 @@ generator, take a look at [Inner Core Dimension Editor](https://editor.p5js.org/
 ## Creating a Custom Dimension
 
 ```js
-var dimension = new Dimensions.CustomDimension("CustomDimension", 33));
+var dimension = new Dimensions.CustomDimension("CustomDimension", 33);
 // Some additional dimension setup, 
 // e.g. setting some of the environment colors:
 dimension.setSunsetColor(0.2, 1, 0.7);
