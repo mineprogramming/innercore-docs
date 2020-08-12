@@ -218,6 +218,9 @@ declare namespace Dimensions {
         getMainMaterial(): TerrainMaterial;
     }
 
+    /**
+     * Class representing material that is used to generate terrain layer
+     */
     interface TerrainMaterial {
 
         setBase(id: number, data: number): TerrainMaterial; 
@@ -231,12 +234,27 @@ declare namespace Dimensions {
         setDiffuse(value: number): TerrainMaterial;
     }
 
+    /**
+     * Class representing noise conversion function. Used to define "dencity" of
+     * the landscape at a given height. Values between nodes are interpolated 
+     * linearly
+     */
     class NoiseConversion {
         constructor();
 
+        /**
+         * Adds a new node to the noise conversion function
+         * @param x value from 0 to 1 representing the height of the block in the
+         * terrain layer
+         * @param y landscape dencity at a given height, generally can be between 
+         * -0.5 and 0.5. Values between nodes are interpolated linearly
+         */
         addNode(x: number, y: number): NoiseConversion;
     }
 
+    /**
+     * Class representing multi-layer noise generator
+     */
     class NoiseGenerator {
         constructor();
 
@@ -245,6 +263,9 @@ declare namespace Dimensions {
         setConversion(conversion: NoiseConversion): NoiseGenerator;
     }
 
+    /**
+     * Class representing single noise layer
+     */
     class NoiseLayer {
         constructor();
 
@@ -253,6 +274,10 @@ declare namespace Dimensions {
         setConversion(conversion: NoiseConversion): NoiseLayer;
     }
 
+    /**
+     * Class representig noise octave. Each noise layer consists of multiple 
+     * noise octaves of different scale and weight
+     */
     class NoiseOctave {
         constructor(type?: number|string);
 
