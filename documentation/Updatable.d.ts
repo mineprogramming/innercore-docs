@@ -31,11 +31,16 @@ interface Updatable {
     /**
      * Called every tick
      */
-    update(): () => void,
+    update: () => void,
 
     /**
      * Once true, the object will be removed from updatables list and will no 
      * longer receive update calls
      */
     remove?: boolean
+
+    /**
+     * Any other user-defined methods and properties
+     */
+    [key: string]: any
 }

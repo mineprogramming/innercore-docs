@@ -67,32 +67,7 @@ declare namespace MobSpawnRegistry {
     function onChunkGenerated(x: number, z: number): any;
 }
 
-declare class GameObject {
-	constructor(name: any, Prototype: any)
-}
 
-declare namespace GameObjectRegistry {
-    namespace gameObjectTypes {}
-    namespace activeGameObjects {}
-
-    function genUniqueName(name: any): any;
-
-    function registerClass(gameObjectClass: any): any;
-
-    function deployGameObject(gameobject: any): any;
-
-    function addGameObject(gameobject: any): any;
-
-    function removeGameObject(gameobject: any): any;
-
-    function resetEngine(): any;
-
-    function getAllByType(type: any, clone: any): any;
-
-    function callForType(): any;
-
-    function callForTypeSafe(): any;
-}
 declare class Texture {}
 declare function EntityModel(parentModel: any): any;
 declare function EntityModelWatcher(entity: number, model: any): any;
