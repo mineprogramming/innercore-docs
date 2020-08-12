@@ -1,36 +1,3 @@
-declare namespace TileEntity {
-    namespace tileEntityPrototypes {}
-    namespace tileEntityList {}
-
-    function resetEngine(): any;
-
-    function registerPrototype(blockID: any, customPrototype: any): any;
-
-    function getPrototype(blockID: any): any;
-
-    function isTileEntityBlock(blockID: any): any;
-
-    function createTileEntityForPrototype(Prototype: any, addToUpdate: any): any;
-
-    function addTileEntity(x: number, y: number, z: number): any;
-
-    function addUpdatableAsTileEntity(updatable: any): any;
-
-    function getTileEntity(x: number, y: number, z: number): any;
-
-    function destroyTileEntity(tileEntity: number): any;
-
-    function destroyTileEntityAtCoords(x: number, y: number, z: number): any;
-
-    function isTileEntityLoaded(tileEntity: number): any;
-
-    function checkTileEntityForIndex(index: number): any;
-
-    function CheckTileEntities(): any;
-
-    function DeployDestroyChecker(tileEntity: number): any;
-}
-
 declare namespace MobRegistry {
     namespace customEntities {}
     namespace loadedEntities {}

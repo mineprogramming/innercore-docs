@@ -1,3 +1,7 @@
+/**
+ * Class used to create and manipulate game objects. Game objects are [[Updatable]]s 
+ * that are being saved between game launches
+ */
 declare class GameObject {
     /**
      * Constructs a new [[GameObject]] with given params
