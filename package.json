@@ -2,6 +2,7 @@
   "name": "core-engine-api",
   "version": "0.1.0",
   "dependencies": {
+    "dukat": "^0.5.7",
     "grunt": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "typedoc": "^0.17.7",
@@ -12,5 +13,10 @@
     "grunt-typedoc": "^0.2.4",
     "typedoc-plugin-pages": "^1.0.1",
     "typedoc-plugin-sourcefile-url": "^1.0.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mineprogramming/innercore-docs.git"
+  },
+  "license": "GPL-3.0"
 }
