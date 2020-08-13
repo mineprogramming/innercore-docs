@@ -21,7 +21,7 @@ declare namespace UI {
          * If container is a part of [[TileEntity]], this field stores reference 
          * to it, otherwise null. You can also assign any value of any type to
          * it using [[Container.setParent]] method or using constructor 
-         * parameter. Consider using [[TileEntity.getParent]] instead of direct 
+         * parameter. Consider using [[Container.getParent]] instead of direct 
          * field access
          */
         parent: TileEntity|null|any;
@@ -890,7 +890,8 @@ declare namespace UI {
          * Sets content of the tab
          * @param index index of the tab. There are 12 tabs available, from 0 to
          * 11. The location of the tabs is as follows:
-         * ```0    6
+         * ```
+         * 0    6
          * 1    7
          * 2    8
          * 3    9
