@@ -135,13 +135,60 @@ Creates a more complex landscape like the one displayed on the image:
 
 ![Generation Example #4](../assets/images/pages/dimensions-4.jpg)
 
+
+## Dimension Materials
+
+![Generation Example #5](../assets/images/pages/dimensions-5.jpg)
+
+```js
+var generator = Dimensions.newGenerator({
+    layers: [
+        {
+            minY: 0, maxY: 128, 
+            yConversion: [[0, 1], [0.6, -0.2], [1, -1]],
+            noise: {octaves: {count: 4, scale: 50, weight: 0.5}}, debug: "none",
+            heightmap: {octaves: [
+                {type: "sine_xz", scale: 1/15, weight: 0.5},
+                {scale: 1/2, weight: 0.1},
+                {scale: 1/20, weight: 0.5}
+            ]},
+            material: {base: 1},
+            materials: [
+                    {
+                        base: 3,
+                        diffuse: 0.1,
+                        noise: {
+                            octaves: [
+                                {scale: 0.1, weight: 0.6}, 
+                                {scale: 0.2, weight: 0.3}
+                            ]
+                        }
+                    }
+                    ]
+            }
+    ]
+});
+dimension.setGenerator(generator);
+```
+
+In this example there are two noticeable facts: non-perlin octave usage 
+(see [[NoiseOctave.constructor]] for details) and using materials noise.
+
+Non-perlin octaves allow for creating some interesting landscapes, though you
+should be careful not to generate a poorly mathematical landscape that will 
+repeat itself all the time. 
+
+Materials noise can be used for single generation layer to consist of blocks of
+different types. In our example we use dirt as a second material and generate 
+perlin noise to determine its propagation.
+
 ## Multilayer Generation
 
 When you need a more complex generation, you can use multiple layers. Layers are 
 generated in the order they were listed in the description object, so you should
 want to generate a water layer at first. Let's take a look at some example: 
 
-![Generation Example #5](../assets/images/pages/dimensions-5.jpg)
+![Generation Example #6](../assets/images/pages/dimensions-6.jpg)
 
 ```js
 var generator = Dimensions.newGenerator({
@@ -188,7 +235,7 @@ of grass layer to make the landscape more flat.
 To make mountains less rounded, we can change the count of octaves of the stone layer. 
 Say, we had 6 octaves in the stone layer, the generation should look like this:
 
-![Generation Example #6](../assets/images/pages/dimensions-6.jpg)
+![Generation Example #7](../assets/images/pages/dimensions-7.jpg)
 
 However, you should always think twice before adding a lot of octaves and layers. 
 Massive generation requires more time for calculations, so it is generally better 

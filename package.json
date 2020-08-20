@@ -2,7 +2,6 @@
   "name": "core-engine-api",
   "version": "0.1.0",
   "dependencies": {
-    "dukat": "^0.5.7",
     "grunt": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "typedoc": "^0.17.7",

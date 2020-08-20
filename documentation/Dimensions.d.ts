@@ -279,6 +279,24 @@ declare namespace Dimensions {
      * noise octaves of different scale and weight
      */
     class NoiseOctave {
+        /**
+         * Creates a new noise octave of specified type
+         * @param type numeric type constant or one of the following strings:
+         * **"perlin"** (0) is a general-purpose noise generator. Used to generate 
+         * noise of completely random nature
+         * **"gray"** (1) 
+         * **"chess"** (2) 
+         * The following sine noises are used to generate sinusoidal noise. 
+         * Generally they should be used with some noise octaves of other types to avoid 
+         * too mathematical landscapes
+         * **"sine_x"** (10) 
+         * **"sine_y"** (11) 
+         * **"sine_z"** (12) 
+         * **"sine_xy"** (13) 
+         * **"sine_yz"** (14) 
+         * **"sine_xz"** (15) 
+         * **"sine_xyz"** (16)
+         */
         constructor(type?: number|string);
 
         setTranslate(x: number, y: number, z: number): NoiseOctave;
@@ -419,6 +437,10 @@ declare namespace Dimensions {
     }
 
     interface NoiseOctaveParams {
+        /**
+         * Noise octave type, **"perlin"** is default one. See [[NoiseOctave.constructor]]
+         * for details
+         */
         type?: number|string,
         scale?: Vec3Data,
         weight?: number,
