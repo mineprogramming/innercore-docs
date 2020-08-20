@@ -36,22 +36,11 @@ declare namespace MobSpawnRegistry {
 
 
 declare class Texture {}
-declare function EntityModel(parentModel: any): any;
 declare function EntityModelWatcher(entity: number, model: any): any;
 declare function EntityAIWatcher(customPrototype: any): any;
 
-declare namespace Animation {
-    function base(x: number, y: number, z: number): any;
-
-    function Base(x: number, y: number, z: number): any;
-
-    function item(x: number, y: number, z: number): any;
-
-    function Item(x: number, y: number, z: number): any;
-}
 declare namespace BlockRenderer {
     class Model {
 
     }
 }
-declare function ItemExtraData(): any;
