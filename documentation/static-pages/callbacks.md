@@ -190,7 +190,8 @@ details
 *PopBlockResources* occurs when block is desroyed somehow (not by player).
 See [[PopBlockResourcesFunction]] for details
 
-*CustomBlockTessellation*
+*CustomBlockTessellation* occurs when custom block rendering needs to be 
+performed. See [[CustomBlockTessellationFunction]] for details
 
 *ItemIconOverride* occurs when displaying item somewhere to override item's 
 icon. You can use it to change item's icon depending on some item state. See

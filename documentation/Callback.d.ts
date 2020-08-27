@@ -449,6 +449,17 @@ declare namespace Callback {
         (globalScope: object): void
     }
 
+    /**
+     * Function used in "CustomBlockTessellation" callback
+     * @param api object used to manipulate block rendering process
+     * @param coords rendering block coordinates
+     * @param block block information
+     * @param b unused Boolean parameter
+     */
+    interface CustomBlockTessellationFunction {
+        (api: BlockRenderer.RenderAPI, coords: Vector, block: Tile, b: boolean): void
+    }
+
 
     /**
      * Object containing hit coordinates and information about hit entity/block
