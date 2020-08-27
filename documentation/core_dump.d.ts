@@ -39,8 +39,3 @@ declare class Texture {}
 declare function EntityModelWatcher(entity: number, model: any): any;
 declare function EntityAIWatcher(customPrototype: any): any;
 
-declare namespace BlockRenderer {
-    class Model {
-
-    }
-}
