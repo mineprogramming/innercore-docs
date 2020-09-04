@@ -1,9 +1,3 @@
-
-
-interface PartObject {
-
-}
-
 /**
  * Class that is used to give mobs, animations and blocks custom shape.
  */
@@ -33,7 +27,7 @@ declare class Render {
     getRenderType(): number;
 
     /** 
-     * Returns render's model that defines its visual shape. 
+     * @returns render's model that defines its visual shape. 
      */
     getModel(): Render.Model;
 
@@ -65,7 +59,7 @@ declare class Render {
      * @param partName full name of the part separated by "."
      * @param partParams specifies all the parameters of the part
      */
-    setPartParams(partName: string, partParams?: Render.PartParameters): never;
+    setPartParams(partName: string, partParams?: Render.PartParameters): void;
 
     /**
      * Sets the content and all properties of the part by its full name.
@@ -73,7 +67,14 @@ declare class Render {
      * @param data array of part data objects to be applied to the part
      * @param params specifies all the parameters of the part
      */
-    setPart(name: string, data: PartObject[], params: Render.PartParameters): never;
+    setPart(name: string, data: Render.PartElement[], params: Render.PartParameters): void;
+
+    /**
+     * @deprecated
+     */
+    setTextureResolution(...params: any): void;
+
+    
 }
 
 declare namespace Render {
@@ -101,6 +102,34 @@ declare namespace Render {
          * If set to true, a humanoid render is constructed, empty otherwise 
          */
         raw?: boolean;
+    }
+
+    /**
+     * Part's box description specified in [[Render.setPart]] method
+     */
+    interface PartElement {
+        /**
+         * Box coordinates, relative to part's coordinates
+         */
+        coords: Vector,
+
+        /**
+         * Box texture offset
+         */
+        uv?: {x: number, y: number},
+
+        /**
+         * Box size
+         * @param w aditional size to be added from all the six sizes of the 
+         * box
+         */
+        size: {x: number, y: number, z: number, w?: number},
+
+        /**
+         * Specifies child elements, using current box coordinates as base for the
+         * child boxes
+         */
+        children?: PartElement[]
     }
 
     /**
@@ -161,15 +190,124 @@ declare namespace Render {
      * An interface of the object that is used as [[Render.addPart]] parameter
      */
     interface PartParameters {
+        /**
+         * If false or not specified in [[Render.setPart]] call, the part is 
+         * cleared, otherwise new parts and params are applied to the existing parts 
+         */
+        add?: boolean,
 
+        /**
+         * Texture width, use the real texture file width or change it to stretch 
+         * texture
+         */
+        width?: number,
+
+        /**
+         * Texture height, use the real texture file height or change it to stretch 
+         * texture
+         */
+        height?: number,
+
+        /**
+         * Texture horizontal offset
+         */
+        u?: number,
+
+        /**
+         * Texture vertical offset
+         */
+        v?: number,
+
+        /**
+         * Part center position
+         */
+        pos?: Vector | [number, number, number];
+
+        /**
+         * Part rotation
+         */
+        rotation?: Vector | [number, number, number];
     }
 
     interface Model {
+        /**
+         * @param name part name
+         * @returns true if part with specified name exists in the model, 
+         * false otherwise
+         */
+        hasPart(name: string): boolean;
 
+        /**
+         * @param name part name
+         * @returns part by its name or null if part doesn't exist
+         */
+        getPart(name: string): ModelPart | null;
+
+        /**
+         * Resets model
+         */
+        reset(): void;
+
+        /**
+         * Clears all parts of the model
+         */
+        clearAllParts(): void;
     }
 
     interface ModelPart {
+        /**
+         * Clears the contents of the part
+         */
+        clear(): void;
 
+        /**
+         * Adds a new box to the part on the specified coordinates (relative to 
+         * the part's coordinates) of the specified size (width, height, length)
+         * @param add additional size to be added from all the six sizes of the 
+         * box
+         */
+        addBox(x: number, y: number, z: number, w: number, h: number, l: number, add?: number): void;
+
+        /**
+         * Creates a new part with specified name. If a part with specified name
+         * already exists, returns the existing part
+         * @param name name of the part to create or return
+         */
+        addPart(name: string): ModelPart;
+
+        /**
+         * Specifies texture uv offset
+         * @param placeholder deprecated boolean parameter
+         */
+        setTextureOffset(x: number, y: number, placeholder?: boolean): void;
+
+        /**
+         * Specifies texture size size, use the real texture file size or change 
+         * it to stretch texture
+         * @param placeholder deprecated boolean parameter
+         */
+        setTextureSize(x: number, y: number, placeholder?: boolean): void;
+
+        /**
+         * Specifies part default offset
+         */
+        setOffset(x: number, y: number, z: number): void;
+
+        /**
+         * Specifies part rotation
+         */
+        setRotation(x: number, y: number, z: number): void;
+
+        /**
+         * Specifies [[RenderMesh]] to be used as a part
+         */
+        setMesh(mesh: RenderMesh): void;
+
+        /**
+         * @returns [[RenderMesh]] specified via [[setMesh]] call or null, if 
+         * this part doesn't contain mesh
+         */
+        getMesh(): RenderMesh | null;
     }
 
     interface ShaderUniformSet {
