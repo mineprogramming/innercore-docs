@@ -432,8 +432,8 @@ declare namespace Callback {
      * process. Already seeded by appropriate values
      * @param dimensionId current dimension's numeric id
      * @param chunkSeed chunk-specific seed to use in chunk random generation
-     * @param chunkSeed world-specific seed to use in chunk generation's
-     * @param dimensionSeed dimension-specific seed to use in chunk generation's
+     * @param chunkSeed world-specific seed to use in chunk generation
+     * @param dimensionSeed dimension-specific seed to use in chunk generation
      */
     interface GenerateChunkFunction {
         (chunkX: number, chunkZ: number, random: java.util.Random, 
