@@ -34,8 +34,6 @@ declare namespace MobSpawnRegistry {
     function onChunkGenerated(x: number, z: number): any;
 }
 
-
-declare class Texture {}
 declare function EntityModelWatcher(entity: number, model: any): any;
 declare function EntityAIWatcher(customPrototype: any): any;
 

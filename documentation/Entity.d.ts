@@ -154,7 +154,8 @@ declare namespace Entity {
     function setSkin(ent: number, skin: string): void;
 
     /**
-     * Sets mob skin, uses [[Texture]] object to support animations
+     * Sets mob skin, uses [[Texture]] object
+     * @deprecated use [[Entity.setSkin]] instead
      * @param texture 
      */
     function setTexture(ent: number, texture: Texture): void;
