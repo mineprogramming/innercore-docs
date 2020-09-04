@@ -81,6 +81,17 @@ declare namespace Entity {
     function getType(ent: number): number;
 
     /**
+     * @returns string type for entities defined via add-ons or numeric type for
+     * all the other entities 
+     */
+    function getTypeUniversal(ent: number): number | string;
+
+    /**
+     * @returns string type for entities defined via add-ons, otherwise null
+     */
+    function getTypeAddon(ent: number): string | null;
+
+    /**
      * Sets hitbox to the entity. Hitboxes define entities collisions
      * @param w hitbox width and length
      * @param h hitbox height
