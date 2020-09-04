@@ -92,6 +92,16 @@ declare namespace Entity {
     function getTypeAddon(ent: number): string | null;
 
     /**
+     * @returns compound tag for the specified entity
+     */
+    function getCompoundTag(ent: number): NBT.CompoundTag;
+
+    /**
+     * Sets compound tag for the specified entity
+     */
+    function setCompoundTag(ent: number, tag: NBT.CompoundTag): void;
+
+    /**
      * Sets hitbox to the entity. Hitboxes define entities collisions
      * @param w hitbox width and length
      * @param h hitbox height
