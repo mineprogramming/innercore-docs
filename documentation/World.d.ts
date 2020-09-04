@@ -282,4 +282,15 @@ declare namespace World {
      * @param id biome id to be set on the specified coordinates
      */
     function setBiomeMap(x: number, z: number, id: number): void;
+
+    /**
+     * Adds a new generation callback using string hash to generate a unique 
+     * random seed for the chunk generator
+     * @param callbackName one of the generation callbacks, see {@page Callbacks}
+     * for details
+     * @param callback callback function
+     * @param uniqueHashStr if specified, will be used as string hash for seed
+     * generation, otherwise default hash string will be used
+     */
+    function addGenerationCallback(callbackName: string, callback: Callback.GenerateChunkFunction, uniqueHashStr?: string): void;
 }
