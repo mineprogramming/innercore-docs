@@ -87,8 +87,20 @@ declare namespace GenerationUtils {
      * @param noStoneCheck if true, no check for stone is performed so the ore 
      * may be generated in the air. Use this to debug ore generation in the 
      * superflat worlds
+     * @param seed random generation seed
      */
-    function generateOre(x: number, y: number, z: number, id: number, data: number, amount: number, noStoneCheck: boolean): void;
+    function generateOre(x: number, y: number, z: number, id: number, data: number, amount: number, noStoneCheck: boolean, seed?: number): void;
+
+    /**
+     * Generates ore with custom whitelist/blacklist, see [[GenerationUtils.generateOre]]
+     * for details
+     * @param mode if true, specified block ids are used as whitelist for generation
+     * (only the ids from the list can be replaced with ores), if false - specified 
+     * block ids are used as a blacklist (only the ids from the list canNOT be 
+     * replaced with ores)
+     * @param listOfIds array of block ids to be used as whitelist or blacklist
+     */
+    function generateOreCustom(x: number, y: number, z: number, id: number, data: number, amount: number, mode: boolean, listOfIds: number[], seed?: number): void;
 
     /**
      * Retrieves perlin noise value at the specified coordinates
