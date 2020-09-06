@@ -95,10 +95,6 @@ declare class TileEntity {
 
 }
 
-declare class NativeTileEntity {
-
-}
-
 declare class CustomEntity {
 
 }

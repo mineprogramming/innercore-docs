@@ -436,4 +436,32 @@ declare namespace Native {
         OPERATOR_COMMANDS = "op",
         TELEPORT = "teleport"
     }
+
+    enum TileEntityType {
+        NONE = -1,
+        BEACON = 21,
+        BREWING_STAND = 8,
+        CAULDRON = 16,
+        CHEST = 0,
+        DISPENSER = 13,
+        FURNACE = 1,
+        HOPPER = 2,
+        JUKEBOX = 33,
+        LECTERN = 37
+    }
+
+    enum NbtDataType {
+        END_TAG = 0,
+        BYTE = 1,
+        SHORT = 2,
+        INT = 3,
+        INT64 = 4,
+        FLOAT = 5,
+        DOUBLE = 6,
+        BYTE_ARRAY = 7,
+        STRING = 8,
+        LIST = 9,
+        COMPOUND = 10,
+        INT_ARRAY = 11
+    }
 }

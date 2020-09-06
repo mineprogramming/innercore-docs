@@ -41,6 +41,82 @@ declare namespace TileEntity {
      * the chunks that are also verified
      */
     function isTileEntityLoaded(tileEntity: TileEntity): boolean;
+
+    
+    /**
+     * Interface passed to [[TileEntity.registerPrototype]] function
+     */
+    interface TileEntityPrototype {
+        /**
+         * Default data values, will be initially added to [[TileEntity.data]] field
+         */
+        defaultValues?: {[key: string]: any},
+
+        /**
+         * Called when a [[TileEntity]] is created
+         */
+        created?: () => void,
+
+        /**
+         * Called when a [[TileEntity]] is initialised in the world
+         */
+        init?: () => void,
+
+        /**
+         * Called every tick and should be used for all the updates of the [[TileEntity]]
+         */
+        tick?: () => void,
+
+        /**
+         * Called when player uses some item on a [[TileEntity]]
+         * @returns true if the event is handled and should not be propagated to
+         * the next handlers. E.g. return true if you don't want the user interface 
+         * to be opened
+         */
+        click?: (id: number, count: number, data: number, coords: Callback.ItemUseCoordinates) => boolean|void,
+
+        /**
+         * Occurs when a block of the [[TileEntity]] is being destroyed. See
+         * [[Callback.DestroyBlockFunction]] for details
+         */
+        destroyBlock?: (block: Tile, player: number) => void,
+
+        /**
+         * Occurs when the [[TileEntity]] should handle redstone signal. See 
+         * [[Callback.RedstoneSignalFunction]] for details
+         */
+        redstone?: (params: {power: number, signal: number, onLoad: boolean}) => void,
+        
+        /**
+         * Occurs when a projectile entity hits the [[TileEntity]]. See
+         * [[Callback.ProjectileHitFunction]] for details
+         */
+        projectileHit?: (coords: Callback.ItemUseCoordinates, target: Callback.ProjectileHitTarget) => void,
+        
+        /**
+         * Occurs when the [[TileEntity]] is being destroyed
+         * @returns true to prevent 
+         * [[TileEntity]] object from destroying (but if the block was destroyed, returning 
+         * true from this function doesn't replace the missing block with a new one)
+         */
+        destroy?: () => boolean|void;
+
+        /**
+         * Called to get the [[UI.IWindow]] object for the current [[TileEntity]]. The 
+         * window is then opened within [[TileEntity.container]] when the player clicks it
+         */
+        getGuiScreen?: () => UI.IWindow;
+
+        /**
+         * Called when more liquid is required
+         */
+        requireMoreLiquid?: (liquid: string, amount: number) => void;
+
+        /**
+         * Any other user-defined methods and properties
+         */
+        [key: string]: any
+    }
 }
 
 
@@ -53,77 +129,4 @@ declare interface TileEntity {
     container: UI.Container,
     liquidStorage: any,
     selfDestroy: () => void;
-}
-
-
-declare interface TileEntityPrototype {
-    /**
-     * Default data values, will be initially added to [[TileEntity.data]] field
-     */
-    defaultValues?: {[key: string]: any},
-
-    /**
-     * Called when a [[TileEntity]] is created
-     */
-    created?: () => void,
-
-    /**
-     * Called when a [[TileEntity]] is initialised in the world
-     */
-    init?: () => void,
-
-    /**
-     * Called every tick and should be used for all the updates of the [[TileEntity]]
-     */
-    tick?: () => void,
-
-    /**
-     * Called when player uses some item on a [[TileEntity]]
-     * @returns true if the event is handled and should not be propagated to
-     * the next handlers. E.g. return true if you don't want the user interface 
-     * to be opened
-     */
-    click?: (id: number, count: number, data: number) => boolean|void,
-
-    /**
-     * Occurs when a block of the [[TileEntity]] is being destroyed. See
-     * [[Callback.DestroyBlockFunction]] for details
-     */
-    destroyBlock?: (block: Tile, player: number) => void,
-
-    /**
-     * Occurs when the [[TileEntity]] should handle redstone signal. See 
-     * [[Callback.RedstoneSignalFunction]] for details
-     */
-    redstone?: (params: {power: number, signal: number, onLoad: boolean}) => void,
-    
-    /**
-     * Occurs when a projectile entity hits the [[TileEntity]]. See
-     * [[Callback.ProjectileHitFunction]] for details
-     */
-    projectileHit?: (coords: Callback.ItemUseCoordinates, target: Callback.ProjectileHitTarget) => void,
-    
-    /**
-     * Occurs when the [[TileEntity]] is being destroyed
-     * @returns true to prevent 
-     * [[TileEntity]] object from destroying (but if the block was destroyed, returning 
-     * true from this function doesn't replace the missing block with a new one)
-     */
-    destroy?: () => boolean|void;
-
-    /**
-     * Called to get the [[UI.IWindow]] object for the current [[TileEntity]]. The 
-     * window is then opened within [[TileEntity.container]] when the player clicks it
-     */
-    getGuiScreen?: () => UI.IWindow;
-
-    /**
-     * Called when more liquid is required
-     */
-    requireMoreLiquid?: (liquid: string, amount: number) => void;
-
-    /**
-     * Any other user-defined methods and properties
-     */
-    [key: string]: any
 }
