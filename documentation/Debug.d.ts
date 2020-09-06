@@ -38,9 +38,16 @@ declare namespace Debug {
     /**
      * Writes several comma-separated values to the chat as a general debug 
      * message, serializing javascript objects if possible
-     * @param args message to be displayed
+     * @param args messages to be displayed
      */
     function m(...args: any[]): void;
+
+    /**
+     * Writes several values in JSON format to the copyable alert window text view,
+     * serializing javascript objects if possible
+     * @param args messages to be displayed
+     */
+    function big(...args: any[]): void;
 
     /**
      * Diaplays an AlertDialog with given title and bitmap
