@@ -350,11 +350,12 @@ declare namespace Callback {
     /**
      * Function used in "ItemIconOverride" callback
      * @param item information about item that is used in override function
+     * @param isModUi whether icon override is working in mod ui or in vanilla one
      * @returns void if used in callback, [[Item.TextureData]] if used in item 
      * override function to return texture that will be used for the item
      */
     interface ItemIconOverrideFunction {
-        (item: ItemInstance): void|Item.TextureData
+        (item: ItemInstance, isModUi: boolean): void|Item.TextureData
     }
 
 
