@@ -193,6 +193,8 @@ declare namespace Block {
 
     /**
      * Makes block accept redstone signal
+     * @deprecated use [[Block.setupAsRedstoneReceiver]] and 
+     * [[Block.setupAsRedstoneEmitter]] instead
      * @param nameID block numeric or string id
      * @param data block data, currently not used
      * @param isRedstone if true, the redstone changes at the block will notify
@@ -275,6 +277,26 @@ declare namespace Block {
      * @param callback function to be called 
      */
     function setAnimateTickCallback(id: number, callback: AnimateTickFunction): void;
+
+    /**
+     * Makes block receive redstone signals via "RedstoneSignal" callback
+     * @param id block numeric or string id
+     * @param connectToRedstone if true, redstone wires will connect to the block
+     */
+    function setupAsRedstoneReceiver(id: number|string, connectToRedstone: boolean): void;
+
+    /**
+     * Makes block emit redstone signal
+     * @param id block numeric or string id
+     * @param connectToRedstone if true, redstone wires will connect to the block
+     */
+    function setupAsRedstoneEmitter(id: number|string, connectToRedstone: boolean): void;
+
+    /**
+     * Removes all the redstone functionality from the block
+     * @param id block numeric or string id
+     */
+    function setupAsNonRedstoneTile(id: number|string): void;
 
     function registerNeighbourChangeFunction(id: number, func: NeighourChangeFunction): void;
 
