@@ -105,6 +105,19 @@ declare namespace Dimensions {
          * @returns reference to itself to be used in sequential calls
          */
         resetSunsetColor(): CustomDimension;
+
+        /**
+         * Sets fog displaying distance
+         * @param start nearest fog distance
+         * @param end farthest fog distance
+         * @returns reference to itself to be used in sequential calls
+         */
+        setFogDistance(start: number, end: number): CustomDimension;
+
+        /**
+         * Resets fog displaying distance
+         */
+        resetFogDistance(): CustomDimension;
     }
 
     /**
