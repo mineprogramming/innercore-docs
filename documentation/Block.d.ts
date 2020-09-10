@@ -255,6 +255,12 @@ declare namespace Block {
     function setPrototype(nameID: string|number, Prototype: any): number;
 
     /**
+     * @param id numeric block id
+     * @returns the color specified block is displayed on the vanilla maps
+     */
+    function getMapColor(id: number): number;
+
+    /**
      * Makes block invoke callback randomly depending on game speed
      * @param id block id to register for random ticks
      * @param callback function to be called on random block tick
@@ -350,6 +356,11 @@ declare namespace Block {
          * opaque
          */
         translucency?: number,
+
+        /**
+         * Block color when displayed on the vanilla maps
+         */
+        mapcolor?: number,
     }
 
 
