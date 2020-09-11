@@ -23,20 +23,20 @@ To generate biome map, use [[GenerationUtils.getPerlinNoise]] method. Let's take
 closer look at the example of biome generation:
 
 ```js
-Callback.addCallback(“GenerateBiomeMap”, function(chunkX, chunkZ, random, dimensionId, chunkSeed, worldSeed, dimensionSeed) {
+Callback.addCallback("GenerateBiomeMap", function(chunkX, chunkZ, random, dimensionId, chunkSeed, worldSeed, dimensionSeed) {
     // Generate only in the overworld
     if (dimensionId != 0) {
         return;
     }
 
     // Verify if we can skip this biome
-    if (GenerationUtils.getPerlinNoise(chunkX * 16 + 8, 0, chunkZ * 16 + 8, dimensionSeed, 1 / 128, 2) < 0.7 – 12 / 128) {
+    if (GenerationUtils.getPerlinNoise(chunkX * 16 + 8, 0, chunkZ * 16 + 8, dimensionSeed, 1 / 128, 2) < 0.7 - 12 / 128) {
         return;
     }
 
     // Change biome map according to current perlin noise 
     for (var x = chunkX * 16; x < (chunkX + 1) * 16; x++) {
-        for (var z = chunkZ; z < (chunkZ + 1) * 16; z++) {
+        for (var z = chunkZ * 16; z < (chunkZ + 1) * 16; z++) {
             if (GenerationUtils.getPerlinNoise(x, 0, z, dimensionSeed, 1 / 128, 2) > 0.7) {
                 World.setBiomeMap(x, z, myCustomBiome.id);
             }
