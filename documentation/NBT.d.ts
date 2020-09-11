@@ -40,14 +40,14 @@ declare namespace NBT {
 
         /**
          * @param key key to verify for the type
-         * @param type tag type to verify for, one of the [[Native.TagType]] constants
+         * @param type tag type to verify for, one of the [[Native.NbtDataType]] constants
          * @returns true if specified key exists in compound tag and its value is
          * of specified type
          */
         containsValueOfType(key: string, type: number): boolean;
 
         /**
-         * @returns value type for the specified key. One of the [[Native.TagType]] 
+         * @returns value type for the specified key. One of the [[Native.NbtDataType]] 
          * constants
          */
         getValueType(key: string): number;
@@ -201,7 +201,7 @@ declare namespace NBT {
         length(): number;
 
         /**
-         * @returns value type for the specified index. One of the [[Native.TagType]] 
+         * @returns value type for the specified index. One of the [[Native.NbtDataType]] 
          * constants
          */
         getValueType(index: number): number;
