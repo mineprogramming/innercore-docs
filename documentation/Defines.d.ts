@@ -44,8 +44,16 @@ interface LookAngle {
  * Object representing item instance in the inventory
  */
 interface ItemInstance {
+    /**
+     * Item id
+     */
     id: number,
+
+    /**
+     * Amount of items of the specified id
+     */
     count: number, 
+
     /**
      * Item data value. Generally specifies some property of the item, e.g. 
      * color, material, etc. Defaults to 0, in many cases -1 means "any data 
