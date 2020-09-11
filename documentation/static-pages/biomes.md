@@ -19,6 +19,47 @@ var maxZ = (chunkZ + 1) * 16 - 1
 
 ## Using Perlin Noise for biome generation
 
+To generate biome map, use [[GenerationUtils.getPerlinNoise]] method. Let's take a 
+closer look at the example of biome generation:
+
 ```js
-// TODO
+Callback.addCallback(“GenerateBiomeMap”, function(chunkX, chunkZ, random, dimensionId, chunkSeed, worldSeed, dimensionSeed) {
+    // Generate only in the overworld
+    if (dimensionId != 0) {
+        return;
+    }
+
+    // Verify if we can skip this biome
+    if (GenerationUtils.getPerlinNoise(chunkX * 16 + 8, 0, chunkZ * 16 + 8, dimensionSeed, 1 / 128, 2) < 0.7 – 12 / 128) {
+        return;
+    }
+
+    // Change biome map according to current perlin noise 
+    for (var x = chunkX * 16; x < (chunkX + 1) * 16; x++) {
+        for (var z = chunkZ; z < (chunkZ + 1) * 16; z++) {
+            if (GenerationUtils.getPerlinNoise(x, 0, z, dimensionSeed, 1 / 128, 2) > 0.7) {
+                World.setBiomeMap(x, z, myCustomBiome.id);
+            }
+        }
+    }
+});
 ```
+
+For each block of the biome we verify that the value of Perlin noise is larger then
+some constant value (we call it *generation threshold*). If the condition is evaluated
+to *true*, we set the biome on the specified coordinates to our biome's id. 
+
+We use 2-octave Perlin noise for this generation with octave size of 128. It is 
+the most convenient way to generate cool vanilla-like biomes. If you use more 
+octaves, the edges of the biome will be more torn, otherwise more smooth. Changing 
+octaves size will increase or decrease biome size. To control biome density, change
+generation threshold.
+
+An optimization is also performed before going to the time-consuming loop. 
+We take a block from the center of the chunk and verify if Perlin noise value at the point it is larger 
+then ```T - 12/size``` where T is biome generation threshold and size is the 
+scale of the larger octave.  
+
+You can add any additional conditions to your code, e.g. generating only inside 
+existing Minecraft biome. Then you'll need to add an additional check inside your 
+code.
