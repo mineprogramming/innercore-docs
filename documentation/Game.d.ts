@@ -62,4 +62,9 @@ declare namespace Game {
      * @returns string containing current Core Engine version
      */
     function getEngineVersion(): string;
+
+    /**
+     * @returns true if item spending allowed
+     */
+    function isItemSpendingAllowed(): boolean;
 }
