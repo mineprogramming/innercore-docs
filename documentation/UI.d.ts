@@ -1956,11 +1956,34 @@ declare namespace UI {
     }
 
     interface DrawingElement {
-
+        /**
+         * Type of a [[DrawingElement]]
+         */
+        type: string,
+        color?: number
     }
 
     interface UIElement {
+        /**
+         * Type of a [[UIElement]]
+         */
+        type: string;
 
+        /**
+         * X-axis position of a [[DrawingElement]]
+         */
+        x: number;
+
+        /**
+         * Y-axis position of a [[DrawingElement]]
+         */
+        y: number;
+
+        
+        scale: number;
+
+        bitmap?: string;
+        bitmap2?: string;
     }
 
 
