@@ -33,7 +33,7 @@ interface Color {
 }
 
 /**
- * Object representing pitch/yaw angle set
+ * Object representing pitch/yaw angle set (in radians)
  */
 interface LookAngle {
     pitch: number,
@@ -69,7 +69,7 @@ interface ItemInstance {
 }
 
 /**
- * Array of theee elements representing item id, count and data respectively. 
+ * Array of three elements representing item id, count and data respectively. 
  * Used in many old functions and when extra data is not required
  */
 type ItemInstanceArray = number[];
