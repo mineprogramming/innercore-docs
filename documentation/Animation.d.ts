@@ -190,7 +190,7 @@ declare namespace Animation {
             /**
              * Item extra
              */
-            extra?: number,
+            extra?: ItemExtraData,
     
             /**
              * Whether the item should be in glint state or not
