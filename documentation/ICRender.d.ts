@@ -152,76 +152,57 @@ declare namespace ICRender {
 	abstract class CONDITION { }
 
 	/**
-	 * Condition depending on blocks on the relative coordinates
-	 */
-	class BLOCK implements CONDITION {
-		/**
-		 * Constructs new [[BLOCK]] condition
-		 * @param group blocks group to check the condition for
-		 * @param exclude if true, the blocks from the group make the condition 
-		 * evaluate as false, as true otherwise
-		 */
-		constructor(x: number, y: number, z: number, group: ICRender.Group, exclude: boolean);
-	}
-
-	/**
 	 * Condition depending on random value
 	 */
-	class RANDOM implements CONDITION {
-		/**
-		 * Constructs new [[RANDOM]] condition
-		 * @param value value that a generated random integer number should be for the 
-		 * condition to evaluate as true
-		 * @param max maximum value for the generator
-		 * @param seed seed to be used for random numbers generation
-		 */
-		constructor(value: number, max: number, seed?: number);
-
-		/**
-		 * Constructs new [[RANDOM]] condition with default seed and 0 as 
-		 * desired random value
-		 * @param max maximum value for the generator
-		 */
-		constructor(max: number);
-
+	class RANDOM_CONDITION implements CONDITION {
 		/**
 		 * Forces engine to treat blocks along some axis in same way if enabled
 		 * parameter value is false
 		 * @param axis 0 fpr x, 1 for y, 2 for z axis
 		 */
-		setAxisEnabled(axis: number, enabled: boolean): RANDOM;
+		setAxisEnabled(axis: number, enabled: boolean): RANDOM_CONDITION;
 	}
 
 	/**
-	 * Condition inverting some other condition
+	 * Constructs new [[RANDOM]] condition
+	 * @param value value that a generated random integer number should be for the 
+	 * condition to evaluate as true
+	 * @param max maximum value for the generator
+	 * @param seed seed to be used for random numbers generation
 	 */
-	class NOT implements CONDITION {
-		/**
-		 * Constructs new [[NOT]] condition
-		 * @param condition condition to be inverted
-		 */
-		constructor(condition: CONDITION);
-	}
+	function RANDOM(value: number, max: number, seed?: number): CONDITION;
 
 	/**
-	 * Condition that evaluates to true if one the two conditions evaluates to 
-	 * true 
+	 * Constructs new [[RANDOM]] condition with default seed and 0 as 
+	 * desired random value
+	 * @param max maximum value for the generator
 	 */
-	class OR implements CONDITION {
-		/**
-		 * Constructs new [[OR]] condition
-		 */
-		constructor(condition1: CONDITION, condition2: CONDITION);
-	}
-	
+	function RANDOM(max: number): CONDITION;
+
 	/**
-	 * Condition that evaluates to true only if both of the specified conditions 
-	 * evaluate to true 
+	 * Constructs new [[BLOCK]] condition
+	 * @param x is relative x coordinate
+	 * @param y is relative y coordinate
+	 * @param z is relative z coordinate
+	 * @param group blocks group to check the condition for
+	 * @param exclude if true, the blocks from the group make the condition 
+	 * evaluate as false, as true otherwise
 	 */
-	class AND implements CONDITION {
-		/**
-		 * Constructs new [[AND]] condition
-		 */
-		constructor(condition1: CONDITION, condition2: CONDITION);
-	}
+	function BLOCK(x: number, y: number, z: number, group: ICRender.Group, exclude: boolean): CONDITION;
+
+	/**
+	 * Constructs new [[NOT]] condition
+	 * @param condition condition to be inverted
+	 */
+	function NOT(condition: CONDITION): CONDITION;
+
+	/**
+	 * Constructs new [[OR]] condition
+	 */
+	function OR(...conditions: CONDITION[]): CONDITION;
+
+	/**
+	 * Constructs new [[AND]] condition
+	 */
+	function AND(...conditions: CONDITION[]): CONDITION;
 }
