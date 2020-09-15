@@ -74,6 +74,13 @@ declare function IMPORT_NATIVE(name: string, target: object): any;
 declare function WRAP_NATIVE(name: string): object;
 
 /**
+ * Allows to create new JS modules imported from Java code and use it in the mod
+ * @param name name of the module, as registered from Java code
+ * @returns js module, implemented in Java code 
+ */
+declare function WRAP_JAVA(name: string): object;
+
+/**
  * @returns current Core Engine API level
  */
 declare function getCoreAPILevel(): number;
