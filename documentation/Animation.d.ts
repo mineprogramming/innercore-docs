@@ -221,6 +221,11 @@ declare namespace Animation {
              */
             skin?: string,
             
+
+            /**
+             * Shader material name
+             */
+            material?: string,
         }): void;
 
         /**
