@@ -249,7 +249,8 @@ declare namespace Block {
      * @param description special type properties
      * @param nameKey string name to register the special type
      */
-    function createSpecialType(description: SpecialType, nameKey: string): number;
+    function createSpecialType(description: SpecialType, nameKey?: string): number;
+    
 
     /**
      * @deprecated No longer supported
