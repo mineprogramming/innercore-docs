@@ -142,7 +142,7 @@ declare function LIBRARY(description: {
      * Every entry should be either just a library name or library name and version
      * separated by a column (":")
      */
-    dependencies: string[]
+    dependencies?: string[]
 }): void;
 
 
