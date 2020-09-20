@@ -4,7 +4,7 @@ declare namespace UI {
      * contents and windows state between window opens. Every [[TileEntity]] has 
      * a built-in container that can be accessed as [[TileEntity.container]]
      */
-    class Container implements Recipes.WorkbenchField{
+    class Container implements Recipes.WorkbenchField {
         /**
          * Creates a new instance of [[Container]]
          */
@@ -14,7 +14,7 @@ declare namespace UI {
          * Creates a new instance of [[Container]] and initializes its parent. 
          * See [[Container.setParent]] for details
          */
-        constructor(parent: TileEntity|null|any);
+        constructor(parent: Nullable<TileEntity> | any);
 
 
         /**
@@ -24,12 +24,12 @@ declare namespace UI {
          * parameter. Consider using [[Container.getParent]] instead of direct 
          * field access
          */
-        parent: TileEntity|null|any;
+        parent: Nullable<TileEntity> | any;
 
         /**
          * Same as [[Container.parent]]
          */
-        tileEntity: TileEntity|null|any;
+        tileEntity: Nullable<TileEntity> | any;
 
         /**
          * Sets container's parent object, for [[TileEntity]]'s container it 
@@ -37,12 +37,12 @@ declare namespace UI {
          * value to be used in your code later
          * @param parent an object to be set as container's parent
          */
-        setParent(parent: TileEntity|null|any): void;
+        setParent(parent: Nullable<TileEntity> | any): void;
 
         /**
          * Getter for [[Container.parent]] field
          */
-        getParent(): TileEntity|null|any;
+        getParent(): Nullable<TileEntity> | any;
 
         /**
          * Gets the slot by its name. If a slot with specified name doesn't 
@@ -114,7 +114,7 @@ declare namespace UI {
          * @returns currently opened [[IWindow]] or null if no window is currently 
          * opened in the container
          */
-        getWindow(): IWindow|null;
+        getWindow(): Nullable<IWindow>;
 
         /**
          * Opens [[IWindow]] object in the container
@@ -138,7 +138,7 @@ declare namespace UI {
              */
             onClose: (container: Container, window: IWindow) => void
         }): void;
-    
+
         /**
          * @returns true, if some window is opened in the container
          */
@@ -147,13 +147,13 @@ declare namespace UI {
         /**
          * Same as [[Container.getWindow]]
          */
-        getGuiScreen(): IWindow|null;
+        getGuiScreen(): Nullable<IWindow>;
 
         /**
          * @returns window's content object (usually specified in the window's 
          * constructor) if a window was opened in the container, null otherwise
          */
-        getGuiContent(): WindowContent|null;
+        getGuiContent(): Nullable<WindowContent>;
 
         /**
          * Returns window's element by its name
@@ -169,7 +169,7 @@ declare namespace UI {
          * @param value value to be passed to the element
          */
         setBinding(elementName: string, bindingName: string, value: any): void;
-        
+
         /**
          * Gets any value from the element
          * @param elementName element name
@@ -182,7 +182,7 @@ declare namespace UI {
          * doesn't exist
          */
         getBinding(elementName: string, bindingName: string): any;
-        
+
         /**
          * Sets "value" binding value for the element. Used to set scales values
          * @param name element name
@@ -195,7 +195,7 @@ declare namespace UI {
          * @returns "value" binding value, e.g. scale value, or null if no 
          * element with specified name exist
          */
-        getValue(name: string): number|null;
+        getValue(name: string): Nullable<number>;
 
         /**
          * Sets "text" binding value for the element. Used to set element's text
@@ -210,7 +210,7 @@ declare namespace UI {
          * @returns "text" binding value, usually the text displayed on the 
          * element, or null if no element with specified name exist
          */
-        getText(name: string): string|null;
+        getText(name: string): Nullable<string>;
 
         /**
          * @param name element name
@@ -244,7 +244,7 @@ declare namespace UI {
          * parameter
          */
         invalidateUI(onCurrentThread?: boolean): void;
-        
+
         /**
          * @deprecated No longer supported
          */
@@ -350,7 +350,7 @@ declare namespace UI {
          * @returns [[Container]] that was used to open this window or null, if
          * the window wasn't opened in container
          */
-        getContainer(): Container|null;
+        getContainer(): Nullable<Container>;
 
         /**
          * Sets container for the current window. Be careful when calling it 
@@ -359,7 +359,7 @@ declare namespace UI {
          * @param container [[Container]] to be associated with current window
          * or null to associate no container with current window
          */
-        setContainer(container: Container|null): void;
+        setContainer(container: Nullable<Container>): void;
 
         /**
          * Turns debug mode for the window on and off
@@ -481,7 +481,7 @@ declare namespace UI {
          * @returns [[Container]] that was used to open this window or null, if
          * the window wasn't opened in container
          */
-        getContainer(): Container|null;
+        getContainer(): Nullable<Container>;
 
         /**
          * Sets container for the current window. Be careful when calling it 
@@ -490,7 +490,7 @@ declare namespace UI {
          * @param container [[Container]] to be associated with current window
          * or null to associate no container with current window
          */
-        setContainer(container: Container|null): void;
+        setContainer(container: Nullable<Container>): void;
 
         /**
          * Turns debug mode for the window on and off
@@ -545,7 +545,7 @@ declare namespace UI {
          * @param content content object to be applied to the window
          */
         setContent(content: WindowContent): void;
-    
+
         /**
          * @param dynamic specify true, if the window contains dynamic 
          * (animated) elements, false otherwise. By default all windows are 
@@ -592,8 +592,8 @@ declare namespace UI {
          * @returns value set by [[Window.putProperty]] or null if no value was
          * specified for this name
          */
-        getProperty(name: string): any|null;
-        
+        getProperty(name: string): Nullable<any>;
+
         /**
          * Sets custom property value
          * @param name custom property name
@@ -631,7 +631,7 @@ declare namespace UI {
      * [[StandartWindow]] is a window group that consists of several separate
      * windows
      */
-    class WindowGroup implements IWindow{
+    class WindowGroup implements IWindow {
         /**
          * Constructs new [[WindowGroup]] instance
          */
@@ -664,14 +664,14 @@ declare namespace UI {
          * @returns window from the group by its name or null if no window with 
          * such a name was added
          */
-        getWindow(name: string): Window|null;
+        getWindow(name: string): Nullable<Window>;
 
         /**
          * @param name window name
          * @returns window's description object if a window with specified name 
          * exists or null otherwise
          */
-        getWindowContent(name: string): WindowContent|null;
+        getWindowContent(name: string): Nullable<WindowContent>;
 
         /**
          * Sets content for the window by its name
@@ -708,9 +708,9 @@ declare namespace UI {
          * @param name window name
          */
         moveOnTop(name: string): void;
-/**
-         * Opens window wihout container. It is usually mor
-         */
+        /**
+                 * Opens window wihout container. It is usually mor
+                 */
         open(): void;
 
         /**
@@ -780,7 +780,7 @@ declare namespace UI {
          * @returns [[Container]] that was used to open this window or null, if
          * the window wasn't opened in container
          */
-        getContainer(): Container|null;
+        getContainer(): Nullable<Container>;
 
         /**
          * Sets container for the current window. Be careful when calling it 
@@ -789,7 +789,7 @@ declare namespace UI {
          * @param container [[Container]] to be associated with current window
          * or null to associate no container with current window
          */
-        setContainer(container: Container|null): void;
+        setContainer(container: Nullable<Container>): void;
 
         /**
          * Turns debug mode for the window on and off
@@ -828,7 +828,7 @@ declare namespace UI {
     //      * @param content object containing window description
     //      */
     //     constructor(content: WindowContent);
-        
+
     //     /**
     //      * Sets style profile for the current [[AdaptiveWindow]]
     //      * @param profile 0 for classic profile, 1 for default profile
@@ -918,8 +918,8 @@ declare namespace UI {
          * @returns [[Window]] instance created for the specified tab or null if
          * no window was created for specified window
          */
-        getWindowForTab(index: number): Window|null;
-        
+        getWindowForTab(index: number): Nullable<Window>;
+
         /**
          * Specifies whether the window should darken and block background. 
          * Default value is false
@@ -940,7 +940,7 @@ declare namespace UI {
          * @param tab index of the tab to be opened by default
          */
         setDefaultTab(tab: number): number;
-        
+
         /**
          * Overrides style properties of the current style by the values 
          * specified in the style parameter
@@ -1094,7 +1094,7 @@ declare namespace UI {
          * @param pos top left position of the first element. Default position 
          * is (0, 0, 0)
          */
-        createVisualContent(elements: UIElementSet, pos?: {x?: number, y?: number, z?: number}): void;
+        createVisualContent(elements: UIElementSet, pos?: { x?: number, y?: number, z?: number }): void;
     }
 
 
@@ -1188,7 +1188,7 @@ declare namespace UI {
          * @returns android.graphics.Bitmap instance with the ui texture, if it 
          * was loaded, null otherwise
          */
-        function getNullable(name: string): android.graphics.Bitmap|null;
+        function getNullable(name: string): android.graphics.Bitmap | null;
 
         /**
          * Adds any bitmap as a gui texture with specified name
@@ -1218,7 +1218,7 @@ declare namespace UI {
         /**
          * Specifies bottom side of the frame
          */
-        const SIDE_DOWN: number; 
+        const SIDE_DOWN: number;
     }
 
     /**
@@ -1280,7 +1280,7 @@ declare namespace UI {
          * If true, the font is italic, false otherwise. Default value is false
          */
         cursive?: boolean,
-        
+
         /**
          * If true, the font is undelined, false otherwise. Default value is false
          */
@@ -1467,7 +1467,7 @@ declare namespace UI {
          * unit)
          */
         getWindowWidth(): number;
-    
+
         /**
          * @returns window's height in units
          */
@@ -1514,13 +1514,13 @@ declare namespace UI {
          * @param style [[Style]] object to look for style bindings. If not 
          * specified, default style is used
          */
-        constructor(obj: string|string[], style?: Style);
+        constructor(obj: string | string[], style?: Style);
 
         /**
          * Sets texture offsets in pixels from the upper left bound of the 
          * bitmap
          */
-        readOffset(offset: {x: number, y: number}): void;
+        readOffset(offset: { x: number, y: number }): void;
 
         /**
          * @returns frame number of the animation corresponding to current 
@@ -1562,7 +1562,7 @@ declare namespace UI {
          * Resizes all the frames to match the first one
          */
         fitAllToOneSize(): void;
-        
+
         /**
          * Releases all allocated resources, should be called when the texture 
          * is not longer needed 
@@ -1570,7 +1570,7 @@ declare namespace UI {
         release(): void;
     }
 
-    
+
     /**
      * Object representing window's slot
      */
@@ -1655,7 +1655,7 @@ declare namespace UI {
          * @returns item extra object
          */
         getExtra(): ItemExtraData,
-        
+
         /**
          * @returns new [[FullSlot]] instance created from the current one
          */
@@ -1667,7 +1667,7 @@ declare namespace UI {
          * Creates a new [[Texture]] instance with specified [[Style]] applied.
          * See [[Texture.constructor]] for parameters description
          */
-        createTexture(texture: android.graphics.Bitmap|string|string[]): Texture;
+        createTexture(texture: android.graphics.Bitmap | string | string[]): Texture;
 
         /**
          * Sets element's position in the window's unit coordinates
@@ -1970,20 +1970,29 @@ declare namespace UI {
         type: string;
 
         /**
-         * X-axis position of a [[DrawingElement]]
+         * X-axis position of a [[UIElement]]
          */
         x: number;
 
         /**
-         * Y-axis position of a [[DrawingElement]]
+         * Y-axis position of a [[UIElement]]
          */
         y: number;
 
-        
+        /**
+         * Scale of a [[UIElement]]
+         */
         scale: number;
 
         bitmap?: string;
         bitmap2?: string;
+        clicker?: UIClickEvent
+    }
+
+
+    interface UIClickEvent {
+        onClick?(position: Vector, container: UI.Container, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
+        onLongClick?(position: Vector, container: UI.Container, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
     }
 
 
@@ -1991,7 +2000,7 @@ declare namespace UI {
      * Object containing ui elements with key as the name and value as the 
      * [[UIElement]] instance to be used
      */
-    interface UIElementSet { 
+    interface UIElementSet {
         [key: string]: UIElement
     }
 
