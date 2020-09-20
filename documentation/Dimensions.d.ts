@@ -171,7 +171,7 @@ declare namespace Dimensions {
          * generator or removes terrain generator, if the value is null
          * @returns reference to itself to be used in sequential calls
          */
-        setTerrainGenerator(generator: AbstractTerrainGenerator|null): CustomGenerator;
+        setTerrainGenerator(generator: Nullable<AbstractTerrainGenerator>): CustomGenerator;
 
         /**
          * Specifies which of the generation [[Callback]]s to call, -1 to call 

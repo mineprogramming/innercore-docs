@@ -31,13 +31,13 @@ declare namespace AddonEntityRegistry {
          * @param command command to be executed
          * @returns error message or null if the command was run successfully 
          */
-        exec(command: string): string | null;
+        exec(command: string): Nullable<string>;
 
         /**
          * Executes command with the entity on the specified coordinates
          * @param command command to be executed
          * @returns error message or null if the command was run successfully 
          */
-        execAt(command: string, x: number, y: number, z: number): string | null;
+        execAt(command: string, x: number, y: number, z: number): Nullable<string>;
     }
 }

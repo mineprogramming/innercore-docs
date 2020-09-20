@@ -58,7 +58,7 @@ declare namespace Saver {
     /**
      * @param scope data 
      */
-    (scope: object|null) => void;
+    (scope: Nullable<object>) => void;
 
     /**
      * Interface that should be implemented to pass the object as 

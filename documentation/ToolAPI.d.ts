@@ -113,7 +113,7 @@ declare namespace ToolAPI {
      * @returns object containing block material information or null, if no 
      * block data was specified for this block
      */
-    function getBlockMaterial(blockID: any): BlockMaterial|null;
+    function getBlockMaterial(blockID: any): Nullable<BlockMaterial>;
 
     /**
      * @param blockID numeric tile id
@@ -151,7 +151,7 @@ declare namespace ToolAPI {
      * @returns tool information stored in slightly modified 
      * [[ToolAPI.ToolParams]] object or null if no tool data was specified
      */
-    function getToolData(itemID: number): ToolParams|null;
+    function getToolData(itemID: number): Nullable<ToolParams>;
 
     /**
      * @param itemID numeric item id
@@ -204,7 +204,7 @@ declare namespace ToolAPI {
      * @param blockID numeric tile id
      * @returns 
      */
-    function getBlockMaterialName(blockID: number): string|null;
+    function getBlockMaterialName(blockID: number): Nullable<string>;
 
 
     /**

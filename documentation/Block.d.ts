@@ -24,7 +24,7 @@ declare namespace Block {
      * you can also pass special type name, if the type was previously 
      * registered
      */
-    function createBlock(nameID: string, defineData: BlockVariation[], blockType?: SpecialType|string): void;
+    function createBlock(nameID: string, defineData: BlockVariation[], blockType?: SpecialType | string): void;
 
     /**
      * Creates new block using specified params, creating four variations for 
@@ -41,7 +41,7 @@ declare namespace Block {
      * you can also pass special type name, if the type was previously 
      * registered
      */
-    function createBlockWithRotation(nameID: string, defineData: BlockVariation[], blockType?: SpecialType|string): void;
+    function createBlockWithRotation(nameID: string, defineData: BlockVariation[], blockType?: SpecialType | string): void;
 
     /**
      * @param id numeric block id
@@ -80,7 +80,7 @@ declare namespace Block {
      * @returns true, if specified string or numeric id exists and the function
      * was registered correctly, false otherwise
      */
-    function registerDropFunction(nameID: string|number, dropFunc: DropFunction, level?: number): boolean;
+    function registerDropFunction(nameID: string | number, dropFunc: DropFunction, level?: number): boolean;
 
     /**
      * Same as [[Block.registerPopResourcesFunction]] but accepts only numeric 
@@ -97,7 +97,7 @@ declare namespace Block {
      * @returns true, if specified string or numeric id exists and the function
      * was registered correctly, false otherwise
      */
-    function registerPopResourcesFunction(nameID: string|number, func: PopResourcesFunction): void;
+    function registerPopResourcesFunction(nameID: string | number, func: PopResourcesFunction): void;
 
     /**
      * Same as [[Block.setDestroyLevel]] but accepts only numeric 
@@ -112,14 +112,14 @@ declare namespace Block {
      * @param level digging level of the block
      * @param resetData if true, the block is dropped with data equals to 0
      */
-    function setDestroyLevel(nameID: string|number, level: number, resetData: boolean): void;
+    function setDestroyLevel(nameID: string | number, level: number, resetData: boolean): void;
 
     /**
      * Sets destroy time for the block with specified id
      * @param nameID string or numeric block id
      * @param time destroy time for the block, in ticks
      */
-    function setDestroyTime(nameID: string|number, time: number): void;
+    function setDestroyTime(nameID: string | number, time: number): void;
 
     /**
      * @param numericID numeric block id
@@ -189,7 +189,7 @@ declare namespace Block {
      * @param material material name
      * @param level block's digging level
      */
-    function setBlockMaterial(nameID: string|number, material: string, level: number): void;
+    function setBlockMaterial(nameID: string | number, material: string, level: number): void;
 
     /**
      * Makes block accept redstone signal
@@ -200,7 +200,7 @@ declare namespace Block {
      * @param isRedstone if true, the redstone changes at the block will notify
      * the "RedstoneSignal" callback
      */
-    function setRedstoneTile(nameID: string|number, data: number, isRedstone: boolean): void;
+    function setRedstoneTile(nameID: string | number, data: number, isRedstone: boolean): void;
 
     /**
      * Gets drop for the specified block. Used mostly by Core Engine's 
@@ -224,7 +224,7 @@ declare namespace Block {
      * @param nameID block numeric or string id
      * @param func function to be called when the block is placed in the world
      */
-    function registerPlaceFunction(nameID: string|number, func: PlaceFunction): void;
+    function registerPlaceFunction(nameID: string | number, func: PlaceFunction): void;
 
     /**
      * Sets block box shape
@@ -250,12 +250,12 @@ declare namespace Block {
      * @param nameKey string name to register the special type
      */
     function createSpecialType(description: SpecialType, nameKey?: string): number;
-    
+
 
     /**
      * @deprecated No longer supported
      */
-    function setPrototype(nameID: string|number, Prototype: any): number;
+    function setPrototype(nameID: string | number, Prototype: any): number;
 
     /**
      * @param id numeric block id
@@ -284,20 +284,20 @@ declare namespace Block {
      * @param id block numeric or string id
      * @param connectToRedstone if true, redstone wires will connect to the block
      */
-    function setupAsRedstoneReceiver(id: number|string, connectToRedstone: boolean): void;
+    function setupAsRedstoneReceiver(id: number | string, connectToRedstone: boolean): void;
 
     /**
      * Makes block emit redstone signal
      * @param id block numeric or string id
      * @param connectToRedstone if true, redstone wires will connect to the block
      */
-    function setupAsRedstoneEmitter(id: number|string, connectToRedstone: boolean): void;
+    function setupAsRedstoneEmitter(id: number | string, connectToRedstone: boolean): void;
 
     /**
      * Removes all the redstone functionality from the block
      * @param id block numeric or string id
      */
-    function setupAsNonRedstoneTile(id: number|string): void;
+    function setupAsNonRedstoneTile(id: number | string): void;
 
     function registerNeighbourChangeFunction(id: number, func: NeighourChangeFunction): void;
 
@@ -466,7 +466,7 @@ declare namespace Block {
      * default placement
      */
     interface PlaceFunction {
-        (coords: Callback.ItemUseCoordinates, item: ItemInstance, block: Tile): Vector|void
+        (coords: Callback.ItemUseCoordinates, item: ItemInstance, block: Tile): Vector | void
     }
 
 

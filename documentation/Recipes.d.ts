@@ -98,7 +98,7 @@ declare namespace Recipes {
      * @returns [[WorkbenchRecipe]] instance, containing useful methods and 
      * recipe information
      */
-    function getRecipeByField(field: WorkbenchField, prefix?: string): WorkbenchRecipe|null;
+    function getRecipeByField(field: WorkbenchField, prefix?: string): Nullable<WorkbenchRecipe>;
 
     /**
      * Gets recipe result item by the field and recipe prefix
@@ -106,7 +106,7 @@ declare namespace Recipes {
      * information
      * @param prefix recipe prefix, defaults to empty string (vanilla workbench)
      */
-    function getRecipeResult(field: WorkbenchField, prefix?: string): ItemInstance|null;
+    function getRecipeResult(field: WorkbenchField, prefix?: string): Nullable<ItemInstance>;
 
     /**
      * Performs crafting by the field contents and recipe prefix
@@ -114,7 +114,7 @@ declare namespace Recipes {
      * information
      * @param prefix recipe prefix, defaults to empty string (vanilla workbench)
      */
-    function provideRecipe(field: WorkbenchField, prefix?: string): ItemInstance|null;
+    function provideRecipe(field: WorkbenchField, prefix?: string): Nullable<ItemInstance>;
 
     /**
      * Adds new furnace recipe
@@ -311,7 +311,7 @@ declare namespace Recipes {
         /**
          * @returns current crafting function or null if no one was specified
          */
-        getCallback(): CraftingFunction|null;
+        getCallback(): Nullable<CraftingFunction>;
 
     }
 

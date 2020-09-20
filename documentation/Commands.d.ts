@@ -7,7 +7,7 @@ declare namespace Commands {
      * @param command command to be executed
      * @returns error message or null if the command was run successfully 
      */
-    function exec(command: string): string|null;
+    function exec(command: string): Nullable<string>;
 
     /**
      * Executes specified command using specified coordinates as command 
@@ -15,5 +15,5 @@ declare namespace Commands {
      * @param command command to be executed
      * @returns error message or null if the command was run successfully 
      */
-    function execAt(command: string, x: number, y: number, z: number): string|null;
+    function execAt(command: string, x: number, y: number, z: number): Nullable<string>;
 }

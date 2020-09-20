@@ -89,7 +89,7 @@ declare namespace Entity {
     /**
      * @returns string type for entities defined via add-ons, otherwise null
      */
-    function getTypeAddon(ent: number): string | null;
+    function getTypeAddon(ent: number): Nullable<string>;
 
     /**
      * @returns compound tag for the specified entity
@@ -121,7 +121,7 @@ declare namespace Entity {
      * default skin of the mob
      * @returns numeric id of spawn entity or -1 if entity was not created
      */
-    function spawn(x: number, y: number, z: number, type: number, skin?: string|null): number;
+    function spawn(x: number, y: number, z: number, type: number, skin?: Nullable<string>): number;
 
     /**
      * Spawns custom entity on the specified coords. Allows to pass some values 
@@ -434,7 +434,7 @@ declare namespace Entity {
      * be 0 in all cases
      * @param maxRange if specified, determines search radius
      */
-    function findNearest(coords: Vector, type?: number, maxRange?: number): number|null;
+    function findNearest(coords: Vector, type?: number, maxRange?: number): Nullable<number>;
 
     /**
      * 
@@ -608,24 +608,24 @@ declare namespace Entity {
         /**
          * @returns entity's current health value
          */
-        public get(): number;
+        get(): number;
 
         /**
          * Sets entity's current health value
          * @param health health value to be set
          */
-        public set(health: number): void;
+        set(health: number): void;
 
         /**
          * @returns entity's maximum health value
          */
-        public getMax(): number;
+        getMax(): number;
 
         /**
          * Sets entity's maximum health value
          * @param maxHealth 
          */
-        public setMax(maxHealth: number): void;
+        setMax(maxHealth: number): void;
     }
 
     /**

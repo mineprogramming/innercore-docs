@@ -95,7 +95,7 @@ declare namespace Callback {
         (window: UI.IWindow): void;
     }
 
-    
+
     /**
      * Funciton used in "CustomWindowClosed" callback
      * @param window window that was closed
@@ -193,7 +193,7 @@ declare namespace Callback {
      * else by local player
      */
     interface ItemUseFunction {
-        (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, isExternal: boolean|undefined): void
+        (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, isExternal: boolean | undefined): void
     }
 
     /**
@@ -208,7 +208,7 @@ declare namespace Callback {
      * @param someFloat some floating point value
      */
     interface ExplosionFunction {
-        (coords: Vector, params: {power: number, entity: number, onFire: boolean, someBool: boolean, someFloat: number}): void
+        (coords: Vector, params: { power: number, entity: number, onFire: boolean, someBool: boolean, someFloat: number }): void
     }
 
     /**
@@ -243,7 +243,7 @@ declare namespace Callback {
      * provided
      */
     interface NativeCommandFunciton {
-        (command: string|null): void
+        (command: Nullable<string>): void
     }
 
     /**
@@ -283,7 +283,7 @@ declare namespace Callback {
         (entity: number, attacker: number, damageType: number): void
     }
 
-    
+
     /**
      * Function used in "EntityHurt" callback
      * @param attacker if an entity was hurt by another entity, attacker's 
@@ -331,10 +331,10 @@ declare namespace Callback {
      * @param block information aboit the block on the specified coordinates
      */
     interface RedstoneSignalFunction {
-        (coords: Vector, params: {power: number, signal: number, onLoad: boolean}, block: Tile): void
+        (coords: Vector, params: { power: number, signal: number, onLoad: boolean }, block: Tile): void
     }
 
-    
+
     /**
      * Funciton used in "PopBlockResources" callback
      * @param coords coordinates of the block that was broken
@@ -355,7 +355,7 @@ declare namespace Callback {
      * override function to return texture that will be used for the item
      */
     interface ItemIconOverrideFunction {
-        (item: ItemInstance, isModUi: boolean): void|Item.TextureData
+        (item: ItemInstance, isModUi: boolean): void | Item.TextureData
     }
 
 
@@ -368,8 +368,8 @@ declare namespace Callback {
      * function to return new name that will be displayed
      */
     interface ItemNameOverrideFunction {
-        (item: ItemInstance, translation: string, name: string): void|string;
-    }    
+        (item: ItemInstance, translation: string, name: string): void | string;
+    }
 
 
     /**
@@ -437,7 +437,7 @@ declare namespace Callback {
      * @param dimensionSeed dimension-specific seed to use in chunk generation
      */
     interface GenerateChunkFunction {
-        (chunkX: number, chunkZ: number, random: java.util.Random, 
+        (chunkX: number, chunkZ: number, random: java.util.Random,
             dimensionId: number, chunkSeed: number, worldSeed: number, dimensionSeed: number): void
     }
 
@@ -469,11 +469,11 @@ declare namespace Callback {
         /**
          * Exact hit position x 
          */
-        x: number, 
+        x: number,
         /**
          * Exact hit position y
          */
-        y: number, 
+        y: number,
         /**
          * Exact hit position z
          */
@@ -485,9 +485,9 @@ declare namespace Callback {
         /**
          * Coordinates and side of the hit block or null if an entity was hit
          */
-        coords: null|ItemUseCoordinates
-    } 
-    
+        coords: Nullable<ItemUseCoordinates>
+    }
+
     /**
      * Object used in some callbacks for coordinate set with side information 
      * and relative coordinates set

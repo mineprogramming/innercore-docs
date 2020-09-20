@@ -241,7 +241,7 @@ declare namespace Render {
          * @param name part name
          * @returns part by its name or null if part doesn't exist
          */
-        getPart(name: string): ModelPart | null;
+        getPart(name: string): Nullable<ModelPart>;
 
         /**
          * Resets model
@@ -307,7 +307,7 @@ declare namespace Render {
          * @returns [[RenderMesh]] specified via [[setMesh]] call or null, if 
          * this part doesn't contain mesh
          */
-        getMesh(): RenderMesh | null;
+        getMesh(): Nullable<RenderMesh>;
     }
 
     interface ShaderUniformSet {

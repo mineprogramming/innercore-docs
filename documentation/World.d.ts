@@ -118,7 +118,7 @@ declare namespace World {
      * not initialized, initializes it and returns created [[TileEntity]] object
      * @returns [[TileEntity]] if one was created, null otherwise
      */
-    function addTileEntity(x: number, y: number, z: number): TileEntity|null;
+    function addTileEntity(x: number, y: number, z: number): Nullable<TileEntity>;
 
     /**
      * If the block on the specified coordinates is a [[TileEntity]], destroys 

@@ -42,7 +42,7 @@ declare namespace ModAPI {
      * @returns API object if an API with specified was previously registered,
      * null otherwise
      */
-    function requireAPI(name: string): object|null;
+    function requireAPI(name: string): Nullable<object>;
 
     /**
      * Executes string in Core Engine's global context. Can be used to get 
@@ -64,7 +64,7 @@ declare namespace ModAPI {
      * @returns string description of the method or null if no description was
      * provided by API vendor
      */
-    function requireAPIPropertyDoc(name: string, prop: string): string|null;
+    function requireAPIPropertyDoc(name: string, prop: string): Nullable<string>;
 
     /**
      * @deprecated No longer supported

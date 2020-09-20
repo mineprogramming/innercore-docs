@@ -8,7 +8,7 @@ declare namespace Armor {
      * @param funcs 
      */
     function registerFuncs(id: string, funcs: {
-        tick: 
+        tick:
         /**
          * Called every tick if player wears the armor
          * @param item current armor item instance
@@ -18,8 +18,8 @@ declare namespace Armor {
          * false otherwise
          */
         (item: ItemInstance, index: number, maxDamage: number) => boolean,
-        
-        hurt: 
+
+        hurt:
         /**
          * Called when player deals damage if player wears the armor
          * @param params additional data about damage
@@ -35,7 +35,7 @@ declare namespace Armor {
          * @returns true, if changes to the item parameter should be applied, 
          * false otherwise
          */
-        (params: {attacker: number, damage: number, type: number, b1: boolean, b2: boolean}, 
+        (params: { attacker: number, damage: number, type: number, b1: boolean, b2: boolean },
             item: ItemInstance, index: number, maxDamage: number) => boolean
     }): void;
 

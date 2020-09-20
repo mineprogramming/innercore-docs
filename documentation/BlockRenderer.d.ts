@@ -67,7 +67,7 @@ declare namespace BlockRenderer {
          * of the box
          */
         addBox(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, descr: ModelTextureSet): void;
-        
+
         /**
          * Adds new box to the model using specified block texture name and id
          */

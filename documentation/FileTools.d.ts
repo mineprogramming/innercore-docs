@@ -59,7 +59,7 @@ declare namespace FileTools {
      * @param file home-relative or absolute path to the file
      * @returns file contents or null if file does not exist or not accessible
      */
-    function ReadText(file: any): string|null;
+    function ReadText(file: any): Nullable<string>;
 
     /**
      * Writes bitmap to png file
@@ -75,7 +75,7 @@ declare namespace FileTools {
      * @returns android.graphics.Bitmap object of the bitmup that was read from
      * file or null if file does not exist or is not accessible
      */
-    function ReadImage(file: string): android.graphics.Bitmap|null;
+    function ReadImage(file: string): Nullable<android.graphics.Bitmap>;
 
     /**
      * Reads string from asset by its full name
@@ -90,7 +90,7 @@ declare namespace FileTools {
      * @returns android.graphics.Bitmap object of the bitmup that was read from
      * asset or null, if asset doesn't exist
      */
-    function ReadImageAsset(name: string): android.graphics.Bitmap|null;
+    function ReadImageAsset(name: string): Nullable<android.graphics.Bitmap>;
 
     /**
      * Reads bytes array from assets

@@ -77,13 +77,13 @@ declare namespace Animation {
              * Transformation function name, one of [[Render.Transform]] class member 
              * functions names
              */
-            name: string, 
+            name: string,
             /**
              * Transformation function parameters, see [[Render.Transform]] functions
              * for details
              */
             params: any[]
-        } [], noClear: boolean): void;
+        }[], noClear: boolean): void;
 
         /**
          * Creates render if it was not previously created and applies all the 
@@ -161,7 +161,7 @@ declare namespace Animation {
     /**
      * Item animations are used to display items or blocks models in the world
      */
-    class Item extends Base{
+    class Item extends Base {
         /**
          * Constructs a new Item animation on the specified coordinates
          */
@@ -176,51 +176,51 @@ declare namespace Animation {
              * Item id
              */
             id: number,
-    
+
             /**
              * Item count, will be transform to display an appropriate animation
              */
             count?: number,
-    
+
             /**
              * Item data
              */
             data?: number,
-    
+
             /**
              * Item extra
              */
             extra?: ItemExtraData,
-    
+
             /**
              * Whether the item should be in glint state or not
              */
             glint?: boolean,
-    
+
             /**
              * Item/block size, default is 0.5
              */
             size?: number,
-    
+
             /**
              * If true, the position of the item will not be randomized
              */
             notRandomize?: boolean,
-    
+
             /**
              * If string "x" is passed, the item is rotated 90 along x axis, if
              * "z" is passed, the item is rotated 90 along z axis, otherwise the
              * item is rotated according to the rotation array along all the three 
              * axes
              */
-            rotation?: string|[number, number, number],
-    
+            rotation?: string | [number, number, number],
+
             /**
              * Skin name to be used for the render. If no skin is passed, default 
              * item skin is used
              */
             skin?: string,
-            
+
 
             /**
              * Shader material name

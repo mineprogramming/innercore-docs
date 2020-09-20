@@ -6,19 +6,19 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
      * Creates new entity AI type
      * @param customPrototype AI type prototype
      */
-    public constructor(customPrototype: EntityAIClass.EntityAIPrototype);
+    constructor(customPrototype: EntityAIClass.EntityAIPrototype);
 
     /**
      * Sets execution timer time in ticks. AI will be executed specified 
      * number of ticks
      * @param timer execution time in ticks
      */
-    public setExecutionTimer(timer: number): void;
+    setExecutionTimer(timer: number): void;
 
     /**
      * Resets execution timer so that AI is executed with no time limits
      */
-    public removeExecutionTimer(): void;
+    removeExecutionTimer(): void;
 
     
     /**
@@ -28,41 +28,41 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
      * 
      * TODO: add link to AI controller type
      */
-    public isInstance: boolean;
+    isInstance: boolean;
 
     /**
      * TODO: determine type
      */
-    public parent: any|null;
+    parent: any;
 
     /**
      * Id of the entity that uses this AI type instance or null if it is 
      * the pattern
      */
-    public entity: number|null;
+    entity?: number;
 
     /**
      * Method that is called to create AI type instance using current 
      * instance as pattern
      */
-    public instantiate(parent: any, name: string): EntityAIClass;
+    instantiate(parent: any, name: string): EntityAIClass;
 
     /**
      * Occurs when entity this instance is assigned to this AI type 
      * instance, if you override this method, be sure to assign entity 
      * to [[EntityAIClass.EntityAIPrototype]]
      */
-    public aiEntityChanged(entity: number): void;
+    aiEntityChanged(entity: number): void;
 
     /**
      * Finishes AI execution and disables it in parent controller
      */
-    public finishExecution(): void;
+    finishExecution(): void;
 
     /**
      * Changes own priority in parent's controller
      */
-    public changeSelfPriority(priority: number): void;
+    changeSelfPriority(priority: number): void;
 
     /**
      * Enables any AI by its name in the controller
@@ -70,37 +70,37 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
      * @param priority priority to be set to the enabled AI
      * @param extra some extra data passed to 
      */
-    public enableAI(name: string, priority: number, extra: any): void;
+    enableAI(name: string, priority: number, extra: any): void;
     
     /**
      * Disables any AI by its name in the controller
      * @param name AI name to be disabled
      */
-    public disableAI(name: string): void;
+    disableAI(name: string): void;
 
     /**
      * Sets any AI priority by its name in the controller
      * @param name AI name to change priority
      * @param pripority priority to be set to the AI
      */
-    public setPriority(name: string, pripority: number): void;
+    setPriority(name: string, pripority: number): void;
 
     /**
      * Gets any AI object by its name from the current controller
      * @param name AI name
      */
-    public getAI(name: string): EntityAIClass;
+    getAI(name: string): EntityAIClass;
 
     /**
      * Gets any AI priority from the current controller by AI name
      * @param name AI name
      */
-    public getPriority(name: string): number;
+    getPriority(name: string): number;
     
     /**
      * @returns AI type's default name
      */
-    public setParams(params: object): void;
+    setParams(params: object): void;
 
     /**
      * All the parameters of the AI instance
