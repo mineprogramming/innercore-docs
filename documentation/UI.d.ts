@@ -1984,9 +1984,33 @@ declare namespace UI {
          */
         scale: number;
 
+        /**
+         * Bitmap of [[UIElement]]
+         */
         bitmap?: string;
+
+        /**
+         * Second bitmap of [[UIElement]]
+         * Visible only if [[UIElement]] is touched
+         */
         bitmap2?: string;
-        clicker?: UIClickEvent
+
+        /**
+         * On click event of [[UIElement]]
+         */
+        clicker?: UIClickEvent,
+
+        /**
+         * Direction of [[UIElement]]
+         * Works only if [[type]] equals "scale"
+         */
+        direction?: number,
+
+        /**
+         * Overlay bitmap of [[UIElement]]
+         * Works only if [[type]] equals "scale"
+         */
+        overlay?: string
     }
 
 
