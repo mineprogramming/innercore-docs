@@ -16,4 +16,5 @@ declare class BlockSource {
 
     static getDefaultForDimension(dimension: number): Nullable<BlockSource>;
     static getDefaultForActor(entityUid: number): Nullable<BlockSource>;
+    static getCurrentWorldGenRegion(): Nullable<BlockSource>;
 }
