@@ -231,6 +231,11 @@ declare namespace World {
     function canSeeSky(x: number, y: number, z: number): boolean;
 
     /**
+     * @returns true, if tilecan be replaced (for example, grass and water can be replaced), false otherwise
+     */
+    function canTileBeReplaced(id: number, data: number): boolean;
+
+    /**
      * Plays standart Minecraft sound on the specified coordinates
      * @param name sound name
      * @param volume sound volume from 0 to 1
