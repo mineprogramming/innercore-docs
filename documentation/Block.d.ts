@@ -403,7 +403,7 @@ declare namespace Block {
          * should be in the format: *name_data*, e.g. if the file name is 
          * *ignot_copper_0*, you should specifiy an array 
          * ```js 
-         * ["ignot_copper", 0]
+         * ["ingot_copper", 0]
          * ```
          * There should be from one to six texture 
          * pairs in the array, if less then six variations are specified, the 
@@ -411,16 +411,16 @@ declare namespace Block {
          * following order:
          * ```js 
          * texture: [
-         *   ["название1", индекс1], // bottom
-         *   ["название2", индекс2], // top
-         *   ["название3", индекс3], // back
-         *   ["название4", индекс4], // front
-         *   ["название5", индекс5], // left
-         *   ["название6", индекс6]  // right
+         *   ["название1", индекс1], // bottom (Y: -1)
+         *   ["название2", индекс2], // top (Y: +1)
+         *   ["название3", индекс3], // back (X: -1)
+         *   ["название4", индекс4], // front (X: +1)
+         *   ["название5", индекс5], // left (Z: -1)
+         *   ["название6", индекс6]  // right (Z: +1)
          * ]
          * ```
          */
-        textures: [string, number][]
+        texture: [string, number][]
 
         /**
          * If true, block variation will be added to creative inventory
