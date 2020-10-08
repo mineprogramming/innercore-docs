@@ -69,6 +69,8 @@ declare namespace Block {
      */
     function registerDropFunctionForID(numericID: number, dropFunc: DropFunction, level?: number): boolean;
 
+    function registerEntityInsideFunctionForID(numericID: number, entityinsideFunc: EntityInsideFunction): void
+
     /**
      * Registers function used by Core Engine to determine block drop for the 
      * specified block id
@@ -440,6 +442,10 @@ declare namespace Block {
      */
     interface DropFunction {
         (blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number): [number, number, number][]
+    }
+
+    interface EntityInsideFunction {
+        (blockCoords: Vector, block: Tile, entity: number): void
     }
 
     /**
