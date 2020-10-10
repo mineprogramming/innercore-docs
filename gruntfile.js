@@ -25,7 +25,7 @@ module.exports = function (grunt) {
                     readme: 'readme.md',
                     theme: 'pages-plugin',
                     listInvalidSymbolLinks: 'true',
-                    'sourcefile-url-prefix': 'https://github.com/zheka2304/innercore-mod-toolchain/tree/master/toolchain-mod/toolchain/jslibs/'
+                    'sourcefile-url-prefix': 'https://github.com/zheka2304/innercore-mod-toolchain/tree/master/toolchain-mod/toolchain/declarations/'
                 },
                 src: ['headers/core-engine.d.ts']
             }
