@@ -71,14 +71,14 @@ declare function IMPORT_NATIVE(name: string, target: object): any;
  * @param name name of the module, as registered from native code
  * @returns js module, implemented in native (C++) code 
  */
-declare function WRAP_NATIVE(name: string): object;
+declare function WRAP_NATIVE<T = any>(name: string): T;
 
 /**
  * Allows to create new JS modules imported from Java code and use it in the mod
  * @param name name of the module, as registered from Java code
  * @returns js module, implemented in Java code 
  */
-declare function WRAP_JAVA(name: string): object;
+declare function WRAP_JAVA<T = any>(name: string): T;
 
 /**
  * @returns current Core Engine API level
