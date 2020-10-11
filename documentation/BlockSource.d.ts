@@ -3,6 +3,8 @@ declare class BlockSource {
     getBlockId(x: number, y: number, z: number): number;
     getBlockData(x: number, y: number, z: number): number;
     setBlock(x: number, y: number, z: number, id: number, data: number): number;
+    destroyBlock(x: number, y: number, z: number): void;
+    destroyBlock(x: number, y: number, z: number, drop: boolean): void;
     getBlockEntity(x: number, y: number, z: number): NativeTileEntity;
     getBiome(x: number, z: number): number;
     setBiome(x: number, z: number, biomeID: number): void;
