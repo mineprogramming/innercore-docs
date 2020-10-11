@@ -441,7 +441,7 @@ declare namespace Block {
      * id, count and data respectively
      */
     interface DropFunction {
-        (blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number): [number, number, number][]
+        (blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, region: BlockSource): [number, number, number][]
     }
 
     interface EntityInsideFunction {
@@ -458,7 +458,7 @@ declare namespace Block {
      * @param i unknown integer param
      */
     interface PopResourcesFunction {
-        (blockCoords: Vector, block: Tile, f: number, i: number): void
+        (blockCoords: Vector, block: Tile, region: BlockSource): void
     }
 
 
@@ -472,7 +472,7 @@ declare namespace Block {
      * default placement
      */
     interface PlaceFunction {
-        (coords: Callback.ItemUseCoordinates, item: ItemInstance, block: Tile): Vector | void
+        (coords: Callback.ItemUseCoordinates, item: ItemInstance, block: Tile, player: number, region: BlockSource): Vector | void
     }
 
 
@@ -485,7 +485,7 @@ declare namespace Block {
      * @param data block data
      */
     interface RandomTickFunction {
-        (x: number, y: number, z: number, id: number, data: number): void
+        (x: number, y: number, z: number, id: number, data: number, region: BlockSource): void
     }
 
 
@@ -502,6 +502,6 @@ declare namespace Block {
     }
 
     interface NeighourChangeFunction {
-        (coords: Vector, block: Tile, changedCoords: Vector): void
+        (coords: Vector, block: Tile, changedCoords: Vector, region: BlockSource): void
     }
 }
