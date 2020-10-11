@@ -42,7 +42,7 @@ declare namespace TileEntity {
      */
     function isTileEntityLoaded(tileEntity: TileEntity): boolean;
 
-    
+
     /**
      * Interface passed to [[TileEntity.registerPrototype]] function
      */
@@ -50,7 +50,7 @@ declare namespace TileEntity {
         /**
          * Default data values, will be initially added to [[TileEntity.data]] field
          */
-        defaultValues?: {[key: string]: any},
+        defaultValues?: { [key: string]: any },
 
         /**
          * Called when a [[TileEntity]] is created
@@ -73,7 +73,7 @@ declare namespace TileEntity {
          * the next handlers. E.g. return true if you don't want the user interface 
          * to be opened
          */
-        click?: (id: number, count: number, data: number, coords: Callback.ItemUseCoordinates) => boolean|void,
+        click?: (id: number, count: number, data: number, coords: Callback.ItemUseCoordinates, player: number) => boolean | void,
 
         /**
          * Occurs when a block of the [[TileEntity]] is being destroyed. See
@@ -85,21 +85,21 @@ declare namespace TileEntity {
          * Occurs when the [[TileEntity]] should handle redstone signal. See 
          * [[Callback.RedstoneSignalFunction]] for details
          */
-        redstone?: (params: {power: number, signal: number, onLoad: boolean}) => void,
-        
+        redstone?: (params: { power: number, signal: number, onLoad: boolean }) => void,
+
         /**
          * Occurs when a projectile entity hits the [[TileEntity]]. See
          * [[Callback.ProjectileHitFunction]] for details
          */
         projectileHit?: (coords: Callback.ItemUseCoordinates, target: Callback.ProjectileHitTarget) => void,
-        
+
         /**
          * Occurs when the [[TileEntity]] is being destroyed
          * @returns true to prevent 
          * [[TileEntity]] object from destroying (but if the block was destroyed, returning 
          * true from this function doesn't replace the missing block with a new one)
          */
-        destroy?: () => boolean|void;
+        destroy?: () => boolean | void;
 
         /**
          * Called to get the [[UI.IWindow]] object for the current [[TileEntity]]. The 
@@ -125,7 +125,7 @@ declare interface TileEntity {
     readonly y: number,
     readonly z: number,
     readonly dimension: number
-    data: {[key: string]: any},
+    data: { [key: string]: any },
     container: UI.Container,
     liquidStorage: any,
     selfDestroy: () => void;
