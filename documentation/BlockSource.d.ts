@@ -8,7 +8,9 @@ declare class BlockSource {
     setBiome(x: number, z: number, biomeID: number): void;
     getBiomeTemperatureAt(x: number, y: number, z: number): number;
     isChunkLoaded(chunkX: number, chunkZ: number): boolean;
+    isChunkLoadedAt(x: number, z: number): boolean;
     getChunkState(chunkX: number, chunkZ: number): number;
+    getChunkStateAt(x: number, z: number): number;
     canSeeSky(x: number, y: number, z: number): boolean;
     getGrassColor(x: number, y: number, z: number): number;
     spawnDroppedItem(x: number, y: number, z: number, id: number, count: number, data: number, extra: ItemExtraData): number;
