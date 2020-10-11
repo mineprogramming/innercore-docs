@@ -179,7 +179,7 @@ declare namespace Callback {
      * @param i2 some integer
      */
     interface BlockChangedFunction {
-        (coords: Vector, oldBlock: Tile, newBlock: Tile, i1: number, i2: number): void
+        (coords: Vector, oldBlock: Tile, newBlock: Tile, region: BlockSource): void
     }
 
 
@@ -193,7 +193,7 @@ declare namespace Callback {
      * else by local player
      */
     interface ItemUseFunction {
-        (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, isExternal: boolean | undefined): void
+        (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, player: number): void
     }
 
     /**
@@ -378,7 +378,7 @@ declare namespace Callback {
      * @param ticks amount of ticks player kept touching screen
      */
     interface ItemUseNoTargetFunction {
-        (item: ItemInstance, ticks: number): void
+        (item: ItemInstance, player: number): void
     }
 
 
@@ -388,7 +388,7 @@ declare namespace Callback {
      * @param ticks amount of ticks left to the specified max use duration value
      */
     interface ItemUsingReleasedFunction {
-        (item: ItemInstance, ticks: number): void
+        (item: ItemInstance, ticks: number, player: number): void
     }
 
 
@@ -397,7 +397,7 @@ declare namespace Callback {
      * @param item item that was in the player's hand when the event occured
      */
     interface ItemUsingCompleteFunction {
-        (item: ItemInstance): void
+        (item: ItemInstance, player: number): void
     }
 
 
@@ -407,7 +407,7 @@ declare namespace Callback {
      * @param item item that was dispensed
      */
     interface ItemDispensedFunction {
-        (coords: ItemUseCoordinates, item: ItemInstance): void
+        (coords: ItemUseCoordinates, item: ItemInstance, player: number): void
     }
 
 
