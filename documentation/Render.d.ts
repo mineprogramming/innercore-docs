@@ -74,7 +74,7 @@ declare class Render {
      */
     setTextureResolution(...params: any): void;
 
-    
+
 }
 
 declare namespace Render {
@@ -116,14 +116,14 @@ declare namespace Render {
         /**
          * Box texture offset
          */
-        uv?: {x: number, y: number},
+        uv?: { x: number, y: number },
 
         /**
          * Box size
          * @param w aditional size to be added from all the six sizes of the 
          * box
          */
-        size: {x: number, y: number, z: number, w?: number},
+        size: { x: number, y: number, z: number, w?: number },
 
         /**
          * Specifies child elements, using current box coordinates as base for the
@@ -141,25 +141,25 @@ declare namespace Render {
          * @returns reference to itself to be used in sequential calls
          */
         clear(): Transform;
-        
+
         /**
          * 
          * @returns reference to itself to be used in sequential calls
          */
         lock(): Transform;
-        
+
         /**
          * 
          * @returns reference to itself to be used in sequential calls
          */
         unlock(): Transform;
-        
+
         /**
          * Performs arbitrary matrix transformations on the render
          * @returns reference to itself to be used in sequential calls
          */
         matrix(f0: number, f1: number, f2: number, f3: number, f4: number, f5: number, f6: number, f7: number, f8: number, f9: number, f10: number, f11: number, f12: number, f13: number, f14: number, f15: number): Transform;
-        
+
         /**
          * Scales render along the three axes
          * @returns reference to itself to be used in sequential calls
@@ -311,19 +311,19 @@ declare namespace Render {
     }
 
     interface ShaderUniformSet {
-        
+
         /**
          * 
          * @returns reference to itself to be used in sequential calls
          */
         lock(): ShaderUniformSet;
-        
+
         /**
          * 
          * @returns reference to itself to be used in sequential calls
          */
         unlock(): ShaderUniformSet;
-        
+
         /**
          * 
          * @param uniformSet 
@@ -332,7 +332,7 @@ declare namespace Render {
          * @returns reference to itself to be used in sequential calls
          */
         setUniformValue(uniformSet: string, uniformName: string, ...values: number[]): ShaderUniformSet;
-        
+
         /**
          * 
          * @param uniformSet 

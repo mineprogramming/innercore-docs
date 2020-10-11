@@ -29,7 +29,7 @@ declare namespace World {
      * @returns relative coordinates
      */
     function getRelativeCoords(x: number, y: number, z: number, side: number): Vector;
-   
+
     /**
      * Sets block in the world using its tile id and data
      * @param id block tile id
@@ -133,7 +133,7 @@ declare namespace World {
      * its container, if the block is a [[NativeTileEntity]], returns it, if 
      * none of above, returns null
      */
-    function getContainer(x: number, y: number, z: number): NativeTileEntity|UI.Container|null;
+    function getContainer(x: number, y: number, z: number): NativeTileEntity | UI.Container | null;
 
     /**
      * @returns current world's time in ticks 
@@ -268,7 +268,7 @@ declare namespace World {
      * occurs involving one of the blocks. **Warning!** If both old and new 
      * blocks are in the ids list, callback funciton will be called twice.
      */
-    function registerBlockChangeCallback(ids: number|string|(string|number)[], callback: Callback.BlockChangedFunction): void;
+    function registerBlockChangeCallback(ids: number | string | (string | number)[], callback: Callback.BlockChangedFunction): void;
 
     /**
      * Gets biome on the specified coordinates when generating biome map. 

@@ -97,7 +97,7 @@ declare function runOnMainThread(func: () => void): void;
  * @param array array containing three version numbers
  * @param main version number, calculated as *array[0] * 17 + array[1]*
  */
-declare function getMCPEVersion(): {str: string, array: number[], main: number};
+declare function getMCPEVersion(): { str: string, array: number[], main: number };
 
 /**
  * Displays android.widget.Toast with specified message. If this function is called

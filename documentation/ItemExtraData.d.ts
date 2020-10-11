@@ -22,7 +22,7 @@ declare class ItemExtraData {
 	 * Sets item's custom name
 	 */
 	setCustomName(name: string): void;
-	
+
 	/**
 	 * @returns true if the item is enchanted, false otherwise
 	 */
@@ -78,15 +78,15 @@ declare class ItemExtraData {
 	 * Puts some custom integer parameter to the extra data of the item
 	 * @param name parameter name
 	 * @param value parameter value
-     * @returns reference to itself to be used in sequential calls
+	 * @returns reference to itself to be used in sequential calls
 	 */
 	putInt(name: string, value: number): ItemExtraData;
-	
+
 	/**
 	 * Puts some custom long integer parameter to the extra data of the item
 	 * @param name parameter name
 	 * @param value parameter value
-     * @returns reference to itself to be used in sequential calls
+	 * @returns reference to itself to be used in sequential calls
 	 */
 	putLong(name: string, value: number): ItemExtraData;
 
@@ -94,7 +94,7 @@ declare class ItemExtraData {
 	 * Puts some custom number parameter to the extra data of the item
 	 * @param name parameter name
 	 * @param value parameter value
-     * @returns reference to itself to be used in sequential calls
+	 * @returns reference to itself to be used in sequential calls
 	 */
 	putFloat(name: string, value: number): ItemExtraData;
 
@@ -102,7 +102,7 @@ declare class ItemExtraData {
 	 * Puts some custom string parameter to the extra data of the item
 	 * @param name parameter name
 	 * @param value parameter value
-     * @returns reference to itself to be used in sequential calls
+	 * @returns reference to itself to be used in sequential calls
 	 */
 	putString(name: string, value: string): ItemExtraData;
 
@@ -110,7 +110,7 @@ declare class ItemExtraData {
 	 * Puts some custom boolean parameter to the extra data of the item
 	 * @param name parameter name
 	 * @param value parameter value
-     * @returns reference to itself to be used in sequential calls
+	 * @returns reference to itself to be used in sequential calls
 	 */
 	putBoolean(name: string, value: boolean): ItemExtraData;
 
@@ -131,7 +131,7 @@ declare class ItemExtraData {
 	 * one, fallback value otherwise
 	 */
 	getLong(name: string, fallback?: number): number;
-	
+
 	/**
 	 * @param name parameter name
 	 * @param fallback default value to be returned if item extra data doesn't 
@@ -140,7 +140,7 @@ declare class ItemExtraData {
 	 * one, fallback value otherwise
 	 */
 	getFloat(name: string, fallback?: number): number;
-	
+
 	/**
 	 * @param name parameter name
 	 * @param fallback default value to be returned if item extra data doesn't 
@@ -149,7 +149,7 @@ declare class ItemExtraData {
 	 * one, fallback value otherwise
 	 */
 	getString(name: string, fallback?: string): string;
-	
+
 	/**
 	 * @param name parameter name
 	 * @param fallback default value to be returned if item extra data doesn't 
@@ -169,19 +169,19 @@ declare class ItemExtraData {
 	 * @returns a created copy of the data
 	 */
 	copy(): ItemExtraData;
-	
+
 	/**
 	 * @returns true, if item extra exists and is not empty
 	 */
 	isEmpty(): boolean;
 
-    /**
-     * @returns compound tag for the specified item
-     */
-    getCompoundTag(ent: number): NBT.CompoundTag;
+	/**
+	 * @returns compound tag for the specified item
+	 */
+	getCompoundTag(ent: number): NBT.CompoundTag;
 
-    /**
-     * Sets compound tag for the specified item
-     */
-    setCompoundTag(ent: number, tag: NBT.CompoundTag): void;
+	/**
+	 * Sets compound tag for the specified item
+	 */
+	setCompoundTag(ent: number, tag: NBT.CompoundTag): void;
 }

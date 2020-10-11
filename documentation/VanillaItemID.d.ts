@@ -1,7 +1,7 @@
 /**
  * Numeric IDs of vanilla items
  */
-declare enum VanillaItemID{
+declare enum VanillaItemID {
     record_11 = 510,
     record_ward = 509,
     cooked_rabbit = 412,

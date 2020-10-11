@@ -1,6 +1,6 @@
 declare namespace MobRegistry {
-    namespace customEntities {}
-    namespace loadedEntities {}
+    namespace customEntities { }
+    namespace loadedEntities { }
 
     function registerEntity(name: any): any;
 
@@ -18,7 +18,7 @@ declare namespace MobRegistry {
 }
 
 declare namespace MobSpawnRegistry {
-    namespace spawnData {}
+    namespace spawnData { }
 
     function registerSpawn(entityType: any, rarity: number, condition: any, denyNaturalDespawn: any): any;
 

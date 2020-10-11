@@ -1,7 +1,7 @@
 /**
  * Numeric IDs of vanilla blocks in the inventory
  */
-declare enum VanillaBlockID{
+declare enum VanillaBlockID {
     element_117 = -128,
     element_115 = -126,
     element_114 = -125,

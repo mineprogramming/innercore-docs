@@ -7,7 +7,7 @@ declare namespace Item {
      * @returns item numeric id by its string id or just returns its numeric id 
      * if input was a numeric id
      */
-    function getNumericId(id: string|number): number;
+    function getNumericId(id: string | number): number;
 
     /**
      * Gets NativeItem instance that can be used to apply some properties to the
@@ -30,7 +30,7 @@ declare namespace Item {
      * @param params.isTech if true, the item will not be added to creative. 
      * Default value is false
      */
-    function createItem(nameID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean}): NativeItem;
+    function createItem(nameID: string, name: string, texture: TextureData, params?: { stack?: number, isTech?: boolean }): NativeItem;
 
     /**
      * Creates eatable item using specified parameters
@@ -47,7 +47,7 @@ declare namespace Item {
      * @param params.food amount of hunger restored by this food. Default value
      * is 1
      */
-    function createFoodItem(nameID: string, name: string, texture: TextureData, params?: {stack?: number, isTech?: boolean, food?: number}): NativeItem;
+    function createFoodItem(nameID: string, name: string, texture: TextureData, params?: { stack?: number, isTech?: boolean, food?: number }): NativeItem;
 
     /**
      * @deprecated Use [[Item.createItem]] and [[Recipes.addFurnaceFuel]]
@@ -74,7 +74,7 @@ declare namespace Item {
      * @param params.type armor type, should be one of the 'helmet', 
      * 'chestplate', 'leggings' or 'boots'
      */
-    function createArmorItem(nameID: string, name: string, texture: TextureData, params: {type: string, armor: number, durability: number, texture: string, isTech?: boolean}): void;
+    function createArmorItem(nameID: string, name: string, texture: TextureData, params: { type: string, armor: number, durability: number, texture: string, isTech?: boolean }): void;
 
     /**
      * Creates throwable item using specified parameters
@@ -130,7 +130,7 @@ declare namespace Item {
      * @param count amount of the item to be added, generally should be 1
      * @param data item data
      */
-    function addToCreative(id: number|string, count: number, data: number): void;
+    function addToCreative(id: number | string, count: number, data: number): void;
 
     /**
      * Applies several properties via one method call
@@ -148,7 +148,7 @@ declare namespace Item {
      * @param category item category, should be one of the 
      * [[Native.ItemCategory]] values
      */
-    function setCategory(id: number|string, category: number): void;
+    function setCategory(id: number | string, category: number): void;
 
     /**
      * Specifies how the item can be enchanted
@@ -158,14 +158,14 @@ declare namespace Item {
      * @param value quality of the enchants that are applied, the higher this 
      * value is, the better enchants you get with the same level
      */
-    function setEnchantType(id: number|string, enchant: number, value: number): void;
+    function setEnchantType(id: number | string, enchant: number, value: number): void;
 
     /**
      * Specifies what items can be used to repair this item in the envil
      * @param id string or numeric item id
      * @param items array of numeric item ids to be used as repair items
      */
-    function addRepairItemIds(id: number|string, items: number[]): void;
+    function addRepairItemIds(id: number | string, items: number[]): void;
 
     /**
      * Specifies how the player should hold the item
@@ -173,33 +173,33 @@ declare namespace Item {
      * @param enabled if true, player holds the item as a tool, not as a simple
      * item
      */
-    function setToolRender(id: number|string, enabled: boolean): void;
+    function setToolRender(id: number | string, enabled: boolean): void;
 
     /**
      * Sets item maximum data value
      * @param id string or numeric item id
      * @param maxdamage maximum data value for the item
      */
-    function setMaxDamage(id: number|string, maxdamage: number): void;
+    function setMaxDamage(id: number | string, maxdamage: number): void;
 
     /**
      * Sets item as glint (like enchanted tools or golden apple)
      * @param id string or numeric item id
      * @param enabled if true, the item will be displayed as glint item
      */
-    function setGlint(id: number|string, enabled: boolean): void;
+    function setGlint(id: number | string, enabled: boolean): void;
 
     /**
      * 
      * @param id string or numeric item id
      * @param enabled 
      */
-    function setLiquidClip(id: number|string, enabled: boolean): void;
+    function setLiquidClip(id: number | string, enabled: boolean): void;
 
     /** 
      * @deprecated No longer supported
      */
-    function setStackedByData(id: number|string, enabled: boolean): void;
+    function setStackedByData(id: number | string, enabled: boolean): void;
 
     /**
      * Sets additional properties for the item, uses Minecraft mechanisms to
@@ -207,7 +207,7 @@ declare namespace Item {
      * @param id string or numeric item id
      * @param props JSON string containing some of the properties
      */
-    function setProperties(id: number|string, props: string): void;
+    function setProperties(id: number | string, props: string): void;
 
     /**
      * Sets animation type for the item
@@ -215,14 +215,14 @@ declare namespace Item {
      * @param animType use animation type, one of the [[Native.ItemAnimation]] 
      * values
      */
-    function setUseAnimation(id: number|string, animType: number): void;
+    function setUseAnimation(id: number | string, animType: number): void;
 
     /**
      * Limits maximum use duration. This is useful to create such items as bows
      * @param id string or numeric item id
      * @param duration maximum use duration in ticks
      */
-    function setMaxUseDuration(id: number|string, duration: number): void;
+    function setMaxUseDuration(id: number | string, duration: number): void;
 
     /**
      * Same as [[Item.registerUseFunction]], but supports numeric ids only
@@ -235,7 +235,7 @@ declare namespace Item {
      * @param nameID string or numeric id of the item
      * @param useFunc function that is called when such an event occures
      */
-    function registerUseFunction(nameID: string|number, useFunc: Callback.ItemUseFunction): void;
+    function registerUseFunction(nameID: string | number, useFunc: Callback.ItemUseFunction): void;
 
     /**
      * Same as [[Item.registerThrowableFunction]], but supports numeric ids only
@@ -248,7 +248,7 @@ declare namespace Item {
      * @param nameID string or numeric id of the item
      * @param useFunc function that is called when such an event occures
      */
-    function registerThrowableFunction(nameID: string|number, useFunc: Callback.ProjectileHitFunction): void;
+    function registerThrowableFunction(nameID: string | number, useFunc: Callback.ProjectileHitFunction): void;
 
     /**
      * Registers item id as requiring item icon override and registers function 
@@ -258,7 +258,7 @@ declare namespace Item {
      * [[Item.TextureData]] object to be used for the item. See 
      * [[Callback.ItemIconOverrideFunction]] documentation for details
      */
-    function registerIconOverrideFunction(nameID: string|number, func: Callback.ItemIconOverrideFunction): void;
+    function registerIconOverrideFunction(nameID: string | number, func: Callback.ItemIconOverrideFunction): void;
 
     /**
      * Registers function to perform item name override
@@ -266,7 +266,7 @@ declare namespace Item {
      * @param func function that is called to override item name. Should return 
      * string to be used as new item name
      */
-    function registerNameOverrideFunction(nameID: string|number, func: Callback.ItemNameOverrideFunction): void;
+    function registerNameOverrideFunction(nameID: string | number, func: Callback.ItemNameOverrideFunction): void;
 
     /**
      * Registers function to be called when player uses item in the air (not on
@@ -274,7 +274,7 @@ declare namespace Item {
      * @param nameID string or numeric id of the item
      * @param func function that is called when such an event occures
      */
-    function registerNoTargetUseFunction(nameID: string|number, func: Callback.ItemUseNoTargetFunction): void;
+    function registerNoTargetUseFunction(nameID: string | number, func: Callback.ItemUseNoTargetFunction): void;
 
     /**
      * Registers function to be called when player doesn't complete using item 
@@ -283,7 +283,7 @@ declare namespace Item {
      * @param nameID string or numeric id of the item
      * @param func function that is called when such an event occures
      */
-    function registerUsingReleasedFunction(nameID: string|number, func: Callback.ItemUsingReleasedFunction): void;
+    function registerUsingReleasedFunction(nameID: string | number, func: Callback.ItemUsingReleasedFunction): void;
 
     /**
      * Registers function to be called when player completes using item 
@@ -291,22 +291,22 @@ declare namespace Item {
      * @param nameID string or numeric id of the item
      * @param func function that is called when such an event occures
      */
-    function registerUsingCompleteFunction(nameID: string|number, func: Callback.ItemUsingCompleteFunction): void;
+    function registerUsingCompleteFunction(nameID: string | number, func: Callback.ItemUsingCompleteFunction): void;
 
     /**
      * Registers function to be called when item is dispensed from dispenser. 
      * @param nameID string or numeric id of the item
      * @param func function that is called when such an event occures
      */
-    function registerDispenseFunction(nameID: string|number, func: Callback.ItemDispensedFunction): void;
+    function registerDispenseFunction(nameID: string | number, func: Callback.ItemDispensedFunction): void;
 
-	/**
+    /**
      * Creates group of creative items.
      * @param name name of group
      * @param displayedName name of group in game
      * @param ids array of items in group
      */
-	function addCreativeGroup(name: string, displayedName: string, ids: number[]): void
+    function addCreativeGroup(name: string, displayedName: string, ids: number[]): void
 
     /**
      * @deprecated Should not be used in new mods, consider using [[Item]] 

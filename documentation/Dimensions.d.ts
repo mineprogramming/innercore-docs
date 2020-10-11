@@ -236,13 +236,13 @@ declare namespace Dimensions {
      */
     interface TerrainMaterial {
 
-        setBase(id: number, data: number): TerrainMaterial; 
+        setBase(id: number, data: number): TerrainMaterial;
 
-        setCover(id: number, data: number): TerrainMaterial; 
+        setCover(id: number, data: number): TerrainMaterial;
 
-        setSurface(width: number, id: number, data: number): TerrainMaterial; 
+        setSurface(width: number, id: number, data: number): TerrainMaterial;
 
-        setFilling(width: number, id: number, data: number): TerrainMaterial; 
+        setFilling(width: number, id: number, data: number): TerrainMaterial;
 
         setDiffuse(value: number): TerrainMaterial;
     }
@@ -310,7 +310,7 @@ declare namespace Dimensions {
          * **"sine_xz"** (15) 
          * **"sine_xyz"** (16)
          */
-        constructor(type?: number|string);
+        constructor(type?: number | string);
 
         setTranslate(x: number, y: number, z: number): NoiseOctave;
 
@@ -374,7 +374,7 @@ declare namespace Dimensions {
          * Specifies base generator, see [[CustomGenerator.constructor]] for 
          * details
          */
-        base: number|string,
+        base: number | string,
         /**
          * Specifies whether to use vanilla biome surface cover blocks (grass, 
          * sand, podzol, etc.).
@@ -391,7 +391,7 @@ declare namespace Dimensions {
          * "nether", "end") or -1 to disable mods generation. 
          * See [[CustomGenerator.setModGenerationBaseDimension]] for details
          */
-        modWorldgenDimension: number|string,
+        modWorldgenDimension: number | string,
         /**
          * Specifies what generator type to use. Default and the only currently
          * available option is "mono", that is equivalent to creating a 
@@ -416,15 +416,15 @@ declare namespace Dimensions {
     interface TerrainLayerParams {
         minY: number,
         maxY: number,
-        noise?: NoiseOctaveParams|NoiseLayerParams|NoiseGeneratorParams,
-        heightmap?: NoiseOctaveParams|NoiseLayerParams|NoiseGeneratorParams,
+        noise?: NoiseOctaveParams | NoiseLayerParams | NoiseGeneratorParams,
+        heightmap?: NoiseOctaveParams | NoiseLayerParams | NoiseGeneratorParams,
         yConversion?: NoiseConversionParams,
         material?: TerrainMaterialParams,
         materials?: TerrainMaterialParams[],
     }
 
     interface TerrainMaterialParams {
-        noise?: NoiseOctaveParams|NoiseLayerParams|NoiseGeneratorParams,
+        noise?: NoiseOctaveParams | NoiseLayerParams | NoiseGeneratorParams,
         base?: MaterialBlockData,
         cover?: MaterialBlockData,
         surface?: MaterialBlockData,
@@ -454,7 +454,7 @@ declare namespace Dimensions {
          * Noise octave type, **"perlin"** is default one. See [[NoiseOctave.constructor]]
          * for details
          */
-        type?: number|string,
+        type?: number | string,
         scale?: Vec3Data,
         weight?: number,
         seed?: number,
@@ -463,18 +463,18 @@ declare namespace Dimensions {
 
     type NoiseConversionParams = string | Vec2Data[];
 
-    type MaterialBlockData = 
+    type MaterialBlockData =
         [number, number?, number?] |
-        {id: number, data?: number, width?: number} |
-        number;
-        
-    type Vec3Data =
-        [number, number, number] |
-        {x: number, y: number, z: number} |
+        { id: number, data?: number, width?: number } |
         number;
 
-    type Vec2Data = 
+    type Vec3Data =
+        [number, number, number] |
+        { x: number, y: number, z: number } |
+        number;
+
+    type Vec2Data =
         [number, number] |
-        {x: number, y: number} |
+        { x: number, y: number } |
         number
 }

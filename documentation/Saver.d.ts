@@ -45,20 +45,20 @@ declare namespace Saver {
      * Function that returns object representing created scope. No 
      * primitives are allowed as return value
      */
-    type SaveScopeFunc = 
-    /**
-     * @returns saved data
-     */
-    () => object;
+    type SaveScopeFunc =
+        /**
+         * @returns saved data
+         */
+        () => object;
 
     /**
      * Function that loads data from scope
      */
-    type LoadScopeFunc = 
-    /**
-     * @param scope data 
-     */
-    (scope: Nullable<object>) => void;
+    type LoadScopeFunc =
+        /**
+         * @param scope data 
+         */
+        (scope: Nullable<object>) => void;
 
     /**
      * Interface that should be implemented to pass the object as 

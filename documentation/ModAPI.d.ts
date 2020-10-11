@@ -11,8 +11,8 @@ declare namespace ModAPI {
      * that provides such possibility: 
      * ```ts
      * requireGlobal: function(command){
-	 *     return eval(command);
-	 * }
+     *     return eval(command);
+     * }
      * ``` 
      * @param descr simple documentation for the mod API
      * @param descr.name full name of the API, if not specified, name parameter 
@@ -21,7 +21,7 @@ declare namespace ModAPI {
      * properties of the API, where keys are methods and properties names and 
      * values are their descriptions
      */
-    function registerAPI(name: string, api: object, descr?: {name?: string, props?: object}): void;
+    function registerAPI(name: string, api: object, descr?: { name?: string, props?: object }): void;
 
     /**
      * Gets API by its name. The best approach is to call this method in the
@@ -81,7 +81,7 @@ declare namespace ModAPI {
      * @param apiName API name
      * @param func callback that is called when API is loaded
      */
-    function addAPICallback(apiName: string, func: 
+    function addAPICallback(apiName: string, func:
         /**
          * @param api shared mod API
          */
@@ -139,7 +139,7 @@ declare namespace ModAPI {
      * @returns same as [[ModAPI.cloneObject]], but if call depth is more then
      * 6, returns "stackoverflow" string value
      */
-    function debugCloneObject(source: any, deep: any, rec?: number): object|string;
+    function debugCloneObject(source: any, deep: any, rec?: number): object | string;
 
 
     /**

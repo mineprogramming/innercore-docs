@@ -56,7 +56,7 @@ declare namespace ToolAPI {
      * instrument. For example, you can use *["stone"]* for the pickaxes
      * @param params additional tool parameters
      */
-    function registerTool(id: number, toolMaterial: string|ToolMaterial, blockMaterials: string[], params?: ToolParams): void;
+    function registerTool(id: number, toolMaterial: string | ToolMaterial, blockMaterials: string[], params?: ToolParams): void;
 
     /**
      * Registers item as a sword
@@ -65,7 +65,7 @@ declare namespace ToolAPI {
      * used to register the sword
      * @param params additional tool parameters
      */
-    function registerSword(id: number, toolMaterial: string|ToolMaterial, params?: ToolParams): void;
+    function registerSword(id: number, toolMaterial: string | ToolMaterial, params?: ToolParams): void;
 
     /**
      * Registers material and digging level for the specified block
@@ -106,7 +106,7 @@ declare namespace ToolAPI {
      * @returns object containing ToolAPI block data or undefined if no block 
      * data was specified for this block
      */
-    function getBlockData(blockID: number): BlockData|undefined;
+    function getBlockData(blockID: number): BlockData | undefined;
 
     /**
      * @param blockID numeric tile id
@@ -216,7 +216,7 @@ declare namespace ToolAPI {
          * speed. 2 is a default value for wooden instruments and 12 is a default 
          * value for golden instruments
          */
-        efficiency?: number, 
+        efficiency?: number,
 
         /**
          * Additional damage for the instruments, this value
@@ -224,13 +224,13 @@ declare namespace ToolAPI {
          * to the higher integer with the chance of the fractional part, e.g. if 
          * the value is *3.3*, the damage will be 4 with the chance of 30%
          */
-        damage?: number, 
+        damage?: number,
 
         /**
          * Durability of the tool, 33 is a default value 
          * for golden tools and 1562 is a default value for diamond tools
          */
-        durability?: number, 
+        durability?: number,
 
         /**
          * Block breaking level, 1 is wooden instruments, 4 is diamond 
@@ -256,7 +256,7 @@ declare namespace ToolAPI {
         name: string
     }
 
-    
+
     /**
      * Object used to store all of the ToolAPI block data
      */
@@ -290,13 +290,13 @@ declare namespace ToolAPI {
          * Numeric id of the item that replaces tool item when it's broken. 
          * By default it is 0 (the tool disappears)
          */
-        brokenId?: number, 
+        brokenId?: number,
 
         /**
          * Base damage of the instrument, is added to the material damage to 
          * calculate the tool's final damage. Default is 0
          */
-        damage?: number, 
+        damage?: number,
 
         /**
          * Function used to recalculate block destroy time based on some custom 
@@ -313,7 +313,7 @@ declare namespace ToolAPI {
          * *base / devider / modifier*
          * @param enchantData tool's enchant data
          */
-        calcDestroyTime?: (tool: ItemInstance, coords: Callback.ItemUseCoordinates, block: Tile, timeData: {base: number, devider: number, modifier: number}, defaultTime: number, enchantData?: EnchantData) => number, 
+        calcDestroyTime?: (tool: ItemInstance, coords: Callback.ItemUseCoordinates, block: Tile, timeData: { base: number, devider: number, modifier: number }, defaultTime: number, enchantData?: EnchantData) => number,
 
         /**
          * If true, the tool is vanilla Minecraft tool. Generally used within 

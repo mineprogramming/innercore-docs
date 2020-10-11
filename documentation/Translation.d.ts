@@ -13,7 +13,7 @@ declare namespace Translation {
      * and localized strings in the specified language as values
      */
     function addTranslation(name: string, localization: object): void;
-    
+
     /**
      * Translates string from English to current game language (if available). 
      * Add translations via [[Translation.addTranslation]] to apply them 
@@ -22,7 +22,7 @@ declare namespace Translation {
      * translation is not available
      */
     function translate(name: string): string;
-    
+
     /**
      * @returns two-letter language code for current game language
      */

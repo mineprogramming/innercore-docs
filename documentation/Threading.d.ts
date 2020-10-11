@@ -6,12 +6,12 @@ declare namespace Threading {
     /**
      * Function used to format error messages in a custom way
      */
-    type ErrorMessageFormatFunction = 
-    /**
-     * @param error java.lang.Throwable instance or javascript exception
-     * @param priority current thread priority
-     */
-    (error: any, priority: number) => string;
+    type ErrorMessageFormatFunction =
+        /**
+         * @param error java.lang.Throwable instance or javascript exception
+         * @param priority current thread priority
+         */
+        (error: any, priority: number) => string;
 
 
     /**

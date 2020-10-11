@@ -15,7 +15,7 @@ declare class GameObject {
      * Original value passed to [[GameObject.constructor]]
      */
     readonly originalName: string;
-    
+
     /**
      * Creates a new game object with specified params and registers it for saving
      * and as an [[Updatable]]

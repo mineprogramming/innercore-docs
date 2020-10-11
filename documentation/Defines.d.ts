@@ -54,7 +54,7 @@ interface ItemInstance {
     /**
      * Amount of items of the specified id
      */
-    count: number, 
+    count: number,
 
     /**
      * Item data value. Generally specifies some property of the item, e.g. 

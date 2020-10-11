@@ -34,15 +34,14 @@ declare namespace Player {
     /**
      * Fetches information about the objects player is currently pointing
      */
-    function getPointed(): 
+    function getPointed():
     /**
      * @param pos pointed block position
      * @param vec look vector
      * @param block pointed block data, if player doesn't look at the block, air
      * block is returned ({id: 0, data: 0})
      * @param entity pointed entity, if no entity's pointed, returns -1
-     */
-    {pos: BlockPosition, vec: Vector, block: Tile, entity: number};
+     */ { pos: BlockPosition, vec: Vector, block: Tile, entity: number };
 
     /**
      * @deprecated No longer supported
@@ -265,7 +264,7 @@ declare namespace Player {
      * [[Player.setHunger]]
      */
     function hunger(): PlayerHunger;
-    
+
     /**
      * @returns player's current hunger
      */
@@ -283,7 +282,7 @@ declare namespace Player {
      * [[Player.setSaturation]]
      */
     function saturation(): PlayerSaturation;
-    
+
     /**
      * @returns player's current saturation
      */
@@ -354,7 +353,7 @@ declare namespace Player {
      * @param value the value to be set for the ability. Can be either boolean
      * or number, depending on the ability
      */
-    function setAbility(ability: string, value: boolean|number): void;
+    function setAbility(ability: string, value: boolean | number): void;
 
     /**
      * Gets one of the player's {@page Abilities} in a form of floating-point 
@@ -440,7 +439,7 @@ declare namespace Player {
          * @param enabled whether the player should fly or not
          */
         public set(enabled: boolean): void;
-            
+
         /**
          * @returns true if player is allowed to fly, false otherwise
          */
@@ -488,7 +487,7 @@ declare namespace Player {
          */
         public set(value: number): void;
     }
-    
+
     /**
      * Class used to manipulate player's saturation
      * @deprecated Consider using [[Player.getSaturation]] and
@@ -506,7 +505,7 @@ declare namespace Player {
          */
         public set(value: number): void;
     }
-    
+
     /**
      * Class used to manipulate player's health
      * @deprecated Consider using [[Player.getHealth]] and
@@ -524,7 +523,7 @@ declare namespace Player {
          */
         public set(value: number): void;
     }
-    
+
     /**
      * Class used to manipulate player's score
      * @deprecated Consider using [[Player.getScore]]

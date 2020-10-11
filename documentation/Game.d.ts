@@ -40,7 +40,7 @@ declare namespace Game {
      * values
      */
     function getDifficulty(): number;
-    
+
     /**
      * Sets current level game mode
      * @param gameMode new game mode, should be one of the [[Native.GameMode]]

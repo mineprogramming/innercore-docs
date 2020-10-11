@@ -1,7 +1,7 @@
 /**
  * Numeric IDs of vanilla blocks placed in the world
  */
-declare enum VanillaTileID{
+declare enum VanillaTileID {
     lit_blast_furnace = 469,
     wood = 467,
     jigsaw = 466,

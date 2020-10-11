@@ -20,7 +20,7 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
      */
     removeExecutionTimer(): void;
 
-    
+
     /**
      * If set to true, it is an instance of AI type, else the pattern 
      * (pattern should not be modified directly, AI controller calls 
@@ -71,7 +71,7 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
      * @param extra some extra data passed to 
      */
     enableAI(name: string, priority: number, extra: any): void;
-    
+
     /**
      * Disables any AI by its name in the controller
      * @param name AI name to be disabled
@@ -96,7 +96,7 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
      * @param name AI name
      */
     getPriority(name: string): number;
-    
+
     /**
      * @returns AI type's default name
      */
@@ -164,7 +164,7 @@ declare namespace EntityAIClass {
          * Object containing the state of the AI type
          */
         data?: object,
-        
+
         /**
          * Called when entity is attacked by player
          * @param entity player that attacked this entity
@@ -257,7 +257,7 @@ declare namespace EntityAI {
      * @params **velocity:** *number* swimming speed
      */
     const Swim: EntityAIClass;
-    
+
     /**
      * Panic AI watcher type, controls entity panic behavior after getting hurt
      * 

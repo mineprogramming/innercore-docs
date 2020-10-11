@@ -33,7 +33,7 @@ declare namespace ItemModel {
      * Releases some of the bitmaps to free up memory
      * @param bytes bytes count to be released
      */
-    function tryReleaseModelBitmapsOnLowMemory(bytes: number): void;   
+    function tryReleaseModelBitmapsOnLowMemory(bytes: number): void;
 
     interface ModelOverrideFunction {
         (item: ItemInstance): ItemModel
@@ -125,7 +125,7 @@ declare interface ItemModel {
      * @param texture texture name to be used for the model
      * @param material material name to be used for the model
      */
-    setModel(model: RenderMesh|ICRender.Model|BlockRenderer.Model, texture?: string, material?: string): ItemModel;
+    setModel(model: RenderMesh | ICRender.Model | BlockRenderer.Model, texture?: string, material?: string): ItemModel;
 
     /**
      * Sets item's model to display only in player's hand
@@ -133,7 +133,7 @@ declare interface ItemModel {
      * @param texture texture name to be used for the model
      * @param material material name to be used for the model
      */
-    setHandModel(model: RenderMesh|ICRender.Model|BlockRenderer.Model, texture?: string, material?: string): ItemModel;
+    setHandModel(model: RenderMesh | ICRender.Model | BlockRenderer.Model, texture?: string, material?: string): ItemModel;
 
     /**
      * Sets item's model to display only in player's inventory
@@ -141,20 +141,20 @@ declare interface ItemModel {
      * @param texture texture name to be used for the model
      * @param material material name to be used for the model
      */
-    setUiModel(model: RenderMesh|ICRender.Model|BlockRenderer.Model, texture?: string, material?: string): ItemModel;
+    setUiModel(model: RenderMesh | ICRender.Model | BlockRenderer.Model, texture?: string, material?: string): ItemModel;
 
     /**
      * Sets item model's texture in both player's invantory and in hand
      * @param texture texture name to be used for the model
      */
     setTexture(texture: string): ItemModel;
-    
+
     /**
      * Sets item model's texture only in player's hand
      * @param texture texture name to be used for the model
      */
     setHandTexture(texture: string): ItemModel;
-    
+
     /**
      * Sets item model's texture only in player's inventory
      * @param texture texture name to be used for the model
@@ -167,13 +167,13 @@ declare interface ItemModel {
      * {@page Materials and Shaders} for more information
      */
     setMaterial(texture: string): ItemModel;
-    
+
     /**
      * Sets item model's material only in player's hand
      * @param texture material name to be used for the model
      */
     setHandMaterial(texture: string): ItemModel;
-    
+
     /**
      * Sets item model's material only in player's inventory
      * @param texture material name to be used for the model
@@ -187,7 +187,7 @@ declare interface ItemModel {
     setUiGlintMaterial(material: string): ItemModel;
 
     getUiTextureName(): string;
-    
+
     getWorldTextureName(): string;
 
     getUiMaterialName(): string;
@@ -197,7 +197,7 @@ declare interface ItemModel {
     getUiGlintMaterialName(): string;
 
     getWorldGlintMaterialName(): string;
-    
+
     newTexture(): android.graphics.Bitmap;
 
     getSpriteMesh(): RenderMesh;
@@ -241,7 +241,7 @@ declare interface ItemModel {
     getCacheKey(): string;
 
     // updateForBlockVariant(variant: )    
-    
+
     getItemRenderMesh(cound: number, randomize: boolean): RenderMesh;
 
 

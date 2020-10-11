@@ -41,13 +41,13 @@ declare namespace Recipes {
      * @param prefix recipe prefix. Use a non-empty values to register recipes
      * for custom workbenches
      */
-    function addShaped(result: ItemInstance, mask: string[], data: (string|number)[], func?: CraftingFunction, prefix?: string): void;
+    function addShaped(result: ItemInstance, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): void;
 
     /**
      * Same as [[Recipes.addShaped]], but you can specifiy result as three 
      * separate values corresponding to id, count and data
      */
-    function addShaped2(id: number, count: number, aux: number, mask: string[], data: (string|number)[], func?: CraftingFunction, prefix?: string): void;
+    function addShaped2(id: number, count: number, aux: number, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): void;
 
     /**
      * Adds new shapeless crafting recipe. For example: 
@@ -65,19 +65,19 @@ declare namespace Recipes {
      * @param prefix recipe prefix. Use a non-empty values to register recipes
      * for custom workbenches
      */
-    function addShapeless(result: ItemInstance, data: {id: number, data: number}[], func?: CraftingFunction, prefix?: string): void;
+    function addShapeless(result: ItemInstance, data: { id: number, data: number }[], func?: CraftingFunction, prefix?: string): void;
 
     /**
      * Deletes recipe by its result 
      * @param result recipe result
      */
     function deleteRecipe(result: ItemInstance): void;
-    
+
     /**
      * Removes recipe by result id, count and data
      */
     function removeWorkbenchRecipe(id: number, count: number, data: number): void;
-    
+
     /**
      * Gets all available recipes for the recipe result
      * @returns java.util.Collection object containing [[WorkbenchRecipe]]s
@@ -137,7 +137,7 @@ declare namespace Recipes {
      * vanilla furnace, they are removed
      */
     function addFurnace(sourceId: number, resultId: number, resultData: number, prefix?: string): void
-    
+
     /**
      * Removes furnace recipes by source item
      * @param sourceId source item id
@@ -214,14 +214,14 @@ declare namespace Recipes {
          * Registers listener to be notified when some recipe is selected
          * @param listener recipe selection listener
          */
-        setOnSelectionListener(listener: {onRecipeSelected: (recipe: WorkbenchRecipe) => void}): void;
+        setOnSelectionListener(listener: { onRecipeSelected: (recipe: WorkbenchRecipe) => void }): void;
 
         /**
          * Registers listener to be notified when the workbench starts and 
          * completes refreshing
          * @param listener workbench refresh listener
          */
-        setOnRefreshListener(listener: {onRefreshCompleted: (count: number) => void, onRefreshStarted: () => void}): void;
+        setOnRefreshListener(listener: { onRefreshCompleted: (count: number) => void, onRefreshStarted: () => void }): void;
 
         /**
          * Deselects current recipe (asynchronuously)
@@ -250,7 +250,7 @@ declare namespace Recipes {
          * @returns recipe entry by entry character
          */
         getEntry(c: string): RecipeEntry;
-        
+
         /**
          * @returns resulting item instance
          */
@@ -265,7 +265,7 @@ declare namespace Recipes {
          * @returns recipe unique mask identifier
          */
         getRecipeMask(): string;
-        
+
         /**
          * @param field workbench field to compare with
          * @returns true if the field contains this recipe, false otherwise
@@ -276,7 +276,7 @@ declare namespace Recipes {
          * @returns all recipe's entries in a java array
          */
         getSortedEntries(): native.Array<RecipeEntry>;
-        
+
         /**
          * Tries to fill workbench field with current recipe
          * @param field workbench field to fill
@@ -324,7 +324,7 @@ declare namespace Recipes {
          * @returns true, if the recipe is valid, false otherwise
          */
         isValid(): boolean;
-        
+
         /**
          * @returns resulting item instance
          */
@@ -358,7 +358,7 @@ declare namespace Recipes {
      * @param field array containing all slots of the crafting field
      * @param result recipe result item instance
      */
-    interface CraftingFunction{
+    interface CraftingFunction {
         (api: WorkbenchFieldAPI, field: UI.Slot[], result: ItemInstance): void
     }
 
@@ -400,14 +400,14 @@ declare namespace Recipes {
          * Prevents crafting event
          */
         prevent(): void;
-        
+
         /**
          * @returns true, if crafting event was prevented, false otherwise
          */
         isPrevented(): boolean;
     }
 
-    
+
     /**
      * Crafting recipe entry
      */

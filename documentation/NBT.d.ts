@@ -20,13 +20,13 @@ declare namespace NBT {
         /**
          * Creates a copy of specified compound tag
          */
-        constructor(tag: CompoundTag); 
+        constructor(tag: CompoundTag);
 
         /**
          * Converts compound tag to JavaScript object for easier reading
          * @returns valid JavaScript representation of compound tag
          */
-        toScriptable(): {[key: string]: any};
+        toScriptable(): { [key: string]: any };
 
         /**
          * @returns Java-array containing all the keys of the compound tag
@@ -187,7 +187,7 @@ declare namespace NBT {
         /**
          * Creates a copy of specified list tag
          */
-        constructor(tag: CompoundTag); 
+        constructor(tag: CompoundTag);
 
         /**
          * Converts list tag to JavaScript object for easier reading

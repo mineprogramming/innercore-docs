@@ -25,7 +25,7 @@ declare namespace GenerationUtils {
      * @param cx chunk x coordinate
      * @param cz chunk z coordinate
      */
-    function randomXZ(cx: number, cz: number): {x: number, z: number};
+    function randomXZ(cx: number, cz: number): { x: number, z: number };
 
     /**
      * Generates random coordinates inside specified chunk
@@ -75,7 +75,7 @@ declare namespace GenerationUtils {
      * size * ratio * 3
      * ```
      */
-    function genMinable(x: number, y: number, z: number, params: {id: number, data: number, noStoneCheck: number, amount?: number, ratio?: number,  size?: number}): void;
+    function genMinable(x: number, y: number, z: number, params: { id: number, data: number, noStoneCheck: number, amount?: number, ratio?: number, size?: number }): void;
 
     /**
      * Generates ore vein on the specified coordinates

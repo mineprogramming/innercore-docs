@@ -22,7 +22,7 @@ declare namespace Native {
         MATERIAL = 1,
         TOOL = 3,
     }
-    
+
     /**
      * Defines all existing vanilla particles
      */
@@ -90,7 +90,7 @@ declare namespace Native {
         WHITE = "§f",
         YELLOW = "§e",
     }
-    
+
     /**
      * Defines all vanilla entity type ids
      */
@@ -197,7 +197,7 @@ declare namespace Native {
         ZOMBIE_VILLAGER = 44,
         ZOMBIE_VILLAGE_V2 = 116,
     }
-    
+
     /**
      * Defines vanilla mob rendertypes
      */
@@ -285,7 +285,7 @@ declare namespace Native {
         weakness = 18,
         wither = 20,
     }
-    
+
     /**
      * Defines the three dimensions currently available for player 
      */
@@ -294,7 +294,7 @@ declare namespace Native {
         NETHER = 1,
         NORMAL = 0,
     }
-    
+
     /**
      * Defines item animation types
      */
@@ -302,7 +302,7 @@ declare namespace Native {
         bow = 4,
         normal = 0,
     }
-    
+
     /**
      * Defines numeric representation for each block side
      */
@@ -314,7 +314,7 @@ declare namespace Native {
         UP = 1,
         WEST = 4,
     }
-    
+
     /**
      * Defines numeric ids of all vanilla enchantments
      */
@@ -353,7 +353,7 @@ declare namespace Native {
         UNBREAKING = 17,
         VANISHING_CURSE = 28,
     }
-    
+
     /**
      * Defines what enchantments can or cannot be applied to every instrument 
      * type
@@ -375,7 +375,7 @@ declare namespace Native {
         shovel = 2048,
         weapon = 16,
     }
-    
+
     /**
      * Defines possible render layers (display methods) for blocks
      */
@@ -391,8 +391,8 @@ declare namespace Native {
         seasons_far = 10,
         seasons_far_alpha = 11,
         water = 7,
-    }   
-    
+    }
+
     /**
      * Defines possible game difficulty
      */

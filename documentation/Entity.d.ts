@@ -67,7 +67,7 @@ declare namespace Entity {
      * @param params.bool1 if true, damage is reduced by entity armor
      * @param params.bool2 unknown param
      */
-    function damageEntity(ent: number, damage: number, cause?: number, params?: {attacker?: number, bool1?: boolean, bool2?: boolean}): void;
+    function damageEntity(ent: number, damage: number, cause?: number, params?: { attacker?: number, bool1?: boolean, bool2?: boolean }): void;
 
     /**
      * @returns current dimension numeric id, one of the [[Native.Dimension]] 
@@ -604,7 +604,7 @@ declare namespace Entity {
     interface PathNavigationResultFunction {
         (navigation: PathNavigation, result: number): void
     }
-    
+
     /**
      * Class used to manipulate entity's health
      * @deprecated Consider using [[Entity.getHealth]], [[Entity.setHealth]],
@@ -708,12 +708,12 @@ declare namespace Entity {
         /**
          * @returns attribute's default value
          */
-        getDefaultValue(): number;    
+        getDefaultValue(): number;
 
         /**
          * Sets current attribute's value
          */
-        setValue(value: number): void;    
+        setValue(value: number): void;
 
         /**
          * Sets attribute's maximum value

@@ -82,7 +82,7 @@ declare namespace ICRender {
 		 * @param mode one of the [[MODE_INCLUDE]] and [[MODE_EXCLUDE]] constants
 		 * @returns reference to itself to be used in sequential calls
 		 */
-		asCondition(x: number, y: number, z: number, group: Group|string, mode: number): RenderEntry;
+		asCondition(x: number, y: number, z: number, group: Group | string, mode: number): RenderEntry;
 
 		/**
 		 * Sets [[BLOCK]] condition with specified parameters. Uses coordinates 

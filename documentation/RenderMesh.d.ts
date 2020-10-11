@@ -13,13 +13,13 @@ declare class RenderMesh {
     /**
      * Creates a new empty [[RenderMesh]]
      */
-	constructor();
+    constructor();
 
     /**
      * Creates a copy of current [[RenderMesh]]
      */
     clone(): RenderMesh;
-    
+
     /**
      * Rotates the mesh around the specified coordinates
      * @param rotX rotation angle along X axis, in radians
@@ -27,7 +27,7 @@ declare class RenderMesh {
      * @param rotZ rotation angle along Z axis, in radians
      */
     rotate(x: number, y: number, z: number, rotX: number, rotY: number, rotZ: number): void;
-    
+
     /**
      * Rotates the mesh around the (0, 0, 0) coordinates
      * @param rotX rotation angle along X axis, in radians
@@ -35,18 +35,18 @@ declare class RenderMesh {
      * @param rotZ rotation angle along Z axis, in radians
      */
     rotate(rotX: number, rotY: number, rotZ: number): void;
-    
+
     /**
      * Scales the mesh to fit into the specified box
      * @param keepRatio if true, the ratio of the dimensions are preserved
      */
     fitIn(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, keepRatio: boolean): void;
-    
+
     /**
      * Specifies the normal vector for the next vertices
      */
     setNormal(x: number, y: number, z: number): void;
-    
+
     /**
      * Adds a new vertex on the specified coordinates
      * @param u x texture offset of the vertex
@@ -142,7 +142,7 @@ declare class RenderMesh {
      * @param mesh [[RenderMesh]] object to be added to current mesh
      */
     addMesh(mesh: RenderMesh, x: number, y: number, z: number): void;
-    
+
     /**
      * Adds new mesh to the current one
      * @param mesh [[RenderMesh]] object to be added to current mesh
