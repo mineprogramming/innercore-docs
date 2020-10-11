@@ -22,6 +22,8 @@ declare class BlockSource {
     spawnEntity(x: number, y: number, z: number, type: string): number;
     spawnEntity(x: number, y: number, z: number, namespace: string, type: string, init_data: string): number;
 
+    spawnExpOrbs(x: number, y: number, z: number, amount: number): void;
+
     fetchEntitiesInAABB(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, type: number, blacklist: boolean): number[];
 
     static getDefaultForDimension(dimension: number): Nullable<BlockSource>;
