@@ -16,6 +16,11 @@ declare class BlockSource {
     canSeeSky(x: number, y: number, z: number): boolean;
     getGrassColor(x: number, y: number, z: number): number;
     spawnDroppedItem(x: number, y: number, z: number, id: number, count: number, data: number, extra: ItemExtraData): number;
+
+    spawnEntity(x: number, y: number, z: number, type: number): number;
+    spawnEntity(x: number, y: number, z: number, type: string): number;
+    spawnEntity(x: number, y: number, z: number, namespace: string, type: string, init_data: string): number;
+
     fetchEntitiesInAABB(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, type: number, blacklist: boolean): number[];
 
     static getDefaultForDimension(dimension: number): Nullable<BlockSource>;
