@@ -70,6 +70,12 @@ declare namespace Entity {
     function damageEntity(ent: number, damage: number, cause?: number, params?: {attacker?: number, bool1?: boolean, bool2?: boolean}): void;
 
     /**
+     * @returns current dimension numeric id, one of the [[Native.Dimension]] 
+     * values or custom dimension id
+     */
+    function getDimension(ent: number): number;
+
+    /**
      * Adds specified health amount to the entity
      * @param heal health to be added to entity, in half-hearts
      */
