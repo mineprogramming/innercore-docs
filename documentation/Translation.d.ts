@@ -9,7 +9,7 @@ declare namespace Translation {
     /**
      * Adds translations for specified object in several languages
      * @param name default string in English or name key
-     * @param localization object containing two-letter or four-letter language codes as keys
+     * @param localization object containing two-letter or language codes as keys
      * and localized strings in the specified language as values
      */
     function addTranslation(name: string, localization: object): void;
