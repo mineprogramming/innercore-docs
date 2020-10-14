@@ -8,8 +8,8 @@
 declare namespace Translation {
     /**
      * Adds translations for specified object in several languages
-     * @param name default string in English
-     * @param localization object containing two-letter language codes as keys
+     * @param name default string in English or name key
+     * @param localization object containing two-letter or four-letter language codes as keys
      * and localized strings in the specified language as values
      */
     function addTranslation(name: string, localization: object): void;
@@ -17,7 +17,7 @@ declare namespace Translation {
     /**
      * Translates string from English to current game language (if available). 
      * Add translations via [[Translation.addTranslation]] to apply them 
-     * @param name default string in English
+     * @param name default string in English or name key
      * @returns string in the current game language or input string if 
      * translation is not available
      */
