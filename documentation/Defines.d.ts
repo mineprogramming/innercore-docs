@@ -98,13 +98,6 @@ interface Weather {
     thunder: number
 }
 
-/**
- * Class representing TileEntity in the worls
- */
-declare class TileEntity {
-
-}
-
 declare class CustomEntity {
 
 }

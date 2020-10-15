@@ -113,14 +113,14 @@ declare namespace ToolAPI {
      * @returns object containing block material information or null, if no 
      * block data was specified for this block
      */
-    function getBlockMaterial(blockID: any): Nullable<BlockMaterial>;
+    function getBlockMaterial(blockID: number): Nullable<BlockMaterial>;
 
     /**
      * @param blockID numeric tile id
      * @returns destroy level of the block with specified id or 0, if no block 
      * data was specified for this block
      */
-    function getBlockDestroyLevel(blockID: any): number;
+    function getBlockDestroyLevel(blockID: number): number;
 
     /**
      * @param extra item extra instance, if not specified, method uses carried
@@ -198,7 +198,7 @@ declare namespace ToolAPI {
      * @param modifier additional experiences, usually passed from 
      * [[ToolAPI.EnchantData.experience]] field
      */
-    function dropOreExp(coords: Vector, minVal: any, maxVal: any, modifier: any): void;
+    function dropOreExp(coords: Vector, minVal: number, maxVal: number, modifier: number): void;
 
     /**
      * @param blockID numeric tile id

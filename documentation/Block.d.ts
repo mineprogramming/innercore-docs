@@ -105,7 +105,7 @@ declare namespace Block {
      * Same as [[Block.setDestroyLevel]] but accepts only numeric 
      * tile id as the first param
      */
-    function setDestroyLevelForID(id: number, level: number, resetData: boolean): void;
+    function setDestroyLevelForID(id: number, level: number, resetData?: boolean): void;
 
     /**
      * Registers a default destroy function for the specified block, considering
@@ -114,7 +114,7 @@ declare namespace Block {
      * @param level digging level of the block
      * @param resetData if true, the block is dropped with data equals to 0
      */
-    function setDestroyLevel(nameID: string | number, level: number, resetData: boolean): void;
+    function setDestroyLevel(nameID: string | number, level: number, resetData?: boolean): void;
 
     /**
      * Sets destroy time for the block with specified id
@@ -377,8 +377,8 @@ declare namespace Block {
         destroytime?: number,
 
         /**
-         * Detirmines the way the light passes through the block, if it is not
-         * opaque
+         * Specifies render of shadows on the block. Default is 0 (no shadows),
+         * allows float values from 0 to 1
          */
         translucency?: number,
 
@@ -386,6 +386,11 @@ declare namespace Block {
          * Block color when displayed on the vanilla maps
          */
         mapcolor?: number,
+
+        /**
+         * Specifies sounds of the block
+         */
+        sound?: "normal" | "gravel" | "wood" | "grass" | "metal" | "stone" | "cloth" | "glass" | "sand" | "snow" | "ladder" | "anvil" | "slime" | "silent" | "itemframe" | "turtle_egg" | "bamboo" | "bamboo_sapling" | "lantern" | "scaffolding" | "sweet_berry_bush" | "default"
     }
 
 
