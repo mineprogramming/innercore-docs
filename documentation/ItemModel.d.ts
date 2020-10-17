@@ -122,7 +122,7 @@ declare interface ItemModel {
     /**
      * Sets item's model to display both in the inventory and in hand
      * @param model [[RenderMesh]], [[ICRender.Model]] or [[BlockRenderer.Model]] to be used as item model
-     * @param texture texture name to be used for the model (use "atlas:terrain" for block textures)
+     * @param texture texture name to be used for the model (use "atlas::terrain" for block textures)
      * @param material material name to be used for the model
      */
     setModel(model: RenderMesh | ICRender.Model | BlockRenderer.Model, texture?: string, material?: string): ItemModel;
@@ -130,7 +130,7 @@ declare interface ItemModel {
     /**
      * Sets item's model to display only in player's hand
      * @param model [[RenderMesh]], [[ICRender.Model]] or [[BlockRenderer.Model]] to be used as item model
-     * @param texture texture name to be used for the model (use "atlas:terrain" for block textures)
+     * @param texture texture name to be used for the model (use "atlas::terrain" for block textures)
      * @param material material name to be used for the model
      */
     setHandModel(model: RenderMesh | ICRender.Model | BlockRenderer.Model, texture?: string, material?: string): ItemModel;
@@ -138,26 +138,26 @@ declare interface ItemModel {
     /**
      * Sets item's model to display only in player's inventory
      * @param model [[RenderMesh]], [[ICRender.Model]] or [[BlockRenderer.Model]] to be used as item model
-     * @param texture texture name to be used for the model (use "atlas:terrain" for block textures)
+     * @param texture texture name to be used for the model (use "atlas::terrain" for block textures)
      * @param material material name to be used for the model
      */
     setUiModel(model: RenderMesh | ICRender.Model | BlockRenderer.Model, texture?: string, material?: string): ItemModel;
 
     /**
      * Sets item model's texture in both player's invantory and in hand
-     * @param texture texture name to be used for the model (use "atlas:terrain" for block textures)
+     * @param texture texture name to be used for the model (use "atlas::terrain" for block textures)
      */
     setTexture(texture: string): ItemModel;
 
     /**
      * Sets item model's texture only in player's hand
-     * @param texture texture name to be used for the model (use "atlas:terrain" for block textures)
+     * @param texture texture name to be used for the model (use "atlas::terrain" for block textures)
      */
     setHandTexture(texture: string): ItemModel;
 
     /**
      * Sets item model's texture only in player's inventory
-     * @param texture texture name to be used for the model (use "atlas:terrain" for block textures)
+     * @param texture texture name to be used for the model (use "atlas::terrain" for block textures)
      */
     setUiTexture(texture: string): ItemModel;
 
