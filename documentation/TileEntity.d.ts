@@ -120,7 +120,7 @@ declare namespace TileEntity {
 }
 
 
-declare interface TileEntity {
+declare interface TileEntity extends TileEntity.TileEntityPrototype {
     readonly x: number,
     readonly y: number,
     readonly z: number,

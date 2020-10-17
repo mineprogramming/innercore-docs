@@ -167,7 +167,7 @@ declare namespace Entity {
     /**
      * @deprecated No longer supported
      */
-    function setAge(ent: number, age: any): void;
+    function setAge(ent: number, age: number): void;
 
     /**
      * @deprecated No longer supported
@@ -252,7 +252,7 @@ declare namespace Entity {
      * Sets entity's sneaking state
      * @param sneak if true, entity becomes sneaking, else not
      */
-    function setSneaking(ent: number, sneak: any): void;
+    function setSneaking(ent: number, sneak: boolean): void;
 
     /**
      * @returns entity that is riding the specified entity
@@ -287,7 +287,7 @@ declare namespace Entity {
      * Sets entity's current health value
      * @param health health value to be set
      */
-    function setHealth(ent: number, health: any): void;
+    function setHealth(ent: number, health: number): void;
 
     /**
      * @returns entity's maximum health value
@@ -298,7 +298,7 @@ declare namespace Entity {
      * Sets entity's maximum health value
      * @param maxHealth 
      */
-    function setMaxHealth(ent: number, health: any): void;
+    function setMaxHealth(ent: number, health: number): void;
 
     /**
      * Sets the specified coordinates as a new position for the entity. No 
@@ -343,12 +343,12 @@ declare namespace Entity {
     /**
      * @returns distance between specified entity and a fixed coordinate set
      */
-    function getDistanceToCoords(ent: number, coords: any): number;
+    function getDistanceToCoords(ent: number, coords: Vector): number;
 
     /**
      * @returns distance in blocks between two entities
      */
-    function getDistanceToEntity(ent1: any, ent2: any): number;
+    function getDistanceToEntity(ent1: number, ent2: number): number;
 
     /**
      * @returns distance between player and entity, counting only x and z values
@@ -366,7 +366,7 @@ declare namespace Entity {
      * @param yaw look angle yaw in radians
      * @param pitch look angle pitch in radians
      */
-    function setLookAngle(ent: number, yaw: any, pitch: any): void;
+    function setLookAngle(ent: number, yaw: number, pitch: number): void;
 
     /**
      * Transforms look angle into look vector
@@ -449,12 +449,12 @@ declare namespace Entity {
      * @param type entity type ID. Parameter is no longer supported and should 
      * not be used
      */
-    function getAllInRange(coords: any, maxRange: any, type?: any): void;
+    function getAllInRange(coords: Vector, maxRange: number, type?: number): void;
 
     /**
      * @deprecated No longer supported
      */
-    function getInventory(ent: number, handleNames: any, handleEnchant: any): void;
+    function getInventory(ent: number, handleNames?: boolean, handleEnchant?: boolean): void;
 
     /**
      * @param slot armor slot id, should be one of the [[Native.ArmorType]] 

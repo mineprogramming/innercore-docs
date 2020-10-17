@@ -106,7 +106,7 @@ declare namespace World {
      * @returns whether the chunk containing specified block coordinates is 
      * loaded or not
      */
-    function isChunkLoadedAt(x: number, y: number, z: number): any;
+    function isChunkLoadedAt(x: number, y: number, z: number): boolean;
 
     /**
      * @returns [[TileEntity]] located on the specified coordinates

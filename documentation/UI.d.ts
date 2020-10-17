@@ -801,10 +801,23 @@ declare namespace UI {
 
 
     /**
-     * Class used to create standart ui for the mod's machines. 
-     * [[StandartWindow]] is a [[WindowGroup]] that has three windows with names
+     * Class used to create standard ui for the mod's machines. 
+     * [[StandardWindow]] is a [[WindowGroup]] that has three windows with names
      * *"main"*, *"inventory"* and *"header"*. They represent custom window 
      * contents, player's inventoty and winow's header respectively
+     */
+    class StandardWindow extends WindowGroup {
+        /**
+         * Constructs new [[StandardWindow]] with specified content. 
+         * Content is applied to the main window, header and inventory remain
+         * the same
+         * @param content object containing window description
+         */
+        constructor(content: WindowContent);
+    }
+
+    /**
+     * Deprecated, use StandardWindow
      */
     class StandartWindow extends WindowGroup {
         /**
@@ -1800,9 +1813,9 @@ declare namespace UI {
 
         /**
          * Used for [[StandartWindow]]s. Specifies additional parameters for 
-         * standart windows
+         * standard windows
          */
-        standart?: {
+        standard?: {
             /**
              * Specifies minimum contents window height. If actual height is 
              * less then desired, scrolling is used
@@ -1816,7 +1829,7 @@ declare namespace UI {
                 /**
                  * If true, default window is created
                  */
-                standart?: boolean,
+                standard?: boolean,
 
                 /**
                  * Background color integer value, produced by 
@@ -1849,7 +1862,7 @@ declare namespace UI {
             }
 
             /**
-             * Specifies additional parameters for standart window's header
+             * Specifies additional parameters for standard window's header
              */
             header?: {
                 /**
@@ -1925,7 +1938,7 @@ declare namespace UI {
             },
 
             /**
-             * Specifies parameters for standart inventory window
+             * Specifies parameters for standard inventory window
              */
             inventory?: {
                 /**

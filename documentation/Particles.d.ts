@@ -1,9 +1,9 @@
 declare namespace Particles {
     function addParticle(type: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, params?: number): void;
 
-    function addFarParticle(type: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, params: number): void;
+    function addFarParticle(type: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, params?: number): void;
 
-    function registerParticleType(...args): any;
+    function registerParticleType(...args): void;
 
 
     class ParticleEmitter {
