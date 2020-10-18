@@ -1,5 +1,6 @@
 declare class BlockSource {
     getDimension(): number;
+    getBlock(x: number, y: number, z: number): Tile;
     getBlockId(x: number, y: number, z: number): number;
     getBlockData(x: number, y: number, z: number): number;
     setBlock(x: number, y: number, z: number, id: number, data: number): number;
