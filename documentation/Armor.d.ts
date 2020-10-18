@@ -6,6 +6,7 @@ declare namespace Armor {
      * Registers armor's hurt and tick functions
      * @param id armor item string id
      * @param funcs 
+     * @deprecated, does not work in multiplayer
      */
     function registerFuncs(id: string, funcs: {
         tick:
@@ -44,5 +45,37 @@ declare namespace Armor {
      * @deprecated Currently not implemented
      * @param id armor item string id
      */
-    function preventDamaging(id: string): void;
+	function preventDamaging(id: string): void;
+	
+	/**
+     * This event is called every tick for every player that has this armor put on.
+     * @returns the {id: , count: , data: , extra: } object to change armor item,
+     * if nothing is returned, armor will not be changed.
+     */
+    function registerOnTickListener(id: string, func: (
+        item: ItemInstance, slot: number, player: number
+    ) => void): ItemInstance | void;
+
+    /**
+     * This event is called when the damage is dealed to the player that has this armor put on.
+     * @returns the {id: , count: , data: , extra: } object to change armor item,
+     * if nothing is returned, armor will be damaged by default.
+     */
+    function registerOnHurtListener(id: string, func: (
+        item: ItemInstance, slot: number, player: number, value: number, type: number, attacker: number, bool1: number, bool2: number
+    ) => void): ItemInstance | void;
+
+    /**
+     * This event is called when player takes on this armor, or spawns with it.
+     */
+    function registerOnTakeOnListener(id: string, func: (
+        item: ItemInstance, slot: number, player: number
+    ) => void): void;
+
+    /**
+     * This event is called when player takes off or changes this armor item.
+     */
+    function registerOnTakeOffListener(id: string, func: (
+        item: ItemInstance, slot: number, player: number
+    ) => void): void;
 }
