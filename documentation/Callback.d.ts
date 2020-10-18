@@ -175,8 +175,7 @@ declare namespace Callback {
      * @param coords coordinates where block change occured
      * @param oldBlock the block that is being replaced 
      * @param newBlock replacement block
-     * @param i1 some integer
-     * @param i2 some integer
+     * @param region BlockSource object
      */
     interface BlockChangedFunction {
         (coords: Vector, oldBlock: Tile, newBlock: Tile, region: BlockSource): void
@@ -189,8 +188,7 @@ declare namespace Callback {
      * custom use logics
      * @param item item that was in the player's hand when he touched the block
      * @param block block that was touched
-     * @param isExternal if true, the event was triggerd by the remote player,
-     * else by local player
+     * @param player player actor uID
      */
     interface ItemUseFunction {
         (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, player: number): void
@@ -461,6 +459,14 @@ declare namespace Callback {
         (api: BlockRenderer.RenderAPI, coords: Vector, block: Tile, b: boolean): void
     }
 
+	/**
+     * Function used in "ServerPlayerTick" callback
+     * @param playerUid player entity unique id
+     * @param isPlayerDead is following player dead
+     */
+    interface ServerPlayerTickFunction {
+        (playerUid: number, isPlayerDead?: boolean): void
+    }
 
     /**
      * Object containing hit coordinates and information about hit entity/block
