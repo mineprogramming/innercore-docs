@@ -1,5 +1,6 @@
 /**
  * Module that allows to work with current Minecraft world
+ * @deprecated Most of the methods are out of date in multiplayer, use BlockSource instead
  */
 declare namespace World {
     /**
@@ -15,7 +16,7 @@ declare namespace World {
     function isWorldLoaded(): boolean;
 
     /**
-     * Returns current tick number since the player joined the world
+     * @returns current tick number since the player joined the world
      */
     function getThreadTime(): number;
 
@@ -161,9 +162,8 @@ declare namespace World {
     function setNightMode(night: boolean): void;
 
     /**
-     * Returns current weather object. This value should not be edited, call 
+     * @returns current weather object. This value should not be edited, call 
      * [[World.setWeather]] to change current weather
-     * @returns current weather object
      */
     function getWeather(): Weather;
 
@@ -227,6 +227,7 @@ declare namespace World {
     /**
      * @returns true, if one can see sky from the specified position, false 
      * othrwise
+	 * @deprecated Out of date in multiplayer
      */
     function canSeeSky(x: number, y: number, z: number): boolean;
 
