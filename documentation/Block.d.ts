@@ -301,7 +301,7 @@ declare namespace Block {
      */
     function setupAsNonRedstoneTile(id: number | string): void;
 
-    function registerNeighbourChangeFunction(id: number, func: NeighourChangeFunction): void;
+    function registerNeighbourChangeFunction(id: number, func: NeighbourChangeFunction): void;
 
 
     /**
@@ -442,6 +442,7 @@ declare namespace Block {
      * @param blockID numeric tile id
      * @param blockData block data value
      * @param diggingLevel level of the tool the block was digged with
+	 * @param region BlockSource object
      * @returns block drop, the array of arrays, each containing three values: 
      * id, count and data respectively
      */
@@ -459,8 +460,7 @@ declare namespace Block {
      * @param blockCoords coordinates where the block is destroyed and side from
      * where it is destroyed
      * @param block information about block that is broken
-     * @param f unknown floating-point param
-     * @param i unknown integer param
+     * @param region BlockSource object
      */
     interface PopResourcesFunction {
         (blockCoords: Vector, block: Tile, region: BlockSource): void
@@ -473,6 +473,8 @@ declare namespace Block {
      * custom use logics
      * @param item item that was in the player's hand when he touched the block
      * @param block block that was touched
+	 * @param player Player unique id
+	 * @param region BlockSource object
      * @returns coordinates where to actually place the block, or void for 
      * default placement
      */
@@ -488,6 +490,7 @@ declare namespace Block {
      * @param z z coordinate of the block that ticked
      * @param id block id
      * @param data block data
+	 * @param region BlockSource object
      */
     interface RandomTickFunction {
         (x: number, y: number, z: number, id: number, data: number, region: BlockSource): void
@@ -506,7 +509,14 @@ declare namespace Block {
         (x: number, y: number, z: number, id: number, data: number): void
     }
 
-    interface NeighourChangeFunction {
+	/**
+     * Function used to check block's neighbours changes
+     * @param coords coords vector of the block
+     * @param block Tile object of the block
+     * @param changedCoords coords vector of the neighbour block that was changed
+     * @param region BlockSource object
+     */
+    interface NeighbourChangeFunction {
         (coords: Vector, block: Tile, changedCoords: Vector, region: BlockSource): void
     }
 }
