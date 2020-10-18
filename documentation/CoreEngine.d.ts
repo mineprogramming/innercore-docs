@@ -30,17 +30,17 @@ declare const ItemID: { [key: string]: number };
  * @deprecated consider using [[ItemID]] and [[BlockID]] instead
  */
 declare namespace IDData {
-    /**
-     * Object containing custom item string ids as keys and their numeric
-     * ids as values
-     */
-    const item: { [key: string]: number };
+	/**
+	 * Object containing custom item string ids as keys and their numeric
+	 * ids as values
+	 */
+	const item: { [key: string]: number };
 
-    /**
-     * Object containing custom block string ids as keys and their numeric
-     * ids as values
-     */
-    const block: { [key: string]: number };
+	/**
+	 * Object containing custom block string ids as keys and their numeric
+	 * ids as values
+	 */
+	const block: { [key: string]: number };
 }
 
 /**
@@ -114,35 +114,35 @@ declare function alert(arg: any): any;
  * about the library
  */
 declare function LIBRARY(description: {
-    /**
-     * Library name, used to avoid conflicts when several 
-     * mods have the same library installed
-     */
-    name: string,
+	/**
+	 * Library name, used to avoid conflicts when several 
+	 * mods have the same library installed
+	 */
+	name: string,
 
-    /**
-     * Library version, used to load the lates library version
-     * if different mods have different library version installed
-     */
-    version: number,
+	/**
+	 * Library version, used to load the lates library version
+	 * if different mods have different library version installed
+	 */
+	version: number,
 
-    /**
-     * API name, one of the "CoreEngine", "AdaptedScript" or "PrefsWinAPI" strings
-     */
-    api: string,
+	/**
+	 * API name, one of the "CoreEngine", "AdaptedScript" or "PrefsWinAPI" strings
+	 */
+	api: string,
 
-    /**
-     * If set to true, the context of the library is shared between mods to 
-     * allow for better integration
-     */
-    shared: boolean,
+	/**
+	 * If set to true, the context of the library is shared between mods to 
+	 * allow for better integration
+	 */
+	shared: boolean,
 
-    /**
-     * List of names of libraries that should be loaded before the current library is loaded. 
-     * Every entry should be either just a library name or library name and version
-     * separated by a column (":")
-     */
-    dependencies?: string[]
+	/**
+	 * List of names of libraries that should be loaded before the current library is loaded. 
+	 * Every entry should be either just a library name or library name and version
+	 * separated by a column (":")
+	 */
+	dependencies?: string[]
 }): void;
 
 
@@ -158,3 +158,14 @@ declare function LIBRARY(description: {
  * can be of any valid js/java type
  */
 declare function EXPORT(name: string, lib: any): void;
+
+
+/**
+ * Function that must be written in launcher.js to enable multiplayer configuration
+ * @param {string} name Unique readable network name of the mod
+ * @param {string} version Mod version
+ * @param {boolean} isClientOnly If true, mod is only client.
+ * Client mods must not affect on the world.
+ * They will not be taken into account in mod synchronization during the connection
+ */
+declare function ConfigureMultiplayer(args: { name: string, version: string, isClientOnly: boolean }): void;
