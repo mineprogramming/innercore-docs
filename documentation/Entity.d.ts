@@ -155,7 +155,7 @@ declare namespace Entity {
     function remove(ent: number): void;
 
     /**
-     * Returns custom entity object by its numeric entity id
+     * @returns custom entity object by its numeric entity id
      */
     function getCustom(ent: number): CustomEntity;
 

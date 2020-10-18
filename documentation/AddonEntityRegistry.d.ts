@@ -9,7 +9,7 @@ declare namespace AddonEntityRegistry {
     function spawn(x: number, y: number, z: number, nameID: string): number;
 
     /**
-     * Returns add-on entity information by entity id
+     * @returns add-on entity information by entity id
      * @param entity 
      */
     function getEntityData(entity: number): AddonEntity;
