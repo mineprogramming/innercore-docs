@@ -47,6 +47,10 @@ declare namespace TileEntity {
      * Interface passed to [[TileEntity.registerPrototype]] function
      */
     interface TileEntityPrototype {
+		/**
+         * Use ItemContainer that supports multiplayer
+         */
+        useNetworkItemContainer?: boolean;
         /**
          * Default data values, will be initially added to [[TileEntity.data]] field
          */
@@ -55,7 +59,68 @@ declare namespace TileEntity {
         /**
          * Called when a [[TileEntity]] is created
          */
-        created?: () => void,
+		created?: () => void,
+		
+		/**
+         * Client TileEntity prototype copy
+         */
+        client?: {
+            /**
+             * Called when the client copy is created
+             */
+            load?: () => void,
+
+            /**
+             * Called on destroying the client copy
+             */
+            unload?: () => void,
+
+            /**
+             * Called every tick on client thread
+             */
+            tick?: () => void,
+
+            /**
+             * Events that receive packets on the client side
+             */
+            events?: {
+                /**
+                 * Example of the client packet event function
+                 */
+                [packetName: string]: (packetData: any, packetExtra: any) => void;
+            },
+
+            /**
+             * Events of the container's client copy
+             */
+            containerEvents: {
+                /**
+                 * Example of the client container event function
+                 */
+                [eventName: string]: (container: UI.ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
+            }
+        },
+
+        /**
+         * Events that receive packets on the server side
+         */
+        events?: {
+            /**
+             * Example of the server packet event function. 
+             * 'this.sendResponse' method is only available here.
+             */
+            [packetName: string]: (packetData: any, packetExtra: any, connectedClient: Network.Client) => void;
+        },
+
+        /**
+         * Events of the container on the server side
+         */
+        containerEvents?: {
+            /**
+             * Example of the server container event function
+             */
+            [eventName: string]: (container: UI.ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
+        }
 
         /**
          * Called when a [[TileEntity]] is initialised in the world
@@ -104,8 +169,19 @@ declare namespace TileEntity {
         /**
          * Called to get the [[UI.IWindow]] object for the current [[TileEntity]]. The 
          * window is then opened within [[TileEntity.container]] when the player clicks it
+		 * @deprecated Don't use in multiplayer
          */
-        getGuiScreen?: () => UI.IWindow;
+		getGuiScreen?: () => UI.IWindow;
+		
+		/**
+         * Called on server side and returns UI name to open on click
+         */
+        getScreenName?: (player: number, coords: Vector) => string;
+
+        /**
+         * Called on client side, returns the window to open
+         */
+        getScreenByName?: (screenName?: string) => UI.Window | UI.StandartWindow | UI.TabbedWindow;
 
         /**
          * Called when more liquid is required
@@ -121,12 +197,57 @@ declare namespace TileEntity {
 
 
 declare interface TileEntity extends TileEntity.TileEntityPrototype {
+    /**
+     * X coord of the TileEntity in its dimension
+     */
     readonly x: number,
+    /**
+     * Y coord of the TileEntity in its dimension
+     */
     readonly y: number,
+    /**
+     * Z coord of the TileEntity in its dimension
+     */
     readonly z: number,
-    readonly dimension: number
-    data: { [key: string]: any },
-    container: UI.Container,
+    /**
+     * dimension where the TileEntity is located
+     */
+    readonly dimension: number,
+    /**
+     * TileEntity data values object
+     */
+    data: {[key: string]: any},
+    /**
+     * TileEntity's item container
+     */
+    container: UI.ItemContainer | UI.Container,
+    /**
+     * TileEntity's liquid storage
+     */
     liquidStorage: any,
+    /**
+     * Destroys the TileEntity prototype
+     */
     selfDestroy: () => void;
+    /**
+     * Sends the packet from server to all clients
+     */
+    sendPacket: (name: string, data: object) => void;
+    /**
+     * BlockSource object to manipulate TileEntity's position in world
+     */
+    blockSource: BlockSource;
+    /**
+     * SyncedNetworkData object of the TileEntity
+     */
+    networkData: SyncedNetworkData;
+    /**
+     * NetworkEntity object of the TileEntity
+     */
+    networkEntity: NetworkEntity;
+    /**
+     * Sends packet to specified client. 
+     * AVAILABLE ONLY IN SERVER EVENT FUNCTIONS!
+     */
+    sendResponse: (packetName: string, someData: object) => void;
 }
