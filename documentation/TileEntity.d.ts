@@ -97,7 +97,7 @@ declare namespace TileEntity {
                 /**
                  * Example of the client container event function
                  */
-                [eventName: string]: (container: UI.ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
+                [eventName: string]: (container: ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
             }
         },
 
@@ -119,7 +119,7 @@ declare namespace TileEntity {
             /**
              * Example of the server container event function
              */
-            [eventName: string]: (container: UI.ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
+            [eventName: string]: (container: ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
         }
 
         /**
@@ -220,7 +220,7 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
     /**
      * TileEntity's item container
      */
-    container: UI.ItemContainer | UI.Container,
+    container: ItemContainer | UI.Container,
     /**
      * TileEntity's liquid storage
      */
