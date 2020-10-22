@@ -10,7 +10,9 @@ declare namespace ItemModel {
      * @param data item or block data
      * @returns [[ItemModel]] object used to manipulate item's model
      */
-    function getFor(id: number, data: number): ItemModel;
+	function getFor(id: number, data: number): ItemModel;
+	
+	function setCurrentCacheGroup(mod: string, version: string): void;
 
     /**
      * Gets [[ItemModel]] object for the specified id and data. If no [[ItemModel]] for
@@ -117,7 +119,6 @@ declare interface ItemModel {
 
     setSpriteUiRender(isSprite: boolean): ItemModel;
 
-	setCurrentCacheGroup(mod: string, version: string): void;
 
     /**
      * Sets item's model to display both in the inventory and in hand
