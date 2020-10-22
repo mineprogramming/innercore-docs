@@ -117,7 +117,7 @@ declare interface ItemModel {
 
     setSpriteUiRender(isSprite: boolean): ItemModel;
 
-
+	setCurrentCacheGroup(mod: string, version: string): void;
 
     /**
      * Sets item's model to display both in the inventory and in hand
