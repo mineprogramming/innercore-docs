@@ -3,7 +3,7 @@ declare namespace Particles {
 
     function addFarParticle(type: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, params?: number): void;
 
-    function registerParticleType(...args): void;
+    function registerParticleType(descriptor: object): number;
 
 
     class ParticleEmitter {
@@ -22,11 +22,8 @@ declare namespace Particles {
         getPosition(): Vector;
         setEmitRelatively(enable: boolean): void
 
-        emit(type: number | ParticleType, data: number, x: number, y: number, z: number): void;
-        emit(type: number | ParticleType, data: number, x: number, y: number, z: number, vx: number, vy: number, vz: number): void;
-        emit(type: number | ParticleType, data: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, ax: number, ay: number, az: number): void;
-
-        registerParticleType(description: object): ParticleType;
+        emit(type: number, data: number, x: number, y: number, z: number): void;
+        emit(type: number, data: number, x: number, y: number, z: number, vx: number, vy: number, vz: number): void;
+        emit(type: number, data: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, ax: number, ay: number, az: number): void;
     }
-    class ParticleType { }
 }
