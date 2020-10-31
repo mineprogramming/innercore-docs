@@ -122,7 +122,9 @@ declare namespace FileTools {
      * @param specialSeparator separator between key and value, ":" by default
      * @returns object containing key:value pairs from file
      */
-    function ReadKeyValueFile(dir: string, specialSeparator?: string): object;
+    function ReadKeyValueFile(dir: string, specialSeparator?: string): {
+        [key: string]: string
+    };
 
     /**
      * Writes key:value pairs to the file
@@ -130,7 +132,7 @@ declare namespace FileTools {
      * @param data object to be written to the file as a set of key:value pairs
      * @param specialSeparator separator between key and value, ":" by default
      */
-    function WriteKeyValueFile(dir: string, data: object, specialSeparator: string): void;
+    function WriteKeyValueFile(dir: string, data: object, specialSeparator?: string): void;
 
     /**
      * Reads file as JSON

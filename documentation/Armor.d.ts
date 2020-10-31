@@ -62,7 +62,7 @@ declare namespace Armor {
      * if nothing is returned, armor will be damaged by default.
      */
     function registerOnHurtListener(id: string, func: (
-        item: ItemInstance, slot: number, player: number, value: number, type: number, attacker: number, bool1: number, bool2: number
+        item: ItemInstance, slot: number, player: number, value: number, type: number, attacker: number, bool1: boolean, bool2: boolean
     ) => void): ItemInstance | void;
 
     /**
