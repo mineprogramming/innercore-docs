@@ -134,7 +134,7 @@ declare namespace World {
      * its container, if the block is a [[NativeTileEntity]], returns it, if 
      * none of above, returns null
      */
-    function getContainer(x: number, y: number, z: number): NativeTileEntity | UI.Container | null;
+    function getContainer(x: number, y: number, z: number, blockSource: BlockSource): NativeTileEntity | UI.Container | ItemContainer | null;
 
     /**
      * @returns current world's time in ticks 

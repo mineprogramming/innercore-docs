@@ -27,7 +27,7 @@ declare namespace TileEntity {
      * @returns a [[TileEntity]] on the specified coordinates or null if the block on the
      * coordinates is not a [[TileEntity]] 
      */
-    function getTileEntity(x: number, y: number, z: number): Nullable<TileEntity>;
+    function getTileEntity(x: number, y: number, z: number, blockSource: BlockSource): Nullable<TileEntity>;
 
     /**
      * Checks whether the [[TileEntity]] is in the loaded chunk or not
