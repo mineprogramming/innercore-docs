@@ -16,7 +16,7 @@ declare namespace Callback {
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
      * should not generally call pre-defined callbacks until you really need to 
-     * do so. If you want to trigger some event in your mode, use your own 
+     * do so. If you want to trigger some event in your mod, use your own 
      * callback names
      * @param name callback name
      */
