@@ -188,10 +188,11 @@ declare namespace Callback {
      * custom use logics
      * @param item item that was in the player's hand when he touched the block
      * @param block block that was touched
+     * @param isExternal
      * @param player player actor uID
      */
     interface ItemUseFunction {
-        (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, player: number): void
+        (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, isExternal:boolean, player: number): void
     }
 
     /**
