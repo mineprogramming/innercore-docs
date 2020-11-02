@@ -32,16 +32,37 @@ declare class BlockSource {
 	getBlockData(x: number, y: number, z: number): number;
 	
 	/**
-     * Sets block by the coords
+     * Sets block on coords
      * @param id - id of the block to set
      * @param data - data of the block to set
      */
-    setBlock(x: number, y: number, z: number, id: number, data: number): number;
-	
-	destroyBlock(x: number, y: number, z: number): void;
-	
-    explode(x: number, y: number, z: number, power: number, fire: boolean): void;
-	
+     setBlock(x: number, y: number, z: number, id: number, data: number): number;
+
+     /**
+      * Destroys block on coords
+      * @param x X coord of the block
+      * @param y Y coord of the block
+      * @param z Z coord of the block
+      */
+     destroyBlock(x: number, y: number, z: number): void;
+     
+     /**
+      * Creates an explosion on coords
+      * @param power defines how many blocks can the explosion destroy and what
+      * blocks can or cannot be destroyed
+      * @param fire if true, puts the crater on fire
+      */
+     explode(x: number, y: number, z: number, power: number, fire: boolean): void;
+     
+     /**
+      * Destroys block on coords producing appropriate drop
+      * and particles. Do not use for massive tasks due to particles being 
+      * produced
+      * @param x X coord of the block
+      * @param y Y coord of the block
+      * @param z Z coord of the block
+      * @param drop whether to provide drop for the block or not
+      */
 	destroyBlock(x: number, y: number, z: number, drop: boolean): void;
 	
 	/**
@@ -121,7 +142,9 @@ declare class BlockSource {
      */
 	spawnDroppedItem(x: number, y: number, z: number, id: number, count: number, data: number, extra: ItemExtraData): number;
 
-	
+	/**
+      * Spawns entity of given numeric type on coords
+      */
 	spawnEntity(x: number, y: number, z: number, type: number): number;
 	
 	spawnEntity(x: number, y: number, z: number, type: string): number;
@@ -129,7 +152,10 @@ declare class BlockSource {
 	spawnEntity(x: number, y: number, z: number, namespace: string, type: string, init_data: string): number;
 
 
-	
+	/**
+      * Spawns experience orbs on coords
+      * @param amount experience amount
+      */
 	spawnExpOrbs(x: number, y: number, z: number, amount: number): void;
 
 	/**
