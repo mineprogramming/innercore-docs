@@ -1974,6 +1974,27 @@ declare namespace UI {
          * Type of a [[DrawingElement]]
          */
         type: string,
+
+        /**
+         * X-axis position of a [[DrawingElement]]
+         */
+        x: number;
+
+        /**
+         * Y-axis position of a [[DrawingElement]]
+         */
+        y: number;
+
+        /**
+         * Scale of a [[UIElement]]
+         */
+        scale: number;
+
+        /**
+         * Bitmap of [[UIElement]]
+         */
+        bitmap?: string;
+
         color?: number
     }
 
@@ -1996,7 +2017,25 @@ declare namespace UI {
         /**
          * Scale of a [[UIElement]]
          */
-        scale: number;
+        scale?: number;
+
+        /**
+         * Width of a [[UIElement]]
+         * Works only if [[type]] equals "text"
+         */
+        width?: number;
+
+        /**
+         * Height of a [[UIElement]]
+         * Works only if [[type]] equals "text"
+         */
+        height?: number;
+
+        /**
+         * Text of a [[UIElement]]
+         * Works only if [[type]] equals "text"
+         */
+        text?: string;
 
         /**
          * Bitmap of [[UIElement]]
@@ -2019,6 +2058,12 @@ declare namespace UI {
          * Works only if [[type]] equals "scale"
          */
         direction?: number,
+
+        /**
+         * Value of [[UIElement]]
+         * Works only if [[type]] equals "scale"
+         */
+        value?: number,
 
         /**
          * Overlay bitmap of [[UIElement]]
