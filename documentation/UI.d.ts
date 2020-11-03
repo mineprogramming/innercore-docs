@@ -1592,7 +1592,7 @@ declare namespace UI {
         id: number,
         count: number,
         data: number,
-        extra: ItemInstance
+        extra: ItemExtraData
     }
 
     /**
