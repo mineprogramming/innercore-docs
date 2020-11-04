@@ -118,30 +118,30 @@ declare namespace World {
     /**
      * @returns [[TileEntity]] located on the specified coordinates
      */
-    function getTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function getTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
      * If the block on the specified coordinates is a TileEntity block and is 
      * not initialized, initializes it and returns created [[TileEntity]] object
      * @returns [[TileEntity]] if one was created, null otherwise
      */
-    function addTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function addTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
      * If the block on the specified coordinates is a [[TileEntity]], destroys 
      * it, dropping its container
      * @returns true if the [[TileEntity]] was destroyed successfully, false 
      * otherwise
-     * @deprecated Out of date in multiplayer
      */
-    function removeTileEntity(x: number, y: number, z: number): boolean;
+    function removeTileEntity(x: number, y: number, z: number, region?: BlockSource): boolean;
 
     /**
      * @returns if the block on the specified coordinates is a [[TileEntity]], returns
      * its container, if the block is a [[NativeTileEntity]], returns it, if 
      * none of above, returns null
+	 * @param region BlockSource
      */
-    function getContainer(x: number, y: number, z: number, blockSource?: BlockSource): NativeTileEntity | UI.Container | ItemContainer | null;
+    function getContainer(x: number, y: number, z: number, region?: BlockSource): Nullable<NativeTileEntity | UI.Container | ItemContainer>;
 
     /**
      * @returns current world's time in ticks 
