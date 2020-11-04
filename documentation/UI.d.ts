@@ -830,7 +830,9 @@ declare namespace UI {
          * the same
          * @param content object containing window description
          */
-        constructor(content: WindowContent);
+		constructor(content: WindowContent);
+
+		content: WindowContent;
     }
 
 
