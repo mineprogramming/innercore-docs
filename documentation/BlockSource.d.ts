@@ -11,7 +11,7 @@ declare class BlockSource {
      * @param x X coord of the block
      * @param y Y coord of the block
      * @param z Z coord of the block
-	 * @returns Tile object with id and data propeties
+	* @returns Tile object with id and data propeties
      */
 	getBlock(x: number, y: number, z: number): Tile;
 
@@ -32,17 +32,30 @@ declare class BlockSource {
 	getBlockData(x: number, y: number, z: number): number;
 	
 	/**
-     * Sets block by the coords
+     * Sets block on coords
      * @param id - id of the block to set
      * @param data - data of the block to set
      */
-    setBlock(x: number, y: number, z: number, id: number, data: number): number;
-	
-	destroyBlock(x: number, y: number, z: number): void;
-	
-    explode(x: number, y: number, z: number, power: number, fire: boolean): void;
-	
-	destroyBlock(x: number, y: number, z: number, drop: boolean): void;
+     setBlock(x: number, y: number, z: number, id: number, data: number): number;
+
+     /**
+      * Creates an explosion on coords
+      * @param power defines how many blocks can the explosion destroy and what
+      * blocks can or cannot be destroyed
+      * @param fire if true, puts the crater on fire
+      */
+     explode(x: number, y: number, z: number, power: number, fire: boolean): void;
+     
+     /**
+      * Destroys block on coords producing appropriate drop
+      * and particles. Do not use for massive tasks due to particles being 
+      * produced
+      * @param x X coord of the block
+      * @param y Y coord of the block
+      * @param z Z coord of the block
+      * @param drop whether to provide drop for the block or not
+      */
+	destroyBlock(x: number, y: number, z: number, drop?: boolean): void;
 	
 	/**
      * @param x X coord of the block
@@ -71,28 +84,28 @@ declare class BlockSource {
 	getBiomeTemperatureAt(x: number, y: number, z: number): number;
 	
 	/**
-	 * @param chunkX X coord of the chunk
+	* @param chunkX X coord of the chunk
      * @param chunkZ Z coord of the chunk
      * @returns true if chunk is loaded, false otherwise
      */
 	isChunkLoaded(chunkX: number, chunkZ: number): boolean;
 	
 	/**
-	 * @param x X coord of the position
+	* @param x X coord of the position
      * @param z Z coord of the position
      * @returns true if chunk on the position is loaded, false otherwise
      */
 	isChunkLoadedAt(x: number, z: number): boolean;
 	
 	/**
-	 * @param chunkX X coord of the chunk
+	* @param chunkX X coord of the chunk
      * @param chunkZ Z coord of the chunk
      * @returns the loading state of the chunk by chunk coords
      */
 	getChunkState(chunkX: number, chunkZ: number): number;
 	
 	/**
-	 * @param x X coord of the position
+	* @param x X coord of the position
      * @param z Z coord of the position
      * @returns the loading state of the chunk by coords
      */
@@ -119,17 +132,20 @@ declare class BlockSource {
      * @param extra extra of the item to drop
      * @returns drop entity id
      */
-	spawnDroppedItem(x: number, y: number, z: number, id: number, count: number, data: number, extra: ItemExtraData): number;
+	spawnDroppedItem(x: number, y: number, z: number, id: number, count: number, data: number, extra?: ItemExtraData): number;
 
-	
-	spawnEntity(x: number, y: number, z: number, type: number): number;
-	
-	spawnEntity(x: number, y: number, z: number, type: string): number;
-	
+	/**
+      * Spawns entity of given numeric type on coords
+      */
+	spawnEntity(x: number, y: number, z: number, type: number | string): number;
+		
 	spawnEntity(x: number, y: number, z: number, namespace: string, type: string, init_data: string): number;
 
 
-	
+	/**
+      * Spawns experience orbs on coords
+      * @param amount experience amount
+      */
 	spawnExpOrbs(x: number, y: number, z: number, amount: number): void;
 
 	/**

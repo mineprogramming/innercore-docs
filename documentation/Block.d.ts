@@ -10,7 +10,7 @@ declare namespace Block {
 	 * @returns block numeric id by its string id or just returns its numeric id 
 	 * if input was a numeric id
 	 */
-	function getNumericId(id: string): number;
+	function getNumericId(id: string | number): number;
 
 	/**
 	 * Creates new block using specified params

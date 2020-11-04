@@ -443,13 +443,13 @@ declare namespace Entity {
     function findNearest(coords: Vector, type?: number, maxRange?: number): Nullable<number>;
 
     /**
-     * 
+     * Returns array of all entities' numeric ids in given range in blocks
      * @param coords search range center coordinates
      * @param maxRange determines search radius
      * @param type entity type ID. Parameter is no longer supported and should 
      * not be used
      */
-    function getAllInRange(coords: Vector, maxRange: number, type?: number): void;
+    function getAllInRange(coords: Vector, maxRange: number, type?: number): number[];
 
     /**
      * @deprecated No longer supported
@@ -549,18 +549,39 @@ declare namespace Entity {
          */
         setResultFunction(callback: PathNavigationResultFunction): PathNavigation;
 
+        /**
+         * @returns whether the entity can pass doors
+         */
         canPassDoors(): boolean;
+        /**
+         * Sets entity's door passing ability
+         */
         setCanPassDoors(value: boolean): PathNavigation;
 
         isRiverFollowing(): boolean;
         setIsRiverFollowing(value: boolean): PathNavigation;
 
+        /**
+         * @returns whether the entity can open doors
+         */
         canOpenDoors(): boolean;
+        /**
+         * Sets entity's door opening ability
+         */
         setCanOpenDoors(value: boolean): PathNavigation;
 
+        /**
+         * Sets entity's sun avoiding
+         */
         setAvoidSun(value: boolean): PathNavigation;
 
+        /**
+         * @returns whether the entity avoids water
+         */
         getAvoidWater(): boolean;
+        /**
+         * Sets entity's water avoiding
+         */
         setAvoidWater(value: boolean): PathNavigation;
 
         setEndPathRadius(value: boolean): PathNavigation;
@@ -583,10 +604,24 @@ declare namespace Entity {
         getCanBreach(): boolean;
         setCanBreach(value: boolean): PathNavigation;
 
+        /**
+         * @returns whether entity can jump
+         */
         getCanJump(): boolean;
+
+        /**
+         * Enables or disables entity's jumping ability
+         */
         setCanJump(value: boolean): PathNavigation;
 
+        /**
+         * @returns entity's speed value
+         */
         getSpeed(): number;
+
+        /**
+         * Sets entity's speed value
+         */
         setSpeed(value: number): PathNavigation;
     }
 

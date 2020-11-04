@@ -144,7 +144,7 @@ declare namespace ToolAPI {
      * @param ignoreNative if block and item are native items, and this 
      * parameter is set to true, all the calculations will still be performed
      */
-    function getDestroyTimeViaTool(fullBlock: Tile, toolItem: ItemInstance, coords: Callback.ItemUseCoordinates, ignoreNative?: boolean): void;
+    function getDestroyTimeViaTool(fullBlock: Tile, toolItem: ItemInstance, coords: Callback.ItemUseCoordinates, ignoreNative?: boolean): number;
 
     /**
      * @param itemID numeric item id
@@ -166,18 +166,18 @@ declare namespace ToolAPI {
      * data for the tool or for the block was not specified or if specified tool
      * cannot mine specified block
      */
-    function getToolLevelViaBlock(itemID: number, blockID: number): void;
+    function getToolLevelViaBlock(itemID: number, blockID: number): number;
 
     /**
      * @returns carried tool information stored in slightly modified 
      * [[ToolAPI.ToolParams]] object or null if no tool data was specified
      */
-    function getCarriedToolData(): void;
+    function getCarriedToolData(): any;
 
     /**
      * @returns carried tool's breaking level or 0 if no tool data was provided
      */
-    function getCarriedToolLevel(): void;
+    function getCarriedToolLevel(): number;
 
     /**
      * Resets ToolAPI engine state
