@@ -18,7 +18,13 @@ declare namespace World {
     /**
      * @returns current tick number since the player joined the world
      */
-    function getThreadTime(): number;
+	function getThreadTime(): number;
+	
+	/**
+	 * @param side number from 0 to 6 (exclusive)
+     * @returns opposite side to argument
+     */
+    function getInverseBlockSide(side: number): number;
 
     /**
      * Retrieves coordinates relative to the block. For example, the following code
