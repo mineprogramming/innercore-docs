@@ -1,4 +1,6 @@
 declare namespace UI {
+	type ElementName = string | number | symbol;
+
     /**
      * Containers are used to properly manipulate windows and save slots 
      * contents and windows state between window opens. Every [[TileEntity]] has 
@@ -30,7 +32,9 @@ declare namespace UI {
         /**
          * Same as [[Container.parent]]
          */
-        tileEntity: Nullable<TileEntity> | any;
+		tileEntity: Nullable<TileEntity> | any;
+		
+		slots: Slot[];
 
         /**
          * Sets container's parent object, for [[TileEntity]]'s container it 
@@ -52,7 +56,7 @@ declare namespace UI {
          * @returns contents of the slot in a [[Slot]] object. You can modify it
          * to change the contents of the slot
          */
-        getSlot(name: string): Slot;
+        getSlot(name: ElementName): Nullable<Slot>;
 
         /**
          * Gets the slot by its name. If a slot with specified name doesn't 
@@ -61,14 +65,14 @@ declare namespace UI {
          * @returns contents of the slot in a [[FullSlot]] object containing 
          * more useful methods for slot manipulation
          */
-        getFullSlot(name: string): FullSlot;
+        getFullSlot(name: ElementName): FullSlot;
 
         /**
          * Set slot's content by its name. If a slot with specified name doesn't 
          * exists, creates an empty one with specified name and item
          * @param name slot name
          */
-        setSlot(name: string, id: number, count: number, data: number): void;
+        setSlot(name: ElementName, id: number, count: number, data: number): void;
 
         /**
          * Set slot's content by its name. If a slot with specified name doesn't 
@@ -77,7 +81,7 @@ declare namespace UI {
          * @param extra item extra value. Note that it should be an instance of
          * ItemExtraData and not its numeric id
          */
-        setSlot(name: string, id: number, count: number, data: number, extra: ItemExtraData): void;
+        setSlot(name: ElementName, id: number, count: number, data: number, extra: ItemExtraData): void;
 
         /**
          * Validates slot contents. If the data value is less then 0, it becomes
@@ -85,20 +89,20 @@ declare namespace UI {
          * to an empty one
          * @param name slot name
          */
-        validateSlot(name: string): void;
+        validateSlot(name: ElementName): void;
 
         /**
          * Clears slot's contents
          * @param name slot name
          */
-        clearSlot(name: string): void;
+        clearSlot(name: ElementName): void;
 
         /**
          * Drops slot's contents on the specified coordinates and clears the 
          * slot
          * @param name slot name
          */
-        dropSlot(name: string, x: number, y: number, z: number): void;
+        dropSlot(name: ElementName, x: number, y: number, z: number): void;
 
         /**
          * Drops the contents of all the slots in the container on the specified
@@ -160,7 +164,7 @@ declare namespace UI {
          * @returns window's element by its name
          * @param name element name
          */
-        getElement(name: string): Element;
+        getElement(name: ElementName): Element;
 
         /**
          * Passes any value to the element
@@ -169,7 +173,7 @@ declare namespace UI {
          * element by this name
          * @param value value to be passed to the element
          */
-        setBinding(elementName: string, bindingName: string, value: any): void;
+        setBinding(elementName: ElementName, bindingName: string, value: any): void;
 
         /**
          * Gets any value from the element
@@ -182,28 +186,28 @@ declare namespace UI {
          * @returns value that was get from the element or null if the element 
          * doesn't exist
          */
-        getBinding(elementName: string, bindingName: string): any;
+        getBinding(elementName: ElementName, bindingName: string): any;
 
         /**
          * Sets "value" binding value for the element. Used to set scales values
          * @param name element name
          * @param value value to be set for the element
          */
-        setScale(name: string, value: number): void;
+        setScale(name: ElementName, value: number): void;
 
         /**
          * @param name element name
          * @returns "value" binding value, e.g. scale value, or null if no 
          * element with specified name exist
          */
-        getValue(name: string): Nullable<number>;
+        getValue(name: ElementName): Nullable<number>;
 
         /**
          * Sets "text" binding value for the element. Used to set element's text
          * @param name element name
          * @param value value to be set for the element
          */
-        setText(name: string, value: string): void;
+        setText(name: ElementName, value: string): void;
 
         /**
          * 
@@ -211,13 +215,13 @@ declare namespace UI {
          * @returns "text" binding value, usually the text displayed on the 
          * element, or null if no element with specified name exist
          */
-        getText(name: string): Nullable<string>;
+        getText(name: ElementName): Nullable<string>;
 
         /**
          * @param name element name
          * @returns true if the element is currently touched
          */
-        isElementTouched(name: string): boolean;
+        isElementTouched(name: ElementName): boolean;
 
         /**
          * Forces ui elements of the window to refresh
@@ -274,7 +278,6 @@ declare namespace UI {
          * @returns js array of all slots
          */
         asScriptableField(): UI.Slot[];
-
 	}
 
 
