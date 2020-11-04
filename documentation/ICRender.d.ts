@@ -35,6 +35,8 @@ declare namespace ICRender {
 		 * @returns group's name
 		 */
 		getName(): string,
+		
+		name: string;
 
 		/**
 		 * Adds a block to the group
