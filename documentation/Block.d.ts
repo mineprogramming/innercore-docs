@@ -301,33 +301,34 @@ declare namespace Block {
 	 */
 	function setupAsNonRedstoneTile(id: number | string): void;
 
-	function registerNeighbourChangeFunction(id: number, func: NeighbourChangeFunction): void;
+	function registerNeighbourChangeFunction(name: string | number, func: NeighbourChangeFunction): void;
 
+	function registerNeighbourChangeFunctionForID(id: number, func: NeighbourChangeFunction): void;
 
 	type ColorSource = "grass" | "leaves" | "water";
-	
+
 	type Sound = "normal"
-					   | "gravel" 
-					   | "wood" 
-					   | "grass" 
-					   | "metal" 
-					   | "stone" 
-					   | "cloth" 
-					   | "glass" 
-					   | "sand" 
-					   | "snow" 
-					   | "ladder" 
-					   | "anvil" 
-					   | "slime" 
-					   | "silent" 
-					   | "itemframe" 
-					   | "turtle_egg" 
-					   | "bamboo" 
-					   | "bamboo_sapling" 
-					   | "lantern" 
-					   | "scaffolding" 
-					   | "sweet_berry_bush" 
-					   | "default";
+		| "gravel"
+		| "wood"
+		| "grass"
+		| "metal"
+		| "stone"
+		| "cloth"
+		| "glass"
+		| "sand"
+		| "snow"
+		| "ladder"
+		| "anvil"
+		| "slime"
+		| "silent"
+		| "itemframe"
+		| "turtle_egg"
+		| "bamboo"
+		| "bamboo_sapling"
+		| "lantern"
+		| "scaffolding"
+		| "sweet_berry_bush"
+		| "default";
 
 	/**
 	 * Special types are used to set properties to the block. Unlike items, 
