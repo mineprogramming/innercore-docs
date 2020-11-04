@@ -93,7 +93,7 @@ declare namespace TileEntity {
             /**
              * Events of the container's client copy
              */
-            containerEvents: {
+            containerEvents?: {
                 /**
                  * Example of the client container event function
                  */
