@@ -1983,17 +1983,17 @@ declare namespace UI {
         /**
          * X-axis position of a [[DrawingElement]]
          */
-        x: number;
+        x?: number;
 
         /**
          * Y-axis position of a [[DrawingElement]]
          */
-        y: number;
+        y?: number;
 
         /**
          * Scale of a [[UIElement]]
          */
-        scale: number;
+        scale?: number;
 
         /**
          * Bitmap of [[UIElement]]
