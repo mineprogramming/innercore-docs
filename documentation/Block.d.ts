@@ -314,7 +314,7 @@ declare namespace Block {
 		| "metal"
 		| "stone"
 		| "cloth"
-		| "glass"
+		| "glass"	
 		| "sand"
 		| "snow"
 		| "ladder"
