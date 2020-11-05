@@ -258,7 +258,7 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
     /**
      * BlockSource object to manipulate TileEntity's position in world
      */
-    region: BlockSource;
+    blockSource: BlockSource;
     /**
      * SyncedNetworkData object of the TileEntity
      */
