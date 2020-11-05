@@ -75,13 +75,13 @@ declare class ItemContainer {
 	 * slot
 	 * @param name slot name
 	 */
-	dropSlot(blockSource: BlockSource, name: string, x: number, y: number, z: number): void;
+	dropSlot(region: BlockSource, name: string, x: number, y: number, z: number): void;
 
 	/**
 	 * Drops the contents of all the slots in the container on the specified
 	 * coordinates and clears them
 	 */
-	dropAt(blockSource: BlockSource, x: number, y: number, z: number): void;
+	dropAt(region: BlockSource, x: number, y: number, z: number): void;
 
 	/**
 	 * Validates all the slots in the container

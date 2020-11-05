@@ -27,14 +27,14 @@ declare namespace TileEntity {
      * @returns a [[TileEntity]] on the specified coordinates or null if the block on the
      * coordinates is not a [[TileEntity]] 
      */
-    function getTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function getTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
      * If the block on the specified coordinates is a TileEntity block and is 
      * not initialized, initializes it and returns created [[TileEntity]] object
      * @returns [[TileEntity]] if one was created, null otherwise
      */
-    function addTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function addTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
      * Destroys [[TileEntity]], dropping its container
@@ -49,7 +49,7 @@ declare namespace TileEntity {
      * @returns true if the [[TileEntity]] was destroyed successfully, false 
      * otherwise
      */
-    function destroyTileEntityAtCoords(x: number, y: number, z: number, blockSource?: BlockSource): boolean;
+    function destroyTileEntityAtCoords(x: number, y: number, z: number, region?: BlockSource): boolean;
 
     /**
      * Checks whether the [[TileEntity]] is in the loaded chunk or not
@@ -115,7 +115,7 @@ declare namespace TileEntity {
             /**
              * Events of the container's client copy
              */
-            containerEvents: {
+            containerEvents?: {
                 /**
                  * Example of the client container event function
                  */
@@ -258,7 +258,7 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
     /**
      * BlockSource object to manipulate TileEntity's position in world
      */
-    blockSource: BlockSource;
+    region: BlockSource;
     /**
      * SyncedNetworkData object of the TileEntity
      */
