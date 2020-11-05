@@ -473,11 +473,11 @@ declare namespace Block {
 	 * @param blockData block data value
 	 * @param diggingLevel level of the tool the block was digged with
 	 * @param region BlockSource object
-	 * @returns block drop, the array of arrays, each containing three values: 
-	 * id, count and data respectively
+	 * @returns block drop, the array of arrays, each containing three or four values: 
+	 * id, count, data and extra respectively
 	 */
 	interface DropFunction {
-		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, region: BlockSource): [number, number, number][]
+		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, enchant: ToolAPI.EnchantData, item: ItemInstance, region: BlockSource): [number, number, number, number?][]
 	}
 
 	interface EntityInsideFunction {
