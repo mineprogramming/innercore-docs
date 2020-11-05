@@ -112,6 +112,11 @@ declare class BlockSource {
 	getChunkStateAt(x: number, z: number): number;
 	
 	/**
+     * @returns light level on the specified coordinates, from 0 to 15
+     */
+	getLightLevel(x: number, y: number, z: number): number;
+	
+	/**
 	 * @returns whether the sky can be seen from coords
 	 */
 	canSeeSky(x: number, y: number, z: number): boolean;

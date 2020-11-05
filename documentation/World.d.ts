@@ -96,6 +96,7 @@ declare namespace World {
 
     /**
      * @returns light level on the specified coordinates, from 0 to 15
+     * @deprecated Out of date in multiplayer
      */
     function getLightLevel(x: number, y: number, z: number): number;
 
