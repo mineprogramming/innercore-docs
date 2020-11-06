@@ -1956,7 +1956,12 @@ declare namespace UI {
 				 * Specifies additional padding for the inventory in units. 
 				 * Defaults to 20 units
 				 */
-				padding?: number
+				padding?: number,
+
+				/**
+				 * If true, default window is created
+				 */
+				standard?: boolean
 			}
 		}
 
