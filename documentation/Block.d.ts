@@ -473,6 +473,8 @@ declare namespace Block {
 	 * @param blockID numeric tile id
 	 * @param blockData block data value
 	 * @param diggingLevel level of the tool the block was digged with
+	 * @param enchant enchant data of the tool held in player's hand
+	 * @param item item stack held in player's hand
 	 * @param region BlockSource object
 	 * @returns block drop, the array of arrays, each containing three or four values: 
 	 * id, count, data and extra respectively

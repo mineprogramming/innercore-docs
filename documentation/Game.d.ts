@@ -66,5 +66,5 @@ declare namespace Game {
     /**
      * @returns true if item spending allowed
      */
-    function isItemSpendingAllowed(): boolean;
+    function isItemSpendingAllowed(player?: number): boolean;
 }
