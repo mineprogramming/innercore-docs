@@ -10,7 +10,7 @@ declare namespace Block {
 	 * @returns block numeric id by its string id or just returns its numeric id 
 	 * if input was a numeric id
 	 */
-	function getNumericId(id: string | number): number;
+	function getNumericId(id: string): number;
 
 	/**
 	 * Creates new block using specified params
@@ -301,34 +301,33 @@ declare namespace Block {
 	 */
 	function setupAsNonRedstoneTile(id: number | string): void;
 
-	function registerNeighbourChangeFunction(name: string | number, func: NeighbourChangeFunction): void;
+	function registerNeighbourChangeFunction(id: number, func: NeighbourChangeFunction): void;
 
-	function registerNeighbourChangeFunctionForID(id: number, func: NeighbourChangeFunction): void;
 
 	type ColorSource = "grass" | "leaves" | "water";
-
+	
 	type Sound = "normal"
-		| "gravel"
-		| "wood"
-		| "grass"
-		| "metal"
-		| "stone"
-		| "cloth"
-		| "glass"	
-		| "sand"
-		| "snow"
-		| "ladder"
-		| "anvil"
-		| "slime"
-		| "silent"
-		| "itemframe"
-		| "turtle_egg"
-		| "bamboo"
-		| "bamboo_sapling"
-		| "lantern"
-		| "scaffolding"
-		| "sweet_berry_bush"
-		| "default";
+					   | "gravel" 
+					   | "wood" 
+					   | "grass" 
+					   | "metal" 
+					   | "stone" 
+					   | "cloth" 
+					   | "glass" 
+					   | "sand" 
+					   | "snow" 
+					   | "ladder" 
+					   | "anvil" 
+					   | "slime" 
+					   | "silent" 
+					   | "itemframe" 
+					   | "turtle_egg" 
+					   | "bamboo" 
+					   | "bamboo_sapling" 
+					   | "lantern" 
+					   | "scaffolding" 
+					   | "sweet_berry_bush" 
+					   | "default";
 
 	/**
 	 * Special types are used to set properties to the block. Unlike items, 
@@ -473,12 +472,14 @@ declare namespace Block {
 	 * @param blockID numeric tile id
 	 * @param blockData block data value
 	 * @param diggingLevel level of the tool the block was digged with
+     * @param enchant enchant data of the tool held in player's hand
+     * @param item item stack held in player's hand
 	 * @param region BlockSource object
-	 * @returns block drop, the array of arrays, each containing three or four values: 
-	 * id, count, data and extra respectively
+	 * @returns block drop, the array of arrays, each containing three values: 
+	 * id, count and data respectively
 	 */
 	interface DropFunction {
-		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, enchant: ToolAPI.EnchantData, item: ItemInstance, region: BlockSource): [number, number, number, number?][]
+		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, enchant: ToolAPI.EnchantData, item: ItemInstance, region: BlockSource): [number, number, number][]
 	}
 
 	interface EntityInsideFunction {
