@@ -552,4 +552,8 @@ declare namespace Block {
 	interface NeighbourChangeFunction {
 		(coords: Vector, block: Tile, changedCoords: Vector, region: BlockSource): void
 	}
+        /**
+         * @returns drop function of the block with given numeric id
+         */
+        function getDropFunction(id: number): Block.DropFunction;
 }
