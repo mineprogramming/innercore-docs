@@ -130,7 +130,7 @@ declare namespace Item {
      * @param count amount of the item to be added, generally should be 1
      * @param data item data
      */
-    function addToCreative(id: number | string, count: number, data: number): void;
+    function addToCreative(id: number | string, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * Applies several properties via one method call
