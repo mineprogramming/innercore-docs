@@ -371,6 +371,11 @@ declare namespace UI {
 		 * the window canvas
 		 */
 		setDebugEnabled(enabled: boolean): void;
+
+		/**
+		 * @returns whether the window can be closed on pressing back navigation button
+		 */
+		onBackPressed(): boolean;
 	}
 
 
@@ -627,6 +632,18 @@ declare namespace UI {
 		 * Writes debug information about current window to the log
 		 */
 		debug(): void;
+
+		/**
+		 * @returns whether the window can be closed on pressing back navigation button
+		 */
+		onBackPressed(): boolean;
+
+		/**
+		 * Gives the property to be closed on pressing back navigation button to the given window
+		 */
+		setCloseOnBackPressed(val: boolean): void;
+
+
 	}
 
 
@@ -801,6 +818,16 @@ declare namespace UI {
 		 * the window canvas
 		 */
 		setDebugEnabled(enabled: boolean): void;
+
+		/**
+		 * @returns whether the window group can be closed on pressing back navigation button
+		 */
+		onBackPressed(): boolean;
+
+		/**
+		 * Gives the property to be closed on pressing back navigation button to the given window group
+		 */
+		setCloseOnBackPressed(val: boolean): void;
 	}
 
 
