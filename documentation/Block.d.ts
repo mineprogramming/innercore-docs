@@ -213,7 +213,7 @@ declare namespace Block {
 	 * @returns block drop, the array of arrays, each containing three values: 
 	 * id, count and data respectively
 	 */
-	function getBlockDropViaItem(block: Tile, item: ItemInstance, coords: Vector): [number, number, number][];
+	function getBlockDropViaItem(block: Tile, item: ItemInstance, coords: Vector, region: BlockSource): [number, number, number, ItemExtraData?][];
 
 	/**
 	 * Same as [[Block.registerPlaceFunction]] but accepts only numeric 
@@ -480,7 +480,7 @@ declare namespace Block {
 	 * id, count, data and extra respectively
 	 */
 	interface DropFunction {
-		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, enchant: ToolAPI.EnchantData, item: ItemInstance, region: BlockSource): [number, number, number, number?][]
+		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, enchant: ToolAPI.EnchantData, item: ItemInstance, region: BlockSource): [number, number, number, ItemExtraData?][]
 	}
 
 	interface EntityInsideFunction {
