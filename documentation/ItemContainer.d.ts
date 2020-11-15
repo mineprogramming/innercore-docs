@@ -33,6 +33,13 @@ declare class ItemContainer {
 	getParent(): Nullable<TileEntity> | any;
 
 	/**
+	 * Opens UI for client
+	 * @param client client in which UI will be open
+	 * @param screenName name of the screen to open
+	 */
+	openFor(client: Network.Client, screenName: string): void;
+
+	/**
 	 * Gets the slot by its name. If a slot with specified name doesn't 
 	 * exists, creates an empty one with specified name
 	 * @param name slot name
