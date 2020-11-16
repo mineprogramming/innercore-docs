@@ -2036,77 +2036,261 @@ declare namespace UI {
 	}
 
 	interface UIElement {
-		/**
-		 * Type of a [[UIElement]]
-		 */
-		type: string;
+		x: number,
 
-		/**
-		 * X-axis position of a [[UIElement]]
-		 */
-		x: number;
+		y: number,
 
-		/**
-		 * Y-axis position of a [[UIElement]]
-		 */
-		y: number;
+		z?: number,
 
-		/**
-		 * Scale of a [[UIElement]]
-		 */
-		scale?: number;
+		clicker?: UIClickEvent
+	}
 
-		/**
-		 * Width of a [[UIElement]]
-		 * Works only if [[type]] equals "text"
-		 */
-		width?: number;
+	interface UICustomElement extends UIElement {
+		type: "custom",
 
-		/**
-		 * Height of a [[UIElement]]
-		 * Works only if [[type]] equals "text"
-		 */
-		height?: number;
+		onSetup?: (element: Element) => void,
 
-		/**
-		 * Text of a [[UIElement]]
-		 * Works only if [[type]] equals "text"
-		 */
-		text?: string;
+		onDraw?: (element: Element, canvas: android.graphics.Canvas, scale: number) => void,
 
-		/**
-		 * Bitmap of [[UIElement]]
-		 */
-		bitmap?: string;
+		onTouchReleased?: (element: Element) => void,
 
-		/**
-		 * Second bitmap of [[UIElement]]
-		 * Visible only if [[UIElement]] is touched
-		 */
-		bitmap2?: string;
+		onBindingUpdated?: (element: Element, name: string, value: any) => void,
 
-		/**
-		 * On click event of [[UIElement]]
-		 */
-		clicker?: UIClickEvent,
+		onReset?: (element: Element) => void,
 
-		/**
-		 * Direction of [[UIElement]]
-		 * Works only if [[type]] equals "scale"
-		 */
+		onRelease?: (element: Element) => void,
+
+		onContainerInit?: (element: Element, container: Container, elementName: string) => void,
+
+		[key: string]: any
+	}
+
+	interface UIButtonElement extends UIElement {
+		type: "button",
+
+		bitmap?: string,
+
+		bitmap2?: string,
+
+		scale?: number
+	}
+
+	interface UICloseButtonElement extends UIElement {
+		type: "close_button" | "closeButton",
+
+		bitmap?: string,
+
+		bitmap2?: string,
+
+		scale?: number
+	}
+
+	interface UIFrameElement extends UIElement {
+		type: "frame",
+
+		bitmap?: string,
+
+		width?: number,
+
+		height?: number,
+
+		scale?: number,
+
+		color?: number,
+
+		sides?: boolean[]
+	}
+
+	interface UIImageElement extends UIElement {
+		type: "image",
+
+		width?: number,
+
+		height?: number,
+
+		scale?: number,
+
+		bitmap?: string,
+
+		overlay?: string
+	}
+
+	interface UIScaleElement extends UIElement {
+		type: "scale",
+
+		scale?: number,
+
 		direction?: number,
 
-		/**
-		 * Value of [[UIElement]]
-		 * Works only if [[type]] equals "scale"
-		 */
-		value?: number,
+		invert?: boolean,
 
-		/**
-		 * Overlay bitmap of [[UIElement]]
-		 * Works only if [[type]] equals "scale"
-		 */
-		overlay?: string
+		pixelate?: boolean,
+
+		bitmap?: string
+
+		width?: number,
+
+		height?: number,
+
+		background?: string,
+
+		overlay?: string,
+
+		backgroundOffset?: { x?: number, y?: number },
+
+		overlayOffset?: { x?: number, y?: number }
+	}
+
+	interface UIScrollElement extends UIElement {
+		type: "scroll",
+
+		isInt?: boolean,
+
+		width?: number,
+
+		height?: number,
+
+		length?: number,
+
+		min?: number,
+
+		max?: number,
+
+		divider?: number,
+
+		bindingObject?: any,
+
+		bindingProperty?: string
+
+		configValue?: Config.ConfigValue,
+
+		bitmapHandle?: string,
+
+		bitmapHandleHover?: string,
+
+		bitmapBg?: string,
+
+		bitmapBgHover?: string,
+
+		ratio?: number,
+
+		onNewValue?: (value: number, container: Container, element: Element) => void
+	}
+
+	interface UISlotElement extends UIElement {
+		type: "slot",
+
+		bitmap?: string,
+
+		size?: number,
+
+		maxStackSize?: number,
+
+		visual?: boolean,
+
+		darken?: boolean,
+
+		isDarkenAtZero?: boolean,
+
+		text?: string,
+
+		onItemChanged?: (container: Container, oldId: number, oldData: number, oldCount: number) => void,
+
+		isValid?: (id: number, count: number, data: number, container: Container, item: ItemInstance) => boolean
+	}
+
+	interface UISwitchElement extends UIElement {
+		type: "switch",
+
+		bindingObject?: any,
+
+		bindingProperty?: string,
+
+		configValue?: Config.ConfigValue,
+
+		bitmapOn?: string,
+
+		bitmapOnHover?: string,
+
+		bitmapOff?: string,
+
+		bitmapOffHover?: string,
+
+		scale?: number,
+
+		onNewState?: (value: number, container: Container, element: Element) => void
+	}
+
+	interface UITabElement extends UIElement {
+		type: "tab"
+
+		selectedColor?: number,
+
+		deselectedColor?: number,
+
+		tabIndex?: number,
+
+		isAlwaysSelected?: boolean,
+
+		isSelected?: boolean,
+
+		bitmap?: string,
+
+		width?: number,
+
+		height?: number,
+
+		scale?: number,
+
+		color?: number,
+
+		sides?: boolean[]
+	}
+
+	interface UITextElement extends UIElement{
+		type: "text",
+
+		text: string
+
+		font?: FontParams,
+
+		multiline?: boolean,
+
+		format?: boolean,
+
+		maxCharsPerLine?: number
+	}
+
+	interface UIFPSTextElement extends UIElement {
+		type: "fps",
+
+		interpolate?: boolean,
+
+		period?: number,
+
+		font?: FontParams,
+
+		multiline?: boolean,
+
+		format?: boolean,
+
+		maxCharsPerLine?: number
+	}
+
+	interface UIInvSlotElement extends UIElement {
+		type: "invSlot" | "invslot",
+
+		index?: number
+
+		size?: number,
+
+		darken?: boolean,
+
+		isDarkenAtZero?: boolean,
+
+		text?: string,
+
+		onItemChanged?: (container: Container, oldId: number, oldData: number, oldCount: number) => void
 	}
 
 
@@ -2121,7 +2305,19 @@ declare namespace UI {
 	 * [[UIElement]] instance to be used
 	 */
 	interface UIElementSet {
-		[key: string]: UIElement
+		[key: string]: UICustomElement
+			| UIButtonElement
+			| UICloseButtonElement
+			| UIFrameElement
+			| UIImageElement
+			| UIScaleElement
+			| UIScrollElement
+			| UISlotElement
+			| UISwitchElement
+			| UITabElement
+			| UITextElement
+			| UIFPSTextElement
+			| UIInvSlotElement
 	}
 
 
