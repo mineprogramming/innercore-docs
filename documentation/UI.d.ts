@@ -1,7 +1,4 @@
 declare namespace UI {
-	import PorterDuff = android.graphics.PorterDuff;
-	import Deprecated = java.lang.Deprecated;
-	import Canvas = android.graphics.Canvas;
 	type ElementName = string | number | symbol;
 
 	/**
@@ -2013,18 +2010,18 @@ declare namespace UI {
 
 		color: number,
 
-		mode?: PorterDuff.Mode,
+		mode?: android.graphics.PorterDuff.Mode,
 
 		/**
 		 * @deprecated
 		 */
-		colorMode?: PorterDuff.Mode
+		colorMode?: android.graphics.PorterDuff.Mode
 	}
 
 	interface CustomDrawing {
 		type: "custom",
 
-		onDraw?: (canvas: Canvas, scale: number) => void,
+		onDraw?: (canvas: android.graphics.Canvas, scale: number) => void,
 
 		[key: string]: any
 	}
