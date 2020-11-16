@@ -13,6 +13,109 @@ declare namespace Callback {
      */
     function addCallback(name: string, func: Function): void;
 
+    function addCallback(name: "CraftRecipePreProvided", func: CraftRecipePreProvidedFunction): void;
+
+    function addCallback(name: "CraftRecipeProvidedFunction", func: CraftRecipeProvidedFunction): void;
+
+    function addCallback(name: "VanillaWorkbenchCraft", func: VanillaWorkbenchCraftFunction): void;
+
+    function addCallback(name: "VanillaWorkbenchPostCraft", func: VanillaWorkbenchCraftFunction): void;
+
+    function addCallback(name: "VanillaWorkbenchRecipeSelected", func: VanillaWorkbenchRecipeSelectedFunction): void;
+
+    function addCallback(name: "ContainerClosed", func: ContainerClosedFunction): void;
+
+    function addCallback(name: "ContainerOpened", func: ContainerOpenedFunction): void;
+
+    function addCallback(name: "CustomWindowOpened", func: CustomWindowOpenedFunction): void;
+
+    function addCallback(name: "CustomWindowClosed", func: CustomWindowClosedFunction): void;
+
+    function addCallback(name: "CoreConfigured", func: CoreConfiguredFunction): void;
+
+    function addCallback(name: "LevelSelected", func: LevelSelectedFunction): void;
+
+    function addCallback(name: "DimensionLoaded", func: DimensionLoadedFunction): void;
+
+    function addCallback(name: "DestroyBlock", func: DestroyBlockFunction): void;
+
+    function addCallback(name: "DestroyBlockStart", func: DestroyBlockFunction): void;
+
+    function addCallback(name: "DestroyBlockContinue", func: DestroyBlockContinueFunction): void;
+
+    function addCallback(name: "BuildBlock", func: BuildBlockFunction): void;
+
+    function addCallback(name: "BlockChanged", func: BlockChangedFunction): void;
+
+    function addCallback(name: "ItemUse", func: ItemUseFunction): void;
+
+    function addCallback(name: "ItemUseLocalServer", func: ItemUseFunction): void;
+
+    function addCallback(name: "Explosion", func: ExplosionFunction): void;
+
+    function addCallback(name: "FoodEaten", func: FoodEatenFunction): void;
+
+    function addCallback(name: "ExpAdd", func: ExpAddFunciton): void;
+
+    function addCallback(name: "ExpLevelAdd", func: ExpLevelAddFunciton): void;
+
+    function addCallback(name: "NativeCommand", func: NativeCommandFunciton): void;
+
+    function addCallback(name: "PlayerAttack", func: PlayerAttackFunction): void;
+
+    function addCallback(name: "EntityAdded", func: EntityAddedFunction): void;
+
+    function addCallback(name: "EntityRemoved", func: EntityRemovedFunction): void;
+
+    function addCallback(name: "EntityDeath", func: EntityDeathFunction): void;
+
+    function addCallback(name: "EntityHurt", func: EntityHurtFunction): void;
+
+    function addCallback(name: "EntityInteract", func: EntityInteractFunction): void;
+
+    function addCallback(name: "ProjectileHit", func: ProjectileHitFunction): void;
+
+    function addCallback(name: "RedstoneSignal", func: RedstoneSignalFunction): void;
+
+    function addCallback(name: "PopBlockResources", func: PopBlockResourcesFunction): void;
+
+    function addCallback(name: "ItemIconOverride", func: ItemIconOverrideFunction): void;
+
+    function addCallback(name: "ItemNameOverride", func: ItemNameOverrideFunction): void;
+
+    function addCallback(name: "ItemUseNoTarget", func: ItemUseNoTargetFunction): void;
+
+    function addCallback(name: "ItemUsingReleased", func: ItemUsingReleasedFunction): void;
+
+    function addCallback(name: "ItemUsingComplete", func: ItemUsingCompleteFunction): void;
+
+    function addCallback(name: "ItemDispensed", func: ItemDispensedFunction): void;
+
+    function addCallback(name: "NativeGuiChanged", func: NativeGuiChangedFunction): void;
+
+    function addCallback(name: "GenerateChunk", func: GenerateChunkFunction): void;
+
+    /**
+     * @deprecated
+     */
+    function addCallback(name: "GenerateChunkUnderground", func: GenerateChunkFunction): void;
+
+    function addCallback(name: "GenerateNetherChunk", func: GenerateChunkFunction): void;
+
+    function addCallback(name: "GenerateEndChunk", func: GenerateChunkFunction): void;
+
+    function addCallback(name: "GenerateChunkUniversal", func: GenerateChunkFunction): void;
+
+    function addCallback(name: "GenerateBiomeMap", func: GenerateChunkFunction): void;
+
+    function addCallback(name: "ReadSaves", func: SavesFunction): void;
+
+    function addCallback(name: "WriteSaves", func: SavesFunction): void;
+
+    function addCallback(name: "CustomBlockTessellation", func: CustomBlockTessellationFunction): void;
+
+    function addCallback(name: "ServerPlayerTick", func: ServerPlayerTickFunction): void;
+
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
      * should not generally call pre-defined callbacks until you really need to 
