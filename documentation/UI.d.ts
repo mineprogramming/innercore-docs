@@ -1,4 +1,7 @@
 declare namespace UI {
+	import PorterDuff = android.graphics.PorterDuff;
+	import Deprecated = java.lang.Deprecated;
+	import Canvas = android.graphics.Canvas;
 	type ElementName = string | number | symbol;
 
 	/**
@@ -1993,10 +1996,9 @@ declare namespace UI {
 		}
 
 		/**
-		 * Array of [[DrawingElement]] instances to be used as drawing 
-		 * components for the window
+		 * Array of drawings
 		 */
-		drawing?: DrawingElement[],
+		drawing?: DrawingSet,
 
 		/**
 		 * Object containing keys as gui elements names and [[UIElement]] 
@@ -2006,34 +2008,96 @@ declare namespace UI {
 		elements: UIElementSet,
 	}
 
-	interface DrawingElement {
-		/**
-		 * Type of a [[DrawingElement]]
-		 */
-		type: string,
+	interface ColorDrawing {
+		type: "background",
+
+		color: number,
+
+		mode?: PorterDuff.Mode,
 
 		/**
-		 * X-axis position of a [[DrawingElement]]
+		 * @deprecated
 		 */
-		x?: number;
-
-		/**
-		 * Y-axis position of a [[DrawingElement]]
-		 */
-		y?: number;
-
-		/**
-		 * Scale of a [[UIElement]]
-		 */
-		scale?: number;
-
-		/**
-		 * Bitmap of [[UIElement]]
-		 */
-		bitmap?: string;
-
-		color?: number
+		colorMode?: PorterDuff.Mode
 	}
+
+	interface CustomDrawing {
+		type: "custom",
+
+		onDraw?: (canvas: Canvas, scale: number) => void,
+
+		[key: string]: any
+	}
+
+	interface FrameDrawing {
+		type: "frame",
+
+		x: number,
+
+		y: number,
+
+		bitmap: string
+
+		sides?: boolean[],
+
+		scale?: number,
+
+		width?: number,
+
+		height?: number,
+
+		color?: number,
+
+		/**
+		 * @deprecated
+		 */
+		bg?: number
+	}
+
+	interface ImageDrawing {
+		type?: "bitmap",
+
+		x: number,
+
+		y: number,
+
+		bitmap: string,
+
+		width?: number,
+
+		height?: number,
+
+		scale?: number
+	}
+
+	interface LineDrawing {
+		type?: "line",
+
+		x1: number,
+
+		y1: number,
+
+		x2: number,
+
+		y2: number,
+
+		color?: number,
+
+		width?: number
+	}
+
+	interface TextDrawing {
+		type: "text",
+
+		x: number,
+
+		y: number,
+
+		text: string,
+
+		font?: FontParams
+	}
+
 
 	interface UIElement {
 		x: number,
@@ -2319,6 +2383,13 @@ declare namespace UI {
 			| UIFPSTextElement
 			| UIInvSlotElement
 	}
+
+	type DrawingSet = (ColorDrawing
+		| CustomDrawing
+		| FrameDrawing
+		| ImageDrawing
+		| LineDrawing
+		| TextDrawing)[]
 
 
 	/**
