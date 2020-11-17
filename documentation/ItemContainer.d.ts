@@ -37,7 +37,7 @@ declare class ItemContainer {
 	 * @param client client in which UI will be open
 	 * @param screenName name of the screen to open
 	 */
-	openFor(client: Network.Client, screenName: string): void;
+	openFor(client: NetworkClient, screenName: string): void;
 
 	/**
 	 * Gets the slot by its name. If a slot with specified name doesn't 
