@@ -2187,6 +2187,8 @@ declare namespace UI {
 
 		pixelate?: boolean,
 
+		value?: number,
+
 		bitmap?: string
 
 		width?: number,
@@ -2319,7 +2321,11 @@ declare namespace UI {
 
 		format?: boolean,
 
-		maxCharsPerLine?: number
+		maxCharsPerLine?: number,
+
+		width?: number,
+
+		height?: number
 	}
 
 	interface UIFPSTextElement extends UIElement {
