@@ -2442,7 +2442,7 @@ declare namespace UI {
 		| TextDrawing
 	);
 	interface ElementSet {
-		[key: string]: UIElement;
+		[key: string]: Elements;
 	}
 
 	type DrawingSet = DrawingElements[];
