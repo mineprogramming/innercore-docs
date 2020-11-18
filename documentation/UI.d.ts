@@ -644,6 +644,11 @@ declare namespace UI {
 		setCloseOnBackPressed(val: boolean): void;
 
 
+		/**
+		 * Set background color of window
+		 * @param color integer color value (you can specify it using hex value)
+		 */
+		setBackgroundColor(color: number);
 	}
 
 
@@ -729,9 +734,10 @@ declare namespace UI {
 		 * @param name window name
 		 */
 		moveOnTop(name: string): void;
+
 		/**
-				 * Opens window wihout container. It is usually mor
-				 */
+		 * Opens window wihout container. It is usually mor
+		 */
 		open(): void;
 
 		/**
@@ -949,7 +955,7 @@ declare namespace UI {
 		 * @param isAlwaysSelected if true, tab is always displayed as selected.
 		 * Default value is false
 		 */
-		setTab(index: number, tabOverlay: UIElementSet, tabContent: WindowContent, isAlwaysSelected?: boolean): void;
+		setTab(index: number, tabOverlay: ElementSet, tabContent: WindowContent, isAlwaysSelected?: boolean): void;
 
 		/**
 		 * Creates fake tab with no content
@@ -957,7 +963,7 @@ declare namespace UI {
 		 * details
 		 * @param tabOverlay content of the tab selector
 		 */
-		setFakeTab(index: number, tabOverlay: UIElementSet): void;
+		setFakeTab(index: number, tabOverlay: ElementSet): void;
 
 		/**
 		 * @param index index of the tab
@@ -1132,7 +1138,7 @@ declare namespace UI {
 		 * [[ConfigVisualizer]] instance
 		 * @param elements target [[WindowContent.elements]] section
 		 */
-		clearVisualContent(elements: UIElementSet): void;
+		clearVisualContent(elements: ElementSet): void;
 
 		/**
 		 * Creates elements in the window to visualize configuration file
@@ -1140,7 +1146,7 @@ declare namespace UI {
 		 * @param pos top left position of the first element. Default position 
 		 * is (0, 0, 0)
 		 */
-		createVisualContent(elements: UIElementSet, pos?: { x?: number, y?: number, z?: number }): void;
+		createVisualContent(elements: ElementSet, pos?: { x?: number, y?: number, z?: number }): void;
 	}
 
 
@@ -1470,6 +1476,46 @@ declare namespace UI {
 		 * Constant used to represent right padding
 		 */
 		PADDING_RIGHT: number;
+
+		/**
+		 * Window width
+		 */
+		width: number;
+
+		/**
+		 * Height of window
+		 */
+		height: number;
+
+		/**
+		 * Scale of window
+		 */
+		scale: number;
+
+		/**
+		 * Horizontal window scroll
+		 */
+		scrollX: number;
+
+		/**
+		 * Vertical window scroll
+		 */
+		scrollY: number;
+
+		/**
+		 * Window horizontal position
+		 */
+		x: number;
+
+		/**
+		 * Window vertical position
+		 */
+		y: number;
+
+		/**
+		 * Window position on layers
+		 */
+		zIndex: number;
 
 		/**
 		 * Sets padding of the window
@@ -2002,11 +2048,11 @@ declare namespace UI {
 		 * instances as values. Gui elements are interactive components that are
 		 * used to create interfaces functionality
 		 */
-		elements: UIElementSet,
+		elements: ElementSet,
 	}
 
 	interface ColorDrawing {
-		type: "background",
+		type: "background" | "color",
 
 		color: number,
 
@@ -2189,7 +2235,7 @@ declare namespace UI {
 
 		value?: number,
 
-		bitmap?: string
+		bitmap?: string,
 
 		width?: number,
 
@@ -2371,29 +2417,35 @@ declare namespace UI {
 	 * Object containing ui elements with key as the name and value as the 
 	 * [[UIElement]] instance to be used
 	 */
-	interface UIElementSet {
-		[key: string]: UICustomElement
-			| UIButtonElement
-			| UICloseButtonElement
-			| UIFrameElement
-			| UIImageElement
-			| UIScaleElement
-			| UIScrollElement
-			| UISlotElement
-			| UISwitchElement
-			| UITabElement
-			| UITextElement
-			| UIFPSTextElement
-			| UIInvSlotElement
-	}
+	type Elements = (
+		UICustomElement
+		| UIButtonElement
+		| UICloseButtonElement
+		| UIFrameElement
+		| UIImageElement
+		| UIScaleElement
+		| UIScrollElement
+		| UISlotElement
+		| UISwitchElement
+		| UITabElement
+		| UITextElement
+		| UIFPSTextElement
+		| UIInvSlotElement
+	);
 
-	type DrawingSet = (ColorDrawing
+	type DrawingElements = (
+		ColorDrawing
 		| CustomDrawing
 		| FrameDrawing
 		| ImageDrawing
 		| LineDrawing
-		| TextDrawing)[]
+		| TextDrawing
+	);
+	interface ElementSet {
+		[key: string]: UIElement;
+	}
 
+	type DrawingSet = DrawingElements[];
 
 	/**
 	 * Object containing binding names as keys and string values as gui textures

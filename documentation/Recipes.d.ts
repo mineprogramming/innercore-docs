@@ -189,7 +189,7 @@ declare namespace Recipes {
          * @param targetCon target container
          * @param field workbench field
          */
-        constructor(target: UI.UIElementSet, targetCon: UI.Container, field: WorkbenchField);
+        constructor(target: UI.ElementSet, targetCon: UI.Container, field: WorkbenchField);
 
         /**
          * Sets custom workbench prefix
