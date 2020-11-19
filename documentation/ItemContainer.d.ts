@@ -130,6 +130,11 @@ interface TransferPolicy {
 }
 
 declare class ItemContainerSlot {
+	id: number;
+	count: number;
+	data: number;
+	extra: ItemExtraData;
+	
 	getName(): string;
 	getContainer(): ItemContainer;
 	setSlot(id: number, count: number, data: number, extra?: ItemExtraData): boolean;
