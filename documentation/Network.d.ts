@@ -38,4 +38,6 @@ declare namespace Network {
      * Converts item or block id from local to server value
      */
     function localToServerId(id: string | number): number;
+
+    function inRemoteWorld(): boolean;
 }
