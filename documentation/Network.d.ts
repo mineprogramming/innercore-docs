@@ -12,7 +12,7 @@ declare namespace Network {
      * Event that is called when server receives a packet with the specified name from client
      * @param name name of the packet
      */
-    function addServerPacket<T extends object>(name: string, func: (client: any, data: T) => void): void;
+    function addServerPacket<T extends object>(name: string, func: (client: NetworkClient, data: T) => void): void;
 
     /**
      * Sends packet object with specified name to all clients
