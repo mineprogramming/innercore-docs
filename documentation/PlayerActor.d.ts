@@ -7,6 +7,11 @@ declare class PlayerActor {
     constructor(playerUid: number);
 
     /**
+     * @returns player's unique numeric entity id
+     */
+    getUid(): number;
+    
+    /**
      * @returns the id of dimension where player is.
      */
     getDimension(): number;

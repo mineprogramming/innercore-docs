@@ -5,5 +5,5 @@ declare class NetworkEntity {
 	constructor(type: NetworkEntityType, context: any);
 	remove(): void;
 	send(name: string, data: any): void;
-	getClients(): ConnectedClientList;
+	getClients(): NetworkConnectedClientList;
 }

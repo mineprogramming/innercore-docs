@@ -37,7 +37,7 @@ declare class ItemContainer {
 	 * @param client client in which UI will be open
 	 * @param screenName name of the screen to open
 	 */
-	openFor(client: Network.Client, screenName: string): void;
+	openFor(client: NetworkClient, screenName: string): void;
 
 	/**
 	 * Gets the slot by its name. If a slot with specified name doesn't 
@@ -46,14 +46,7 @@ declare class ItemContainer {
 	 * @returns contents of the slot in a [[Slot]] object. You can modify it
 	 * to change the contents of the slot
 	 */
-	getSlot(name: string): UI.Slot;
-
-	/**
-	 * Set slot's content by its name. If a slot with specified name doesn't 
-	 * exists, creates an empty one with specified name and item
-	 * @param name slot name
-	 */
-	setSlot(name: string, id: number, count: number, data: number): void;
+	getSlot(name: string): ItemContainerSlot;
 
 	/**
 	 * Set slot's content by its name. If a slot with specified name doesn't 
@@ -61,7 +54,7 @@ declare class ItemContainer {
 	 * @param name slot name
 	 * @param extra item extra data.
 	 */
-	setSlot(name: string, id: number, count: number, data: number, extra: ItemExtraData): void;
+	setSlot(name: string, id: number, count: number, data: number, extra?: ItemExtraData): void;
 
 	/**
 	 * Validates slot contents. If the data value is less then 0, it becomes
@@ -134,4 +127,25 @@ declare class ItemContainer {
 
 interface TransferPolicy {
 	(container: ItemContainer, name: string, id: number, amount: number, data: number, extra: ItemExtraData, playerUid: number): number;
+}
+
+declare class ItemContainerSlot {
+	id: number;
+	count: number;
+	data: number;
+	extra: ItemExtraData;
+	
+	getName(): string;
+	getContainer(): ItemContainer;
+	setSlot(id: number, count: number, data: number, extra?: ItemExtraData): boolean;
+	set(id: number, count: number, data: number, extra: ItemExtraData): boolean;
+	dropAt(region: BlockSource, x: number, y: number, z: number): void;
+	getId(): number;
+	getCount(): number;
+	getData(): number;
+	getExtra(): ItemExtraData;
+	isEmpty(): boolean;
+	markDirty(): void;
+	clear(): void;
+	validate(): void;
 }
