@@ -547,7 +547,7 @@ declare namespace UI {
 		/**
 		 * @returns true if the window is game overlay, false otherwise
 		 */
-		isNotFocusable(): void;
+		isNotFocusable(): boolean;
 
 		/**
 		 * Specifies the content of the window
