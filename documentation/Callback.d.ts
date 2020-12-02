@@ -186,7 +186,7 @@ declare namespace Callback {
      * @param window window that was loaded in the container
      */
     interface ContainerOpenedFunction {
-        (container: UI.Container, window: UI.IWindow): void
+        (container: UI.Container, window: UI.IWindow | UI.WindowGroup): void
     }
 
 
