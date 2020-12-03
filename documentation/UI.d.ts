@@ -2303,6 +2303,11 @@ declare namespace UI {
 
 		text?: string,
 
+		/**
+		 * @deprecated
+		 */
+		isTransparentBackground?: boolean,
+
 		onItemChanged?: (container: Container, oldId: number, oldData: number, oldCount: number) => void,
 
 		isValid?: (id: number, count: number, data: number, container: Container, item: ItemInstance) => boolean
