@@ -7,6 +7,26 @@ declare class ItemContainer {
 	}
 
 	/**
+	 * If container is a part of [[TileEntity]], this field stores reference 
+	 * to it, otherwise null. Consider using [[Container.getParent]] instead 
+	 * of direct field access
+	 */
+	parent: Nullable<TileEntity> | any;
+
+	/**
+	 * Sets container's parent object, for [[TileEntity]]'s container it 
+	 * should be a [[TileEntity]] reference, otherwise you can pass any 
+	 * value to be used in your code later
+	 * @param parent an object to be set as container's parent
+	 */
+	setParent(parent: Nullable<TileEntity> | any): void;
+
+	/**
+	 * Getter for [[Container.parent]] field
+	 */
+	getParent(): Nullable<TileEntity> | any;
+
+	/**
 	 * Sends changes in container to all clients.
 	 * Needs to be used every time when something changes in container.
 	 */
@@ -15,13 +35,13 @@ declare class ItemContainer {
 	/**
 	 * Sends packet from client container copy to server.
 	 */
-	sendEvent(eventName: string, someData: object): void;
+	sendEvent(eventName: string, someData: object | string): void;
 
 	/**
 	 * Sends packet from server container. 
 	 * ONLY AVAILABLE IN SERVER CONTAINER EVENTS
 	 */
-	sendResponseEvent(eventName: string, someData: object): void;
+	sendResponseEvent(eventName: string, someData: object | string): void;
 
 	/**
 	 * Sets container's parent object, for [[TileEntity]]'s container it 
@@ -50,7 +70,7 @@ declare class ItemContainer {
 	 * @returns contents of the slot in a [[Slot]] object. You can modify it
 	 * to change the contents of the slot
 	 */
-	getSlot(name: string): ItemContainerSlot;
+	getSlot(name: UI.ElementName): ItemContainerSlot;
 
 	/**
 	 * Set slot's content by its name. If a slot with specified name doesn't 
@@ -58,7 +78,7 @@ declare class ItemContainer {
 	 * @param name slot name
 	 * @param extra item extra data.
 	 */
-	setSlot(name: string, id: number, count: number, data: number, extra?: ItemExtraData): void;
+	setSlot(name: UI.ElementName, id: number, count: number, data: number, extra?: ItemExtraData): void;
 
 	/**
 	 * Validates slot contents. If the data value is less then 0, it becomes
@@ -66,20 +86,20 @@ declare class ItemContainer {
 	 * to an empty one
 	 * @param name slot name
 	 */
-	validateSlot(name: string): void;
+	validateSlot(name: UI.ElementName): void;
 
 	/**
 	 * Clears slot's contents
 	 * @param name slot name
 	 */
-	clearSlot(name: string): void;
+	clearSlot(name: UI.ElementName): void;
 
 	/**
 	 * Drops slot's contents on the specified coordinates and clears the 
 	 * slot
 	 * @param name slot name
 	 */
-	dropSlot(region: BlockSource, name: string, x: number, y: number, z: number): void;
+	dropSlot(region: BlockSource, name: UI.ElementName, x: number, y: number, z: number): void;
 
 	/**
 	 * Drops the contents of all the slots in the container on the specified
