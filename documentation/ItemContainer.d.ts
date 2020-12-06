@@ -2,6 +2,10 @@
  * New type of TileEntity container that supports multiplayer
  */
 declare class ItemContainer {
+	slots: {
+		[key: string]: ItemContainerSlot;
+	}
+
 	/**
 	 * Sends changes in container to all clients.
 	 * Needs to be used every time when something changes in container.
@@ -134,7 +138,7 @@ declare class ItemContainerSlot {
 	count: number;
 	data: number;
 	extra: ItemExtraData;
-	
+
 	getName(): string;
 	getContainer(): ItemContainer;
 	setSlot(id: number, count: number, data: number, extra?: ItemExtraData): boolean;

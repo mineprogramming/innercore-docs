@@ -34,7 +34,9 @@ declare namespace UI {
 		 */
 		tileEntity: Nullable<TileEntity> | any;
 
-		slots: Slot[];
+		slots: {
+			[key: string]: Slot;
+		}
 
 		/**
 		 * Sets container's parent object, for [[TileEntity]]'s container it 
@@ -2098,7 +2100,7 @@ declare namespace UI {
 	}
 
 	interface ImageDrawing {
-		type?: "bitmap",
+		type: "bitmap",
 
 		x: number,
 
@@ -2114,7 +2116,7 @@ declare namespace UI {
 	}
 
 	interface LineDrawing {
-		type?: "line",
+		type: "line",
 
 		x1: number,
 
@@ -2413,8 +2415,8 @@ declare namespace UI {
 
 
 	interface UIClickEvent {
-		onClick?(position: Vector, container: UI.Container, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
-		onLongClick?(position: Vector, container: UI.Container, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
+		onClick?(position: Vector, container: Container | ItemContainer, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
+		onLongClick?(position: Vector, container: Container | ItemContainer, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
 	}
 
 
