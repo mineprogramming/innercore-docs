@@ -58,7 +58,7 @@ declare namespace UI {
 		 * @returns contents of the slot in a [[Slot]] object. You can modify it
 		 * to change the contents of the slot
 		 */
-		getSlot(name: ElementName): Nullable<Slot>;
+		getSlot(name: ElementName): Slot;
 
 		/**
 		 * Gets the slot by its name. If a slot with specified name doesn't 
