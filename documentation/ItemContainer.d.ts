@@ -2,6 +2,17 @@
  * New type of TileEntity container that supports multiplayer
  */
 declare class ItemContainer {
+	
+	/**
+	 * Constructs a new [[ItemContainer]] object
+	 */
+	constructor();
+	
+	/**
+	 * Constructs a new [[ItemContainer]] object from given deprecated [[UI.Container]] object
+	 */
+	constructor(from: UI.Container);
+	
 	slots: {
 		[key: string]: ItemContainerSlot;
 	}
