@@ -507,9 +507,10 @@ declare namespace Callback {
      * Function used in "ItemDispensed" callback
      * @param coords coordinates of the spawned drop item entity
      * @param item item that was dispensed
+     * @param region BlockSource object
      */
     interface ItemDispensedFunction {
-        (coords: ItemUseCoordinates, item: ItemInstance, player: number): void
+        (coords: ItemUseCoordinates, item: ItemInstance, region: BlockSource): void
     }
 
 

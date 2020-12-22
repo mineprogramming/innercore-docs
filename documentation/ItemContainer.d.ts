@@ -85,7 +85,7 @@ declare class ItemContainer {
 
 	/**
 	 * Set slot's content by its name. If a slot with specified name doesn't 
-	 * exists, creates an empty one with specified name and item
+	 * exists, creates new with specified name and item
 	 * @param name slot name
 	 * @param extra item extra data.
 	 */
