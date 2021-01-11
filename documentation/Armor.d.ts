@@ -4,11 +4,11 @@
 declare namespace Armor {
     /**
      * Registers armor's hurt and tick functions
-     * @param id armor item string id
+     * @param id armor item string or numeric id
      * @param funcs 
      * @deprecated, does not work in multiplayer
      */
-    function registerFuncs(id: string, funcs: {
+    function registerFuncs(id: number | string, funcs: {
         tick:
         /**
          * Called every tick if player wears the armor
@@ -42,11 +42,10 @@ declare namespace Armor {
 
     /**
      * Prevents armor from being damaged
-     * @deprecated Currently not implemented
-     * @param id armor item string id
+     * @param id armor item string or numeric id
      */
-	function preventDamaging(id: string): void;
-	
+	function preventDamaging(id: number | string): void;
+
 	/**
      * This event is called every tick for every player that has this armor put on.
      * @returns the {id: , count: , data: , extra: } object to change armor item,
