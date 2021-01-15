@@ -92,7 +92,7 @@ declare namespace World {
      * producesd
      * @param drop whenther to provide drop for the block or not
      */
-    function destroyBlock(x: number, y: number, z: number, drop: boolean): void;
+    function destroyBlock(x: number, y: number, z: number, drop?: boolean): void;
 
     /**
      * @returns light level on the specified coordinates, from 0 to 15

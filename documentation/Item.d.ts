@@ -190,9 +190,9 @@ declare namespace Item {
     function setGlint(id: number | string, enabled: boolean): void;
 
     /**
-     * 
+     * Allows to click with item on liquid blocks
      * @param id string or numeric item id
-     * @param enabled 
+     * @param enabled if true, liquid blocks can be selected on click
      */
     function setLiquidClip(id: number | string, enabled: boolean): void;
 
@@ -200,6 +200,13 @@ declare namespace Item {
      * @deprecated No longer supported
      */
     function setStackedByData(id: number | string, enabled: boolean): void;
+
+    /**
+     * Allows item to be put in offhand slot
+     * @param id string or numeric item id
+     * @param allowed
+     */
+    function setAllowedInOffhand(id: number | string, allowed: boolean): void;
 
     /**
      * Sets additional properties for the item, uses Minecraft mechanisms to
