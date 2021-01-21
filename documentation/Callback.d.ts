@@ -115,6 +115,8 @@ declare namespace Callback {
     function addCallback(name: "CustomBlockTessellation", func: CustomBlockTessellationFunction): void;
 
     function addCallback(name: "ServerPlayerTick", func: ServerPlayerTickFunction): void;
+	
+    function addCallback(name: "CustomDimensionTransfer", func: CustomDimensionTransferFunction): void;
 
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
@@ -572,6 +574,16 @@ declare namespace Callback {
      */
     interface ServerPlayerTickFunction {
         (playerUid: number, isPlayerDead?: boolean): void
+    }
+
+    /**
+     * Function used in "CustomDimensionTransfer" callback
+     * @param entity entity that was transfered between dimensions
+     * @param from id of the dimension the entity was transfered from
+     * @param to id of the dimension the entity was transfered to
+     */
+    interface CustomDimensionTransferFunction {
+    	(entity: number, from: number, to: number): void
     }
 
     /**
