@@ -285,7 +285,7 @@ declare namespace UI {
 
 	interface IWindow {
 		/**
-		 * Opens window wihout container. It is usually mor
+		 * Opens window without container. It is usually mor
 		 */
 		open(): void;
 
@@ -407,13 +407,13 @@ declare namespace UI {
 		constructor();
 
 		/**
-		 * Opens window wihout container. It is usually mor
+		 * Opens window without container. It is usually mor
 		 */
 		open(): void;
 
 		/**
 		 * Adds another window as adjacent window, so that several windows open
-		 * at the same time. This allows to devide window into separate parts 
+		 * at the same time. This allows to divide window into separate parts
 		 * and treat them separately. 
 		 * @param window another window to be added as adjacent
 		 */
@@ -549,7 +549,7 @@ declare namespace UI {
 		/**
 		 * @returns true if the window is game overlay, false otherwise
 		 */
-		isNotFocusable(): void;
+		isNotFocusable(): boolean;
 
 		/**
 		 * Specifies the content of the window
@@ -566,7 +566,7 @@ declare namespace UI {
 
 		/**
 		 * @param inventoryNeeded specify true if the window requires player's 
-		 * inventoty. Default value is false
+		 * inventory. Default value is false
 		 */
 		setInventoryNeeded(inventoryNeeded: boolean): void;
 
@@ -682,7 +682,7 @@ declare namespace UI {
 		 * Creates a new window using provided description and adds it to the 
 		 * group
 		 * @param name window name
-		 * @param content window descripion object
+		 * @param content window description object
 		 * @returns created [[Window]] object
 		 */
 		addWindow(name: string, content: WindowContent): Window;
@@ -704,7 +704,7 @@ declare namespace UI {
 		/**
 		 * Sets content for the window by its name
 		 * @param name window name
-		 * @param content content pbkect 
+		 * @param content content object
 		 */
 		setWindowContent(name: string, content: WindowContent): void;
 
@@ -738,7 +738,7 @@ declare namespace UI {
 		moveOnTop(name: string): void;
 
 		/**
-		 * Opens window wihout container. It is usually mor
+		 * Opens window without container. It is usually mor
 		 */
 		open(): void;
 
@@ -843,7 +843,7 @@ declare namespace UI {
 	 * Class used to create standard ui for the mod's machines. 
 	 * [[StandardWindow]] is a [[WindowGroup]] that has three windows with names
 	 * *"main"*, *"inventory"* and *"header"*. They represent custom window 
-	 * contents, player's inventoty and winow's header respectively
+	 * contents, player's inventory and window's header respectively
 	 */
 	class StandardWindow extends WindowGroup {
 		/**
@@ -1089,7 +1089,7 @@ declare namespace UI {
 		setEventListener(listener: WindowEventListener): void;
 
 		/**
-		 * Sets listener to be notified about tab with specidied index 
+		 * Sets listener to be notified about tab with specified index
 		 * opening/closing events
 		 * @param tab tab index
 		 * @param listener object to be notified about the events
@@ -1336,7 +1336,7 @@ declare namespace UI {
 		cursive?: boolean,
 
 		/**
-		 * If true, the font is undelined, false otherwise. Default value is false
+		 * If true, the font is underlined, false otherwise. Default value is false
 		 */
 		underline?: boolean
 	}
@@ -1394,7 +1394,7 @@ declare namespace UI {
 
 	/**
 	 * Class representing window's location. All coordinates are defined in 
-	 * units (given screen's widht is 1000 units)
+	 * units (given screen's width is 1000 units)
 	 */
 	class WindowLocation {
 		/**
@@ -1603,7 +1603,7 @@ declare namespace UI {
 		/**
 		 * Constructs new static or animated [[Texture]] with specified frames
 		 * @param obj texture name or array of texture names for animated 
-		 * textures. Accespts raw gui textures names and style bindings 
+		 * textures. Accepts raw gui textures names and style bindings
 		 * (formatted as "style:binding_name"). 
 		 * @param style [[Style]] object to look for style bindings. If not 
 		 * specified, default style is used
@@ -1882,7 +1882,7 @@ declare namespace UI {
 
 		/**
 		 * Specifies window's style, an object containing keys as style binding 
-		 * names and values as gui texture names correspinding to the binding
+		 * names and values as gui texture names corresponding to the binding
 		 */
 		style?: BindingsSet,
 
@@ -1919,8 +1919,8 @@ declare namespace UI {
 				color?: number,
 
 				/**
-				 * Background bitmap texture name. If the bitmap's size doesn't 
-				 * match the screen size, bitmap will be streched to fit
+				 * Background bitmap texture name. If the bitmap size doesn't
+				 * match the screen size, bitmap will be stretched to fit
 				 */
 				bitmap?: string,
 

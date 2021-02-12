@@ -1,5 +1,5 @@
 /**
- * Module used to manipulate crafring recipes for vanilla and custom workbenches
+ * Module used to manipulate crafting recipes for vanilla and custom workbenches
  */
 declare namespace Recipes {
     /**
@@ -44,7 +44,7 @@ declare namespace Recipes {
     function addShaped(result: ItemInstance, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): void;
 
     /**
-     * Same as [[Recipes.addShaped]], but you can specifiy result as three 
+     * Same as [[Recipes.addShaped]], but you can specify result as three
      * separate values corresponding to id, count and data
      */
     function addShaped2(id: number, count: number, aux: number, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): void;
@@ -59,7 +59,7 @@ declare namespace Recipes {
      * ```
      * 
      * @param result recipe result item
-     * @param data crafting ingregients, an array of objects representing item 
+     * @param data crafting ingredients, an array of objects representing item
      * id and data
      * @param func function to be called when the craft is processed
      * @param prefix recipe prefix. Use a non-empty values to register recipes
@@ -85,7 +85,7 @@ declare namespace Recipes {
     function getWorkbenchRecipesByResult(id: number, count: number, data: number): java.util.Collection<WorkbenchRecipe>;
 
     /**
-     * Gets all avaliable recipes containing an ingredient
+     * Gets all available recipes containing an ingredient
      * @returns java.util.Collection object containing [[WorkbenchRecipe]]s
      */
     function getWorkbenchRecipesByIngredient(id: number, data: number): java.util.Collection<WorkbenchRecipe>;
@@ -224,7 +224,7 @@ declare namespace Recipes {
         setOnRefreshListener(listener: { onRefreshCompleted: (count: number) => void, onRefreshStarted: () => void }): void;
 
         /**
-         * Deselects current recipe (asynchronuously)
+         * Deselects current recipe (asynchronously)
          */
         deselectCurrentRecipe(): void;
 

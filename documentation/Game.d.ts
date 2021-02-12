@@ -3,7 +3,7 @@
  */
 declare namespace Game {
     /**
-     * Prevents current callblack function from being called in Minecraft.
+     * Prevents current callback function from being called in Minecraft.
      * For most callbacks it prevents default game behaviour
      */
     function prevent(): void;

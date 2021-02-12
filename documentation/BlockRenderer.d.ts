@@ -26,7 +26,7 @@ declare namespace BlockRenderer {
 
         /**
          * Constructs new block model with single box inside specified block shape. 
-         * The width of the full blockis 1x1x1 units.
+         * The width of the full block is 1x1x1 units.
          * @param texName block texture name to be used with the model
          * @param texId block texture meta to be used with the model
          */
@@ -41,7 +41,7 @@ declare namespace BlockRenderer {
 
         /**
          * Constructs new block model with single box inside specified block shape. 
-         * The width of the full blockis 1x1x1 units. Uses block id and data to
+         * The width of the full block is 1x1x1 units. Uses block id and data to
          * determine texture
          * @param id sample block id
          * @param data sample block data
@@ -50,7 +50,7 @@ declare namespace BlockRenderer {
 
         /**
          * Constructs new block model with single box of the normal block size.
-         * The width of the full blockis 1x1x1 units. Uses block id and data to
+         * The width of the full block is 1x1x1 units. Uses block id and data to
          * determine texture
          * @param id 
          * @param data 

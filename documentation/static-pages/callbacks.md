@@ -27,10 +27,10 @@ for details
 
 ## Workbench callbacks
 
-*CraftRecipePreProvided* occurs befor crafting is performed. See 
+*CraftRecipePreProvided* occurs before crafting is performed. See 
 [[CraftRecipePreProvidedFunction]] for details
 
-*CraftRecipeProvided* occurs afrer crafting recipe result is determined. See 
+*CraftRecipeProvided* occurs after crafting recipe result is determined. See 
 [[CraftRecipeProvidedFunction]] for details
 
 *VanillaWorkbenchCraft* occurs just before adding crafting recipe result to 
@@ -73,7 +73,7 @@ callbacks
 
 *tick* is main game tick. This callback is called 20 times per second and is
 used to define all dynamic events in the game. Avoid overloading tick 
-functions and use [[Updatable]]s and [[TileEntity]]s when posssible
+functions and use [[Updatable]]s and [[TileEntity]]s when possible
 
 *LevelSelected* occurs when the level is selected and will be loaded. See 
 [[LevelSelectedFunction]] for details
@@ -132,14 +132,14 @@ Can be used to prevent vanilla container from opening. See
 *FoodEaten* occurs when player eats food. See [[FoodEatenFunction]] for 
 details
 
-*ExpAdd* occurs when player gains some experience. See [[ExpAddFunciton]]
+*ExpAdd* occurs when player gains some experience. See [[ExpAddFunction]]
 for details
 
 *ExpLevelAdd* occurs when player gains some experience levels. See 
-[[ExpLevelAddFunciton]] for details
+[[ExpLevelAddFunction]] for details
 
 *NativeCommand* occurs when player enters some command. See 
-[[NativeCommandFunciton]] for details
+[[NativeCommandFunction]] for details
 
 *PlayerAttack* occurs when player attacks some entity. See 
 [[PlayerAttackFunction]] for details
@@ -151,11 +151,11 @@ it). See [[EntityInteractFunction]] for details
 [[ItemUseNoTargetFunction]] for details
 
 *ItemUsingReleased* occurs when player doesn't complete using item that has 
-maximum use time set with [[Item.setMaxUseDuration]] funciton. See 
+maximum use time set with [[Item.setMaxUseDuration]] function. See 
 [[ItemUsingReleasedFunction]] for details
 
 *ItemUsingComplete* when player completes using item that has maximum use 
-time set with [[Item.setMaxUseDuration]] funciton. See 
+time set with [[Item.setMaxUseDuration]] function. See 
 [[ItemUsingCompleteFunction]] for details
 
 
@@ -187,7 +187,7 @@ coordinates. To register block as redstone consumer, use
 [[Block.setRedstoneTile]] function. See [[RedstoneSignalFunction]] for 
 details
 
-*PopBlockResources* occurs when block is desroyed somehow (not by player).
+*PopBlockResources* occurs when block is destroyed somehow (not by player).
 See [[PopBlockResourcesFunction]] for details
 
 *CustomBlockTessellation* occurs when custom block rendering needs to be 
@@ -201,13 +201,13 @@ icon. You can use it to change item's icon depending on some item state. See
 use it to display item charge, status, etc. See [[ItemNameOverrideFunction]] 
 for details
 
-*ItemDispensed* occurs when an item is dispenced using dispenser. See 
+*ItemDispensed* occurs when an item is dispensed using dispenser. See 
 [ItemDispensedFunction]] for details
 
 
 ## Generation callbacks
 
-*GenerateChunk* occurs when generating chunk in overworld. Shoud be
+*GenerateChunk* occurs when generating chunk in overworld. Should be
 used for all generation process. See [[GenerateChunkFunction]] for details
 
 *GenerateChunkUnderground* occurs when generating chunk's underground in 

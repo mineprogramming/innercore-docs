@@ -1,6 +1,6 @@
 /**
  * Module used to manage item and block ids. Items and blocks have the same 
- * underlying nature, so their ids are interchangable. Though, the blocks are
+ * underlying nature, so their ids are interchangeable. Though, the blocks are
  * defined "twice", as an item (in player's hand or inventory) and as a tile 
  * (a block placed in the world)
  */

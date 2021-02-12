@@ -89,8 +89,8 @@ declare namespace World {
     /**
      * Destroys block on the specified coordinates producing appropriate drop
      * and particles. Do not use for massive tasks due to particles being 
-     * producesd
-     * @param drop whenther to provide drop for the block or not
+     * produced
+     * @param drop whether to provide drop for the block or not
      */
     function destroyBlock(x: number, y: number, z: number, drop?: boolean): void;
 
@@ -103,7 +103,7 @@ declare namespace World {
     /**
      * @param x chunk coordinate
      * @param z chunk coordinate
-     * @returns whether the chunk with specified coodinates is loaded or not
+     * @returns whether the chunk with specified coordinates is loaded or not
      */
     function isChunkLoaded(x: number, z: number): boolean;
 
@@ -182,7 +182,7 @@ declare namespace World {
     function setWeather(weather: Weather): void;
 
     /**
-     * Drops item or block with specified id, cound, data and extra on the 
+     * Drops item or block with specified id, count, data and extra on the
      * specified coordinates. For blocks, be sure to use block id, not the tile
      * id
      * @returns created drop entity id
@@ -190,7 +190,7 @@ declare namespace World {
     function drop(x: number, y: number, z: number, id: number, count: number, data: number, extra?: ItemExtraData): number;
 
     /**
-     * Creates an explosion on the sepcified coordinates
+     * Creates an explosion on the specified coordinates
      * @param power defines how many blocks can the explosion destroy and what
      * blocks can or cannot be destroyed
      * @param fire if true, puts the crater on fire
@@ -234,13 +234,13 @@ declare namespace World {
 
     /**
      * @returns true, if one can see sky from the specified position, false 
-     * othrwise
+     * otherwise
 	 * @deprecated Out of date in multiplayer
      */
     function canSeeSky(x: number, y: number, z: number): boolean;
 
     /**
-     * @returns true, if tilecan be replaced (for example, grass and water can be replaced), false otherwise
+     * @returns true, if tile can be replaced (for example, grass and water can be replaced), false otherwise
      */
     function canTileBeReplaced(id: number, data: number): boolean;
 
@@ -275,7 +275,7 @@ declare namespace World {
      * numeric tile ids
      * @param callback function that will be called when "BlockChanged" callback 
      * occurs involving one of the blocks. **Warning!** If both old and new 
-     * blocks are in the ids list, callback funciton will be called twice.
+     * blocks are in the ids list, callback function will be called twice.
      */
     function registerBlockChangeCallback(ids: number | string | (string | number)[], callback: Callback.BlockChangedFunction): void;
 

@@ -108,7 +108,7 @@ declare namespace ModAPI {
     function addTexturePack(path: any): void;
 
     /**
-     * Recursively opies (duplicates) the object to the new one
+     * Recursively copies (duplicates) the object to the new one
      * @param api an object to be copied
      * @param deep if true, copies the object recursively
      * @returns a copy of the object

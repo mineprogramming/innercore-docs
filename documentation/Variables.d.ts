@@ -1,5 +1,5 @@
 /**
- * Java object of the mod, contains some useful values and methonds
+ * Java object of the mod, contains some useful values and methods
  */
 declare var __mod__: java.lang.Object;
 

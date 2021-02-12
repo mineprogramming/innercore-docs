@@ -47,18 +47,18 @@ declare namespace ItemModel {
 
     /**
      * @returns empty [[RenderMesh]] from the pool or creates an empty one. Used 
-     * to reduce constructors/descructors calls
+     * to reduce constructors/destructors calls
      */
     function getEmptyMeshFromPool(): RenderMesh;
 
     /**
      * Releases [[RenderMesh]] and returns it to the pool. Used to reduce
-     * constructors/descructors calls
+     * constructors/destructors calls
      */
     function releaseMesh(mesh: RenderMesh): void;
 
     /**
-     * @param randomize if true, item mesh position is ramdomized
+     * @param randomize if true, item mesh position is randomized
      * @returns [[RenderMesh]] generated for specified item
      */
     function getItemRenderMeshFor(id: number, count: number, data: number, randomize: boolean): RenderMesh;
@@ -73,7 +73,7 @@ declare namespace ItemModel {
 
 /**
  * Class representing item model in player's hand and/or inventory. To get an instance of this
- * class from yout code, use [[ItemModel.getFor]] static function. The coordinates of the full block in 
+ * class from your code, use [[ItemModel.getFor]] static function. The coordinates of the full block in
  * player's hand or inventory is (0, 0, 0), (1, 1, 1), so it is generally recommended to use the models 
  * that fit that bound at least for the inventory 
  */
@@ -145,7 +145,7 @@ declare interface ItemModel {
     setUiModel(model: RenderMesh | ICRender.Model | BlockRenderer.Model, texture?: string, material?: string): ItemModel;
 
     /**
-     * Sets item model's texture in both player's invantory and in hand
+     * Sets item model's texture in both player's inventory and in hand
      * @param texture texture name to be used for the model (use "atlas::terrain" for block textures)
      */
     setTexture(texture: string): ItemModel;
@@ -163,7 +163,7 @@ declare interface ItemModel {
     setUiTexture(texture: string): ItemModel;
 
     /**
-     * Sets item model's material in both player's invantory and in hand
+     * Sets item model's material in both player's inventory and in hand
      * @param texture material name to be used for the model. See 
      * {@page Materials and Shaders} for more information
      */
@@ -243,7 +243,7 @@ declare interface ItemModel {
 
     // updateForBlockVariant(variant: )    
 
-    getItemRenderMesh(cound: number, randomize: boolean): RenderMesh;
+    getItemRenderMesh(count: number, randomize: boolean): RenderMesh;
 
 
 }

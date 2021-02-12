@@ -7,14 +7,14 @@ declare namespace Dimensions {
      */
     class CustomDimension {
         /**
-         * Constructs a new dimension with specified name and preffered 
+         * Constructs a new dimension with specified name and preferred id
          * @param name dimension name, can be used to get dimension via 
          * [[Dimensions.getDimensionByName]] call
-         * @param preferedId prefered dimension id. If id is already occupied 
+         * @param preferredId preferred dimension id. If id is already occupied
          * by some another dimension, constructor will look for the next empty
          * dimension id and assign it to the current dimension
          */
-        constructor(name: string, preferedId: number);
+        constructor(name: string, preferredId: number);
 
         /**
          * Custom dimension id
@@ -248,7 +248,7 @@ declare namespace Dimensions {
     }
 
     /**
-     * Class representing noise conversion function. Used to define "dencity" of
+     * Class representing noise conversion function. Used to define "density" of
      * the landscape at a given height. Values between nodes are interpolated 
      * linearly
      */
@@ -259,7 +259,7 @@ declare namespace Dimensions {
          * Adds a new node to the noise conversion function
          * @param x value from 0 to 1 representing the height of the block in the
          * terrain layer
-         * @param y landscape dencity at a given height, generally can be between 
+         * @param y landscape density at a given height, generally can be between
          * -0.5 and 0.5. Values between nodes are interpolated linearly
          */
         addNode(x: number, y: number): NoiseConversion;
@@ -288,7 +288,7 @@ declare namespace Dimensions {
     }
 
     /**
-     * Class representig noise octave. Each noise layer consists of multiple 
+     * Class representing noise octave. Each noise layer consists of multiple
      * noise octaves of different scale and weight
      */
     class NoiseOctave {
@@ -357,7 +357,7 @@ declare namespace Dimensions {
     function isLimboId(id: number): boolean;
 
     /**
-     * Transferes specified entity to the dimension with specified id
+     * Transfers specified entity to the dimension with specified id
      * @param entity numeric id of the 
      * @param dimensionId numeric id of the dimension to transfer the entity to
      */
@@ -406,7 +406,7 @@ declare namespace Dimensions {
         /**
          * An array of terrain layers descriptions, each one representing its 
          * own terrain layer. See [[MonoBiomeTerrainGenerator.addTerrainLayer]] 
-         * for detaild explanation
+         * for detailed explanation
          */
         layers: TerrainLayerParams[]
 

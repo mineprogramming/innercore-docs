@@ -102,7 +102,7 @@ declare namespace Animation {
         load(): void;
 
         /**
-         * Loads animation in the world registring it as an [[Updatable]]
+         * Loads animation in the world registering it as an [[Updatable]]
          * @param func function to be used as [[Updatable.update]] function
          */
         loadCustom(func: () => void): void;

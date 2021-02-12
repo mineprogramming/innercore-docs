@@ -69,7 +69,7 @@ declare namespace Block {
 	 */
 	function registerDropFunctionForID(numericID: number, dropFunc: DropFunction, level?: number): boolean;
 
-	function registerEntityInsideFunctionForID(numericID: number, entityinsideFunc: EntityInsideFunction): void
+	function registerEntityInsideFunctionForID(numericID: number, entityInsideFunc: EntityInsideFunction): void
 
 	/**
 	 * Registers function used by Core Engine to determine block drop for the 
@@ -91,7 +91,7 @@ declare namespace Block {
 	function registerPopResourcesFunctionForID(numericID: number, func: PopResourcesFunction): void;
 
 	/**
-	 * Registeres function used by Core Engine to determine block drop for the 
+	 * Registered function used by Core Engine to determine block drop for the
 	 * specified block id
 	 * @param nameID tile string or numeric id 
 	 * @param func function to be called when a block in the world is broken by
@@ -137,7 +137,7 @@ declare namespace Block {
 
 	/**
 	 * @param numericID numeric block id
-	 * @returns explostion resistance of the block
+	 * @returns explosion resistance of the block
 	 */
 	function getExplosionResistance(numericID: number): number;
 
@@ -155,7 +155,7 @@ declare namespace Block {
 
 	/**
 	 * @param numericID numeric block id
-	 * @returns light level, emmited by block, from 0 to 15
+	 * @returns light level, emitted by block, from 0 to 15
 	 */
 	function getLightLevel(numericID: number): number;
 
@@ -439,7 +439,7 @@ declare namespace Block {
 		 * Variation textures, array containing pairs of texture name and data.
 		 * Texture file should be located in items-opaque folder and its name
 		 * should be in the format: *name_data*, e.g. if the file name is 
-		 * *ignot_copper_0*, you should specifiy an array 
+		 * *ingot_copper_0*, you should specify an array
 		 * ```js 
 		 * ["ingot_copper", 0]
 		 * ```
@@ -472,7 +472,7 @@ declare namespace Block {
 	 * where it is destroyed
 	 * @param blockID numeric tile id
 	 * @param blockData block data value
-	 * @param diggingLevel level of the tool the block was digged with
+	 * @param diggingLevel level of the tool the block was dug with
 	 * @param enchant enchant data of the tool held in player's hand
 	 * @param item item stack held in player's hand
 	 * @param region BlockSource object
