@@ -71,10 +71,10 @@ interface ItemInstance {
 }
 
 /**
- * Array of three elements representing item id, count and data respectively. 
- * Used in many old functions and when extra data is not required
+ * Array of three or four elements representing item id, count, data and extra respectively. 
+ * Uses in block drop functions
  */
-type ItemInstanceArray = number[];
+type ItemInstanceArray = [number, number, number, ItemExtraData?];
 
 /**
  * Object representing block in the world

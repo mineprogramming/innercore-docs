@@ -246,7 +246,7 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
     /**
      * TileEntity's liquid storage
      */
-    liquidStorage: any,
+    liquidStorage: LiquidRegistry.Storage,
     /**
      * Destroys the TileEntity prototype
      */

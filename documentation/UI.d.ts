@@ -34,7 +34,9 @@ declare namespace UI {
 		 */
 		tileEntity: Nullable<TileEntity> | any;
 
-		slots: Slot[];
+		slots: {
+			[key: string]: Slot;
+		}
 
 		/**
 		 * Sets container's parent object, for [[TileEntity]]'s container it 
@@ -56,7 +58,7 @@ declare namespace UI {
 		 * @returns contents of the slot in a [[Slot]] object. You can modify it
 		 * to change the contents of the slot
 		 */
-		getSlot(name: ElementName): Nullable<Slot>;
+		getSlot(name: ElementName): Slot;
 
 		/**
 		 * Gets the slot by its name. If a slot with specified name doesn't 
@@ -76,7 +78,7 @@ declare namespace UI {
 
 		/**
 		 * Set slot's content by its name. If a slot with specified name doesn't 
-		 * exists, creates an empty one with specified name and item
+		 * exists, creates new with specified name and item
 		 * @param name slot name
 		 * @param extra item extra value. Note that it should be an instance of
 		 * ItemExtraData and not its numeric id
@@ -2098,7 +2100,7 @@ declare namespace UI {
 	}
 
 	interface ImageDrawing {
-		type?: "bitmap",
+		type: "bitmap",
 
 		x: number,
 
@@ -2114,7 +2116,7 @@ declare namespace UI {
 	}
 
 	interface LineDrawing {
-		type?: "line",
+		type: "line",
 
 		x1: number,
 
@@ -2413,8 +2415,8 @@ declare namespace UI {
 
 
 	interface UIClickEvent {
-		onClick?(position: Vector, container: UI.Container, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
-		onLongClick?(position: Vector, container: UI.Container, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
+		onClick?(position: Vector, container: Container | ItemContainer, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
+		onLongClick?(position: Vector, container: Container | ItemContainer, tileEntity: TileEntity, window: UI.Window, canvas: android.graphics.Canvas, scale: number): void;
 	}
 
 

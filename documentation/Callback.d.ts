@@ -115,6 +115,8 @@ declare namespace Callback {
     function addCallback(name: "CustomBlockTessellation", func: CustomBlockTessellationFunction): void;
 
     function addCallback(name: "ServerPlayerTick", func: ServerPlayerTickFunction): void;
+	
+    function addCallback(name: "CustomDimensionTransfer", func: CustomDimensionTransferFunction): void;
 
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
@@ -292,7 +294,7 @@ declare namespace Callback {
      * @param item item that was in the player's hand when he touched the block
      * @param block block that was touched
      * @param isExternal
-     * @param player player actor uID
+     * @param player player entity uID
      */
     interface ItemUseFunction {
         (coords: ItemUseCoordinates, item: ItemInstance, block: Tile, player: number): void
@@ -315,12 +317,13 @@ declare namespace Callback {
 
     /**
      * Function used in the "FoodEaten" callback. You can use 
-     * [[Player.getCarriedItem]] to get info about food item
+     * [[Entity.getCarriedItem]] to get info about food item
      * @param food food amount produced by eaten food
      * @param ratio saturation ratio produced by food
+     * @param player player entity uID
      */
     interface FoodEatenFunction {
-        (food: number, ratio: number): void
+        (food: number, ratio: number, player: number): void
     }
 
     /**
@@ -507,9 +510,10 @@ declare namespace Callback {
      * Function used in "ItemDispensed" callback
      * @param coords coordinates of the spawned drop item entity
      * @param item item that was dispensed
+     * @param region BlockSource object
      */
     interface ItemDispensedFunction {
-        (coords: ItemUseCoordinates, item: ItemInstance, player: number): void
+        (coords: ItemUseCoordinates, item: ItemInstance, region: BlockSource): void
     }
 
 
@@ -570,6 +574,16 @@ declare namespace Callback {
      */
     interface ServerPlayerTickFunction {
         (playerUid: number, isPlayerDead?: boolean): void
+    }
+
+    /**
+     * Function used in "CustomDimensionTransfer" callback
+     * @param entity entity that was transfered between dimensions
+     * @param from id of the dimension the entity was transfered from
+     * @param to id of the dimension the entity was transfered to
+     */
+    interface CustomDimensionTransferFunction {
+    	(entity: number, from: number, to: number): void
     }
 
     /**

@@ -169,3 +169,10 @@ declare function EXPORT(name: string, lib: any): void;
  * They will not be taken into account in mod synchronization during the connection
  */
 declare function ConfigureMultiplayer(args: { name: string, version: string, isClientOnly: boolean }): void;
+
+
+/**
+ * Default render templates used inside of InnerCore,
+ * currently there are only default armor models
+ */
+declare type DefaultRenderTemplate = "helmet" | "chestplate" | "leggings" | "boots";

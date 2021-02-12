@@ -330,7 +330,7 @@ declare namespace ToolAPI {
          * @returns true if default damage should not be applied to the instrument,
          * false otherwise
          */
-        onDestroy?: (item: ItemInstance, coords: Callback.ItemUseCoordinates, block: Tile) => boolean,
+        onDestroy?: (item: ItemInstance, coords: Callback.ItemUseCoordinates, block: Tile, player: number) => boolean,
 
         /**
          * Function that is called when players attacks some entity with the tool
@@ -339,15 +339,16 @@ declare namespace ToolAPI {
          * @returns true if default damage should not be applied to the instrument,
          * false otherwise
          */
-        onAttack?: (item: ItemInstance, victim: number) => boolean,
+        onAttack?: (item: ItemInstance, victim: number, attacker: number) => boolean,
 
         /**
-         * If true, breaking blocks with this tool makes it break 2x faster
+         * If true, breaking blocks with this tool makes it break 2x faster,
+         * otherwise attacking mobs breaks tool 2x faster
          */
         isWeapon?: boolean,
 
         /**
-         * Funciton that is called when the instument is broken
+         * Funciton that is called when the instrument is broken
          * @param item tool item
          * @returns true if default breaking behavior (replacing by *brokenId* item) 
          * should not be applied 
