@@ -93,7 +93,7 @@ interface Weather {
      */
     rain: number,
     /**
-     * Current lightning level, from 0 (no ligntning) to 10
+     * Current lightning level, from 0 (no lightning) to 10
      */
     thunder: number
 }

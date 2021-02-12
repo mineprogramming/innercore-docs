@@ -9,7 +9,7 @@ declare namespace Callback {
      * events can be prevented using [[Game.prevent]] call.
      * @param name callback name, should be one of the pre-defined or a custom
      * name if invoked via [[Callback.invokeCallback]]
-     * @param func function to be called when an event occures
+     * @param func function to be called when an event occurs
      */
     function addCallback(name: string, func: Function): void;
 
@@ -55,11 +55,11 @@ declare namespace Callback {
 
     function addCallback(name: "FoodEaten", func: FoodEatenFunction): void;
 
-    function addCallback(name: "ExpAdd", func: ExpAddFunciton): void;
+    function addCallback(name: "ExpAdd", func: ExpAddFunction): void;
 
-    function addCallback(name: "ExpLevelAdd", func: ExpLevelAddFunciton): void;
+    function addCallback(name: "ExpLevelAdd", func: ExpLevelAddFunction): void;
 
-    function addCallback(name: "NativeCommand", func: NativeCommandFunciton): void;
+    function addCallback(name: "NativeCommand", func: NativeCommandFunction): void;
 
     function addCallback(name: "PlayerAttack", func: PlayerAttackFunction): void;
 
@@ -193,7 +193,7 @@ declare namespace Callback {
 
 
     /**
-     * Funciton used in "CustomWindowOpened" callback
+     * Function used in "CustomWindowOpened" callback
      * @param window window that was opened
      */
     interface CustomWindowOpenedFunction {
@@ -202,7 +202,7 @@ declare namespace Callback {
 
 
     /**
-     * Funciton used in "CustomWindowClosed" callback
+     * Function used in "CustomWindowClosed" callback
      * @param window window that was closed
      */
     interface CustomWindowClosedFunction {
@@ -277,7 +277,7 @@ declare namespace Callback {
 
     /**
      * Function used in "BlockChanged" callback
-     * @param coords coordinates where block change occured
+     * @param coords coordinates where block change occurred
      * @param oldBlock the block that is being replaced 
      * @param newBlock replacement block
      * @param region BlockSource object
@@ -330,7 +330,7 @@ declare namespace Callback {
      * Function used in "ExpAdd" callback
      * @param exp amount of experience to be added 
      */
-    interface ExpAddFunciton {
+    interface ExpAddFunction {
         (exp: number): void
     }
 
@@ -338,7 +338,7 @@ declare namespace Callback {
      * Function used in "ExpLevelAdd" callback
      * @param level amount of levels to be added 
      */
-    interface ExpLevelAddFunciton {
+    interface ExpLevelAddFunction {
         (level: number): void
     }
 
@@ -347,7 +347,7 @@ declare namespace Callback {
      * @param command command that was entered or null if no command was 
      * provided
      */
-    interface NativeCommandFunciton {
+    interface NativeCommandFunction {
         (command: Nullable<string>): void
     }
 
@@ -433,7 +433,7 @@ declare namespace Callback {
      * @param params.power redstone signal power
      * @param params.signal same as params.power
      * @param params.onLoad always true
-     * @param block information aboit the block on the specified coordinates
+     * @param block information about the block on the specified coordinates
      */
     interface RedstoneSignalFunction {
         (coords: Vector, params: { power: number, signal: number, onLoad: boolean }, block: Tile): void
@@ -441,7 +441,7 @@ declare namespace Callback {
 
 
     /**
-     * Funciton used in "PopBlockResources" callback
+     * Function used in "PopBlockResources" callback
      * @param coords coordinates of the block that was broken
      * @param block information about the block that was broken
      * @param f some floating point value
@@ -479,7 +479,7 @@ declare namespace Callback {
 
     /**
      * Function used in "ItemUseNoTarget" callback
-     * @param item item that was in the player's hand when the event occured
+     * @param item item that was in the player's hand when the event occurred
      * @param ticks amount of ticks player kept touching screen
      */
     interface ItemUseNoTargetFunction {
@@ -489,7 +489,7 @@ declare namespace Callback {
 
     /**
      * Function used in "ItemUsingReleased" callback
-     * @param item item that was in the player's hand when the event occured
+     * @param item item that was in the player's hand when the event occurred
      * @param ticks amount of ticks left to the specified max use duration value
      */
     interface ItemUsingReleasedFunction {
@@ -499,7 +499,7 @@ declare namespace Callback {
 
     /**
      * Function used in "ItemUsingComplete" callback
-     * @param item item that was in the player's hand when the event occured
+     * @param item item that was in the player's hand when the event occurred
      */
     interface ItemUsingCompleteFunction {
         (item: ItemInstance, player: number): void
@@ -522,7 +522,7 @@ declare namespace Callback {
      * @param name current screen name
      * @param lastName previous screen name
      * @param isPushEvent if true, the new screen was pushed on the Minecraft 
-     * screens stack, poped from the stack otherwise
+     * screens stack, popped from the stack otherwise
      */
     interface NativeGuiChangedFunction {
         (name: string, lastName: string, isPushEvent: string): void
@@ -578,9 +578,9 @@ declare namespace Callback {
 
     /**
      * Function used in "CustomDimensionTransfer" callback
-     * @param entity entity that was transfered between dimensions
-     * @param from id of the dimension the entity was transfered from
-     * @param to id of the dimension the entity was transfered to
+     * @param entity entity that was transferred between dimensions
+     * @param from id of the dimension the entity was transferred from
+     * @param to id of the dimension the entity was transferred to
      */
     interface CustomDimensionTransferFunction {
     	(entity: number, from: number, to: number): void

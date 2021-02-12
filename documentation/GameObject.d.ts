@@ -75,7 +75,7 @@ declare namespace GameObjectRegistry {
 
     /**
      * Same as [[GameObjectRegistry.callForType]], though a new array is created
-     * before calling functions on the game objects to ensure the riginal engine's 
+     * before calling functions on the game objects to ensure the original engine's
      * data safety
      */
     function callForTypeSafe(type: string, func: string, ...params: any): any;

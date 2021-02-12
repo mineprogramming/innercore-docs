@@ -54,7 +54,7 @@ declare namespace TileEntity {
     /**
      * Checks whether the [[TileEntity]] is in the loaded chunk or not
      * @param tileEntity to be verified
-     * @returns true if the chunk with TileEntity and some of the surrounging 
+     * @returns true if the chunk with TileEntity and some of the surrounding
      * chunks are loaded, false otherwise. The following chunks are verified:
      *  + +
      *   #

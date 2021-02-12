@@ -16,7 +16,7 @@ declare namespace GenerationUtils {
 
     /**
      * @returns true, if one can see sky from the specified position, false 
-     * othrwise
+     * otherwise
      */
     function canSeeSky(x: number, y: number, z: number): boolean;
 

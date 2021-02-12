@@ -120,7 +120,7 @@ declare namespace Render {
 
         /**
          * Box size
-         * @param w aditional size to be added from all the six sizes of the 
+         * @param w additional size to be added from all the six sizes of the
          * box
          */
         size: { x: number, y: number, z: number, w?: number },

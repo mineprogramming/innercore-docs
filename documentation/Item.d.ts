@@ -68,7 +68,7 @@ declare namespace Item {
      * Default value is false 
      * @param params.durability armor durability, the more it is, the longer the 
      * armor will last. Default value is 1
-     * @param params.armor armor protection. Default vaule is 0
+     * @param params.armor armor protection. Default value is 0
      * @param params.texture armor model texture path (in the assets), default
      * value is 'textures/logo.png'
      * @param params.type armor type, should be one of the 'helmet', 
@@ -134,7 +134,7 @@ declare namespace Item {
 
     /**
      * Applies several properties via one method call
-     * @deprecated Consider using appropiate setters instead
+     * @deprecated Consider using appropriate setters instead
      * @param numericID numeric item id
      * @param description 
      */
@@ -153,7 +153,7 @@ declare namespace Item {
     /**
      * Specifies how the item can be enchanted
      * @param id string or numeric item id
-     * @param enchant enchant type defining whan enchants can or cannot be 
+     * @param enchant enchant type defining when enchants can or cannot be
      * applied to this item, one of the [[Native.EnchantType]]
      * @param value quality of the enchants that are applied, the higher this 
      * value is, the better enchants you get with the same level
@@ -161,7 +161,7 @@ declare namespace Item {
     function setEnchantType(id: number | string, enchant: number, value: number): void;
 
     /**
-     * Specifies what items can be used to repair this item in the envil
+     * Specifies what items can be used to repair this item in the anvil
      * @param id string or numeric item id
      * @param items array of numeric item ids to be used as repair items
      */
@@ -240,7 +240,7 @@ declare namespace Item {
      * Registers function that is called when user touches some block in the 
      * world with specified item
      * @param nameID string or numeric id of the item
-     * @param useFunc function that is called when such an event occures
+     * @param useFunc function that is called when such an event occurs
      */
     function registerUseFunction(nameID: string | number, useFunc: Callback.ItemUseFunction): void;
 
@@ -253,7 +253,7 @@ declare namespace Item {
      * Registers function that is called when throwable item with specified id
      * hits block or entity
      * @param nameID string or numeric id of the item
-     * @param useFunc function that is called when such an event occures
+     * @param useFunc function that is called when such an event occurs
      */
     function registerThrowableFunction(nameID: string | number, useFunc: Callback.ProjectileHitFunction): void;
 
@@ -279,31 +279,31 @@ declare namespace Item {
      * Registers function to be called when player uses item in the air (not on
      * the block)
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerNoTargetUseFunction(nameID: string | number, func: Callback.ItemUseNoTargetFunction): void;
 
     /**
      * Registers function to be called when player doesn't complete using item 
-     * that has maximum use time set with [[Item.setMaxUseDuration]] funciton.
+     * that has maximum use time set with [[Item.setMaxUseDuration]] function.
      * Vanilla bow uses this function with max use duration of 72000 ticks
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerUsingReleasedFunction(nameID: string | number, func: Callback.ItemUsingReleasedFunction): void;
 
     /**
      * Registers function to be called when player completes using item 
-     * that has maximum use time set with [[Item.setMaxUseDuration]] funciton
+     * that has maximum use time set with [[Item.setMaxUseDuration]] function
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerUsingCompleteFunction(nameID: string | number, func: Callback.ItemUsingCompleteFunction): void;
 
     /**
      * Registers function to be called when item is dispensed from dispenser. 
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerDispenseFunction(nameID: string | number, func: Callback.ItemDispensedFunction): void;
 
@@ -331,7 +331,7 @@ declare namespace Item {
     /**
      * Represents item texture data. For example, if 'items-opaque' folder 
      * contains file *nugget_iron_0.png*, you should pass *nugget_iron* as 
-     * texture name and 0 as texture index. _N suffix can be ommited, but it is 
+     * texture name and 0 as texture index. _N suffix can be omitted, but it is
      * generally not recommended
      */
     interface TextureData {

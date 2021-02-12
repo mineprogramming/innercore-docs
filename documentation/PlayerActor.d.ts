@@ -23,9 +23,9 @@ declare class PlayerActor {
 
     /**
      * Adds item to player's inventory
-     * @param dropRemainings if true, surplus will be dropped near player
+     * @param dropRemaining if true, surplus will be dropped near player
      */
-    addItemToInventory(id: number, count: number, data: number, extra: ItemExtraData | null, dropRemainings: boolean): void;
+    addItemToInventory(id: number, count: number, data: number, extra: ItemExtraData | null, dropRemaining: boolean): void;
 
     /**
      * @returns inventory slot's contents.

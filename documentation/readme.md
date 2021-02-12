@@ -6,7 +6,7 @@ Start exploring this documentation by going to [Globals](https://docs.mineprogra
 
 ## Sources
 
-You can use this parsed version of documenation or just download an official toolchain and use hints from the IDE:
+You can use this parsed version of documentation or just download an official toolchain and use hints from the IDE:
 
 https://github.com/zheka2304/innercore-mod-toolchain
 

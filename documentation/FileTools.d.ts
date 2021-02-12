@@ -3,7 +3,7 @@
  */
 declare namespace FileTools {
     /**
-     * Defines path to android /mnt direcory
+     * Defines path to android /mnt directory
      */
     const mntdir: string;
 
@@ -64,7 +64,7 @@ declare namespace FileTools {
     /**
      * Writes bitmap to png file
      * @param file home-relative or absolute path to the file
-     * @param bitmap android.graphics.Bitmap object of the bitmup to be wriiten
+     * @param bitmap android.graphics.Bitmap object of the bitmap to be written
      * to the file
      */
     function WriteImage(file: string, bitmap: android.graphics.Bitmap): void;
@@ -72,7 +72,7 @@ declare namespace FileTools {
     /**
      * Reads bitmap from file
      * @param file home-relative or absolute path to the file
-     * @returns android.graphics.Bitmap object of the bitmup that was read from
+     * @returns android.graphics.Bitmap object of the bitmap that was read from
      * file or null if file does not exist or is not accessible
      */
     function ReadImage(file: string): Nullable<android.graphics.Bitmap>;
@@ -87,7 +87,7 @@ declare namespace FileTools {
     /**
      * Reads bitmap from asset by its full name
      * @param name asset name
-     * @returns android.graphics.Bitmap object of the bitmup that was read from
+     * @returns android.graphics.Bitmap object of the bitmap that was read from
      * asset or null, if asset doesn't exist
      */
     function ReadImageAsset(name: string): Nullable<android.graphics.Bitmap>;

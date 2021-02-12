@@ -1,7 +1,7 @@
 /**
  * Module that can be used to localize mods
  * All default strings (e.g. item names, windows titles, etc.) in the mod should 
- * be in English. Add translations to theese strings using 
+ * be in English. Add translations to these strings using
  * [[Translation.addTranslation]]. For items and blocks translations are applied 
  * automatically. For the other strings, use [[Translation.translate]]
  */

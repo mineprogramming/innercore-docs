@@ -11,7 +11,7 @@ declare class BlockSource {
 	 * @param x X coord of the block
 	 * @param y Y coord of the block
 	 * @param z Z coord of the block
-	* @returns Tile object with id and data propeties
+	* @returns Tile object with id and data properties
 	 */
 	getBlock(x: number, y: number, z: number): Tile;
 

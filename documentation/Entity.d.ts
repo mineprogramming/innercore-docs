@@ -41,10 +41,10 @@ declare namespace Entity {
      * values
      * @param effectData effect amplifier
      * @param effectTime effect time in ticks
-     * @param ambience if true, particles are ambiant
+     * @param ambience if true, particles are ambient
      * @param particles if true, particles are not displayed
      */
-    function addEffect(ent: number, effectId: number, effectData: number, effectTime: number, ambiance?: boolean, particles?: boolean): void;
+    function addEffect(ent: number, effectId: number, effectData: number, effectTime: number, ambience?: boolean, particles?: boolean): void;
 
     /**
      * Clears effect, applied to the mob
@@ -331,7 +331,7 @@ declare namespace Entity {
     function getVelocity(ent: number): Vector;
 
     /**
-     * Updates current entity's velocity by specified valus
+     * Updates current entity's velocity by specified value
      */
     function addVelocity(ent: number, x: number, y: number, z: number): void;
 
@@ -397,7 +397,7 @@ declare namespace Entity {
     function lookAtCoords(ent: number, coords: Vector): void;
 
     /**
-     * Makes entity move to the target corodinates
+     * Makes entity move to the target coordinates
      * @param params additional move parameters
      */
     function moveToTarget(ent: number, target: Vector, params: MoveParams): void;
@@ -410,7 +410,7 @@ declare namespace Entity {
     function moveToAngle(ent: number, angle: LookAngle, params: MoveParams): void;
 
     /**
-     * Makes entity move towords its current look angle
+     * Makes entity move towards its current look angle
      * @param params additional move parameters
      */
     function moveToLook(ent: number, params: MoveParams): void;
@@ -434,7 +434,7 @@ declare namespace Entity {
     function getMovingAngleByPositions(pos1: any, pos2: any): void;
 
     /**
-     * Retreives nearest to the coordinates entity of the specified entity type
+     * Retrieves nearest to the coordinates entity of the specified entity type
      * @param coords search range center coordinates
      * @param type entity type ID. Parameter is no longer supported and should 
      * be 0 in all cases
@@ -482,7 +482,7 @@ declare namespace Entity {
     function getCarriedItem(ent: number): ItemInstance;
 
     /**
-     * Sets currena carried item for the entity
+     * Sets current carried item for the entity
      * @param id item id
      * @param count item count
      * @param data item data
@@ -715,7 +715,7 @@ declare namespace Entity {
         size: number,
 
         /**
-         * Vector real length excluding Y corrdinate
+         * Vector real length excluding Y coordinate
          */
         xzsize: number
     }

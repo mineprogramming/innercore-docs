@@ -81,9 +81,9 @@ declare class EntityAIClass implements EntityAIClass.EntityAIPrototype {
     /**
      * Sets any AI priority by its name in the controller
      * @param name AI name to change priority
-     * @param pripority priority to be set to the AI
+     * @param priority priority to be set to the AI
      */
-    setPriority(name: string, pripority: number): void;
+    setPriority(name: string, priority: number): void;
 
     /**
      * Gets any AI object by its name from the current controller
@@ -221,7 +221,7 @@ declare namespace EntityAI {
     const Follow: EntityAIClass;
 
     /**
-     * Panic AI type, entity jsut rushes around
+     * Panic AI type, entity just rushes around
      * 
      * @params **speed:** *number* entity movement speed when AI is executed
      * @params **angular_speed:** *number* entity speed when turning

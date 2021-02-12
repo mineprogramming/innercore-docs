@@ -26,7 +26,7 @@ declare namespace Armor {
          * @param params additional data about damage
          * @param params.attacker attacker entity or -1 if the damage was not 
          * caused by an entity
-         * @param params.damage damage amout that was applied to the player
+         * @param params.damage damage amount that was applied to the player
          * @param params.type damage type
          * @param params.b1 unknown param
          * @param params.b2 unknown param
@@ -56,7 +56,7 @@ declare namespace Armor {
     ) => void): ItemInstance | void;
 
     /**
-     * This event is called when the damage is dealed to the player that has this armor put on.
+     * This event is called when the damage is dealt to the player that has this armor put on.
      * @returns the {id: , count: , data: , extra: } object to change armor item,
      * if nothing is returned, armor will be damaged by default.
      */

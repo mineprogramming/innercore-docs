@@ -86,7 +86,7 @@ declare function WRAP_JAVA<T = any>(name: string): T;
 declare function getCoreAPILevel(): number;
 
 /**
- * Runs specified funciton in the main thread
+ * Runs specified function in the main thread
  * @param func function to be run in the main thread
  */
 declare function runOnMainThread(func: () => void): void;
@@ -121,7 +121,7 @@ declare function LIBRARY(description: {
 	name: string,
 
 	/**
-	 * Library version, used to load the lates library version
+	 * Library version, used to load the latest library version
 	 * if different mods have different library version installed
 	 */
 	version: number,
