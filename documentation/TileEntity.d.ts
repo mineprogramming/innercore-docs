@@ -248,6 +248,14 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
      */
     liquidStorage: LiquidRegistry.Storage,
     /**
+     * True if TileEntity is loaded in the world
+     */
+    isLoaded: boolean;
+    /**
+     * True if TileEntity was destroyed
+     */
+    remove: boolean;
+    /**
      * Destroys the TileEntity prototype
      */
     selfDestroy: () => void;
