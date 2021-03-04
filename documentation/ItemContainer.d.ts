@@ -1,18 +1,22 @@
+interface TransferPolicy {
+	(container: ItemContainer, name: string, id: number, amount: number, data: number, extra: ItemExtraData, playerUid: number): number;
+}
+
 /**
  * New type of TileEntity container that supports multiplayer
  */
 declare class ItemContainer {
-	
+
 	/**
 	 * Constructs a new [[ItemContainer]] object
 	 */
 	constructor();
-	
+
 	/**
 	 * Constructs a new [[ItemContainer]] object from given deprecated [[UI.Container]] object
 	 */
 	constructor(from: UI.Container);
-	
+
 	slots: {
 		[key: string]: ItemContainerSlot;
 	}
@@ -73,6 +77,17 @@ declare class ItemContainer {
 	 * @param screenName name of the screen to open
 	 */
 	openFor(client: NetworkClient, screenName: string): void;
+
+	/**
+	 * Closes UI for client
+	 * @param client client in which UI will be open
+	 */
+	closeFor(client: NetworkClient): void;
+
+	/**
+	 * Closes UI for all clients
+	 */
+	close(): void;
 
 	/**
 	 * Gets the slot by its name. If a slot with specified name doesn't 
@@ -151,6 +166,10 @@ declare class ItemContainer {
 	 */
 	getText(name: string): Nullable<string>;
 
+	setClientContainerTypeName(name: string): void;
+
+	getClientContainerTypeName(): string;
+
 	setGlobalAddTransferPolicy(transferPolicy: TransferPolicy): void;
 
 	setGlobalGetTransferPolicy(transferPolicy: TransferPolicy): void;
@@ -158,10 +177,14 @@ declare class ItemContainer {
 	setSlotAddTransferPolicy(slotName: string, transferPolicy: TransferPolicy): void;
 
 	setSlotGetTransferPolicy(slotName: string, transferPolicy: TransferPolicy): void;
-}
 
-interface TransferPolicy {
-	(container: ItemContainer, name: string, id: number, amount: number, data: number, extra: ItemExtraData, playerUid: number): number;
+	addServerEventListener(name: string, listener: (container: ItemContainer, client: NetworkClient, data: object) => void): void;
+
+	addServerOpenListener(listener: (container: ItemContainer, client: NetworkClient) => void): void;
+
+	addServerCloseListener(listener: (container: ItemContainer, client: NetworkClient) => void): void;
+
+	static registerScreenFactory(name: string, screenFactory: (container: ItemContainer, name: string) => UI.Window): void;
 }
 
 declare class ItemContainerSlot {
@@ -170,17 +193,63 @@ declare class ItemContainerSlot {
 	data: number;
 	extra: ItemExtraData;
 
+	/**
+	 * @returns slot name
+	 */
 	getName(): string;
+	/**
+	 * @returns container linked to the slot
+	 */
 	getContainer(): ItemContainer;
+
+	/**
+	 * Sets the contents of the slot.
+	 */
 	setSlot(id: number, count: number, data: number, extra?: ItemExtraData): boolean;
+
 	set(id: number, count: number, data: number, extra: ItemExtraData): boolean;
+
+	/**
+	 * Drops slot's content in world at specified coords
+	 */
 	dropAt(region: BlockSource, x: number, y: number, z: number): void;
+
+	/**
+	 * @returns item id
+	 */
 	getId(): number;
+
+	/**
+	 * @returns item count
+	 */
 	getCount(): number;
+
+	/**
+	 * @returns item data
+	 */
 	getData(): number;
+
+	/**
+	 * @returns item extra data
+	 */
 	getExtra(): ItemExtraData;
+	/**
+	 * @returns true if slot is empty
+	 */
 	isEmpty(): boolean;
+
+	/**
+	 * Resfreshes slot in UI
+	 */
 	markDirty(): void;
+
+	/**
+	 * Clears slot content
+	 */
 	clear(): void;
+
+	/**
+	 * Resets slot if its id or count equals 0
+	 */
 	validate(): void;
 }
