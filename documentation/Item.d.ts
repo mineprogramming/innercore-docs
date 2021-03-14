@@ -324,7 +324,42 @@ declare namespace Item {
     /**
      * Class representing item used to set its properties
      */
-    class NativeItem {
+    interface NativeItem {
+
+        addRepairItem(id: number): void;
+
+        addRepairItems(id: number[]): void;
+
+        setAllowedInOffhand(allowed: boolean): void;
+
+        setArmorDamageable(damageable: boolean): void;
+
+        setCreativeCategory(category: number): void;
+
+        setEnchantType(type: number): void;
+
+        setEnchantType(enchant: number, value: number): void;
+
+        setEnchantability(enchant: number, value: number): void;
+
+        setGlint(glint: boolean): void;
+
+        setHandEquipped(equipped: boolean): void;
+
+        setLiquidClip(clip: boolean): void;
+
+        setMaxDamage(maxDamage: number): void;
+
+        setMaxStackSize(maxStack: number): void;
+
+        setMaxUseDuration(duration: number): void;
+
+        /**@deprecated */
+        setProperties(props: string): void;
+
+        setStackedByData(stacked: boolean): void;
+
+        setUseAnimation(animation: number): void;
 
     }
 
