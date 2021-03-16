@@ -3,7 +3,6 @@
  * bound by certain conditions
  */
 declare class NetworkConnectedClientList {
-    
     /**
      * @param addToGlobalRefreshList if true, the object will be added to the
      * global list for updating periodically, default is true

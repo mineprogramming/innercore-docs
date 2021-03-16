@@ -3,6 +3,21 @@
  */
 declare namespace Network {
     /**
+     * @returns array containing connected clients
+     */
+    function getConnectedClients(): NetworkClient[];
+
+    /**
+     * @returns array containing connected players uids
+     */
+    function getConnectedPlayers(): number[];
+
+    /**
+     * @returns Client object for player by player's entity id
+     */
+    function getClientForPlayer(player: number): NetworkClient;
+
+    /**
      * Event that is called when a client receives a packet with given name
      * @param name name of the packet
      */
@@ -25,9 +40,10 @@ declare namespace Network {
     function sendToServer(name: string, packetData: object): void;
 
     /**
-     * @returns Client object for player by player's entity id
+     * Sends message to all players
+     * @param message text of the message
      */
-    function getClientForPlayer(player: number): NetworkClient;
+    function sendServerMessage(message: string): void;
 
     /**
      * Converts item or block id from server to local value
