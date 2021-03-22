@@ -39,7 +39,7 @@ declare namespace UI {
 		}
 
 		/**
-		 * @returns true because container of this type doesn't support multiplayer
+		 * @returns false if container supports multiplayer, true otherwise
 		 */
 		isLegacyContainer(): true;
 

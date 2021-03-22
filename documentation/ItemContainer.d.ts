@@ -29,7 +29,7 @@ declare class ItemContainer {
 	parent: Nullable<TileEntity> | any;
 
 	/**
-	 * @returns false because container of this type supports multiplayer
+	 * @returns false if container supports multiplayer, true otherwise
 	 */
 	isLegacyContainer(): false;
 
