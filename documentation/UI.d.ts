@@ -39,6 +39,11 @@ declare namespace UI {
 		}
 
 		/**
+		 * @returns true because container of this type doesn't support multiplayer
+		 */
+		isLegacyContainer(): true;
+
+		/**
 		 * Sets container's parent object, for [[TileEntity]]'s container it 
 		 * should be a [[TileEntity]] reference, otherwise you can pass any 
 		 * value to be used in your code later

@@ -29,6 +29,11 @@ declare class ItemContainer {
 	parent: Nullable<TileEntity> | any;
 
 	/**
+	 * @returns false because container of this type supports multiplayer
+	 */
+	isLegacyContainer(): false;
+
+	/**
 	 * Sets container's parent object, for [[TileEntity]]'s container it 
 	 * should be a [[TileEntity]] reference, otherwise you can pass any 
 	 * value to be used in your code later
