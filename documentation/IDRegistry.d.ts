@@ -59,4 +59,18 @@ declare namespace IDRegistry {
      * @returns block id
      */
     function ensureItemId(id: number): number;
+
+    /**
+     * @param id numeric item or block id
+     * @returns true if item is vanilla Minecraft item, false otherwise
+     */
+    function isVanilla(id: number): boolean;
+
+    /**
+     * Gets type of item ("block" or "item") and its string id in Minecraft
+     * @param id numeric item or block id
+     * @returns string in format "type:string_id" or
+     * "type:string_id#extra_information"
+     */
+    function getIdInfo(id: number): string;
 }
