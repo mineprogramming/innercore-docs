@@ -1,5 +1,6 @@
 /**
  * Module containing enums that can make user code more readable
+ * @deprecated from InnerCore Test 2.2.1b89, use new enum system instead
  */
 declare namespace Native {
     /**
@@ -199,7 +200,7 @@ declare namespace Native {
     }
 
     /**
-     * Defines vanilla mob rendertypes
+     * Defines vanilla mob render types
      */
     enum MobRenderType {
         arrow = 25,
@@ -252,7 +253,7 @@ declare namespace Native {
     }
 
     /**
-     * Defines vanilla posion effects
+     * Defines vanilla potion effects
      */
     enum PotionEffect {
         absorption = 22,

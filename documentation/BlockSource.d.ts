@@ -1,5 +1,5 @@
 /**
- * New class to work with world instead of some methods from World module.
+ * New class to work with world instead of some methods from [[World]] module.
  */
 declare class BlockSource {
 	/**
@@ -11,9 +11,19 @@ declare class BlockSource {
 	 * @param x X coord of the block
 	 * @param y Y coord of the block
 	 * @param z Z coord of the block
-	* @returns Tile object with id and data properties
+	 * @returns [[Tile]] object with id and data properties
+	 * @deprecated InnerCore Test 2.2.1b89, the method returns
+	 * [[BlockState]] object instead
 	 */
 	getBlock(x: number, y: number, z: number): Tile;
+
+	/**
+	 * @param x X coord of the block
+	 * @param y Y coord of the block
+	 * @param z Z coord of the block
+	 * @returns [[BlockState]] object of the block on given coords
+	 */
+	getBlock(x: number, y: number, z: number): BlockState;
 
 	/**
 	 * @returns block's id at coords
@@ -33,10 +43,15 @@ declare class BlockSource {
 	
 	/**
 	 * Sets block on coords
-	 * @param id - id of the block to set
-	 * @param data - data of the block to set
+	 * @param id id of the block to set
+	 * @param data data of the block to set
 	 */
-	setBlock(x: number, y: number, z: number, id: number, data: number): number;
+	setBlock(x: number, y: number, z: number, id: number, data: number): void;
+
+	/**
+	 * Sets block by given [[BlockState]] on coords
+	 */
+	setBlock(x: number, y: number, z: number, state: BlockState): void;
 
 	 /**
 	  * Creates an explosion on coords

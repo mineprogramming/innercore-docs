@@ -234,7 +234,7 @@ declare namespace Item {
     /**
      * Same as [[Item.registerUseFunction]], but supports numeric ids only
      */
-    function registerUseFunctionForID(numericID: number, useFunc: ItemUseFunction): void;
+    function registerUseFunctionForID(numericID: number, useFunc: Callback.ItemUseLocalFunction): void;
 
     /**
      * Registers function that is called when user touches some block in the 
@@ -242,7 +242,7 @@ declare namespace Item {
      * @param nameID string or numeric id of the item
      * @param useFunc function that is called when such an event occurs
      */
-    function registerUseFunction(nameID: string | number, useFunc: ItemUseFunction): void;
+    function registerUseFunction(nameID: string | number, useFunc: Callback.ItemUseLocalFunction): void;
 
     /**
      * Same as [[Item.registerThrowableFunction]], but supports numeric ids only
@@ -361,10 +361,6 @@ declare namespace Item {
 
         setUseAnimation(animation: number): void;
 
-    }
-
-    interface ItemUseFunction {
-        (coords: Callback.ItemUseCoordinates, item: ItemInstance, block: Tile, player: number): void
     }
 
     /**

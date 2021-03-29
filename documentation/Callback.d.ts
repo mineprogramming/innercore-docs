@@ -326,7 +326,8 @@ declare namespace Callback {
     }
 
     /**
-     * Function used in "ItemUseLocal" callback
+     * Function used in "ItemUseLocal" callback,
+     * and also in [[Item.registerUseFunction]] and [[Item.registerUseFunctionForID]] methods
      * @param coords set of all coordinate values that can be useful to write 
      * custom use logics
      * @param item item that was in the player's hand when he touched the block
