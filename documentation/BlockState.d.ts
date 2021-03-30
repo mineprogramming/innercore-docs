@@ -1,7 +1,8 @@
 /**
  * Class to work with vanilla blocks parameters
  */
-declare class BlockState {
+declare class BlockState
+implements Tile {
 
     /**Data of the block */
     readonly data: number;

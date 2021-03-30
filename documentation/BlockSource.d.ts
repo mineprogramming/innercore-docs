@@ -11,17 +11,8 @@ declare class BlockSource {
 	 * @param x X coord of the block
 	 * @param y Y coord of the block
 	 * @param z Z coord of the block
-	 * @returns [[Tile]] object with id and data properties
-	 * @deprecated InnerCore Test 2.2.1b89, the method returns
-	 * [[BlockState]] object instead
-	 */
-	getBlock(x: number, y: number, z: number): Tile;
-
-	/**
-	 * @param x X coord of the block
-	 * @param y Y coord of the block
-	 * @param z Z coord of the block
 	 * @returns [[BlockState]] object of the block on given coords
+	 * or [[Tile]] object in Legacy pack
 	 */
 	getBlock(x: number, y: number, z: number): BlockState;
 
@@ -40,7 +31,7 @@ declare class BlockSource {
 	 * @param z Z coord of the block
 	 */
 	getBlockData(x: number, y: number, z: number): number;
-	
+
 	/**
 	 * Sets block on coords
 	 * @param id id of the block to set
@@ -60,18 +51,18 @@ declare class BlockSource {
 	  * @param fire if true, puts the crater on fire
 	  */
 	explode(x: number, y: number, z: number, power: number, fire: boolean): void;
-	 
-	 /**
-	  * Destroys block on coords producing appropriate drop
-	  * and particles. Do not use for massive tasks due to particles being 
-	  * produced
-	  * @param x X coord of the block
-	  * @param y Y coord of the block
-	  * @param z Z coord of the block
-	  * @param drop whether to provide drop for the block or not
-	  */
+
+	/**
+	 * Destroys block on coords producing appropriate drop
+	 * and particles. Do not use for massive tasks due to particles being 
+	 * produced
+	 * @param x X coord of the block
+	 * @param y Y coord of the block
+	 * @param z Z coord of the block
+	 * @param drop whether to provide drop for the block or not
+	 */
 	destroyBlock(x: number, y: number, z: number, drop?: boolean): void;
-	
+
 	/**
 	 * @param x X coord of the block
 	 * @param y Y coord of the block
@@ -79,68 +70,68 @@ declare class BlockSource {
 	 * @returns interface to the vanilla TileEntity (chest, furnace, etc.) on the coords
 	 */
 	getBlockEntity(x: number, y: number, z: number): NativeTileEntity;
-	
+
 	/**
 	 * @param x X coord of the block
 	 * @param z Z coord of the block
 	 * @returns biome id
 	 */
 	getBiome(x: number, z: number): number;
-	
+
 	/**
 	 * Sets biome id by coords
 	 * @param id - id of the biome to set
 	 */
 	setBiome(x: number, z: number, biomeID: number): void;
-	
+
 	/**
 	 * @returns temperature of the biome on coords
 	 */
 	getBiomeTemperatureAt(x: number, y: number, z: number): number;
-	
+
 	/**
 	* @param chunkX X coord of the chunk
 	 * @param chunkZ Z coord of the chunk
 	 * @returns true if chunk is loaded, false otherwise
 	 */
 	isChunkLoaded(chunkX: number, chunkZ: number): boolean;
-	
+
 	/**
 	* @param x X coord of the position
 	 * @param z Z coord of the position
 	 * @returns true if chunk on the position is loaded, false otherwise
 	 */
 	isChunkLoadedAt(x: number, z: number): boolean;
-	
+
 	/**
 	* @param chunkX X coord of the chunk
 	 * @param chunkZ Z coord of the chunk
 	 * @returns the loading state of the chunk by chunk coords
 	 */
 	getChunkState(chunkX: number, chunkZ: number): number;
-	
+
 	/**
 	* @param x X coord of the position
 	 * @param z Z coord of the position
 	 * @returns the loading state of the chunk by coords
 	 */
 	getChunkStateAt(x: number, z: number): number;
-	
+
 	/**
      * @returns light level on the specified coordinates, from 0 to 15
      */
 	getLightLevel(x: number, y: number, z: number): number;
-	
+
 	/**
 	 * @returns whether the sky can be seen from coords
 	 */
 	canSeeSky(x: number, y: number, z: number): boolean;
-	
+
 	/**
 	 * @returns grass color on coords
 	 */
 	getGrassColor(x: number, y: number, z: number): number;
-	
+
 	/**
 	 * Creates dropped item and returns entity id
 	 * @param x X coord of the place where item will be dropped
@@ -158,7 +149,7 @@ declare class BlockSource {
 	  * Spawns entity of given numeric type on coords
 	  */
 	spawnEntity(x: number, y: number, z: number, type: number | string): number;
-		
+
 	spawnEntity(x: number, y: number, z: number, namespace: string, type: string, init_data: string): number;
 
 
@@ -189,14 +180,14 @@ declare class BlockSource {
 	 * was not created yet)
 	 */
 	static getDefaultForDimension(dimension: number): Nullable<BlockSource>;
-	
+
 	/**
 	 * @returns interface to the dimension where the given entity is 
 	 * (null if given entity does not exist or the dimension is not loaded 
 	 * and interface was not created)
 	 */
 	static getDefaultForActor(entityUid: number): Nullable<BlockSource>;
-	
+
 	/**
 	 * @return BlockSource foe world generation
 	 */
