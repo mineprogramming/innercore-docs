@@ -5,7 +5,7 @@ declare class BlockState {
 
     /**Data of the block */
     readonly data: number;
-    
+
     /**Numeric ID of the block */
     readonly id: number;
 
@@ -61,7 +61,7 @@ declare class BlockState {
 
     /**
      * Adds states to the following object
-     * from given [[java.util.Map]] instance
+     * from given java.util.Map instance
      * @returns BlockState object itself
      */
     addStates(states: java.util.Map<unknown, number>): BlockState;
@@ -75,13 +75,13 @@ declare class BlockState {
 
     /**
      * @returns all states from following object
-     * in [[java.util.Map]] instance
+     * in java.util.Map instance
      */
     getStates(): java.util.Map<number, number>;
 
     /**
      * @returns all NAMED states from following object
-     * in [[java.util.Map]] instance
+     * in java.util.Map instance
      */
     getNamedStates(): java.util.Map<string, number>;
 
