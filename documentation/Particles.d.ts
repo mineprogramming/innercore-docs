@@ -75,11 +75,11 @@ declare namespace Particles {
         /**
          * Minimum and maximum size of the particle
          */
-        size: [min: number, max: number];
+        size: [number, number];
         /**
          * Minimum and maximum particle's lifetime in ticks
          */
-        lifetime: [min: number, max: number];
+        lifetime: [number, number];
         /**
          * Particle's render type:
          * 0 - additive,
@@ -88,9 +88,9 @@ declare namespace Particles {
          */
         render?: 0 | 1 | 2;
         /**
-         * Four component color of the particle, default is [1, 1, 1, 1]
+         * Four component color of the particle (RGBA), default is [1, 1, 1, 1]
          */
-        color?: [r: number, g: number, b: number, a: number];
+        color?: [number, number, number, number];
         /**
          * If true, particle won't go through blocks. It reduces performance if
          * there are lots of these particles, default is false.
@@ -100,12 +100,12 @@ declare namespace Particles {
          * Particle's initial velocity, if it's spawned without initial speed parameter.
          * Default is [0, 0, 0]
          */
-        velocity?: [x: number, y: number, z: number];
+        velocity?: [number, number, number];
         /**
          * Particle's acceleration, if it's spawned without this parameter.
          * Default is [0, 0, 0]
          */
-        acceleration?: [x: number, y: number, z: number];
+        acceleration?: [number, number, number];
         /**
          * Particle's speed modifier in the air and when touching a block.
          * Usually it's a number between 0 and 1, close to 1, but in fact it can be any value.
