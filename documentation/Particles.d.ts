@@ -295,7 +295,7 @@ declare namespace Particles {
         /**
          * @returns the origin's coords in float array of 3 elements
          */
-        getPositionArray(): [x: number, y: number, z: number];
+        getPositionArray(): [number, number, number];
         /**
          * Default is false. It means that the coords of the particles for the following emitter
          * will be specified in the absolute coordinate system, if enabled, 
