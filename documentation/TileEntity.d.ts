@@ -121,6 +121,12 @@ declare namespace TileEntity {
                  */
                 [eventName: string]: (container: ItemContainer, window: UI.Window | UI.StandartWindow | UI.StandardWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
             }
+	
+	    /**
+              * Any other user-defined methods and properties
+              */
+            [key: string]: any
+	    
         },
 
         /**
