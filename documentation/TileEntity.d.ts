@@ -242,6 +242,10 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
      */
     readonly dimension: number,
     /**
+     * block id of TileEntity
+     */
+    readonly blockID: number,
+    /**
      * TileEntity data values object
      */
     data: {[key: string]: any},
