@@ -67,9 +67,10 @@ declare class BlockSource {
 	 * @param x X coord of the block
 	 * @param y Y coord of the block
 	 * @param z Z coord of the block
-	 * @returns interface to the vanilla TileEntity (chest, furnace, etc.) on the coords
+	 * @returns interface to the vanilla TileEntity (chest, furnace, etc.) 
+	 * on the coords, and null if it's not found
 	 */
-	getBlockEntity(x: number, y: number, z: number): NativeTileEntity;
+	getBlockEntity(x: number, y: number, z: number): Nullable<NativeTileEntity>;
 
 	/**
 	 * @param x X coord of the block
