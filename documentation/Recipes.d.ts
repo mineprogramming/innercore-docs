@@ -359,7 +359,7 @@ declare namespace Recipes {
      * @param result recipe result item instance
      */
     interface CraftingFunction {
-        (api: WorkbenchFieldAPI, field: UI.Slot[], result: ItemInstance): void
+        (api: WorkbenchFieldAPI, field: UI.Slot[], result: ItemInstance, player: number): void
     }
 
     /**

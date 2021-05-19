@@ -115,7 +115,7 @@ declare namespace Callback {
     function addCallback(name: "CustomBlockTessellation", func: CustomBlockTessellationFunction): void;
 
     function addCallback(name: "ServerPlayerTick", func: ServerPlayerTickFunction): void;
-	
+
     function addCallback(name: "CustomDimensionTransfer", func: CustomDimensionTransferFunction): void;
 
     function addCallback(name: "BlockEventEntityInside", func: BlockEventEntityInsideFunction): void;
@@ -154,7 +154,6 @@ declare namespace Callback {
 
     function addCallback(name: "EntityPickUpDrop", func: EntityPickUpDropFunction): void;
 
-    
 
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
@@ -192,7 +191,7 @@ declare namespace Callback {
      * @param workbenchContainer workbench container instance
      */
     interface VanillaWorkbenchCraftFunction {
-        (result: ItemInstance, workbenchContainer: UI.Container): void
+        (result: ItemInstance, workbenchContainer: UI.Container, player: number): void
     }
 
     /**
