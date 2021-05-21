@@ -188,6 +188,26 @@ declare class ItemContainer {
 	addServerOpenListener(listener: (container: ItemContainer, client: NetworkClient) => void): void;
 
 	addServerCloseListener(listener: (container: ItemContainer, client: NetworkClient) => void): void;
+	
+	/**
+     	 * Handler for moving items from inventory to container slot.
+     	 * Can be used in custom slot click events.
+     	 * Works only with the CLIENT instance of [[ItemContainer]]
+     	 * @param from numeric index of the inventory slot where the transaction happened
+     	 * @param to string name of the container slot where the transaction happened
+     	 * @param count count of the items to be moved
+     	 */
+    	handleInventoryToSlotTransaction(from: number, to: string, count: number): void;
+	
+    	/**
+    	 * Handler for moving items from container slot to inventory.
+   	 * Can be used in custom slot click events.
+    	 * Works only with the CLIENT instance of [[ItemContainer]]
+     	 * @param from string name of the container slot where the transaction happened
+     	 * @param count count of the items to be moved 
+     	 */
+    	handleSlotToInventoryTransaction(from: string, count: number): void;
+	
 
 	static registerScreenFactory(name: string, screenFactory: (container: ItemContainer, name: string) => UI.Window): void;
 }
