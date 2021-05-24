@@ -23,3 +23,8 @@ declare var __config__: Config;
  * Full path to current Horizon pack directory
  */
 declare var __packdir__: string;
+
+/**
+ * Full path to current Inner Core modpack directory
+ */
+declare var __modpack__: string;
