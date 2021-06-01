@@ -386,5 +386,10 @@ declare namespace Item {
          */
         meta?: number
     }
+    
+    /**
+     * All items name override functions object for internal use
+     */
+    var nameOverrideFunctions: {[key: number]: Callback.ItemNameOverrideFunction};
 
 }
