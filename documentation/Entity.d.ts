@@ -239,7 +239,7 @@ declare namespace Entity {
 
     /**
      * Sets entity's immobile state
-     * @param mobile if true, entity is immobilized, otherwise it can move
+     * @param mobile if true, entity can move, otherwise it is immobilized
      */
     function setMobile(ent: number, mobile: boolean): void;
 
