@@ -44,6 +44,21 @@ declare class BlockSource {
 	 */
 	setBlock(x: number, y: number, z: number, state: BlockState): void;
 
+	/**
+	 * Sets extra block (for example, water inside another blocks), on given coords by given id and data
+	 */
+	setExtraBlock(x: number, y: number, z: number, id: number, data: number): void;
+
+	/**
+	 * Sets extra block (for example, water inside another blocks), on given coords by given [[BlockState]]
+	 */
+	setExtraBlock(x: number, y: number, z: number, state: BlockState): void;
+
+	/**
+	 * @returns [[BlockState]] object of the extra block on given coords
+	 */
+	getExtraBlock(x: number, y: number, z: number): BlockState;
+
 	 /**
 	  * Creates an explosion on coords
 	  * @param power defines how many blocks can the explosion destroy and what

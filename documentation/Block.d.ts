@@ -305,6 +305,17 @@ declare namespace Block {
 
 	function registerNeighbourChangeFunctionForID(id: number, func: NeighbourChangeFunction): void;
 
+	/**
+	 * @returns whether the block of given id can contain liquid inside
+	 */
+	function canContainLiquid(id: number): boolean;
+
+	/**
+	 * @returns whether the block of given id can be an extra block 
+	 * (it's the block that can be set inside of another blocks, for ex. water and other liquids)
+	 */
+	function canBeExtraBlock(id: number): boolean;
+
 	type ColorSource = "grass" | "leaves" | "water";
 
 	type Sound = "normal"
