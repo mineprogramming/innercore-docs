@@ -92,6 +92,13 @@ declare function getCoreAPILevel(): number;
 declare function runOnMainThread(func: () => void): void;
 
 /**
+ * Runs specified function in the client thread.
+ * Same as [[runOnMainThread]], but for the client side.
+ * @param func function to be run in the client thread
+ */
+declare function runOnClientThread(func: () => void): void;
+
+/**
  * @returns minecraft version information in some readable form
  * @param str string version representation, three dot-separated numbers
  * @param array array containing three version numbers

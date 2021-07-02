@@ -655,7 +655,11 @@ declare namespace UI {
 		 * Set background color of window
 		 * @param color integer color value (you can specify it using hex value)
 		 */
-		setBackgroundColor(color: number);
+		setBackgroundColor(color: number): void;
+
+		updateScrollDimensions(): void;
+
+		updateWindowPositionAndSize(): void;
 	}
 
 
@@ -1035,6 +1039,11 @@ declare namespace UI {
 		 * Aligns text to the end of the element (right for English locale)
 		 */
 		static ALIGN_END: number;
+
+		/**
+		 * Aligns text to the center of the element horizontally
+		 */
+		static ALIGN_CENTER_HORIZONTAL: number;
 
 		/**
 		 * Constructs new instance of the font with specified parameters
@@ -2307,6 +2316,10 @@ declare namespace UI {
 		darken?: boolean,
 
 		isDarkenAtZero?: boolean,
+
+		iconScale?: number,
+
+		disablePixelPerfect?: boolean,
 
 		text?: string,
 

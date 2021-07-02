@@ -106,6 +106,11 @@ declare class BlockSource {
 	getBiomeTemperatureAt(x: number, y: number, z: number): number;
 
 	/**
+	 * @returns downfall of the biome on coords
+	 */
+	getBiomeDownfallAt(x: number, y: number, z: number): number;
+
+	/**
 	* @param chunkX X coord of the chunk
 	 * @param chunkZ Z coord of the chunk
 	 * @returns true if chunk is loaded, false otherwise

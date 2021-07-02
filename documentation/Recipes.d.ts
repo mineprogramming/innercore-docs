@@ -174,9 +174,19 @@ declare namespace Recipes {
      * @param resultId result item id
      * @param resultData result item data
      * @param prefix recipe prefix used for non-vanilla furnaces
-     * @returns java.util.Collection of 
+     * @returns [[java.util.Collection]] object with all furnace recipes found by given params
      */
     function getFurnaceRecipesByResult(resultId: number, resultData: number, prefix: string): java.util.Collection<FurnaceRecipe>;
+
+    /**
+     * @returns [[java.util.Collection]] object with all registered workbench recipes
+     */
+    function getAllWorkbenchRecipes(): java.util.Collection<WorkbenchRecipe>;
+
+    /**
+     * @returns [[java.util.Collection]] object with all registered furnace recipes
+     */
+    function getAllFurnaceRecipes(): java.util.Collection<FurnaceRecipe>;
 
     /**
      * Class used to simplify creation of custom workbenches
