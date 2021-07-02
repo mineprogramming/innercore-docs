@@ -155,7 +155,7 @@ declare class CustomBiome {
      * @param id block's tile id
      * @param data block data
      * @returns reference to itself to be used in sequential calls
-     * @deprecated use [[CustomBiome.prototype.setSeaFloorBlock]] instead
+     * @deprecated use [[CustomBiome.setSeaFloorBlock]] instead
      */
     setAdditionalBlock(id: number, data: number): CustomBiome;
 
@@ -171,7 +171,7 @@ declare class CustomBiome {
      * effect is currently not known
      * @param param some integer parameter. Default value is 7
      * @returns reference to itself to be used in sequential calls
-     * @deprecated use [[CustomBiome.prototype.setSeaFloorDepth]]
+     * @deprecated use [[CustomBiome.setSeaFloorDepth]]
      */
     setSurfaceParam(param: number): CustomBiome;
 
