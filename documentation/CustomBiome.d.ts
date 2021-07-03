@@ -183,38 +183,38 @@ declare class CustomBiome {
      * // many thanks to DansZbar2 for the example
      * var cherry = new CustomBiome("environmental_cherry");
      * cherry.setServerJson(JSON.stringify({
-     *              "minecraft:climate": {
-     *                 "downfall": 0.0,
-     *                 "snow_accumulation": [ 0.0, 0.0 ],
-     *                 "temperature": 2.0,
-     *                 "blue_spores": 0,
-     *                 "red_spores": 0,
-     *                 "white_ash": 0,
-     *                 "ash": 0
-     *              },
-     *              "minecraft:overworld_height": {
-     *                 "noise_type": "default"
-     *              },
-     *              "animal": {},
-     *              "monster": {},
-     *              "overworld": {},
-     *              "environmental_cherry": {},
-     *              "minecraft:surface_parameters": {
-     *                 "top_material": "minecraft:grass",
-     *                 "mid_material": "minecraft:dirt",
-     *                 "foundation_material": "minecraft:stone",
-     *                 "sea_floor_material": "minecraft:clay",
-     *                 "sea_material": "minecraft:water",
-     *                 "sea_floor_depth": 7
-     *              },
-     *              "minecraft:overworld_generation_rules": {
-     *                 "hills_transformation": "jungle_hills",
-     *                 "generate_for_climates": [ 
-     *                     [ "cold", 5 ],
-     *                     [ "medium", 20 ],
-     *                     [ "warm", 35 ],
-     *                 ]
-     *              }
+     *     "minecraft:climate": {
+     *        "downfall": 0.0,
+     *        "snow_accumulation": [ 0.0, 0.0 ],
+     *        "temperature": 2.0,
+     *        "blue_spores": 0,
+     *        "red_spores": 0,
+     *        "white_ash": 0,
+     *        "ash": 0
+     *     },
+     *     "minecraft:overworld_height": {
+     *        "noise_type": "default"
+     *     },
+     *     "animal": {},
+     *     "monster": {},
+     *     "overworld": {},
+     *     "environmental_cherry": {},
+     *     "minecraft:surface_parameters": {
+     *        "top_material": "minecraft:grass",
+     *        "mid_material": "minecraft:dirt",
+     *        "foundation_material": "minecraft:stone",
+     *        "sea_floor_material": "minecraft:clay",
+     *        "sea_material": "minecraft:water",
+     *        "sea_floor_depth": 7
+     *     },
+     *     "minecraft:overworld_generation_rules": {
+     *        "hills_transformation": "jungle_hills",
+     *        "generate_for_climates": [ 
+     *            [ "cold", 5 ],
+     *            [ "medium", 20 ],
+     *            [ "warm", 35 ],
+     *        ]
+     *     }
      * }));
      * ```
      */
@@ -228,11 +228,11 @@ declare class CustomBiome {
      * // many thanks to DansZbar2 for the example
      * var cherry = new CustomBiome("environmental_cherry");
      * cherry.setClientJson(JSON.stringify({
-     *              "water_surface_color": "#d176e1",
-     *              "water_fog_color": "#a35dc2",
-     *              "water_surface_transparency": 0.7,
-     *              "water_fog_distance": 11,
-     *              "fog_identifier": "environmental:environmental_cherry" // custom fog defined in the addon
+     *     "water_surface_color": "#d176e1",
+     *     "water_fog_color": "#a35dc2",
+     *     "water_surface_transparency": 0.7,
+     *     "water_fog_distance": 11,
+     *     "fog_identifier": "environmental:environmental_cherry" // custom fog defined in the addon
      * }));
      * ```
      */
