@@ -129,9 +129,10 @@ declare namespace Animation {
              */
             mesh?: RenderMesh,
             /**
-             * [[Render]] object to be displayed with animation
+             * Numeric id of the [[Render]] object to be displayed with animation.
+             * Can be obtained using [[Render.getId]]
              */
-            render?: Render,
+            render?: number,
             /**
              * Name of the texture to be used as render's skin
              */
