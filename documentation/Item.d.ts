@@ -392,4 +392,9 @@ declare namespace Item {
      */
     var nameOverrideFunctions: {[key: number]: Callback.ItemNameOverrideFunction};
 
+    /**
+     * All items icon override functions object for internal use
+     */
+    var iconOverrideFunctions: {[key: number]: Callback.ItemIconOverrideFunction};
+
 }
