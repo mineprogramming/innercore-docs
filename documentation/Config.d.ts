@@ -92,7 +92,7 @@ declare class Config {
     /**
      * Ensures that config has all the properties the data pattern contains, if
      * not, puts default values to match the pattern
-     * @param data javascript object representing the data patterncheckAndRestore
+     * @param data javascript object representing the data pattern checkAndRestore
      */
     checkAndRestore(data: object): void;
 

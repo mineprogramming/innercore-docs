@@ -97,7 +97,7 @@ declare class RenderMesh {
 
     /**
      * Imports mesh file using specified path
-     * @param path path to the mesh file. Path should be abolute path or 
+     * @param path path to the mesh file. Path should be absolute path or
      * be relative to the resources folder or to the "models/" folder
      * @param type file type to read mesh from. The only currently supported mesh file 
      * type is "obj"

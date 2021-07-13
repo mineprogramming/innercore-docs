@@ -1,5 +1,5 @@
 /**
- * Java object of the mod, contains some useful values and methonds
+ * Java object of the mod, contains some useful values and methods
  */
 declare var __mod__: java.lang.Object;
 
@@ -23,3 +23,8 @@ declare var __config__: Config;
  * Full path to current Horizon pack directory
  */
 declare var __packdir__: string;
+
+/**
+ * Full path to current Inner Core modpack directory
+ */
+declare var __modpack__: ModPack.ModPackJsAdapter;

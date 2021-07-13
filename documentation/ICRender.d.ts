@@ -9,7 +9,7 @@ declare namespace ICRender {
 	const MODE_INCLUDE = 0;
 
 	/**
-	 * Used to specify that the block should be abscent to satisfy condition
+	 * Used to specify that the block should be absent to satisfy condition
 	 */
 	const MODE_EXCLUDE = 1;
 
@@ -35,6 +35,8 @@ declare namespace ICRender {
 		 * @returns group's name
 		 */
 		getName(): string,
+		
+		name: string;
 
 		/**
 		 * Adds a block to the group
@@ -47,7 +49,7 @@ declare namespace ICRender {
 	class Model {
 		/**
 		 * Constructs a base model that will be displayed 
-		 * @param model optional model to be added wihtout additional conditions
+		 * @param model optional model to be added without additional conditions
 		 */
 		constructor(model?: BlockRenderer.Model);
 

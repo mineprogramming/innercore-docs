@@ -157,7 +157,7 @@ declare namespace Player {
     function getVelocity(): Vector;
 
     /**
-     * Updates current entity's velocity by specified valus
+     * Updates current entity's velocity by specified values
      */
     function addVelocity(x: number, y: number, z: number): void;
 

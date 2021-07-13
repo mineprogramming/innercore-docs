@@ -50,7 +50,7 @@ declare namespace Debug {
     function big(...args: any[]): void;
 
     /**
-     * Diaplays an AlertDialog with given title and bitmap
+     * Displays an AlertDialog with given title and bitmap
      * @param bitmap android.graphics.Bitmap object of the bitmap to be 
      * displayed
      * @param title title of the AlertDialog

@@ -25,36 +25,36 @@ declare namespace TileEntity {
 
     /**
      * @returns a [[TileEntity]] on the specified coordinates or null if the block on the
-     * coordinates is not a [[TileEntity]] 
+     * coordinates is not a [[TileEntity]]
      */
-    function getTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function getTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
-     * If the block on the specified coordinates is a TileEntity block and is 
+     * If the block on the specified coordinates is a TileEntity block and is
      * not initialized, initializes it and returns created [[TileEntity]] object
      * @returns [[TileEntity]] if one was created, null otherwise
      */
-    function addTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function addTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
      * Destroys [[TileEntity]], dropping its container
-     * @returns true if the [[TileEntity]] was destroyed successfully, false 
+     * @returns true if the [[TileEntity]] was destroyed successfully, false
      * otherwise
      */
     function destroyTileEntity(tileEntity: TileEntity): boolean;
 
     /**
-     * If the block on the specified coordinates is a [[TileEntity]], destroys 
+     * If the block on the specified coordinates is a [[TileEntity]], destroys
      * it, dropping its container
-     * @returns true if the [[TileEntity]] was destroyed successfully, false 
+     * @returns true if the [[TileEntity]] was destroyed successfully, false
      * otherwise
      */
-    function destroyTileEntityAtCoords(x: number, y: number, z: number, blockSource?: BlockSource): boolean;
+    function destroyTileEntityAtCoords(x: number, y: number, z: number, region?: BlockSource): boolean;
 
     /**
      * Checks whether the [[TileEntity]] is in the loaded chunk or not
      * @param tileEntity to be verified
-     * @returns true if the chunk with TileEntity and some of the surrounging 
+     * @returns true if the chunk with TileEntity and some of the surrounding
      * chunks are loaded, false otherwise. The following chunks are verified:
      *  + +
      *   #
@@ -82,7 +82,7 @@ declare namespace TileEntity {
          * Called when a [[TileEntity]] is created
          */
 		created?: () => void,
-		
+
 		/**
          * Client TileEntity prototype copy
          */
@@ -115,12 +115,18 @@ declare namespace TileEntity {
             /**
              * Events of the container's client copy
              */
-            containerEvents: {
+            containerEvents?: {
                 /**
                  * Example of the client container event function
                  */
-                [eventName: string]: (container: ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
+                [eventName: string]: (container: ItemContainer, window: UI.Window | UI.StandartWindow | UI.StandardWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
             }
+	
+	    /**
+              * Any other user-defined methods and properties
+              */
+            [key: string]: any
+	    
         },
 
         /**
@@ -128,10 +134,10 @@ declare namespace TileEntity {
          */
         events?: {
             /**
-             * Example of the server packet event function. 
+             * Example of the server packet event function.
              * 'this.sendResponse' method is only available here.
              */
-            [packetName: string]: (packetData: any, packetExtra: any, connectedClient: Network.Client) => void;
+            [packetName: string]: (packetData: any, packetExtra: any, connectedClient: NetworkClient) => void;
         },
 
         /**
@@ -141,7 +147,7 @@ declare namespace TileEntity {
             /**
              * Example of the server container event function
              */
-            [eventName: string]: (container: ItemContainer, window: UI.Window | UI.StandartWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
+            [eventName: string]: (container: ItemContainer, window: UI.Window | UI.StandartWindow | UI.StandardWindow | UI.TabbedWindow | null, windowContent: UI.WindowContent | null, eventData: any) => void;
         }
 
         /**
@@ -157,7 +163,7 @@ declare namespace TileEntity {
         /**
          * Called when player uses some item on a [[TileEntity]]
          * @returns true if the event is handled and should not be propagated to
-         * the next handlers. E.g. return true if you don't want the user interface 
+         * the next handlers. E.g. return true if you don't want the user interface
          * to be opened
          */
         click?: (id: number, count: number, data: number, coords: Callback.ItemUseCoordinates, player: number, extra: ItemExtraData) => boolean | void,
@@ -169,7 +175,7 @@ declare namespace TileEntity {
         destroyBlock?: (coords: Callback.ItemUseCoordinates, player: number) => void,
 
         /**
-         * Occurs when the [[TileEntity]] should handle redstone signal. See 
+         * Occurs when the [[TileEntity]] should handle redstone signal. See
          * [[Callback.RedstoneSignalFunction]] for details
          */
         redstone?: (params: { power: number, signal: number, onLoad: boolean }) => void,
@@ -182,19 +188,19 @@ declare namespace TileEntity {
 
         /**
          * Occurs when the [[TileEntity]] is being destroyed
-         * @returns true to prevent 
-         * [[TileEntity]] object from destroying (but if the block was destroyed, returning 
+         * @returns true to prevent
+         * [[TileEntity]] object from destroying (but if the block was destroyed, returning
          * true from this function doesn't replace the missing block with a new one)
          */
         destroy?: () => boolean | void;
 
         /**
-         * Called to get the [[UI.IWindow]] object for the current [[TileEntity]]. The 
+         * Called to get the [[UI.IWindow]] object for the current [[TileEntity]]. The
          * window is then opened within [[TileEntity.container]] when the player clicks it
 		 * @deprecated Don't use in multiplayer
          */
 		getGuiScreen?: () => UI.IWindow;
-		
+
 		/**
          * Called on server side and returns UI name to open on click
          */
@@ -203,7 +209,7 @@ declare namespace TileEntity {
         /**
          * Called on client side, returns the window to open
          */
-        getScreenByName?: (screenName?: string) => UI.Window | UI.StandartWindow | UI.TabbedWindow;
+        getScreenByName?: (screenName?: string) => UI.Window | UI.StandartWindow | UI.StandardWindow | UI.TabbedWindow;
 
         /**
          * Called when more liquid is required
@@ -236,6 +242,10 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
      */
     readonly dimension: number,
     /**
+     * block id of TileEntity
+     */
+    readonly blockID: number,
+    /**
      * TileEntity data values object
      */
     data: {[key: string]: any},
@@ -246,7 +256,15 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
     /**
      * TileEntity's liquid storage
      */
-    liquidStorage: any,
+    liquidStorage: LiquidRegistry.Storage,
+    /**
+     * True if TileEntity is loaded in the world
+     */
+    isLoaded: boolean;
+    /**
+     * True if TileEntity was destroyed
+     */
+    remove: boolean;
     /**
      * Destroys the TileEntity prototype
      */
@@ -268,7 +286,7 @@ declare interface TileEntity extends TileEntity.TileEntityPrototype {
      */
     networkEntity: NetworkEntity;
     /**
-     * Sends packet to specified client. 
+     * Sends packet to specified client.
      * AVAILABLE ONLY IN SERVER EVENT FUNCTIONS!
      */
     sendResponse: (packetName: string, someData: object) => void;

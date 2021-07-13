@@ -86,10 +86,17 @@ declare function WRAP_JAVA<T = any>(name: string): T;
 declare function getCoreAPILevel(): number;
 
 /**
- * Runs specified funciton in the main thread
+ * Runs specified function in the main thread
  * @param func function to be run in the main thread
  */
 declare function runOnMainThread(func: () => void): void;
+
+/**
+ * Runs specified function in the client thread.
+ * Same as [[runOnMainThread]], but for the client side.
+ * @param func function to be run in the client thread
+ */
+declare function runOnClientThread(func: () => void): void;
 
 /**
  * @returns minecraft version information in some readable form
@@ -121,7 +128,7 @@ declare function LIBRARY(description: {
 	name: string,
 
 	/**
-	 * Library version, used to load the lates library version
+	 * Library version, used to load the latest library version
 	 * if different mods have different library version installed
 	 */
 	version: number,
@@ -169,3 +176,10 @@ declare function EXPORT(name: string, lib: any): void;
  * They will not be taken into account in mod synchronization during the connection
  */
 declare function ConfigureMultiplayer(args: { name: string, version: string, isClientOnly: boolean }): void;
+
+
+/**
+ * Default render templates used inside of InnerCore,
+ * currently there are only default armor models
+ */
+declare type DefaultRenderTemplate = "helmet" | "chestplate" | "leggings" | "boots";

@@ -3,7 +3,7 @@
  */
 declare namespace Game {
     /**
-     * Prevents current callblack function from being called in Minecraft.
+     * Prevents current callback function from being called in Minecraft.
      * For most callbacks it prevents default game behaviour
      */
     function prevent(): void;
@@ -66,5 +66,5 @@ declare namespace Game {
     /**
      * @returns true if item spending allowed
      */
-    function isItemSpendingAllowed(): boolean;
+    function isItemSpendingAllowed(player?: number): boolean;
 }

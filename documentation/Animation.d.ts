@@ -102,7 +102,7 @@ declare namespace Animation {
         load(): void;
 
         /**
-         * Loads animation in the world registring it as an [[Updatable]]
+         * Loads animation in the world registering it as an [[Updatable]]
          * @param func function to be used as [[Updatable.update]] function
          */
         loadCustom(func: () => void): void;
@@ -129,9 +129,10 @@ declare namespace Animation {
              */
             mesh?: RenderMesh,
             /**
-             * [[Render]] object to be displayed with animation
+             * Numeric id of the [[Render]] object to be displayed with animation.
+             * Can be obtained using [[Render.getId]]
              */
-            render?: Render,
+            render?: number,
             /**
              * Name of the texture to be used as render's skin
              */

@@ -9,7 +9,13 @@ declare namespace Updatable {
      * Adds object to updatables list
      * @param obj object to be added to updatables list
      */
-    function addUpdatable(obj: Updatable): any;
+	function addUpdatable(obj: Updatable): any;
+	
+	/**
+     * Adds object to updatables list
+     * @param obj object to be added to updatables list
+     */
+    function addLocalUpdatable(obj: Updatable): any;
 
     /**
      * @returns java.util.ArrayList instance containing all defined 
@@ -31,16 +37,11 @@ interface Updatable {
     /**
      * Called every tick
      */
-    update: () => void,
+    update: () => void;
 
     /**
      * Once true, the object will be removed from updatables list and will no 
      * longer receive update calls
      */
-    remove?: boolean
-
-    /**
-     * Any other user-defined methods and properties
-     */
-    [key: string]: any
+    remove?: boolean;
 }

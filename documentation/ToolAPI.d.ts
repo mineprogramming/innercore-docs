@@ -126,7 +126,7 @@ declare namespace ToolAPI {
      * @param extra item extra instance, if not specified, method uses carried
      * item's extra
      * @returns enchant data object, containing enchants used for blocks
-     * destroy speeed calculations
+     * destroy speed calculations
      */
     function getEnchantExtraData(extra?: ItemExtraData): EnchantData;
 
@@ -138,7 +138,7 @@ declare namespace ToolAPI {
     function fortuneDropModifier(drop: ItemInstanceArray[], level: number): ItemInstanceArray[];
 
     /**
-     * Calculates destroy time for the block that is being broken with specefied 
+     * Calculates destroy time for the block that is being broken with specified
      * tool at the specified coords. Used mostly by Core Engine to apply break
      * time
      * @param ignoreNative if block and item are native items, and this 
@@ -212,7 +212,7 @@ declare namespace ToolAPI {
      */
     interface ToolMaterial {
         /**
-         * Devidor used to calculate block breaking
+         * Divider used to calculate block breaking
          * speed. 2 is a default value for wooden instruments and 12 is a default 
          * value for golden instruments
          */
@@ -307,10 +307,10 @@ declare namespace ToolAPI {
          * @param timeData some time properties that can be used to calculate 
          * destroy time for the tool and block
          * @param timeData.base base destroy time of the block
-         * @param timeData.devider tool material devidor
-         * @param timeData.modifier devider applied due to efficiency enchantment
+         * @param timeData.devider tool material devider
+         * @param timeData.modifier divider applied due to efficiency enchantment
          * @param defaultTime default block destroy time, calculated as 
-         * *base / devider / modifier*
+         * *base / divider / modifier*
          * @param enchantData tool's enchant data
          */
         calcDestroyTime?: (tool: ItemInstance, coords: Callback.ItemUseCoordinates, block: Tile, timeData: { base: number, devider: number, modifier: number }, defaultTime: number, enchantData?: EnchantData) => number,
@@ -330,7 +330,7 @@ declare namespace ToolAPI {
          * @returns true if default damage should not be applied to the instrument,
          * false otherwise
          */
-        onDestroy?: (item: ItemInstance, coords: Callback.ItemUseCoordinates, block: Tile) => boolean,
+        onDestroy?: (item: ItemInstance, coords: Callback.ItemUseCoordinates, block: Tile, player: number) => boolean,
 
         /**
          * Function that is called when players attacks some entity with the tool
@@ -339,15 +339,16 @@ declare namespace ToolAPI {
          * @returns true if default damage should not be applied to the instrument,
          * false otherwise
          */
-        onAttack?: (item: ItemInstance, victim: number) => boolean,
+        onAttack?: (item: ItemInstance, victim: number, attacker: number) => boolean,
 
         /**
-         * If true, breaking blocks with this tool makes it break 2x faster
+         * If true, breaking blocks with this tool makes it break 2x faster,
+         * otherwise attacking mobs breaks tool 2x faster
          */
         isWeapon?: boolean,
 
         /**
-         * Funciton that is called when the instument is broken
+         * Function that is called when the instrument is broken
          * @param item tool item
          * @returns true if default breaking behavior (replacing by *brokenId* item) 
          * should not be applied 

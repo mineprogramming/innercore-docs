@@ -18,7 +18,13 @@ declare namespace World {
     /**
      * @returns current tick number since the player joined the world
      */
-    function getThreadTime(): number;
+	function getThreadTime(): number;
+	
+	/**
+	 * @param side number from 0 to 6 (exclusive)
+     * @returns opposite side to argument
+     */
+    function getInverseBlockSide(side: number): number;
 
     /**
      * Retrieves coordinates relative to the block. For example, the following code
@@ -83,20 +89,21 @@ declare namespace World {
     /**
      * Destroys block on the specified coordinates producing appropriate drop
      * and particles. Do not use for massive tasks due to particles being 
-     * producesd
-     * @param drop whenther to provide drop for the block or not
+     * produced
+     * @param drop whether to provide drop for the block or not
      */
-    function destroyBlock(x: number, y: number, z: number, drop: boolean): void;
+    function destroyBlock(x: number, y: number, z: number, drop?: boolean): void;
 
     /**
      * @returns light level on the specified coordinates, from 0 to 15
+     * @deprecated Out of date in multiplayer
      */
     function getLightLevel(x: number, y: number, z: number): number;
 
     /**
      * @param x chunk coordinate
      * @param z chunk coordinate
-     * @returns whether the chunk with specified coodinates is loaded or not
+     * @returns whether the chunk with specified coordinates is loaded or not
      */
     function isChunkLoaded(x: number, z: number): boolean;
 
@@ -112,30 +119,30 @@ declare namespace World {
     /**
      * @returns [[TileEntity]] located on the specified coordinates
      */
-    function getTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function getTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
      * If the block on the specified coordinates is a TileEntity block and is 
      * not initialized, initializes it and returns created [[TileEntity]] object
      * @returns [[TileEntity]] if one was created, null otherwise
      */
-    function addTileEntity(x: number, y: number, z: number, blockSource?: BlockSource): Nullable<TileEntity>;
+    function addTileEntity(x: number, y: number, z: number, region?: BlockSource): Nullable<TileEntity>;
 
     /**
      * If the block on the specified coordinates is a [[TileEntity]], destroys 
      * it, dropping its container
      * @returns true if the [[TileEntity]] was destroyed successfully, false 
      * otherwise
-     * @deprecated Out of date in multiplayer
      */
-    function removeTileEntity(x: number, y: number, z: number): boolean;
+    function removeTileEntity(x: number, y: number, z: number, region?: BlockSource): boolean;
 
     /**
      * @returns if the block on the specified coordinates is a [[TileEntity]], returns
      * its container, if the block is a [[NativeTileEntity]], returns it, if 
      * none of above, returns null
+	 * @param region BlockSource
      */
-    function getContainer(x: number, y: number, z: number, blockSource?: BlockSource): NativeTileEntity | UI.Container | ItemContainer | null;
+    function getContainer(x: number, y: number, z: number, region?: BlockSource): Nullable<NativeTileEntity | UI.Container | ItemContainer>;
 
     /**
      * @returns current world's time in ticks 
@@ -175,7 +182,7 @@ declare namespace World {
     function setWeather(weather: Weather): void;
 
     /**
-     * Drops item or block with specified id, cound, data and extra on the 
+     * Drops item or block with specified id, count, data and extra on the
      * specified coordinates. For blocks, be sure to use block id, not the tile
      * id
      * @returns created drop entity id
@@ -183,7 +190,7 @@ declare namespace World {
     function drop(x: number, y: number, z: number, id: number, count: number, data: number, extra?: ItemExtraData): number;
 
     /**
-     * Creates an explosion on the sepcified coordinates
+     * Creates an explosion on the specified coordinates
      * @param power defines how many blocks can the explosion destroy and what
      * blocks can or cannot be destroyed
      * @param fire if true, puts the crater on fire
@@ -227,13 +234,13 @@ declare namespace World {
 
     /**
      * @returns true, if one can see sky from the specified position, false 
-     * othrwise
+     * otherwise
 	 * @deprecated Out of date in multiplayer
      */
     function canSeeSky(x: number, y: number, z: number): boolean;
 
     /**
-     * @returns true, if tilecan be replaced (for example, grass and water can be replaced), false otherwise
+     * @returns true, if tile can be replaced (for example, grass and water can be replaced), false otherwise
      */
     function canTileBeReplaced(id: number, data: number): boolean;
 
@@ -243,7 +250,7 @@ declare namespace World {
      * @param volume sound volume from 0 to 1
      * @param pitch sound pitch, from 0 to 1, 0.5 is default value
      */
-    function playSound(x: number, y: number, z: number, name: string, volume: number, pitch: number): void;
+    function playSound(x: number, y: number, z: number, name: string, volume: number, pitch?: number): void;
 
     /**
      * Plays standart Minecraft sound from the specified entity
@@ -251,7 +258,7 @@ declare namespace World {
      * @param volume sound volume from 0 to 1
      * @param pitch sound pitch, from 0 to 1, 0.5 is default value
      */
-    function playSoundAtEntity(entity: number, name: string, volume: number, pitch: number): void;
+    function playSoundAtEntity(entity: number, name: string, volume: number, pitch?: number): void;
 
     /**
      * Enables "BlockChanged" event for the block id. Event occurs when either
@@ -268,7 +275,7 @@ declare namespace World {
      * numeric tile ids
      * @param callback function that will be called when "BlockChanged" callback 
      * occurs involving one of the blocks. **Warning!** If both old and new 
-     * blocks are in the ids list, callback funciton will be called twice.
+     * blocks are in the ids list, callback function will be called twice.
      */
     function registerBlockChangeCallback(ids: number | string | (string | number)[], callback: Callback.BlockChangedFunction): void;
 

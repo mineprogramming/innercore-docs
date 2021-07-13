@@ -1,6 +1,6 @@
 /**
  * Module used to manage item and block ids. Items and blocks have the same 
- * underlying nature, so their ids are interchangable. Though, the blocks are
+ * underlying nature, so their ids are interchangeable. Though, the blocks are
  * defined "twice", as an item (in player's hand or inventory) and as a tile 
  * (a block placed in the world)
  */
@@ -59,4 +59,18 @@ declare namespace IDRegistry {
      * @returns block id
      */
     function ensureItemId(id: number): number;
+
+    /**
+     * @param id numeric item or block id
+     * @returns true if item is vanilla Minecraft item, false otherwise
+     */
+    function isVanilla(id: number): boolean;
+
+    /**
+     * Gets type of item ("block" or "item") and its string id in Minecraft
+     * @param id numeric item or block id
+     * @returns string in format "type:string_id" or
+     * "type:string_id#extra_information"
+     */
+    function getIdInfo(id: number): string;
 }

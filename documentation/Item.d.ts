@@ -68,13 +68,13 @@ declare namespace Item {
      * Default value is false 
      * @param params.durability armor durability, the more it is, the longer the 
      * armor will last. Default value is 1
-     * @param params.armor armor protection. Default vaule is 0
+     * @param params.armor armor protection. Default value is 0
      * @param params.texture armor model texture path (in the assets), default
      * value is 'textures/logo.png'
      * @param params.type armor type, should be one of the 'helmet', 
      * 'chestplate', 'leggings' or 'boots'
      */
-    function createArmorItem(nameID: string, name: string, texture: TextureData, params: { type: string, armor: number, durability: number, texture: string, isTech?: boolean }): void;
+    function createArmorItem(nameID: string, name: string, texture: TextureData, params: { type: string, armor: number, durability: number, texture: string, isTech?: boolean }): NativeItem
 
     /**
      * Creates throwable item using specified parameters
@@ -89,7 +89,7 @@ declare namespace Item {
      * @param params.isTech if true, the item will not be added to creative. 
      * Default value is false 
      */
-    function createThrowableItem(nameID: string, name: string, texture: TextureData, params: any): void;
+    function createThrowableItem(nameID: string, name: string, texture: TextureData, params: any): NativeItem;
 
     /**
      * @param id numeric item id
@@ -130,11 +130,11 @@ declare namespace Item {
      * @param count amount of the item to be added, generally should be 1
      * @param data item data
      */
-    function addToCreative(id: number | string, count: number, data: number): void;
+    function addToCreative(id: number | string, count: number, data: number, extra?: ItemExtraData): void;
 
     /**
      * Applies several properties via one method call
-     * @deprecated Consider using appropiate setters instead
+     * @deprecated Consider using appropriate setters instead
      * @param numericID numeric item id
      * @param description 
      */
@@ -153,7 +153,7 @@ declare namespace Item {
     /**
      * Specifies how the item can be enchanted
      * @param id string or numeric item id
-     * @param enchant enchant type defining whan enchants can or cannot be 
+     * @param enchant enchant type defining when enchants can or cannot be
      * applied to this item, one of the [[Native.EnchantType]]
      * @param value quality of the enchants that are applied, the higher this 
      * value is, the better enchants you get with the same level
@@ -161,7 +161,7 @@ declare namespace Item {
     function setEnchantType(id: number | string, enchant: number, value: number): void;
 
     /**
-     * Specifies what items can be used to repair this item in the envil
+     * Specifies what items can be used to repair this item in the anvil
      * @param id string or numeric item id
      * @param items array of numeric item ids to be used as repair items
      */
@@ -190,9 +190,9 @@ declare namespace Item {
     function setGlint(id: number | string, enabled: boolean): void;
 
     /**
-     * 
+     * Allows to click with item on liquid blocks
      * @param id string or numeric item id
-     * @param enabled 
+     * @param enabled if true, liquid blocks can be selected on click
      */
     function setLiquidClip(id: number | string, enabled: boolean): void;
 
@@ -200,6 +200,13 @@ declare namespace Item {
      * @deprecated No longer supported
      */
     function setStackedByData(id: number | string, enabled: boolean): void;
+
+    /**
+     * Allows item to be put in offhand slot
+     * @param id string or numeric item id
+     * @param allowed
+     */
+    function setAllowedInOffhand(id: number | string, allowed: boolean): void;
 
     /**
      * Sets additional properties for the item, uses Minecraft mechanisms to
@@ -227,15 +234,15 @@ declare namespace Item {
     /**
      * Same as [[Item.registerUseFunction]], but supports numeric ids only
      */
-    function registerUseFunctionForID(numericID: number, useFunc: Callback.ItemUseFunction): void;
+    function registerUseFunctionForID(numericID: number, useFunc: Callback.ItemUseLocalFunction): void;
 
     /**
      * Registers function that is called when user touches some block in the 
      * world with specified item
      * @param nameID string or numeric id of the item
-     * @param useFunc function that is called when such an event occures
+     * @param useFunc function that is called when such an event occurs
      */
-    function registerUseFunction(nameID: string | number, useFunc: Callback.ItemUseFunction): void;
+    function registerUseFunction(nameID: string | number, useFunc: Callback.ItemUseLocalFunction): void;
 
     /**
      * Same as [[Item.registerThrowableFunction]], but supports numeric ids only
@@ -246,7 +253,7 @@ declare namespace Item {
      * Registers function that is called when throwable item with specified id
      * hits block or entity
      * @param nameID string or numeric id of the item
-     * @param useFunc function that is called when such an event occures
+     * @param useFunc function that is called when such an event occurs
      */
     function registerThrowableFunction(nameID: string | number, useFunc: Callback.ProjectileHitFunction): void;
 
@@ -272,31 +279,31 @@ declare namespace Item {
      * Registers function to be called when player uses item in the air (not on
      * the block)
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerNoTargetUseFunction(nameID: string | number, func: Callback.ItemUseNoTargetFunction): void;
 
     /**
      * Registers function to be called when player doesn't complete using item 
-     * that has maximum use time set with [[Item.setMaxUseDuration]] funciton.
+     * that has maximum use time set with [[Item.setMaxUseDuration]] function.
      * Vanilla bow uses this function with max use duration of 72000 ticks
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerUsingReleasedFunction(nameID: string | number, func: Callback.ItemUsingReleasedFunction): void;
 
     /**
      * Registers function to be called when player completes using item 
-     * that has maximum use time set with [[Item.setMaxUseDuration]] funciton
+     * that has maximum use time set with [[Item.setMaxUseDuration]] function
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerUsingCompleteFunction(nameID: string | number, func: Callback.ItemUsingCompleteFunction): void;
 
     /**
      * Registers function to be called when item is dispensed from dispenser. 
      * @param nameID string or numeric id of the item
-     * @param func function that is called when such an event occures
+     * @param func function that is called when such an event occurs
      */
     function registerDispenseFunction(nameID: string | number, func: Callback.ItemDispensedFunction): void;
 
@@ -317,14 +324,49 @@ declare namespace Item {
     /**
      * Class representing item used to set its properties
      */
-    class NativeItem {
+    interface NativeItem {
+
+        addRepairItem(id: number): void;
+
+        addRepairItems(id: number[]): void;
+
+        setAllowedInOffhand(allowed: boolean): void;
+
+        setArmorDamageable(damageable: boolean): void;
+
+        setCreativeCategory(category: number): void;
+
+        setEnchantType(type: number): void;
+
+        setEnchantType(enchant: number, value: number): void;
+
+        setEnchantability(enchant: number, value: number): void;
+
+        setGlint(glint: boolean): void;
+
+        setHandEquipped(equipped: boolean): void;
+
+        setLiquidClip(clip: boolean): void;
+
+        setMaxDamage(maxDamage: number): void;
+
+        setMaxStackSize(maxStack: number): void;
+
+        setMaxUseDuration(duration: number): void;
+
+        /**@deprecated */
+        setProperties(props: string): void;
+
+        setStackedByData(stacked: boolean): void;
+
+        setUseAnimation(animation: number): void;
 
     }
 
     /**
      * Represents item texture data. For example, if 'items-opaque' folder 
      * contains file *nugget_iron_0.png*, you should pass *nugget_iron* as 
-     * texture name and 0 as texture index. _N suffix can be ommited, but it is 
+     * texture name and 0 as texture index. _N suffix can be omitted, but it is
      * generally not recommended
      */
     interface TextureData {
@@ -344,5 +386,15 @@ declare namespace Item {
          */
         meta?: number
     }
+    
+    /**
+     * All items name override functions object for internal use
+     */
+    var nameOverrideFunctions: {[key: number]: Callback.ItemNameOverrideFunction};
+
+    /**
+     * All items icon override functions object for internal use
+     */
+    var iconOverrideFunctions: {[key: number]: Callback.ItemIconOverrideFunction};
 
 }

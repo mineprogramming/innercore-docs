@@ -150,17 +150,17 @@ declare namespace NBT {
         /**
          * Puts value of string type into compound tag
          */
-        putString(key: string, value: number): void;
+        putString(key: string, value: string): void;
 
         /**
          * Puts value of compound type into compound tag
          */
-        putCompoundTag(key: string, value: number): void;
+        putCompoundTag(key: string, value: CompoundTag): void;
 
         /**
          * Puts value of list type into compound tag
          */
-        putListTag(key: string, value: number): void;
+        putListTag(key: string, value: ListTag): void;
 
         /**
          * Removes tag by its key
@@ -304,17 +304,17 @@ declare namespace NBT {
         /**
          * Puts value of string type into list tag
          */
-        putString(index: number, value: number): void;
+        putString(index: number, value: string): void;
 
         /**
          * Puts value of compound type into list tag
          */
-        putCompoundTag(index: number, value: number): void;
+        putCompoundTag(index: number, value: CompoundTag): void;
 
         /**
          * Puts value of list type into list tag
          */
-        putListTag(index: number, value: number): void;
+        putListTag(index: number, value: ListTag): void;
 
         /**
          * Removes all the tags from the compound tags

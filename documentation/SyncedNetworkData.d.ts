@@ -63,7 +63,7 @@ declare class SyncedNetworkData {
      * false, if change had happened by calling put from this object, 
      * true, if it came by network from other connected data object.
      */
-    addOnDataChangeListener(func: (networkData: SyncedNetworkData, isExternalChange: boolean) => void): void;
+    addOnDataChangedListener(func: (networkData: SyncedNetworkData, isExternalChange: boolean) => void): void;
 
     /**
      * Adds data validator to the object

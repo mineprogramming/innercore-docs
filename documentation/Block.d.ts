@@ -10,7 +10,7 @@ declare namespace Block {
 	 * @returns block numeric id by its string id or just returns its numeric id 
 	 * if input was a numeric id
 	 */
-	function getNumericId(id: string): number;
+	function getNumericId(id: string | number): number;
 
 	/**
 	 * Creates new block using specified params
@@ -69,7 +69,7 @@ declare namespace Block {
 	 */
 	function registerDropFunctionForID(numericID: number, dropFunc: DropFunction, level?: number): boolean;
 
-	function registerEntityInsideFunctionForID(numericID: number, entityinsideFunc: EntityInsideFunction): void
+	function registerEntityInsideFunctionForID(numericID: number, entityInsideFunc: EntityInsideFunction): void
 
 	/**
 	 * Registers function used by Core Engine to determine block drop for the 
@@ -91,7 +91,7 @@ declare namespace Block {
 	function registerPopResourcesFunctionForID(numericID: number, func: PopResourcesFunction): void;
 
 	/**
-	 * Registeres function used by Core Engine to determine block drop for the 
+	 * Registered function used by Core Engine to determine block drop for the
 	 * specified block id
 	 * @param nameID tile string or numeric id 
 	 * @param func function to be called when a block in the world is broken by
@@ -137,7 +137,7 @@ declare namespace Block {
 
 	/**
 	 * @param numericID numeric block id
-	 * @returns explostion resistance of the block
+	 * @returns explosion resistance of the block
 	 */
 	function getExplosionResistance(numericID: number): number;
 
@@ -155,7 +155,7 @@ declare namespace Block {
 
 	/**
 	 * @param numericID numeric block id
-	 * @returns light level, emmited by block, from 0 to 15
+	 * @returns light level, emitted by block, from 0 to 15
 	 */
 	function getLightLevel(numericID: number): number;
 
@@ -213,7 +213,7 @@ declare namespace Block {
 	 * @returns block drop, the array of arrays, each containing three values: 
 	 * id, count and data respectively
 	 */
-	function getBlockDropViaItem(block: Tile, item: ItemInstance, coords: Vector): [number, number, number][];
+	function getBlockDropViaItem(block: Tile, item: ItemInstance, coords: Vector, region: BlockSource): ItemInstanceArray[];
 
 	/**
 	 * Same as [[Block.registerPlaceFunction]] but accepts only numeric 
@@ -301,33 +301,45 @@ declare namespace Block {
 	 */
 	function setupAsNonRedstoneTile(id: number | string): void;
 
-	function registerNeighbourChangeFunction(id: number, func: NeighbourChangeFunction): void;
+	function registerNeighbourChangeFunction(name: string | number, func: NeighbourChangeFunction): void;
 
+	function registerNeighbourChangeFunctionForID(id: number, func: NeighbourChangeFunction): void;
+
+	/**
+	 * @returns whether the block of given id can contain liquid inside
+	 */
+	function canContainLiquid(id: number): boolean;
+
+	/**
+	 * @returns whether the block of given id can be an extra block 
+	 * (it's the block that can be set inside of another blocks, for ex. water and other liquids)
+	 */
+	function canBeExtraBlock(id: number): boolean;
 
 	type ColorSource = "grass" | "leaves" | "water";
-	
+
 	type Sound = "normal"
-					   | "gravel" 
-					   | "wood" 
-					   | "grass" 
-					   | "metal" 
-					   | "stone" 
-					   | "cloth" 
-					   | "glass" 
-					   | "sand" 
-					   | "snow" 
-					   | "ladder" 
-					   | "anvil" 
-					   | "slime" 
-					   | "silent" 
-					   | "itemframe" 
-					   | "turtle_egg" 
-					   | "bamboo" 
-					   | "bamboo_sapling" 
-					   | "lantern" 
-					   | "scaffolding" 
-					   | "sweet_berry_bush" 
-					   | "default";
+		| "gravel"
+		| "wood"
+		| "grass"
+		| "metal"
+		| "stone"
+		| "cloth"
+		| "glass"	
+		| "sand"
+		| "snow"
+		| "ladder"
+		| "anvil"
+		| "slime"
+		| "silent"
+		| "itemframe"
+		| "turtle_egg"
+		| "bamboo"
+		| "bamboo_sapling"
+		| "lantern"
+		| "scaffolding"
+		| "sweet_berry_bush"
+		| "default";
 
 	/**
 	 * Special types are used to set properties to the block. Unlike items, 
@@ -438,7 +450,7 @@ declare namespace Block {
 		 * Variation textures, array containing pairs of texture name and data.
 		 * Texture file should be located in items-opaque folder and its name
 		 * should be in the format: *name_data*, e.g. if the file name is 
-		 * *ignot_copper_0*, you should specifiy an array 
+		 * *ingot_copper_0*, you should specify an array
 		 * ```js 
 		 * ["ingot_copper", 0]
 		 * ```
@@ -471,13 +483,15 @@ declare namespace Block {
 	 * where it is destroyed
 	 * @param blockID numeric tile id
 	 * @param blockData block data value
-	 * @param diggingLevel level of the tool the block was digged with
+	 * @param diggingLevel level of the tool the block was dug with
+	 * @param enchant enchant data of the tool held in player's hand
+	 * @param item item stack held in player's hand
 	 * @param region BlockSource object
-	 * @returns block drop, the array of arrays, each containing three values: 
-	 * id, count and data respectively
+	 * @returns block drop, the array of arrays, each containing three or four values: 
+	 * id, count, data and extra respectively
 	 */
 	interface DropFunction {
-		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, region: BlockSource): [number, number, number][]
+		(blockCoords: Callback.ItemUseCoordinates, blockID: number, blockData: number, diggingLevel: number, enchant: ToolAPI.EnchantData, item: ItemInstance, region: BlockSource): ItemInstanceArray[]
 	}
 
 	interface EntityInsideFunction {
@@ -549,4 +563,8 @@ declare namespace Block {
 	interface NeighbourChangeFunction {
 		(coords: Vector, block: Tile, changedCoords: Vector, region: BlockSource): void
 	}
+        /**
+         * @returns drop function of the block with given numeric id
+         */
+        function getDropFunction(id: number): Block.DropFunction;
 }
