@@ -74,7 +74,7 @@ declare namespace Item {
      * @param params.type armor type, should be one of the 'helmet', 
      * 'chestplate', 'leggings' or 'boots'
      */
-    function createArmorItem(nameID: string, name: string, texture: TextureData, params: { type: string, armor: number, durability: number, texture: string, isTech?: boolean }): NativeItem
+    function createArmorItem(nameID: string, name: string, texture: TextureData, params: { type: ArmorType, armor: number, durability: number, texture: string, isTech?: boolean }): NativeItem
 
     /**
      * Creates throwable item using specified parameters

@@ -177,9 +177,13 @@ declare function EXPORT(name: string, lib: any): void;
  */
 declare function ConfigureMultiplayer(args: { name: string, version: string, isClientOnly: boolean }): void;
 
+/**
+ * String types of armor to be specified when calling [[Item.createArmorItem]]
+ */
+declare type ArmorType = "helmet" | "chestplate" | "leggings" | "boots";
 
 /**
  * Default render templates used inside of InnerCore,
  * currently there are only default armor models
  */
-declare type DefaultRenderTemplate = "helmet" | "chestplate" | "leggings" | "boots";
+declare type DefaultRenderTemplate = ArmorType;
