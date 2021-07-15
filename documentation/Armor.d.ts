@@ -46,35 +46,35 @@ declare namespace Armor {
      */
 	function preventDamaging(id: number | string): void;
 
+    interface ArmorGeneralFunction {
+        (item: ItemInstance, slot: number, player: number): void
+    }
+
+    interface ArmorHurtFunction {
+        (item: ItemInstance, slot: number, player: number, value: number, type: number, attacker: number, bool1: boolean, bool2: boolean): void
+    }
+
 	/**
      * This event is called every tick for every player that has this armor put on.
      * @returns the {id: , count: , data: , extra: } object to change armor item,
      * if nothing is returned, armor will not be changed.
      */
-    function registerOnTickListener(id: number, func: (
-        item: ItemInstance, slot: number, player: number
-    ) => void): ItemInstance | void;
+    function registerOnTickListener(id: number, func: ArmorGeneralFunction): ItemInstance | void;
 
     /**
      * This event is called when the damage is dealt to the player that has this armor put on.
      * @returns the {id: , count: , data: , extra: } object to change armor item,
      * if nothing is returned, armor will be damaged by default.
      */
-    function registerOnHurtListener(id: number, func: (
-        item: ItemInstance, slot: number, player: number, value: number, type: number, attacker: number, bool1: boolean, bool2: boolean
-    ) => void): ItemInstance | void;
+    function registerOnHurtListener(id: number, func: ArmorHurtFunction): ItemInstance | void;
 
     /**
      * This event is called when player takes on this armor, or spawns with it.
      */
-    function registerOnTakeOnListener(id: number, func: (
-        item: ItemInstance, slot: number, player: number
-    ) => void): void;
+    function registerOnTakeOnListener(id: number, func: ArmorGeneralFunction): void;
 
     /**
      * This event is called when player takes off or changes this armor item.
      */
-    function registerOnTakeOffListener(id: number, func: (
-        item: ItemInstance, slot: number, player: number
-    ) => void): void;
+    function registerOnTakeOffListener(id: number, func: ArmorGeneralFunction): void;
 }
