@@ -1,7 +1,7 @@
 /**
  * Java object of the mod, contains some useful values and methods
  */
-declare var __mod__: java.lang.Object;
+declare var __mod__: Mod.ModJsAdapter;
 
 /**
  * Mod name
@@ -14,7 +14,7 @@ declare var __name__: string;
 declare var __dir__: string;
 
 /**
- * Main mod configuration manager, settings are stored in config.json file. For 
+ * Main mod configuration manager, settings are stored in config.json file. For
  * more information about config.json, see {@page Mod Configuration Files}
  */
 declare var __config__: Config;
