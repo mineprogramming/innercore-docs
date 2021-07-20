@@ -256,11 +256,6 @@ declare namespace ModPack {
 
         getDirectoryOfType(type: string): ModPackDirectory;
 
-        /**
-         * Other methods and properties
-         */
-        [key: string]: any
-
     }
 
 }
