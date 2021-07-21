@@ -563,8 +563,33 @@ declare namespace Block {
 	interface NeighbourChangeFunction {
 		(coords: Vector, block: Tile, changedCoords: Vector, region: BlockSource): void
 	}
-        /**
-         * @returns drop function of the block with given numeric id
-         */
-        function getDropFunction(id: number): Block.DropFunction;
+
+	/**
+	 * @returns drop function of the block with given numeric id
+	 */
+	function getDropFunction(id: number): Block.DropFunction;
+
+	/**
+	 * @returns given block's material numeric id
+	 */
+	function getMaterial(id: number): number;
+
+	function setBlockChangeCallbackEnabled(id: number, enabled: boolean): void;
+
+	function setEntityInsideCallbackEnabled(id: number, enabled: boolean): void;
+
+	function setEntityStepOnCallbackEnabled(id: number, enabled: boolean): void;
+
+	function setNeighbourChangeCallbackEnabled(id: number, enabled: boolean): void;
+
+	function setRedstoneConnector(id: number, data: number, redstone: boolean): void;
+
+	function setRedstoneEmitter(id: number, data: number, redstone: boolean): void;
+
+	interface BlockAtlasTextureCoords {
+		u1: number, v1: number, u2: number, v2: number;
+	}
+
+	function getBlockAtlasTextureCoords(str: string, int: number): BlockAtlasTextureCoords;
+
 }
