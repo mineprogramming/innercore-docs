@@ -137,4 +137,11 @@ declare class PlayerActor {
      * Sets player's score.
      */
     setScore(value: number): void;
+
+    getItemUseDuration(): number;
+
+    getItemUseIntervalProgress(): number;
+
+    getItemUseStartupProgress(): number;
+
 }
