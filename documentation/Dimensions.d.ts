@@ -287,6 +287,7 @@ declare namespace Dimensions {
         setConversion(conversion: NoiseConversion): NoiseLayer;
     }
 
+    type NoiseOctaveStringType = "perlin" | "gray" | "chess" | "sine_x" | "sine_y" | "sine_z" | "sine_xy" | "sine_yz" | "sine_xz" | "sine_xyz";
     /**
      * Class representing noise octave. Each noise layer consists of multiple
      * noise octaves of different scale and weight
@@ -310,7 +311,7 @@ declare namespace Dimensions {
          * **"sine_xz"** (15) 
          * **"sine_xyz"** (16)
          */
-        constructor(type?: number | string);
+        constructor(type?: number | NoiseOctaveStringType);
 
         setTranslate(x: number, y: number, z: number): NoiseOctave;
 
@@ -362,6 +363,11 @@ declare namespace Dimensions {
      * @param dimensionId numeric id of the dimension to transfer the entity to
      */
     function transfer(entity: number, dimensionId: number): void;
+
+    /**
+     * @returns JS object instance, containing all registered custom biomes
+     */
+    function getAllRegisteredCustomBiomes(): {[key: string]: CustomBiome};
 
     /**
      * Function used to simplify the creation of terrain generator by passing 
