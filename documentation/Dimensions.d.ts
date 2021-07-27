@@ -380,41 +380,41 @@ declare namespace Dimensions {
          * Specifies base generator, see [[CustomGenerator.constructor]] for 
          * details
          */
-        base: number | string,
+        base?: number | string,
         /**
          * Specifies whether to use vanilla biome surface cover blocks (grass, 
          * sand, podzol, etc.).
          * See [[CustomGenerator.setBuildVanillaSurfaces]] for details
          */
-        buildVanillaSurfaces: boolean,
+        buildVanillaSurfaces?: boolean,
         /**
          * Specifies whether to generate minecraft vanilla structures.
          * See [[CustomGenerator.setGenerateVanillaStructures]] for details
          */
-        generateVanillaStructures: boolean,
+        generateVanillaStructures?: boolean,
         /**
          * Can be either string for an existing dimensions ("overworld", 
          * "nether", "end") or -1 to disable mods generation. 
          * See [[CustomGenerator.setModGenerationBaseDimension]] for details
          */
-        modWorldgenDimension: number | string,
+        modWorldgenDimension?: number | string,
         /**
          * Specifies what generator type to use. Default and the only currently
          * available option is "mono", that is equivalent to creating a 
          * [[MonoBiomeTerrainGenerator]]
          */
-        type: string,
+        type?: string,
         /**
          * Sets base biome for the current terrain, applicable only to "mono"
          */
-        biome: number,
+        biome?: number,
 
         /**
          * An array of terrain layers descriptions, each one representing its 
          * own terrain layer. See [[MonoBiomeTerrainGenerator.addTerrainLayer]] 
          * for detailed explanation
          */
-        layers: TerrainLayerParams[]
+        layers?: TerrainLayerParams[]
 
     }): CustomGenerator;
 
