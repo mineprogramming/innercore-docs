@@ -44,4 +44,9 @@ interface Updatable {
      * longer receive update calls
      */
     remove?: boolean;
+
+    /**
+     * Any other user-defined properties
+     */
+    [key: string]: any;
 }
