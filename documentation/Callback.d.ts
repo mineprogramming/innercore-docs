@@ -154,6 +154,7 @@ declare namespace Callback {
 
     function addCallback(name: "EntityPickUpDrop", func: EntityPickUpDropFunction): void;
 
+    function addCallback(name: "ServerPlayerLoaded", func: ServerPlayerLoadedFunction): void;
 
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
@@ -671,6 +672,14 @@ declare namespace Callback {
      */
     interface EntityPickUpDropFunction {
         (entity: number, dropEntity: number, dropStack: ItemInstance, count: number)
+    }
+
+    /**
+     * Function used in "ServerPlayerLoaded" callback
+     * @param player unique id of the player entity, that has been connected to server
+     */
+    interface ServerPlayerLoadedFunction {
+        (player: number): void
     }
 
     /**
