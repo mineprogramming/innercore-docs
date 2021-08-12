@@ -4,6 +4,17 @@
  * and actually anywhere you need some physical shape
  */
 declare class RenderMesh {
+
+    /**
+     * @returns pointer to the native object instance of the
+     * following [[RenderMesh]], represented as long number
+     */
+    getPtr(): number;
+
+    getReadOnlyVertexData(): RenderMesh.ReadOnlyVertexData;
+
+    newGuiRenderMesh(): RenderMesh.GuiRenderMesh;
+
     /**
      * Creates a new [[RenderMesh]] and initializes it from file. 
      * See [[RenderMesh.importFromFile]] for parameters details
@@ -96,6 +107,41 @@ declare class RenderMesh {
     rebuild(): void;
 
     /**
+     * Makes specified [[RenderMesh]] foliage tinted
+     */
+    setFoliageTinted(): void;
+    setFoliageTinted(int: number): void;
+
+    /**
+     * Makes specified [[RenderMesh]] grass tinted
+     */
+    setGrassTinted(): void;
+
+    /**
+     * Sets following [[RenderMesh]] light direction
+     */
+    setLightDir(x: number, y: number, z: number): void;
+
+    setLightIgnore(ignore: boolean, bool2: boolean): void;
+
+    setLightParams(float1: number, float2: number, float3: number): void;
+
+    /**
+     * Sets following [[RenderMesh]] light position
+     */
+    setLightPos(x: number, y: number, z: number): void;
+
+    /**
+     * Removes any tint from specified [[RenderMesh]]
+     */
+    setNoTint(): void;
+
+    /**
+     * Makes specified [[RenderMesh]] water tinted
+     */
+    setWaterTinted(): void;
+
+    /**
      * Imports mesh file using specified path
      * @param path path to the mesh file. Path should be absolute path or
      * be relative to the resources folder or to the "models/" folder
@@ -148,4 +194,31 @@ declare class RenderMesh {
      * @param mesh [[RenderMesh]] object to be added to current mesh
      */
     addMesh(mesh: RenderMesh): void;
+}
+
+declare namespace RenderMesh {
+    /**
+     * Object returned by [[RenderMesh.getReadOnlyVertexData]].
+     */
+    interface ReadOnlyVertexData {
+        readonly colors: number[];
+        readonly dataSize: number;
+        readonly indices: number[];
+        readonly uvs: number[];
+        readonly vertices: number[];
+    }
+    /**
+     * Object returned by [[RenderMesh.newGuiRenderMesh]]
+     */
+    interface GuiRenderMesh extends Vector {
+        rx: number;
+        ry: number;
+        rz: number;
+        draw(gl10: java.lang.Object): void;
+        loadBitmap(bitmap: android.graphics.Bitmap): void;
+        setColors(floatArray: number[]): void;
+        setIndices(shortArray: number[]): void;
+        setTextureCoordinates(floatArray: number[]): void;
+        setVertices(floatArray: number[]): void;
+    }
 }
