@@ -156,6 +156,8 @@ declare namespace Callback {
 
     function addCallback(name: "ServerPlayerLoaded", func: ServerPlayerLoadedFunction): void;
 
+    function addCallback(name: "GenerateCustomDimensionChunk", func: GenerateCustomDimensionChunkFunction): void;
+
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
      * should not generally call pre-defined callbacks until you really need to 
@@ -680,6 +682,13 @@ declare namespace Callback {
      */
     interface ServerPlayerLoadedFunction {
         (player: number): void
+    }
+
+    /**
+     * Function used in "GenerateCustomDimensionChunk" callback
+     */
+    interface GenerateCustomDimensionChunkFunction {
+        (chunkX: number, chunkZ: number, random: java.util.Random, dimensionId: number): void
     }
 
     /**
