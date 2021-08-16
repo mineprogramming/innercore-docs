@@ -209,7 +209,7 @@ declare namespace TileEntity {
         /**
          * Called on client side, returns the window to open
          */
-        getScreenByName?: (screenName?: string) => UI.Window | UI.StandartWindow | UI.StandardWindow | UI.TabbedWindow;
+        getScreenByName?: (screenName?: string) => UI.IWindow;
 
         /**
          * Called when more liquid is required
