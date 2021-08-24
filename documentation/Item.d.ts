@@ -316,6 +316,15 @@ declare namespace Item {
     function addCreativeGroup(name: string, displayedName: string, ids: number[]): void
 
     /**
+     * Invoke click on the block in world
+     * @param coords Coords of click on the block
+     * @param item item which used on the block
+     * @param noModCallback if true, mod ItemUse callback will be not executed
+     * @param entity Player who clicked on the block
+     */
+    function invokeItemUseOn(coords: Callback.ItemUseCoordinates, item: ItemInstance, noModCallback: boolean, entity: number): void
+
+    /**
      * @deprecated Should not be used in new mods, consider using [[Item]] 
      * properties setters instead
      */
