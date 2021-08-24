@@ -79,6 +79,27 @@ declare class BlockSource {
 	destroyBlock(x: number, y: number, z: number, drop?: boolean): void;
 
 	/**
+	 * Destroys block on coords by entity using specified item.
+	 * @param x X coord of the block
+	 * @param y Y coord of the block
+	 * @param z Z coord of the block
+	 * @param allowDrop whether to provide drop for the block or not
+	 * @param entity Entity id or -1 id if entity is not specified
+	 * @param item Tool which broke block
+	 */
+	breakBlock(x: number, y: number, z: number, allowDrop: boolean, entity: number, item: ItemInstance): void;
+
+	/**
+	 * Same as breakBlock, but returns object containing drop and experince.
+	 * @param x X coord of the block
+	 * @param y Y coord of the block
+	 * @param z Z coord of the block
+	 * @param entity Entity id or -1 id if entity is not specified
+	 * @param item Tool which broke block
+	 */
+	breakBlockForResult (x: number, y: number, z: number, player: number, item: ItemInstance): {items: ItemInstance[], experience: number};
+
+	/**
 	 * @param x X coord of the block
 	 * @param y Y coord of the block
 	 * @param z Z coord of the block
