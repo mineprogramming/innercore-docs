@@ -97,7 +97,7 @@ declare class BlockSource {
 	 * @param entity Entity id or -1 id if entity is not specified
 	 * @param item Tool which broke block
 	 */
-	breakBlockForResult (x: number, y: number, z: number, player: number, item: ItemInstance): {items: ItemInstance[], experience: number};
+	breakBlockForJsResult(x: number, y: number, z: number, player: number, item: ItemInstance): {items: ItemInstance[], experience: number};
 
 	/**
 	 * @param x X coord of the block
