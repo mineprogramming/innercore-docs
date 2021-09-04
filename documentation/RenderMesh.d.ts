@@ -21,7 +21,7 @@ declare class RenderMesh {
      * Creates a new [[RenderMesh]] and initializes it from file. 
      * See [[RenderMesh.importFromFile]] for parameters details
      */
-    constructor(path: string, type: string, params: object);
+    constructor(path: string, type: string, params: Nullable<RenderMesh.ImportParams>);
 
     /**
      * Creates a new empty [[RenderMesh]]
@@ -149,35 +149,9 @@ declare class RenderMesh {
      * be relative to the resources folder or to the "models/" folder
      * @param type file type to read mesh from. The only currently supported mesh file 
      * type is "obj"
-     * @param params additional import parameters
+     * @param params additional import parameters or null, if not needed
      */
-    importFromFile(path: string, type: string, params: {
-        /**
-         * If true, all existing vertices of the mesh are deleted before the file
-         * is imported
-         */
-        clear?: boolean,
-
-        /**
-         * If true, v of the texture is inverted
-         */
-        invertV: boolean,
-
-        /**
-         * Additional translation along x, y and z axis
-         */
-        translate?: [number, number, number],
-
-        /**
-         * Additional scale along x, y and z axis
-         */
-        scale?: [number, number, number],
-
-        /**
-         * 
-         */
-        noRebuild: boolean
-    }): void;
+    importFromFile(path: string, type: string, params: Nullable<RenderMesh.ImportParams>): void;
 
     /**
      * Adds new mesh to the current one on the specified coordinates with specified scale
@@ -199,6 +173,35 @@ declare class RenderMesh {
 }
 
 declare namespace RenderMesh {
+    /**
+     * Object used in [[RenderMesh.importFromFile]] and one of [[RenderMesh]] constructors.
+     * Here you can put some additional parameters, that will be applied to the mesh,
+     * when the file is being imported
+     */
+    interface ImportParams {
+        /**
+         * If true, all existing vertices of the mesh are deleted
+         * before the file is imported
+         */
+        clear?: boolean,
+        /**
+         * If true, v of the texture is inverted
+         */
+        invertV: boolean,
+        /**
+         * Additional translation along x, y and z axis
+         */
+        translate?: [number, number, number],
+        /**
+         * Additional scale along x, y and z axis
+         */
+        scale?: [number, number, number],
+        /**
+         * If true, Minecraft won't be forced to rebuild the following [[RenderMesh]]
+         * before the file is imported
+         */
+        noRebuild: boolean
+    }
     /**
      * Object returned by [[RenderMesh.getReadOnlyVertexData]].
      */
