@@ -15,6 +15,8 @@ declare class RenderMesh {
 
     newGuiRenderMesh(): RenderMesh.GuiRenderMesh;
 
+    invalidate(): void;
+
     /**
      * Creates a new [[RenderMesh]] and initializes it from file. 
      * See [[RenderMesh.importFromFile]] for parameters details
