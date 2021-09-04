@@ -219,7 +219,7 @@ declare namespace RenderMesh {
         rx: number;
         ry: number;
         rz: number;
-        draw(gl10: java.lang.Object): void;
+        draw(gl: javax.microedition.khronos.opengles.GL10): void;
         loadBitmap(bitmap: android.graphics.Bitmap): void;
         setColors(floatArray: number[]): void;
         setIndices(shortArray: number[]): void;
