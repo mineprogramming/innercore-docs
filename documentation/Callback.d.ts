@@ -118,11 +118,11 @@ declare namespace Callback {
 
     function addCallback(name: "CustomDimensionTransfer", func: CustomDimensionTransferFunction): void;
 
-    function addCallback(name: "BlockEventEntityInside", func: BlockEventEntityInsideFunction): void;
+    function addCallback(name: "BlockEventEntityInside", func: Block.EntityInsideFunction): void;
 
-    function addCallback(name: "BlockEventEntityStepOn", func: BlockEventEntityStepOnFunction): void;
+    function addCallback(name: "BlockEventEntityStepOn", func: Block.EntityStepOnFunction): void;
 
-    function addCallback(name: "BlockEventNeighbourChange", func: BlockEventNeighbourChangeFunction): void;
+    function addCallback(name: "BlockEventNeighbourChange", func: Block.NeighbourChangeFunction): void;
 
     function addCallback(name: "ConnectingToHost", func: ConnectingToHostFunction): void;
 
@@ -611,27 +611,6 @@ declare namespace Callback {
      */
     interface CustomDimensionTransferFunction {
     	(entity: number, from: number, to: number): void
-    }
-
-    /**
-     * Function used in "BlockEventEntityInside" callback
-     */
-    interface BlockEventEntityInsideFunction {
-        (coords: Vector, block: Tile, entity: number): void
-    }
-
-    /**
-     * Function used in "BlockEventEntityStepOn" callback
-     */
-    interface BlockEventEntityStepOnFunction {
-        (coords: Vector, block: Tile, entity: number): void
-    }
-
-    /**
-     * Function used in "BlockEventNeighbourChange" callback
-     */
-    interface BlockEventNeighbourChangeFunction {
-        (coords: Vector, block: Tile, changedCoords: Vector, world: BlockSource): void
     }
 
     /**
