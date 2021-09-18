@@ -305,6 +305,10 @@ declare namespace Block {
 
 	function registerNeighbourChangeFunctionForID(id: number, func: NeighbourChangeFunction): void;
 
+	function registerEntityStepOnFunction(id: string | number, func: EntityStepOnFunction): void;
+
+	function registerEntityStepOnFunctionForID(id: number, func: EntityStepOnFunction): void;
+
 	/**
 	 * @returns whether the block of given id can contain liquid inside
 	 */
@@ -496,6 +500,10 @@ declare namespace Block {
 
 	interface EntityInsideFunction {
 		(blockCoords: Vector, block: Tile, entity: number): void
+	}
+
+	interface EntityStepOnFunction {
+		(coords: Vector, block: Tile, entity: number): void
 	}
 
 	/**
