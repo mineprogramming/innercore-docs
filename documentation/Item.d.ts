@@ -122,7 +122,7 @@ declare namespace Item {
      * @param data no longer supported, do not use this parameter
      * @returns true, if an item with such id exists, false otherwise
      */
-    function isValid(id: number, data?: number): boolean;
+    function isValid(id: number, data: number): boolean;
 
     /**
      * Adds item to creative inventory
