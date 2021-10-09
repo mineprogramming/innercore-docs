@@ -4,7 +4,8 @@ module.exports = function (grunt) {
         concat: {
             dist: {
                 src: [
-                    'documentation/[!android]*.d.ts'
+                    'documentation/com/zhekasmirnov/**/*.d.ts',
+                    'documentation/*.d.ts'
                 ],
                 dest: 'headers/core-engine.d.ts',
             },
