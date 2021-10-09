@@ -215,7 +215,7 @@ declare namespace Callback {
      * otherwise
      */
     interface ContainerClosedFunction {
-        (container: UI.Container, window: UI.IWindow, byUser: boolean): void
+        (container: UI.Container, window: com.zhekasmirnov.innercore.api.mod.ui.window.IWindow, byUser: boolean): void
     }
 
     /**
@@ -224,7 +224,7 @@ declare namespace Callback {
      * @param window window that was loaded in the container
      */
     interface ContainerOpenedFunction {
-        (container: UI.Container, window: UI.IWindow | UI.WindowGroup): void
+        (container: UI.Container, window: com.zhekasmirnov.innercore.api.mod.ui.window.IWindow | UI.WindowGroup): void
     }
 
     /**
@@ -232,7 +232,7 @@ declare namespace Callback {
      * @param window window that was opened
      */
     interface CustomWindowOpenedFunction {
-        (window: UI.IWindow): void;
+        (window: com.zhekasmirnov.innercore.api.mod.ui.window.IWindow): void;
     }
 
     /**
@@ -240,7 +240,7 @@ declare namespace Callback {
      * @param window window that was closed
      */
     interface CustomWindowClosedFunction {
-        (window: UI.IWindow): void;
+        (window: com.zhekasmirnov.innercore.api.mod.ui.window.IWindow): void;
     }
 
     /**

@@ -199,7 +199,7 @@ declare namespace TileEntity {
          * window is then opened within [[TileEntity.container]] when the player clicks it
 		 * @deprecated Don't use in multiplayer
          */
-		getGuiScreen?: () => UI.IWindow;
+		getGuiScreen?: () => com.zhekasmirnov.innercore.api.mod.ui.window.IWindow;
 
 		/**
          * Called on server side and returns UI name to open on click
@@ -209,7 +209,7 @@ declare namespace TileEntity {
         /**
          * Called on client side, returns the window to open
          */
-        getScreenByName?: (screenName?: string) => UI.IWindow;
+        getScreenByName?: (screenName?: string) => com.zhekasmirnov.innercore.api.mod.ui.window.IWindow;
 
         /**
          * Called when more liquid is required
