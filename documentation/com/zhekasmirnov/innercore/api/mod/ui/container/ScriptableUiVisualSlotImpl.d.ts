@@ -8,7 +8,9 @@ declare module com {
                             export class ScriptableUiVisualSlotImpl extends java.lang.Object implements UiVisualSlotImpl {
                                 static class: java.lang.Class<ScriptableUiVisualSlotImpl>;
                                 constructor(scriptable: ItemInstance);
-                                getId(): number; getCount(): number; getData(): number;
+                                getId(): number;
+                                getCount(): number;
+                                getData(): number;
                                 getExtra(): Nullable<NativeItemInstanceExtra>;
                             }
                         }
