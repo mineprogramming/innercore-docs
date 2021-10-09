@@ -19,7 +19,8 @@ declare module com {
                                 /* Just for TS not to be angry */
                                 setColorFilter(par1: number, par2: android.graphics.PorterDuff.Mode): void;
                                 setColorFilter(filter: Nullable<android.graphics.ColorFilter>): void;
-                                getOpacity(): -3;
+                                /** @returns -3 */
+                                getOpacity(): number;
                             }
                         }
                     }
