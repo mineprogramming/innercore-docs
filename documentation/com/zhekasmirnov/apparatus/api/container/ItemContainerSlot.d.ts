@@ -32,7 +32,7 @@ declare module com {
                         asJson(): org.json.JSONObject;
                         /**
                          * @returns whether the slot is empty or not
-                         */ss
+                         */
                         isEmpty(): boolean;
                         /**
                          * Refreshes slot in UI
