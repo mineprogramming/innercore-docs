@@ -8,7 +8,8 @@ declare module com {
                             export interface ImageDrawingDescription {
                                 type: "bitmap",
                                 x?: number, y?: number,
-                                width?: number, height?: number,
+                                width?: number,
+                                height?: number,
                                 scale?: number,
                                 bitmap?: string
                             }
