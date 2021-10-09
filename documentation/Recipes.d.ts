@@ -369,7 +369,7 @@ declare namespace Recipes {
      * @param result recipe result item instance
      */
     interface CraftingFunction {
-        (api: WorkbenchFieldAPI, field: UI.Slot[], result: ItemInstance, player: number): void
+        (api: WorkbenchFieldAPI, field: com.zhekasmirnov.innercore.api.mod.ui.container.Slot[], result: ItemInstance, player: number): void
     }
 
     /**
@@ -380,12 +380,12 @@ declare namespace Recipes {
          * @param slot slot index
          * @returns workbench slot instance by slot index
          */
-        getFieldSlot(slot: number): UI.Slot,
+        getFieldSlot(slot: number): com.zhekasmirnov.innercore.api.mod.ui.container.Slot,
 
         /**
          * @returns js array of all slots
          */
-        asScriptableField(): UI.Slot[]
+        asScriptableField(): com.zhekasmirnov.innercore.api.mod.ui.container.Slot[]
     }
 
 
@@ -398,7 +398,7 @@ declare namespace Recipes {
          * @param slot slot index
          * @returns workbench slot instance by slot index
          */
-        getFieldSlot(slot: number): UI.Slot;
+        getFieldSlot(slot: number): com.zhekasmirnov.innercore.api.mod.ui.container.Slot;
 
         /**
          * Decreases item count in the specified slot, if possible
@@ -427,7 +427,7 @@ declare namespace Recipes {
          * @param slot slot to compare with
          * @returns true if recipe entry matches the slot
          */
-        isMatching(slot: UI.Slot): boolean;
+        isMatching(slot: com.zhekasmirnov.innercore.api.mod.ui.container.Slot): boolean;
 
         /**
          * @param entry entry to compare with
