@@ -15,3 +15,5 @@ declare class ItemContainer extends com.zhekasmirnov.apparatus.api.container.Ite
 	 */
 	constructor(legacyContainer: UI.Container);
 }
+
+declare class ItemContainerSlot extends com.zhekasmirnov.apparatus.api.container.ItemContainerSlot {}

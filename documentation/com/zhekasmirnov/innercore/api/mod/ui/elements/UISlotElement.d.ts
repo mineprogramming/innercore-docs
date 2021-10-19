@@ -16,7 +16,7 @@ declare module com {
                                 text?: string,
                                 source?: ItemInstance,
                                 onItemChanged?: (container: container.UiAbstractContainer, oldId: number, oldCount: number, oldData: number) => void,
-                                isValid?: (id: number, count: number, data: number, container: container.UiAbstractContainer, item: ItemInstance) => boolean;
+                                isValid?: (id: number, count: number, data: number, container: container.Container, item: ItemInstance) => boolean;
                             }
                             export class UISlotElement extends UIElement {
                                 static class: java.lang.Class<UISlotElement>;

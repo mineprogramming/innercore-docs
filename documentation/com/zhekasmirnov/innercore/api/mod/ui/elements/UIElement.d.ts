@@ -38,7 +38,8 @@ declare module com {
                              */
                             export interface BasicElementDescription {
                                 x?: number, y?: number, z?: number,
-                                clicker?: UIClickEvent;
+                                clicker?: UIClickEvent,
+                                [key: string]: any
                             }
                             /**
                              * This is the base Java abstract class, which are all InnerCore element types inherited from.

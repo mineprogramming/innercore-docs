@@ -33,6 +33,8 @@ declare module UI {
     export type UIFPSTextElement = com.zhekasmirnov.innercore.api.mod.ui.elements.FPSTextElementDescription;
     export type UIInvSlotElement = com.zhekasmirnov.innercore.api.mod.ui.elements.InvSlotElementDescription;
 
+	export interface IWindow extends com.zhekasmirnov.innercore.api.mod.ui.window.IWindow {}
+
     /**
 	 * Object containing ui elements with key as the name and value as the 
 	 * [[UIElement]] instance to be used
