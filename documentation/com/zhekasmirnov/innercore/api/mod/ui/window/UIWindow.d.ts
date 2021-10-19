@@ -75,28 +75,23 @@ declare module com {
                                     text?: string,
                                     /**
                                      * Specifies font params for the header text. Only 
-                                     * [[com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription.size]],
-                                     * [[com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription.color]]
-                                     * and [[com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription.shadow]]
+                                     * [[size]], [[color]] and [[shadow]]
                                      * properties are used
                                      */
                                     font?: types.FontDescription,
                                     /**
                                      * If [[font]] is not specified, used as
-                                     * [[com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription.size]]
-                                     * value
+                                     * [[size]] value
                                      */
                                     size?: number,
                                     /**
                                      * If [[font]] is not specified, used as
-                                     * [[com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription.color]]
-                                     * value
+                                     * [[color]] value
                                      */
                                     color?: number,
                                     /**
                                      * If [[font]] is not specified, used as
-                                     * [[com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription.shadow]]
-                                     * value
+                                     * [[shadow]] value
                                      */
                                     shadow?: number,
                                 }
@@ -296,8 +291,8 @@ declare module com {
                                 isDynamic(): boolean;
                                 /**
                                  * Gets all the elements in the window
-                                 * @returns [[java.util.HashMap]] containing string element name as keys and
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.elements.UIElement]] instances as values
+                                 * @returns [[java.util.HashMap]] containing string element names
+                                 * as keys and element instances as values
                                  */
                                 getElements(): java.util.HashMap<String, elements.UIElement>;
                                 /**
@@ -348,7 +343,7 @@ declare module com {
                                 /**
                                  * Sets new style object as current window's style. If the new style is
                                  * a different object then an old one, forces window invalidation
-                                 * @param style [[com.zhekasmirnov.innercore.api.mod.ui.types.UIStyle]] object to be used as style for the window
+                                 * @param style [[UI.Style]] object to be used as style for the window
                                  */
                                 setStyle(style: types.UIStyle): void;
                                 invalidateAllContent(): void;
@@ -357,7 +352,7 @@ declare module com {
                                  * store some values containing window's current state. Note that these 
                                  * properties are not saved between Inner Core launches
                                  * @param name custom property name
-                                 * @returns value set by [[com.zhekasmirnov.innercore.api.mod.ui.window.UIWindow.putProperty]]
+                                 * @returns value set by [[UI.Window.putProperty]]
                                  * or null if no value was specified for this name
                                  */
                                 getProperty<T>(name: string): T;
@@ -368,7 +363,7 @@ declare module com {
                                  */
                                 putProperty<T>(name: string, value: T): void;
                                 /**
-                                 * @returns [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer]]
+                                 * @returns [[UI.Container]]
                                  * that was used to open this window or null, if
                                  * the window wasn't opened in container
                                  */
@@ -376,8 +371,8 @@ declare module com {
                                 /**
                                  * Sets container for the current window. Be careful when calling it 
                                  * manually. You should prefer opening the window via 
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer.openAs]] call
-                                 * @param container [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer]]
+                                 * [[UI.Container.openAs]] call
+                                 * @param container [[UI.Container]]
                                  * to be associated with current window
                                  * or null to associate no container with current window
                                  */

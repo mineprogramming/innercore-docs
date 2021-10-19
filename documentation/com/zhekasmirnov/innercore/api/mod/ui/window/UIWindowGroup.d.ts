@@ -47,7 +47,7 @@ declare module com {
                                 setWindowContent(name: string, content: WindowContent): void;
                                 /**
                                  * @returns [[java.util.Collection]] object containing all the
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.window.UIWindow]]s in the group
+                                 * [[UI.Window]]s in the group
                                  */
                                 getAllWindows(): java.util.Collection<UIWindow>;
                                 /**
@@ -97,22 +97,22 @@ declare module com {
                                 isDynamic(): boolean;
                                 /**
                                  * Gets all the elements in the window
-                                 * @returns [[java.util.HashMap]] containing string element name as keys and
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.elements.UIElement]] instances as values
+                                 * @returns [[java.util.HashMap]] containing string element name
+                                 * as keys and element instances as values
                                  */
                                 getElements(): java.util.HashMap<string, elements.UIElement>;
                                 /** @returns null for [[UIWindowGroup]] */
                                 getContent(): Nullable<WindowContent>;
                                 /**
-                                 * @returns [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer]]
+                                 * @returns [[UI.Container]]
                                  * that was used to open this window or null, if the window wasn't opened in container
                                  */
                                 getContainer(): Nullable<container.UiAbstractContainer>;
                                 /**
                                  * Sets container for the current window. Be careful when calling it 
                                  * manually. You should prefer opening the window via 
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer.openAs]] call
-                                 * @param container [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer]]
+                                 * [[UI.Container.openAs]] call
+                                 * @param container [[UI.Container]]
                                  * to be associated with current window or null to associate no container with current window
                                  */
                                 setContainer(con: Nullable<container.UiAbstractContainer>): void;

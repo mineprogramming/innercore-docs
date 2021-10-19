@@ -4,6 +4,7 @@ declare module UI {
 
 	export type WindowContent = com.zhekasmirnov.innercore.api.mod.ui.window.WindowContent;
 	export type StandardWindowContent = com.zhekasmirnov.innercore.api.mod.ui.window.StandardWindowContent;
+	export type FontDescription = com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription;
 
     export type FontParams = com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription;
     export type WindowLocationParams = com.zhekasmirnov.innercore.api.mod.ui.window.WindowLocationDescription;
@@ -34,6 +35,7 @@ declare module UI {
     export type UIInvSlotElement = com.zhekasmirnov.innercore.api.mod.ui.elements.InvSlotElementDescription;
 
 	export interface IWindow extends com.zhekasmirnov.innercore.api.mod.ui.window.IWindow {}
+	export interface Slot extends com.zhekasmirnov.innercore.api.mod.ui.container.Slot {}
 
     /**
 	 * Object containing ui elements with key as the name and value as the 
@@ -233,7 +235,7 @@ declare module UI {
     export class Font extends com.zhekasmirnov.innercore.api.mod.ui.types.Font {
         static class: java.lang.Class<Font>;
         constructor(color: number, size: number, shadow: number);
-        constructor(desc: com.zhekasmirnov.innercore.api.mod.ui.types.FontDescription);
+        constructor(desc: FontDescription);
     }
 
 	/**

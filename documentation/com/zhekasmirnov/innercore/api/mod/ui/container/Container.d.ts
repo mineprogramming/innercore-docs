@@ -20,8 +20,8 @@ declare module com {
                                 }
                             }
                             /**
-                             * @param container [[com.zhekasmirnov.innercore.api.mod.ui.container.Container]] the window was opened in
-                             * @param window an instance of [[com.zhekasmirnov.innercore.api.mod.ui.window.IWindow]] that was opened
+                             * @param container [[UI.Container]] the window was opened in
+                             * @param window an instance of [[UI.IWindow]] that was opened
                              */
                             export interface OnOpenCloseListenerJS { (container: Container, window: window.IWindow): void; }
                             export class Container extends java.lang.Object implements UiAbstractContainer, recipes.workbench.WorkbenchField {
@@ -30,14 +30,14 @@ declare module com {
                                 /**
                                  * If container is a part of [[TileEntity]], this field stores reference 
                                  * to it, otherwise null. You can also assign any value of any type to
-                                 * it using [[com.zhekasmirnov.innercore.api.mod.ui.container.Container.setParent]] method or using constructor 
-                                 * parameter. Consider using [[com.zhekasmirnov.innercore.api.mod.ui.container.Container.getParent]] instead of direct 
+                                 * it using [[UI.Container.setParent]] method or using constructor 
+                                 * parameter. Consider using [[UI.Container.getParent]] instead of direct 
                                  * field access
                                  */
                                 parent: Nullable<TileEntity> | any;
                                 slots: {[slotName: string]: container.Slot}
                                 /**
-                                 * Same as [[com.zhekasmirnov.innercore.api.mod.ui.container.Container.parent]]
+                                 * Same as [[UI.Container.parent]]
                                  */
                                 tileEntity: Nullable<TileEntity> | any;
                                 constructor();
@@ -50,14 +50,14 @@ declare module com {
                                  */
                                 setParent(parent: Nullable<TileEntity> | any): void;
                                 /**
-                                 * Getter for [[com.zhekasmirnov.innercore.api.mod.ui.container.Container.parent]] field
+                                 * Getter for [[UI.Container.parent]] field
                                  */
                                 getParent(): Nullable<TileEntity> | any;
                                 /**
                                  * Gets the slot by its name. If a slot with specified name doesn't 
                                  * exists, creates an empty one with specified name
                                  * @param name slot name
-                                 * @returns contents of the slot in a [[com.zhekasmirnov.innercore.api.mod.ui.container.Slot]] object.
+                                 * @returns contents of the slot in a [[UI.Slot]] object.
                                  * You can modify it to change the contents of the slot
                                  */
                                 getSlot(name: string): Slot;
@@ -84,7 +84,7 @@ declare module com {
                                  * exists, creates new with specified name and item
                                  * @param name slot name
                                  * @param extra item extra value. Note that it should be an instance of
-                                 * [[com.zhekasmirnov.innercore.api.NativeItemInstanceExtra]] and not its numeric id
+                                 * [[ItemExtraData]] and not its numeric id
                                  */
                                 setSlot(name: string, id: number, count: number, data: number, extra: Nullable<NativeItemInstanceExtra>): void;
                                 /**
@@ -117,7 +117,7 @@ declare module com {
                                  */
                                 validateAll(): void;
                                 /**
-                                 * @returns currently opened [[com.zhekasmirnov.innercore.api.mod.ui.window.IWindow]]
+                                 * @returns currently opened [[UI.IWindow]]
                                  * or null if no window is currently opened in the container
                                  */
                                 getWindow(): window.IWindow;
@@ -125,8 +125,8 @@ declare module com {
                                 addElementInstance(element: elements.UIElement, name: string): void;
                                 _removeElement(name: string): void;
                                 /**
-                                 * Opens [[com.zhekasmirnov.innercore.api.mod.ui.window.IWindow]] object in the container
-                                 * @param win [[com.zhekasmirnov.innercore.api.mod.ui.window.IWindow]] object to be opened
+                                 * Opens [[UI.IWindow]] object in the container
+                                 * @param win [[UI.IWindow]] object to be opened
                                  */
                                 openAs(win: window.IWindow): void;
                                 /**
@@ -149,7 +149,7 @@ declare module com {
                                  */
                                 isOpened(): boolean;
                                 /**
-                                 * Same as [[com.zhekasmirnov.innercore.api.mod.ui.container.Container.getWindow]]
+                                 * Same as [[UI.Container.getWindow]]
                                  */
                                 getGuiScreen(): window.IWindow;
                                 /**
@@ -245,7 +245,7 @@ declare module com {
                                 /** @deprecated no longer supported */ applyChanges(): void;
                                 /**
                                  * If the container is a custom workbench, you can set the slot prefix
-                                 * via this method call. [[com.zhekasmirnov.innercore.api.mod.ui.container.Container.getFieldSlot]]
+                                 * via this method call. [[UI.Container.getFieldSlot]]
                                  * will get field slot by *prefix + slot* name
                                  * @param prefix custom workbench slot prefix
                                  */

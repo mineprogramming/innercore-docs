@@ -10,7 +10,7 @@ declare module com {
                                 constructor();
                                 /**
                                  * Constructs new object inherited from
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.window.IWindow]].
+                                 * [[UI.IWindow]].
                                  * You need to implement all the interface methods in the object param.
                                  */
                                 constructor(impl: {
@@ -41,7 +41,7 @@ declare module com {
                                  */
                                 frame(time: number): void;
                                 /**
-                                 * @returns [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer]]
+                                 * @returns [[UI.Container]]
                                  * that was used to open this window or null, if
                                  * the window wasn't opened in container
                                  */
@@ -54,7 +54,7 @@ declare module com {
                                 /**
                                  * Gets all the elements in the window
                                  * @returns java.util.HashMap containing string element name as keys and
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.elements.UIElement]] instances as values
+                                 * element instances as values
                                  */
                                 getElements(): java.util.HashMap<string, elements.UIElement>;
                                 /**
@@ -100,8 +100,8 @@ declare module com {
                                 /**
                                  * Sets container for the current window. Be careful when calling it 
                                  * manually. You should prefer opening the window via 
-                                 * [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer.openAs]] call
-                                 * @param container [[com.zhekasmirnov.innercore.api.mod.ui.container.UiAbstractContainer]]
+                                 * [[UI.Container.openAs]] call
+                                 * @param container [[UI.Container]]
                                  * to be associated with current window or null to associate no container with current window
                                  */
                                 setContainer(container: Nullable<container.UiAbstractContainer>): void;

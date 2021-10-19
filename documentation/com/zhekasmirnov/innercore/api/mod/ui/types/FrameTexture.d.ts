@@ -30,8 +30,8 @@ declare module com {
                                 /**
                                  * Expands side of the texture by specified amount of pixels
                                  * @param sideId side of the texture, one of the 
-                                 * [[FrameTexture.SIDE_LEFT]], [[FrameTexture.SIDE_RIGHT]], 
-                                 * [[FrameTexture.SIDE_UP]], [[FrameTexture.SIDE_DOWN]] constants
+                                 * **FrameTexture.SIDE_LEFT**, **FrameTexture.SIDE_RIGHT**, 
+                                 * **FrameTexture.SIDE_UP**, **FrameTexture.SIDE_DOWN** constants
                                  * @returns expanded [[android.graphics.Bitmap]] instance with the frame
                                  */
                                 expandSide(sideId: number, pixels: number): android.graphics.Bitmap;
@@ -42,8 +42,8 @@ declare module com {
                                  * class
                                  * @param sides array of booleans marking whether the side should be 
                                  * expanded or not. The order of the sides is
-                                 * [[FrameTexture.SIDE_LEFT]], [[FrameTexture.SIDE_RIGHT]], 
-                                 * [[FrameTexture.SIDE_UP]], [[FrameTexture.SIDE_DOWN]]
+                                 * **FrameTexture.SIDE_LEFT**, **FrameTexture.SIDE_RIGHT**, 
+                                 * **FrameTexture.SIDE_UP**, **FrameTexture.SIDE_DOWN**
                                  * @returns expanded [[android.graphics.Bitmap]] instance with the frame
                                  */
                                 expand(width: number, height: number, color: number, sides: [boolean, boolean, boolean, boolean]): android.graphics.Bitmap;
@@ -68,8 +68,8 @@ declare module com {
                                 getSource(): android.graphics.Bitmap;
                                 /**
                                  * @param side side of the texture, one of the 
-                                 * [[FrameTexture.SIDE_LEFT]], [[FrameTexture.SIDE_RIGHT]], 
-                                 * [[FrameTexture.SIDE_UP]], [[FrameTexture.SIDE_DOWN]] constants
+                                 * **FrameTexture.SIDE_LEFT**, **FrameTexture.SIDE_RIGHT**, 
+                                 * **FrameTexture.SIDE_UP**, **FrameTexture.SIDE_DOWN** constants
                                  * @returns texture side source extracted from the original frame 
                                  * texture source stored in [[android.graphics.Bitmap]] instance
                                  */

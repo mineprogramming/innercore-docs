@@ -34,12 +34,12 @@ declare module com {
                                  */
                                 getGlobalTabSize(): number;
                                 /**
-                                 * Constructs new [[com.zhekasmirnov.innercore.api.mod.ui.window.UITabbedWindow]] with specified location
+                                 * Constructs new [[UI.TabbedWindow]] with specified location
                                  * @param loc location to be used for the tabbed window
                                  */
                                 constructor(loc: UIWindowLocation);
                                 /**
-                                 * Constructs new [[com.zhekasmirnov.innercore.api.mod.ui.window.UITabbedWindow]] with specified content
+                                 * Constructs new [[UI.TabbedWindow]] with specified content
                                  * @param content object containing window description
                                  */
                                 constructor(content: TabbedWindowContent);
@@ -71,7 +71,7 @@ declare module com {
                                 setFakeTab(index: number, tabOverlay: UI.ElementSet): void;
                                 /**
                                  * @param index index of the tab
-                                 * @returns [[com.zhekasmirnov.innercore.api.mod.ui.window.UIWindow]] instance
+                                 * @returns [[UI.Window]] instance
                                  * created for the specified tab or null if
                                  * no window was created for specified window
                                  */
@@ -101,7 +101,7 @@ declare module com {
                                 setBlockingBackground(b: boolean): void;
                                 /**
                                  * @returns current default tab index. If no default tab was specified 
-                                 * via [[com.zhekasmirnov.innercore.api.mod.ui.window.UITabbedWindow.setDefaultTab]],
+                                 * via [[UI.TabbedWindow.setDefaultTab]],
                                  * the first tab added becomes default
                                  */
                                 getDefaultTab(): number;
@@ -113,7 +113,7 @@ declare module com {
                                 /**
                                  * Sets new style object as current window's style. If the new style is
                                  * a different object then an old one, forces window invalidation
-                                 * @param style [[com.zhekasmirnov.innercore.api.mod.ui.types.UIStyle]] object to be used as style for the window
+                                 * @param style [[UI.Style]] object to be used as style for the window
                                  */
                                 setStyle(style: types.UIStyle): void;
                                 /**

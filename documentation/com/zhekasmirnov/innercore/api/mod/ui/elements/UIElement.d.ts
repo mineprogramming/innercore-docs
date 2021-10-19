@@ -47,7 +47,7 @@ declare module com {
                              * Whereas in JavaScript, you should use "custom" element type in description object,
                              * where you can specify custom behavior for different events.
                              * For more information about custom element types in JavaScript,
-                             * see [[com.zhekasmirnov.innercore.api.mod.ui.elements.CustomElementDescription]]
+                             * see [[UI.UICustomElement]]
                              */
                             export abstract class UIElement extends java.lang.Object {
                                 static class: java.lang.Class<UIElement>;
@@ -66,9 +66,9 @@ declare module com {
                                 abstract onDraw(canvas: android.graphics.Canvas, scale: number): void;
                                 abstract onSetup<T extends BasicElementDescription>(descr?: T): void;
                                 /**
-                                 * Creates a new [[com.zhekasmirnov.innercore.api.mod.ui.types.Texture]] instance
+                                 * Creates a new [[UI.Texture]] instance
                                  * with specified style applied.
-                                 * See [[com.zhekasmirnov.innercore.api.mod.ui.types.Texture.constructor]] for parameters description
+                                 * See [[UI.Texture.constructor]] for parameters description
                                  */
                                 createTexture(obj: BitmapTypes): types.Texture;
                                 /**

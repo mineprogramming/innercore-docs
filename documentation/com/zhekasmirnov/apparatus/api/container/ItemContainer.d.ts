@@ -96,7 +96,7 @@ declare module com {
                          * Gets the slot by its name. If a slot with specified name doesn't 
                          * exists, creates an empty one with specified name
                          * @param name slot name
-                         * @returns contents of the slot in a [[com.zhekasmirnov.apparatus.api.container.ItemContainerSlot]] object.
+                         * @returns contents of the slot in a [[ItemContainerSlot]] object.
                          * You can modify it to change the contents of the slot
                          */
                         getSlot(name: string): ItemContainerSlot;
@@ -107,7 +107,7 @@ declare module com {
                          * Sets slot's content by its name from given slot object. If a slot with specified
                          * name doesn't exist, a new slot with specified name and item will be created.
                          * @param name slot name
-                         * @param slot [[com.zhekasmirnov.apparatus.api.container.ItemContainerSlot]] object to specify slot contents
+                         * @param slot [[ItemContainerSlot]] object to specify slot contents
                          */
                         setSlot(name: string, slot: ItemContainerSlot): void;
                         /**
