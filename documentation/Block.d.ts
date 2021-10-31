@@ -44,6 +44,20 @@ declare namespace Block {
 	function createBlockWithRotation(nameID: string, defineData: BlockVariation[], blockType?: SpecialType | string): void;
 
 	/**
+	 * Creates new liquid block using specified params
+	 * @param nameID string id of the block. You should register it via
+	 * [[IDRegistry.genBlockID]] call first
+	 * @param defineData object containing all needed params to describe your custom liquid block.
+	 * There you can specify custom name IDs for static and dynamic liquid blocks separately,
+	 * and if you do this, you have to register those name IDs
+	 * via [[IDRegistry.genBlockID]] before using them
+	 * @param blockType [[SpecialType]] object, either java-object returned by
+	 * [[Block.createSpecialType]] or js-object with the required properties,
+	 * you can also pass special type name, if the type was previously registered
+	 */
+	function createLiquidBlock(nameID: string, defineData: LiquidDescriptor, blockType?: SpecialType | string): void;
+
+	/**
 	 * @param id numeric block id
 	 * @returns true, if the specified block id is a vanilla block
 	 */
@@ -479,6 +493,53 @@ declare namespace Block {
 		 * If true, block variation will be added to creative inventory
 		 */
 		inCreative?: boolean,
+	}
+
+	/**
+	 * Object to specify needed params for custom liquid block
+	 */
+	interface LiquidDescriptor {
+		/**
+		 * Name of the block to be displayed 
+		 */
+		name: string,
+		/**
+		 * Delay between liquid spreading steps in ticks.
+		 * This is optional, default value is 10
+		 */		
+		tickDelay?: number,
+		/**
+		 * Object to describe static liquid block
+		 * texture, and name id additionally
+		 */
+		still: {
+			id?: string,
+			/**
+			 * For static liquid block,
+			 * textures must be of standard block texture format
+			 */
+			texture: [string, number]
+		},
+		/**
+		 * Object to describe dynamic liquid block
+		 * texture, and name id additionally
+		 */
+		flowing: {
+			id?: string,
+			/**
+			 * Unlike static liquid blocks,
+			 * for dynamic ones, texture must look like
+			 * `texture.liquid.png` (with no index)
+			 */
+			texture: [string, number]
+		},
+		/**
+		 * Whether to add liquid block to creative inventory,
+		 * default is false
+		 */
+		inCreative?: boolean,
+		uiTextures?: string,
+		modelTextures?: string
 	}
 
 	/**
