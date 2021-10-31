@@ -543,7 +543,7 @@ declare namespace Callback {
      * @param region BlockSource object
      */
     interface ItemDispensedFunction {
-        (coords: ItemUseCoordinates, item: ItemInstance, region: BlockSource): void
+        (coords: BlockPosition, item: ItemInstance, region: BlockSource): void
     }
 
     /**
