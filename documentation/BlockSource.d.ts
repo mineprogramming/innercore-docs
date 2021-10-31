@@ -214,7 +214,8 @@ declare class BlockSource {
 	 * and all except the entities of the given type, if blacklist value is true
 	 */
 	listEntitiesInAABB(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, type: number, blacklist: boolean): number[];
-
+	
+	setDestroyParticlesEnabled(destroyParticlesEnabled: boolean): void;
 
 	/**
 	 * @returns interface to given dimension by default 
