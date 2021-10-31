@@ -208,7 +208,7 @@ declare module com {
                          * @param elementName element name
                          * @param text value to be set for the element
                          */
-                        setText(elementName: string, text: string): void;
+                        setText(elementName: string, text: string | number): void;
                         setClientText(elementName: string, text: string): void;
                         /**
                          * @param elementName element name
