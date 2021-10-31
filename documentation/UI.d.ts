@@ -37,6 +37,8 @@ declare module UI {
 	export interface IWindow extends com.zhekasmirnov.innercore.api.mod.ui.window.IWindow {}
 	export interface Slot extends com.zhekasmirnov.innercore.api.mod.ui.container.Slot {}
 
+	export type Element = UIElement;
+
     /**
 	 * Object containing ui elements with key as the name and value as the 
 	 * [[UIElement]] instance to be used
