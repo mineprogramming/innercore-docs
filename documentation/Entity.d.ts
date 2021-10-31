@@ -37,7 +37,9 @@ declare namespace Entity {
 
     /**
      * Adds an effect to the mob
-     * @param effectId effect id, should be one of the [[Native.PotionEffect]]
+     * @param effectId effect id, should be one
+     * one of [[Native.PotionEffect]] or [[EPotionEffect]] values.
+     * @returns whether the ]]
      * values
      * @param effectData effect amplifier
      * @param effectTime effect time in ticks
@@ -523,6 +525,22 @@ declare namespace Entity {
      * the way to get there
      */
     function getPathNavigation(ent: number): PathNavigation;
+
+    /**
+     * @param effectId numeric id of the potion effect,
+     * one of [[Native.PotionEffect]] or [[EPotionEffect]] values.
+     * @returns whether the given entity is affected by the potion effect with given numeric id
+     */
+    function hasEffect(entity: number, effectId: number): boolean;
+
+    interface EffectInstance { level: number, duration: number }
+
+    /**
+     * @returns object with duration and level of the potion effect with given numeric id
+     * on the given entity. These fields are set to 0, if the given effect doesn't affect
+     * the given entity at the moment.
+     */
+    function getEffect(entity: number, effectId: number): EffectInstance;
 
     /**
      * Object used to build path and move mobs to the required coordinates using
