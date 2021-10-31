@@ -7,6 +7,10 @@ declare module com {
                         export module container {
                             export class Slot extends java.lang.Object implements AbstractSlot {
                                 static class: java.lang.Class<Slot>;
+                                id: number;
+                                count: number;
+                                data: number;
+                                extra: Nullable<NativeItemInstanceExtra>;
                                 getClassName(): "slot";
                                 constructor(id: number, count: number, data: number);
                                 constructor(id: number, count: number, data: number, extra: Nullable<NativeItemInstanceExtra>);
