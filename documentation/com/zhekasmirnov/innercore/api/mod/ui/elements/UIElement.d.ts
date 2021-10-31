@@ -16,11 +16,11 @@ declare module com {
                                 /**
                                  * This function will be called when element is short touched
                                  */
-                                onClick?: (position: Vector, container: container.UiAbstractContainer, tileEntity: Nullable<TileEntity> | any, window: window.IWindow, canvas: android.graphics.Canvas, scale: number) => void;
+                                onClick?: (position: Vector, container: container.UiAbstractContainer | apparatus.api.container.ItemContainer, tileEntity: Nullable<TileEntity> | any, window: window.IWindow, canvas: android.graphics.Canvas, scale: number) => void;
                                 /**
                                  * This function will be called when element is long touched
                                  */
-                                onLongClick?: (position: Vector, container: container.UiAbstractContainer, tileEntity: Nullable<TileEntity> | any, window: window.IWindow, canvas: android.graphics.Canvas, scale: number) => void;
+                                onLongClick?: (position: Vector, container: container.UiAbstractContainer | apparatus.api.container.ItemContainer, tileEntity: Nullable<TileEntity> | any, window: window.IWindow, canvas: android.graphics.Canvas, scale: number) => void;
                             }
                             /**
                              * Types that can be used to create element texture.
