@@ -509,10 +509,19 @@ declare namespace Block {
 		 */		
 		tickDelay?: number,
 		/**
+		 * True if the liquid will be renewable, as water,
+		 * this parameter is false by default
+		 */
+		isRenewable?: boolean,
+		/**
 		 * Object to describe static liquid block
 		 * texture, and name id additionally
 		 */
 		still: {
+			/**
+			 * Optional, name id for static liquid block,
+			 * by default it is `nameId_still`
+			 */
 			id?: string,
 			/**
 			 * For static liquid block,
@@ -525,6 +534,10 @@ declare namespace Block {
 		 * texture, and name id additionally
 		 */
 		flowing: {
+			/**
+			 * Optional, name id for dynamic liquid block,
+			 * by default it is `nameId`
+			 */
 			id?: string,
 			/**
 			 * Unlike static liquid blocks,
@@ -532,6 +545,18 @@ declare namespace Block {
 			 * `texture.liquid.png` (with no index)
 			 */
 			texture: [string, number]
+		},
+		/**
+		 * Optional section, if added, this will create fully
+		 * functional (including dispensers) bucket items
+		 */
+		bucket?: {
+			/**
+			 * Optional, name id for bucket item,
+			 * by default it is `nameId_bucket`
+			 */
+			id?: string,
+			texture: { name: string, meta?: number }
 		},
 		/**
 		 * Whether to add liquid block to creative inventory,
