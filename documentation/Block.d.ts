@@ -324,6 +324,18 @@ declare namespace Block {
 	function registerEntityStepOnFunctionForID(id: number, func: EntityStepOnFunction): void;
 
 	/**
+	 * Defines custom behavior when the player clicks on the block with definite id
+	 * @param nameId block's numeric or string id
+	 * @param func function that will be called when the player clicks the block with given id
+	 */
+	function registerClickFunction(nameId: string | number, func: ClickFunction): void;
+
+	/**
+	 * Same as [[Block.registerClickFunction]], but only numeric block id can be passed
+	 */
+	function registerClickFunctionForID(id: number, func: ClickFunction): void;
+
+	/**
 	 * @returns whether the block of given id can contain liquid inside
 	 */
 	function canContainLiquid(id: number): boolean;
@@ -656,6 +668,18 @@ declare namespace Block {
 	 */
 	interface NeighbourChangeFunction {
 		(coords: Vector, block: Tile, changedCoords: Vector, region: BlockSource): void
+	}
+
+	/**
+	 * Function used to define how the block will behave when the player clicks on it
+	 * @param coords set of all coordinate values that can be useful to write 
+	 * custom logics on click
+	 * @param item item that was in the player's hand when he touched the block
+	 * @param block block that was touched
+	 * @param player unique id of the player entity
+	 */
+	interface ClickFunction {
+		(coords: Callback.ItemUseCoordinates, item: ItemInstance, block: Tile, player: number): void;
 	}
 
 	/**
