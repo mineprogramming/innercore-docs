@@ -538,12 +538,15 @@ declare namespace Callback {
 
     /**
      * Function used in "ItemDispensed" callback
-     * @param coords coordinates of the spawned drop item entity
+     * @param coords full coords object, where the main coords are the position of the dispenser block,
+     * `relative` ones are the position of the block to which the dispenser is pointed,
+     * and `vec` are the coords for the item to be dropped at
      * @param item item that was dispensed
      * @param region BlockSource object
+     * @param slot numeric id of the slot from which the item was dispensed
      */
     interface ItemDispensedFunction {
-        (coords: BlockPosition, item: ItemInstance, region: BlockSource): void
+        (coords: Callback.ItemUseCoordinates, item: ItemInstance, region: BlockSource, slot: number): void
     }
 
     /**
