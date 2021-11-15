@@ -259,7 +259,7 @@ declare enum EEnchantment {
  * Defines all vanilla entity type numeric ids
  */
 declare enum EEntityType {
-    PLAYER = 1,
+    PLAYER = 63,
     CHICKEN = 10,
     COW = 11,
     PIG = 12,

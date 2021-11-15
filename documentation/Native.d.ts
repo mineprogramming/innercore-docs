@@ -156,7 +156,7 @@ declare namespace Native {
         PIG = 12,
         PIG_ZOMBIE = 36,
         PILLAGER = 114,
-        PLAYER = 63,
+        PLAYER = 1,
         POLAR_BEAR = 28,
         PRIMED_TNT = 65,
         PUFFERFISH = 108,
