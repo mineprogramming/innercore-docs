@@ -67,4 +67,9 @@ declare namespace Game {
      * @returns true if item spending allowed
      */
     function isItemSpendingAllowed(player?: number): boolean;
+
+    /**
+     * true if developer mode was enabled in InnerCore config, false otherwise
+     */
+    let isDeveloperMode: boolean;
 }
