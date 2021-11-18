@@ -285,7 +285,10 @@ declare namespace Particles {
          */
         stop(): void;
         /**
-         * Currently don't know how to use
+         * Performs the finalization of the native object of the following emitter.
+         * It means that you will no longer be able to use the following emitter after calling this method,
+         * and the object itself will be removed from the memory.
+         * Can be used for optimization purposes
          */
         release(): void;
         /**
