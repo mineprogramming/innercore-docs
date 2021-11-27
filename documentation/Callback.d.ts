@@ -154,7 +154,9 @@ declare namespace Callback {
 
     function addCallback(name: "EntityPickUpDrop", func: EntityPickUpDropFunction): void;
 
-    function addCallback(name: "ServerPlayerLoaded", func: ServerPlayerLoadedFunction): void;
+    function addCallback(name: "ServerPlayerLoaded", func: PlayerFunction): void;
+    
+    function addCallback(name: "ServerPlayerLeft", func: PlayerFunction): void;
 
     function addCallback(name: "GenerateCustomDimensionChunk", func: GenerateCustomDimensionChunkFunction): void;
 
@@ -659,10 +661,10 @@ declare namespace Callback {
     }
 
     /**
-     * Function used in "ServerPlayerLoaded" callback
+     * Function used in "ServerPlayerLoaded" and "ServerPlayerLeft" callback
      * @param player unique id of the player entity, that has been connected to server
      */
-    interface ServerPlayerLoadedFunction {
+    interface PlayerFunction {
         (player: number): void
     }
 
