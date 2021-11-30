@@ -5,12 +5,12 @@ declare namespace Network {
     /**
      * @returns array containing connected clients
      */
-    function getConnectedClients(): NetworkClient[];
+    function getConnectedClients(): native.Array<NetworkClient>;
 
     /**
      * @returns array containing connected players uids
      */
-    function getConnectedPlayers(): number[];
+    function getConnectedPlayers(): native.Array<number>;
 
     /**
      * @returns Client object for player by player's entity id
