@@ -30,7 +30,7 @@ declare module com {
                                 export class PoolEntrySet extends java.lang.Object {
                                     static class: java.lang.Class<PoolEntrySet>;
                                     constructor();
-                                    // constructor(entries: java.util.ArrayList<PoolEntry>);
+                                    constructor(entries: java.util.ArrayList<PoolEntry>);
                                     isEmpty(): boolean;
                                     getEntries(): java.util.ArrayList<PoolEntry>;
                                     getMajorEntrySet(): PoolEntrySet;
