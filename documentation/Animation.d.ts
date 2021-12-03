@@ -62,10 +62,10 @@ declare namespace Animation {
         transform(): Render.Transform;
 
         /**
-         * @returns [[Render.ShaderUniformSet]] object for current animation's 
+         * @returns [[ShaderUniformSet]] object for current animation's 
          * render
          */
-        getShaderUniforms(): Render.ShaderUniformSet;
+        getShaderUniforms(): ShaderUniformSet;
 
         /**
          * Creates a set of transformations for the current animation
