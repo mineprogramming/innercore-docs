@@ -24,7 +24,7 @@ declare module com {
                                 static getModelInfo(id: number, data: number): ItemModels.ModelInfo;
                                 static updateBlockShape(id: number, data: number, shape: unlimited.BlockShape): void;
                                 static setCustomUiModel(id: number, data: number, model: GuiBlockModel): void;
-                                // static getItemOrBlockModel(id: number, count: number, data: number, scale: number, rX: number, rY: number, rZ: number, randomize: boolean): NativeRenderer.Renderer
+                                static getItemOrBlockModel(id: number, count: number, data: number, scale: number, rX: number, rY: number, rZ: number, randomize: boolean): NativeRenderer.Renderer;
                             }
                             export module ItemModels {
                                 export class ModelInfo extends java.lang.Object {
