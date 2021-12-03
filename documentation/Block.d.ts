@@ -416,12 +416,12 @@ declare namespace Block {
 
 		/**
 		 * If non-zero value is used, the block emits light of that value. 
-		 * Default is false, use values from 1 to 15 to set light level
+		 * Default is 0, use values from 1 to 15 to set light level
 		 */
 		lightlevel?: number,
 
 		/**
-		 * Specifies how opaque the block is. Default is 0 (solid), use values 
+		 * Specifies how opaque the block is. Default is 0 (transparent), use values 
 		 * from 1 to 15 to make the block opaque
 		 */
 		lightopacity?: number,
@@ -444,8 +444,8 @@ declare namespace Block {
 		destroytime?: number,
 
 		/**
-		 * Specifies render of shadows on the block. Default is 0 (no shadows),
-		 * allows float values from 0 to 1
+		 * If non-zero value is used, the shadows will be rendered on the block.
+		 * Default is 0, allows float values from 0 to 1
 		 */
 		translucency?: number,
 
@@ -455,7 +455,7 @@ declare namespace Block {
 		mapcolor?: number,
 
 		/**
-		 * Block color when displayed on the vanilla maps
+		 * Makes block use biome color source when displayed on the vanilla maps
 		 */
 		color_source?: ColorSource,
 
