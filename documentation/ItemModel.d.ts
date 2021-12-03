@@ -115,7 +115,7 @@ declare interface ItemModel {
      */
     overridesUi(): boolean;
 
-    getShaderUniforms(): Render.ShaderUniformSet;
+    getShaderUniforms(): ShaderUniformSet;
 
     setSpriteUiRender(isSprite: boolean): ItemModel;
 
