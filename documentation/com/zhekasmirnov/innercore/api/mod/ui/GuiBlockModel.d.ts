@@ -15,8 +15,8 @@ declare module com {
                             constructor(textures: string[], ids: number[]);
                             updateShape(shape: unlimited.BlockShape): void;
                             genTexture(): android.graphics.Bitmap;
-                            // addToRendererModelPart
-                            // public addToMesh
+                            addToMesh(mesh: NativeRenderMesh, x: number, y: number, z: number): void;
+                            addToRenderModelPart(modelPart: NativeRenderer.ModelPart, x: number, y: number, z: number): void;
                             static createModelForBlockVariant(variant: unlimited.BlockVariant): GuiBlockModel;
                         }
                         export module GuiBlockModel {
@@ -42,7 +42,7 @@ declare module com {
                                 addTexture(name: string, id: number): void;
                                 addTexture(name: android.util.Pair<string, number>): void;
                                 genTexture(resolution: number): android.graphics.Bitmap;
-                                public addToMesh(mesh: RenderMesh, x: number, y: number, z: number): void;
+                                public addToMesh(mesh: NativeRenderMesh, x: number, y: number, z: number): void;
                             }
                             export class Builder extends java.lang.Object {
                                 static class: java.lang.Class<Builder>;
