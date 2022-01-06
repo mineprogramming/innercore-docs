@@ -232,7 +232,7 @@ declare class BlockSource {
 	static getDefaultForActor(entityUid: number): Nullable<BlockSource>;
 
 	/**
-	 * @return BlockSource foe world generation
+	 * @returns BlockSource for world generation
 	 */
 	static getCurrentWorldGenRegion(): Nullable<BlockSource>;
 }
