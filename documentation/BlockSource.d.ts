@@ -235,4 +235,10 @@ declare class BlockSource {
 	 * @returns BlockSource for world generation
 	 */
 	static getCurrentWorldGenRegion(): Nullable<BlockSource>;
+
+	/**
+	 * @returns BlockSource for the current client
+	 */
+	static getCurrentClientRegion(): Nullable<BlockSource>;
+
 }
