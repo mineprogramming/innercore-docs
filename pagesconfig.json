@@ -2,35 +2,78 @@
     "groups": [
         {
             "title": "Guides",
-            "output": "./",
+            "source": "./static-pages",
+            "output": "./guides",
             "pages": [
                 {
-                    "title": "Mod Configuration Files",
-                    "source": "./static-pages/config.md"
+                    "title": "About Horizon",
+                    "source": "./hmk-app/index.md",
+                    "output": "./hmk-app",
+                    "children": [
+                        {
+                            "title": "Mod Configuration Files",
+                            "source": "./getting-started/config.md"
+                        }
+                    ]
                 },
                 {
-                    "title": "Callbacks",
-                    "source": "./static-pages/callbacks.md"
+                    "title": "Getting started",
+                    "source": "./getting-started/index.md",
+                    "output": "./getting-started",
+                    "children": [
+                        {
+                            "title": "Mod Configuration Files",
+                            "source": "./getting-started/config.md"
+                        }
+                    ]
                 },
                 {
-                    "title": "Abilities",
-                    "source": "./static-pages/abilities.md"
+                    "title": "Mod Resources",
+                    "source": "./mod-resources/index.md",
+                    "output": "./mod-resources",
+                    "children": [
+                        {
+                            "title": "Materials and Shaders",
+                            "source": "./mod-resources/materials.md"
+                        }
+                    ]
                 },
                 {
-                    "title": "Attributes",
-                    "source": "./static-pages/attributes.md"
+                    "title": "Mod API",
+                    "source": "./mod-api/index.md",
+                    "output": "./mod-api",
+                    "children": [
+                        {
+                            "title": "Callbacks",
+                            "source": "./mod-api/callbacks.md"
+                        }
+                    ]
                 },
                 {
-                    "title": "Materials and Shaders",
-                    "source": "./static-pages/materials.md"
+                    "title": "Player",
+                    "source": "./player/index.md",
+                    "output": "./player",
+                    "children": [
+                        {
+                            "title": "Abilities",
+                            "source": "./player/abilities.md"
+                        }
+                    ]
                 },
                 {
-                    "title": "Biomes",
-                    "source": "./static-pages/biomes.md"
-                },
-                {
-                    "title": "Dimensions",
-                    "source": "./static-pages/dimensions.md"
+                    "title": "World",
+                    "source": "./world/index.md",
+                    "output": "./world",
+                    "children": [
+                        {
+                            "title": "Biomes",
+                            "source": "./world/biomes.md"
+                        },
+                        {
+                            "title": "Dimensions",
+                            "source": "./world/dimensions.md"
+                        }
+                    ]
                 }
             ]
         },
@@ -46,7 +89,7 @@
         }
     ],
     "listInvalidPageLinks": true,
-	"output": "pages",
-	"reflectionNavigationTitle": "Development API",
+    "output": "pages",
+    "reflectionNavigationTitle": "Development API",
     "source": "./documentation"
 }
