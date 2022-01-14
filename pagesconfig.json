@@ -50,6 +50,17 @@
                     ]
                 },
                 {
+                    "title": "Minecraft",
+                    "source": "./minecraft/index.md",
+                    "output": "./minecraft",
+                    "children": [
+                        {
+                            "title": "Attributes",
+                            "source": "./minecraft/attributes.md"
+                        }
+                    ]
+                },
+                {
                     "title": "Player",
                     "source": "./player/index.md",
                     "output": "./player",
