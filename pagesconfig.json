@@ -6,13 +6,13 @@
             "output": "./guides",
             "pages": [
                 {
-                    "title": "About Horizon",
+                    "title": "InnerCore",
                     "source": "./hmk-app/index.md",
                     "output": "./hmk-app",
                     "children": [
                         {
-                            "title": "Mod Configuration Files",
-                            "source": "./getting-started/config.md"
+                            "title": "Changelog",
+                            "source": "./hmk-app/changelog.md"
                         }
                     ]
                 },
@@ -46,6 +46,17 @@
                         {
                             "title": "Callbacks",
                             "source": "./mod-api/callbacks.md"
+                        }
+                    ]
+                },
+                {
+                    "title": "Minecraft",
+                    "source": "./minecraft/index.md",
+                    "output": "./minecraft",
+                    "children": [
+                        {
+                            "title": "Attributes",
+                            "source": "./minecraft/attributes.md"
                         }
                     ]
                 },

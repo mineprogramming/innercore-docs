@@ -1,5 +1,3 @@
-# Minecraft attributes
-
 Attributes is a mechanism that allows to set some floating-point attributes for any entity (including player). Those values include health, speed, attack damage and many others.
 
 Some of the attributes belong to players only, other ones are shared between all the actors. Currently known attributes with descriptions are listed below.
