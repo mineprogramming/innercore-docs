@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             dist: {
-                src: ['documentation/com/zhekasmirnov/**/*.d.ts', 'documentation/core-engine/*.d.ts'],
+                src: ['documentation/core-engine/com/zhekasmirnov/**/*.d.ts', 'documentation/core-engine/*.d.ts'],
                 dest: 'headers/core-engine.d.ts',
             },
             options: {
