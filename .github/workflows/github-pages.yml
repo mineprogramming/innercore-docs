@@ -18,10 +18,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Setup grunt & dependencies
-        run: |
-          npm install -g grunt-cli
-          npm ci
+      - name: Setup grunt
+        run: npm install -g grunt-cli
+      - name: Setup other dependencies
+        run: npm install --safe-dev
       - name: Build docs
         run: grunt docs
       - name: Deploy
