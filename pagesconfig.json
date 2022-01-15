@@ -1,21 +1,43 @@
 {
     "groups": [
         {
-            "title": "Guides",
-            "source": "./static-pages",
-            "output": "./guides",
+            "title": "Apps",
+            "source": "./static-pages/apps",
+            "output": "./apps",
             "pages": [
                 {
-                    "title": "InnerCore",
-                    "source": "./hmk-app/index.md",
-                    "output": "./hmk-app",
+                    "title": "Horizon",
+                    "source": "./horizon/index.md",
+                    "output": "./horizon",
                     "children": [
                         {
-                            "title": "Changelog",
-                            "source": "./hmk-app/changelog.md"
+                            "title": "Pack Structure",
+                            "source": "./horizon/how-to-use.md"
+                        },
+                        {
+                            "title": "Pack System",
+                            "source": "./horizon/pack-system.md"
                         }
                     ]
                 },
+                {
+                    "title": "InnerCore",
+                    "source": "./innercore/index.md",
+                    "output": "./innercore",
+                    "children": [
+                        {
+                            "title": "Changelog",
+                            "source": "./innercore/changelog.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Guides",
+            "source": "./static-pages/guides",
+            "output": "./guides",
+            "pages": [
                 {
                     "title": "Getting started",
                     "source": "./getting-started/index.md",
@@ -89,12 +111,68 @@
             ]
         },
         {
-            "title": "Additional Information",
-            "output": "./",
+            "title": "Mods",
+            "source": "./static-pages/mods",
+            "output": "./mods",
             "pages": [
                 {
-                    "title": "Contributing",
-                    "source": "./static-pages/contributing.md"
+                    "title": "About mod documentation",
+                    "source": "./about.md",
+                    "children": [
+                        {
+                            "title": "IndustrialCraft2",
+                            "source": "industrialCraft2",
+                            "output": "industrialCraft2",
+                            "groups": [
+                                {
+                                    "output": "./",
+                                    "title": "IC2 Documentation",
+                                    "pages": [
+                                        {
+                                            "title": "IC2 child page 1",
+                                            "source": "./page1.md"
+                                        },
+                                        {
+                                            "title": "IC2 child page 2",
+                                            "source": "./page2.md"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "title": "DungeonCraft",
+                            "source": "dungeonCraft",
+                            "output": "dungeonCraft",
+                            "groups": [
+                                {
+                                    "output": "./",
+                                    "title": "DC Documentation",
+                                    "pages": [
+                                        {
+                                            "title": "DC child page 1",
+                                            "source": "./page1.md"
+                                        },
+                                        {
+                                            "title": "DC child page 2",
+                                            "source": "./page2.md"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Libraries",
+            "source": "./static-pages/libraries",
+            "output": "libraries",
+            "pages": [
+                {
+                    "title": "BackpackAPI",
+                    "source": "./BackpackAPI.md"
                 }
             ]
         }

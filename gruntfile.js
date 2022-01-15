@@ -3,17 +3,14 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             dist: {
-                src: [
-                    'documentation/com/zhekasmirnov/**/*.d.ts',
-                    'documentation/*.d.ts'
-                ],
+                src: ['documentation/core-engine/com/zhekasmirnov/**/*.d.ts', 'documentation/core-engine/*.d.ts'],
                 dest: 'headers/core-engine.d.ts',
             },
             options: {
-                banner: "/// <reference path=\"./android.d.ts\"/>\n\n"
-            }
+                banner: '/// <reference path="./android.d.ts"/>\n\n',
+            },
         },
-    
+
         typedoc: {
             build: {
                 options: {
@@ -26,10 +23,10 @@ module.exports = function (grunt) {
                     readme: 'readme.md',
                     theme: 'pages-plugin',
                     listInvalidSymbolLinks: 'true',
-                    'sourcefile-url-prefix': 'https://github.com/zheka2304/innercore-mod-toolchain/tree/master/toolchain-mod/toolchain/declarations/'
+                    'sourcefile-url-prefix': 'https://github.com/zheka2304/innercore-mod-toolchain/tree/master/toolchain-mod/toolchain/declarations/',
                 },
-                src: ['headers/core-engine.d.ts']
-            }
+                src: ['headers/core-engine.d.ts'],
+            },
         },
 
         copy: {
@@ -39,15 +36,15 @@ module.exports = function (grunt) {
                         expand: true,
                         src: 'headers/*',
                         flatten: true,
-                        dest: 'out/'
+                        dest: 'out/',
                     },
                     {
                         expand: true,
                         src: 'documentation/images/*',
                         flatten: true,
-                        dest: 'out/assets/images/pages'
-                    }
-                ]                
+                        dest: 'out/assets/images/pages',
+                    },
+                ],
             },
         },
     });
