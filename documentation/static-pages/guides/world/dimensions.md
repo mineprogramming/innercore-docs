@@ -46,7 +46,7 @@ In this minimalistic example we are creating a single generation layer between y
 
 ## Single Layer Generation
 
-![Generation Example #1](../assets/images/pages/dimensions-1.jpg)
+![Generation Example #1](../../../assets/images/pages/dimensions-1.jpg)
 
 ```js
 var generator = Dimensions.newGenerator({
@@ -111,7 +111,7 @@ yConversion: [
 
 Creates a landscape where most of the blocks are concentrated in the bottom part of the layer:
 
-![Generation Example #2](../assets/images/pages/dimensions-2.jpg)
+![Generation Example #2](../../../assets/images/pages/dimensions-2.jpg)
 
 ```js
 yConversion: [
@@ -123,7 +123,7 @@ yConversion: [
 
 Creates a landscape where most of the blocks are concentrated in the bottom and the top parts of the layer, leaving the middle empty:
 
-![Generation Example #3](../assets/images/pages/dimensions-3.jpg)
+![Generation Example #3](../../../assets/images/pages/dimensions-3.jpg)
 
 ```js
 yConversion: [
@@ -137,11 +137,11 @@ yConversion: [
 
 Creates a more complex landscape like the one displayed on the image:
 
-![Generation Example #4](../assets/images/pages/dimensions-4.jpg)
+![Generation Example #4](../../../assets/images/pages/dimensions-4.jpg)
 
 ## Dimension Materials
 
-![Generation Example #5](../assets/images/pages/dimensions-5.jpg)
+![Generation Example #5](../../../assets/images/pages/dimensions-5.jpg)
 
 ```js
 var generator = Dimensions.newGenerator({
@@ -192,7 +192,7 @@ Materials noise can be used for single generation layer to consist of blocks of 
 
 When you need a more complex generation, you can use multiple layers. Layers are generated in the order they were listed in the description object, so you should want to generate a water layer at first. Let's take a look at some example:
 
-![Generation Example #6](../assets/images/pages/dimensions-6.jpg)
+![Generation Example #6](../../../assets/images/pages/dimensions-6.jpg)
 
 ```js
 var generator = Dimensions.newGenerator({
@@ -249,6 +249,6 @@ Heightmap is a 2-dimensional (x, z) noise that is used to generate a general hei
 
 To make mountains less rounded, we can change the count of octaves of the stone layer. Say, we had 6 octaves in the stone layer, the generation should look like this:
 
-![Generation Example #7](../assets/images/pages/dimensions-7.jpg)
+![Generation Example #7](../../../assets/images/pages/dimensions-7.jpg)
 
 However, you should always think twice before adding a lot of octaves and layers. Massive generation requires more time for calculations, so it is generally better to use layer conversions and heightmap of the existing layer then create multiple layers with more noise octaves.
