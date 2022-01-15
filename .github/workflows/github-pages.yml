@@ -19,8 +19,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Setup grunt & dependencies
-        run: npm install -g grunt-cli
-        run: npm ci
+        run: |
+          npm install -g grunt-cli
+          npm ci
       - name: Build docs
         run: grunt docs
       - name: Deploy
