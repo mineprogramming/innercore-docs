@@ -46,7 +46,7 @@ In this minimalistic example we are creating a single generation layer between y
 
 ## Single Layer Generation
 
-![Generation Example #1](../assets/images/pages/dimensions-1.jpg)
+![Generation Example #1](assets/images/pages/dimensions-1.jpg)
 
 ```js
 var generator = Dimensions.newGenerator({
