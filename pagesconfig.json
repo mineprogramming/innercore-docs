@@ -89,6 +89,17 @@
             ]
         },
         {
+            "output": "libraries",
+            "title": "Libraries",
+            "source": "libraries",
+            "pages": [
+                {
+                    "title": "BackpackAPI",
+                    "source": "./BackpackAPI.md"
+                }
+            ]
+        },
+        {
             "title": "Additional Information",
             "output": "./",
             "pages": [
