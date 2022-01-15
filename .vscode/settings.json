@@ -10,5 +10,8 @@
         "markdown",
         "latex",
         "plaintext"
-    ]
+    ],
+    "markdown.extension.tableFormatter.normalizeIndentation": true,
+    "markdown.extension.list.indentationSize": "inherit",
+    "markdown.extension.toc.orderedList": true
 }
