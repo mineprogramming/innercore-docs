@@ -46,6 +46,26 @@ module.exports = function (grunt) {
                     },
                 ],
             },
+            headers: {
+                files: [
+                    {
+                        expand: true,
+                        src: 'headers/*',
+                        flatten: true,
+                        dest: 'out/',
+                    },
+                ],
+            },
+            images: {
+                files: [
+                    {
+                        expand: true,
+                        src: 'documentation/images/*',
+                        flatten: true,
+                        dest: 'out/assets/images/pages',
+                    },
+                ],
+            },
         },
     });
 
@@ -53,4 +73,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-typedoc');
     grunt.registerTask('docs', ['concat', 'typedoc', 'copy']);
+    grunt.registerTask('pages', ['typedoc', 'copy:images']);
 };
