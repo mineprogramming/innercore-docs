@@ -1,10 +1,25 @@
 {
     "groups": [
         {
-            "title": "Guides",
-            "source": "./static-pages",
-            "output": "./guides",
+            "title": "Apps",
+            "source": "./static-pages/apps",
+            "output": "./apps",
             "pages": [
+                {
+                    "title": "Horizon",
+                    "source": "./horizon/index.md",
+                    "output": "./horizon",
+                    "children": [
+                        {
+                            "title": "Pack Structure",
+                            "source": "./horizon/how-to-use.md"
+                        },
+                        {
+                            "title": "Pack System",
+                            "source": "./horizon/pack-system.md"
+                        }
+                    ]
+                },
                 {
                     "title": "InnerCore",
                     "source": "./innercore/index.md",
@@ -15,7 +30,14 @@
                             "source": "./innercore/changelog.md"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "title": "Guides",
+            "source": "./static-pages/guides",
+            "output": "./guides",
+            "pages": [
                 {
                     "title": "Getting started",
                     "source": "./getting-started/index.md",
@@ -89,9 +111,9 @@
             ]
         },
         {
-            "output": "mods",
             "title": "Mods",
-            "source": "mods",
+            "source": "./static-pages/mods",
+            "output": "./mods",
             "pages": [
                 {
                     "title": "About mod documentation",
@@ -99,8 +121,8 @@
                     "children": [
                         {
                             "title": "IndustrialCraft2",
-                            "output": "industrialCraft2",
                             "source": "industrialCraft2",
+                            "output": "industrialCraft2",
                             "groups": [
                                 {
                                     "output": "./",
@@ -120,8 +142,8 @@
                         },
                         {
                             "title": "DungeonCraft",
-                            "output": "dungeonCraft",
                             "source": "dungeonCraft",
+                            "output": "dungeonCraft",
                             "groups": [
                                 {
                                     "output": "./",
@@ -144,23 +166,13 @@
             ]
         },
         {
-            "output": "libraries",
             "title": "Libraries",
-            "source": "libraries",
+            "source": "./static-pages/libraries",
+            "output": "libraries",
             "pages": [
                 {
                     "title": "BackpackAPI",
                     "source": "./BackpackAPI.md"
-                }
-            ]
-        },
-        {
-            "title": "Additional Information",
-            "output": "./",
-            "pages": [
-                {
-                    "title": "Contributing",
-                    "source": "./static-pages/contributing.md"
                 }
             ]
         }
