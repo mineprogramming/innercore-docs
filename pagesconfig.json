@@ -7,12 +7,12 @@
             "pages": [
                 {
                     "title": "InnerCore",
-                    "source": "./hmk-app/index.md",
-                    "output": "./hmk-app",
+                    "source": "./innercore/index.md",
+                    "output": "./innercore",
                     "children": [
                         {
                             "title": "Changelog",
-                            "source": "./hmk-app/changelog.md"
+                            "source": "./innercore/changelog.md"
                         }
                     ]
                 },
