@@ -89,6 +89,61 @@
             ]
         },
         {
+            "output": "mods",
+            "title": "Mods",
+            "source": "mods",
+            "pages": [
+                {
+                    "title": "About mod documentation",
+                    "source": "./about.md",
+                    "children": [
+                        {
+                            "title": "IndustrialCraft2",
+                            "output": "industrialCraft2",
+                            "source": "industrialCraft2",
+                            "groups": [
+                                {
+                                    "output": "./",
+                                    "title": "IC2 Documentation",
+                                    "pages": [
+                                        {
+                                            "title": "IC2 child page 1",
+                                            "source": "./page1.md"
+                                        },
+                                        {
+                                            "title": "IC2 child page 2",
+                                            "source": "./page2.md"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "title": "DungeonCraft",
+                            "output": "dungeonCraft",
+                            "source": "dungeonCraft",
+                            "groups": [
+                                {
+                                    "output": "./",
+                                    "title": "DC Documentation",
+                                    "pages": [
+                                        {
+                                            "title": "DC child page 1",
+                                            "source": "./page1.md"
+                                        },
+                                        {
+                                            "title": "DC child page 2",
+                                            "source": "./page2.md"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "output": "libraries",
             "title": "Libraries",
             "source": "libraries",
