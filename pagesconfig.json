@@ -116,17 +116,22 @@
             "output": "./mods",
             "pages": [
                 {
-                    "title": "About mod documentation",
-                    "source": "./about.md",
+                    "title": "Create mod documentation",
+                    "source": "./create-page.md"
+                },
+                {
+                    "title": "Mod List",
+                    "source": "./mod-list.md",
+                    "output": "./list",
                     "children": [
                         {
                             "title": "IndustrialCraft2",
-                            "source": "industrialCraft2",
-                            "output": "industrialCraft2",
+                            "source": "./list/industrialCraft2",
+                            "output": "./industrialCraft2",
                             "groups": [
                                 {
-                                    "output": "./",
                                     "title": "IC2 Documentation",
+                                    "output": "./",
                                     "pages": [
                                         {
                                             "title": "IC2 child page 1",
@@ -142,8 +147,8 @@
                         },
                         {
                             "title": "DungeonCraft",
-                            "source": "dungeonCraft",
-                            "output": "dungeonCraft",
+                            "source": "./list/dungeonCraft",
+                            "output": "./dungeonCraft",
                             "groups": [
                                 {
                                     "output": "./",
@@ -173,6 +178,16 @@
                 {
                     "title": "BackpackAPI",
                     "source": "./BackpackAPI.md"
+                }
+            ]
+        },
+        {
+            "title": "Additional Information",
+            "output": "./",
+            "pages": [
+                {
+                    "title": "Contributing",
+                    "source": "./static-pages/contributing.md"
                 }
             ]
         }

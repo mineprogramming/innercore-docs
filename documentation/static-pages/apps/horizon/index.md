@@ -10,16 +10,10 @@ Horizon is a universal platform for launching mobile games with mods. At the mom
 2. The launcher on which the user will play
 3. The browser of mods that the user can apply to the game
 
-### 1. Mod types
-
-#### Native mods
+## Native mods
 
 Mods are written in c++ and applied to game directly.
 They have full access to game and can use all its functions.
-
-See {@page Page Groups} for more information.
-
-> 💡 Navigating to a page group will change which page groups are displayed in the navigation sidebar.
 
 ## Useful links
 
