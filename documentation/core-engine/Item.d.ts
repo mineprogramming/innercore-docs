@@ -56,6 +56,42 @@ declare namespace Item {
     function createFuelItem(nameID: string, name: string, texture: TextureData, params: object): void;
 
     /**
+     * Object used in [[Item.createArmorItem]] method
+     * to specify general armor item parameters
+     */
+    interface ArmorParams {
+        /**
+         * If true, the item will not be added to creative.
+         * Default value is false.
+         */
+        isTech?: boolean,
+        /**
+         * Armor durability, the more it is, the more hits the armor will resist.
+         * Default value is 1.
+         */
+        durability?: number,
+        /**
+         * Armor proptection. Default value is 0.
+         */
+        armor?: number,
+        /**
+         * Relative path to the armor model texture from the mod assets directory.
+         * Default value is `textures/logo.png`
+         */
+        texture?: string,
+        /**
+         * Armor type, should be one of the `helmet`, `chestplate`, `leggings` or `boots`
+         */
+        type: ArmorType,
+        /**
+         * Knockback resistance, that the player will have when wearing the following armor.
+         * It must be value from 0 (no knockback resistance) to 1 (full knockback resistance).
+         * Default value is 0.
+         */
+        knockbackResist?: number;
+    }
+
+    /**
      * Creates armor item using specified parameters
      * @param nameID string id of the item. You should register it via 
      * [[IDRegistry.genItemID]] call first
@@ -63,18 +99,9 @@ declare namespace Item {
      * [[Translation]] module, all translation to the item and block names are
      * applied automatically
      * @param texture texture data used to create item
-     * @param params additional item parameters
-     * @param params.isTech if true, the item will not be added to creative. 
-     * Default value is false 
-     * @param params.durability armor durability, the more it is, the longer the 
-     * armor will last. Default value is 1
-     * @param params.armor armor protection. Default value is 0
-     * @param params.texture armor model texture path (in the assets), default
-     * value is 'textures/logo.png'
-     * @param params.type armor type, should be one of the 'helmet', 
-     * 'chestplate', 'leggings' or 'boots'
+     * @param params general armor item parameters object, the armor type there is required
      */
-    function createArmorItem(nameID: string, name: string, texture: TextureData, params: { type: ArmorType, armor: number, durability: number, texture: string, isTech?: boolean }): NativeItem
+    function createArmorItem(nameID: string, name: string, texture: TextureData, params: ArmorParams): NativeItem;
 
     /**
      * Creates throwable item using specified parameters
