@@ -23,7 +23,7 @@ module.exports = function (grunt) {
                     readme: 'readme.md',
                     theme: 'pages-plugin',
                     listInvalidSymbolLinks: 'true',
-                    'sourcefile-url-prefix': 'https://github.com/zheka2304/innercore-mod-toolchain/tree/master/toolchain-mod/toolchain/declarations/',
+                    'sourcefile-url-prefix': 'https://github.com/mineprogramming/innercore-docs/blob/gh-pages/',
                 },
                 src: ['headers/core-engine.d.ts'],
             },
