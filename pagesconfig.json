@@ -175,6 +175,16 @@
                     "source": "./BackpackAPI.md"
                 }
             ]
+        },
+        {
+            "title": "Additional Information",
+            "output": "./",
+            "pages": [
+                {
+                    "title": "Contributing",
+                    "source": "./static-pages/contributing.md"
+                }
+            ]
         }
     ],
     "listInvalidPageLinks": true,
