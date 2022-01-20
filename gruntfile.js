@@ -3,8 +3,8 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             dist: {
-                src: ['documentation/core-engine/com/zhekasmirnov/**/*.d.ts', 'documentation/core-engine/*.d.ts'],
-                dest: 'headers/core-engine.d.ts',
+                src: ['documentation/core-engine/declarations/com/zhekasmirnov/**/*.d.ts', 'documentation/core-engine/declarations/*.d.ts'],
+                dest: 'documentation/core-engine/headers/core-engine.d.ts',
             },
             options: {
                 banner: '/// <reference path="./android.d.ts"/>\n\n',
@@ -14,18 +14,19 @@ module.exports = function (grunt) {
         typedoc: {
             build: {
                 options: {
-                    out: 'out',
-                    includeDeclarations: true,
-                    excludeExternals: true,
-                    target: 'ES6',
-                    mode: 'file',
-                    name: 'Core Engine API',
-                    readme: 'readme.md',
-                    theme: 'pages-plugin',
-                    listInvalidSymbolLinks: 'true',
-                    'sourcefile-url-prefix': 'https://github.com/mineprogramming/innercore-docs/blob/gh-pages/',
+                    out: './out/api/',
+                    name: 'Core Engine v2.1 API',
+                    readme: './README.md',
+                    // plugin: ['typedoc-github-wiki-theme'],
+                    theme: 'default',
+                    validation: {
+                        invalidLink: true,
+                    },
+                    entryPoints: ['./documentation/core-engine/headers/core-engine.d.ts'],
+                    // entryPointStrategy: 'expand',
+                    // src: ''
+                    // 'sourcefile-url-prefix': 'https://github.com/mineprogramming/innercore-docs/blob/gh-pages/',
                 },
-                src: ['headers/core-engine.d.ts'],
             },
         },
 
@@ -34,15 +35,21 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: 'headers/*',
                         flatten: true,
-                        dest: 'out/',
+                        src: 'documentation/core-engine/headers/*',
+                        dest: 'out/headers/',
                     },
                     {
                         expand: true,
-                        src: 'documentation/images/*',
                         flatten: true,
-                        dest: 'out/assets/images/pages',
+                        src: 'documentation/static/core-engine/images/*',
+                        dest: 'out/api/assets/images/pages/',
+                    },
+                    {
+                        expand: true,
+                        src: '**/*',
+                        cwd: 'documentation/static/',
+                        dest: 'out',
                     },
                 ],
             },
@@ -52,5 +59,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-typedoc');
-    grunt.registerTask('docs', ['concat', 'typedoc', 'copy']);
+    grunt.registerTask('docs_api', ['concat', 'typedoc', 'copy']);
+    grunt.registerTask('copyf', ['copy']);
 };
