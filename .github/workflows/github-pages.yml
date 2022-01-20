@@ -23,7 +23,7 @@ jobs:
       - name: Setup other dependencies
         run: npm install --safe-dev
       - name: Build docs
-        run: grunt docs
+        run: grunt docs_api
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.6
         with:
