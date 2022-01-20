@@ -8,6 +8,7 @@
     "grunt-contrib-concat": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-typedoc": "^0.2.4",
+    "nlfurniss-typedoc-plugin-sourcefile-url": "^2.0.0",
     "typedoc": "^0.22.11",
     "typescript": "^4.5.4"
   },
@@ -21,6 +22,5 @@
     "type": "git",
     "url": "https://github.com/mineprogramming/innercore-docs.git"
   },
-  "license": "GPL-3.0",
-  "dependencies": {}
+  "license": "GPL-3.0"
 }

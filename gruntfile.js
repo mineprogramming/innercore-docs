@@ -20,15 +20,12 @@ module.exports = function (grunt) {
           out: './out/api/',
           name: 'Core Engine v2.1 API',
           readme: './README.md',
-          // plugin: ['typedoc-github-wiki-theme'],
           theme: 'default',
           validation: {
             invalidLink: true
           },
-          entryPoints: ['./documentation/core-engine/headers/core-engine.d.ts']
-          // entryPointStrategy: 'expand',
-          // src: ''
-          // 'sourcefile-url-prefix': 'https://github.com/mineprogramming/innercore-docs/blob/gh-pages/',
+          entryPoints: ['./documentation/core-engine/headers/core-engine.d.ts'],
+          'sourcefile-url-prefix': 'https://github.com/mineprogramming/innercore-docs/blob/gh-pages/',
         }
       }
     },
