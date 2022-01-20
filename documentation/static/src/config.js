@@ -10,14 +10,17 @@ window.$docsify = {
   // routerMode: 'history',
   nameLink: {
     '/ru/': '#/ru/',
+    '/en/': '#/en/',
     '/': '#/'
   },
   alias: {
-    '/': '/en/',
-    '/ru/.*config/_navbar.md': '/ru/config/_navbar.md',
-    '/ru/.*config/_sidebar.md': '/ru/config/_sidebar.md',
-    '/.*/_navbar.md': '/en/config/_navbar.md',
-    '/.*/_sidebar.md': '/en/config/_sidebar.md'
+    '/': '#/en/',
+    '(.*)/ru/(.*)': '#/ru/$2',
+    '(.*)/en/(.*)': '#/en/$2',
+    '/ru/.*config/_navbar.md': '#/ru/config/_navbar.md',
+    '/ru/.*config/_sidebar.md': '#/ru/config/_sidebar.md',
+    '/.*/_navbar.md': '#/en/config/_navbar.md',
+    '/.*/_sidebar.md': '#/en/config/_sidebar.md'
   },
   themeable: {
     readyTransition: true, // default
