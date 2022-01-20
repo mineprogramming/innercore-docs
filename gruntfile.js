@@ -55,6 +55,11 @@ module.exports = function (grunt) {
             expand: true,
             src: 'README.md',
             dest: 'out/en'
+          },
+          {
+            expand: true,
+            src: 'README.md',
+            dest: 'out'
           }
         ]
       }
