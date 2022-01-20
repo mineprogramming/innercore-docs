@@ -13,15 +13,16 @@ window.$docsify = {
     '/': '#/'
   },
   alias: {
-    '.*?': 'https://raw.githubusercontent.com/mineprogramming/innercore-docs/master/',
+    // mineprogramming/innercore-docs
+    '/': 'https://raw.githubusercontent.com/TMM-Corporation/innercore-docs/gh-pages/',
     '/ru/.*?config/_navbar.md':
-      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/ru/config/_navbar.md',
+      'https://raw.githubusercontent.com/TMM-Corporation/innercore-docs/gh-pages/ru/config/_navbar.md',
     '/ru/.*?config/_sidebar.md':
-      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/ru/config/_sidebar.md',
+      'https://raw.githubusercontent.com/TMM-Corporation/innercore-docs/gh-pages/ru/config/_sidebar.md',
     '/.*?config/_navbar.md':
-      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/en/config/_navbar.md',
+      'https://raw.githubusercontent.com/TMM-Corporation/innercore-docs/gh-pages/en/config/_navbar.md',
     '/.*?config/_sidebar.md':
-      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/en/config/_sidebar.md'
+      'https://raw.githubusercontent.com/TMM-Corporation/innercore-docs/gh-pages/en/config/_sidebar.md'
     // '.*README.md': './README.md',
     // '/': '#/en/',
     // '.*/en/(_navbar)|(.)': 'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/$2',
@@ -64,5 +65,23 @@ window.$docsify = {
   timeUpdater: {
     text: '>Last Modify: {docsify-updated}',
     formatUpdated: '{YYYY}/{MM}/{DD}'
-  }
+  },
+  plugins: [
+    function (hook, vm) {
+      hook.beforeEach(function (html) {
+        if (/githubusercontent\.com/.test(vm.route.file)) {
+          url = vm.route.file.replace('raw.githubusercontent.com', 'github.com').replace(/\/master/, '/blob/master');
+        } else if (/jsdelivr\.net/.test(vm.route.file)) {
+          url = vm.route.file.replace('cdn.jsdelivr.net/gh', 'github.com').replace('@master', '/blob/master');
+        } else {
+          url = 'https://github.com/TMM-Corporation/innercore-docs/blob/gh-pages/' + vm.route.file;
+        }
+        var editHtml = '[:memo: Edit Document](' + url + ')\n';
+        return (
+          editHtml +
+          html
+        );
+      });
+    }
+  ]
 };
