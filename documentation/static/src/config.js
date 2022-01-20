@@ -1,4 +1,3 @@
-
 window.$docsify = {
   name: 'InnerCore v2.1 Docs',
   repo: 'mineprogramming/innercore-docs',
@@ -14,13 +13,19 @@ window.$docsify = {
     '/': '#/'
   },
   alias: {
-    '/': '#/en/',
-    '(.*)/ru/(.*)': '#/ru/$2',
-    '(.*)/en/(.*)': '#/en/$2',
-    '/ru/.*config/_navbar.md': '#/ru/config/_navbar.md',
-    '/ru/.*config/_sidebar.md': '#/ru/config/_sidebar.md',
-    '/.*/_navbar.md': '#/en/config/_navbar.md',
-    '/.*/_sidebar.md': '#/en/config/_sidebar.md'
+    '.*?': 'https://raw.githubusercontent.com/mineprogramming/innercore-docs/master/',
+    '/ru/.*?config/_navbar.md':
+      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/ru/config/_navbar.md',
+    '/ru/.*?config/_sidebar.md':
+      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/ru/config/_sidebar.md',
+    '/.*?config/_navbar.md':
+      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/en/config/_navbar.md',
+    '/.*?config/_sidebar.md':
+      'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/en/config/_sidebar.md'
+    // '.*README.md': './README.md',
+    // '/': '#/en/',
+    // '.*/en/(_navbar)|(.)': 'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/$2',
+    // '.*/ru/(_sidebar)|(.)': 'https://raw.githubusercontent.com/mineprogramming/innercore-docs/gh-pages/$2'
   },
   themeable: {
     readyTransition: true, // default
