@@ -25,7 +25,7 @@ module.exports = function (grunt) {
             invalidLink: true
           },
           entryPoints: ['./documentation/core-engine/headers/core-engine.d.ts'],
-          'sourcefile-url-prefix': 'https://github.com/mineprogramming/innercore-docs/blob/gh-pages/',
+          'sourcefile-url-prefix': 'https://github.com/mineprogramming/innercore-docs/blob/gh-pages/headers/',
         }
       }
     },
