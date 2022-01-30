@@ -6,9 +6,9 @@
       ]
     },
     "include": [
-      "**/*.ts"
+      "documentation/core-engine/headers/core-engine.d.ts"
     ],
     "exclude": [
-      "documentation/"
+      "documentation/static/**",
     ]
 }

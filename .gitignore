@@ -1,4 +1,5 @@
-node_modules
-package-lock.json
-headers/core-engine.d.ts
-out
+/documentation/core-engine/headers/core-engine.d.ts
+/package-lock.json
+/node_modules
+/OLD
+/out
