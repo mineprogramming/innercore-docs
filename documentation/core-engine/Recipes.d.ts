@@ -41,13 +41,13 @@ declare namespace Recipes {
      * @param prefix recipe prefix. Use a non-empty values to register recipes
      * for custom workbenches
      */
-    function addShaped(result: ItemInstance, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): void;
+    function addShaped(result: ItemInstance, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): WorkbenchShapedRecipe;
 
     /**
      * Same as [[Recipes.addShaped]], but you can specify result as three
      * separate values corresponding to id, count and data
      */
-    function addShaped2(id: number, count: number, aux: number, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): void;
+    function addShaped2(id: number, count: number, aux: number, mask: string[], data: (string | number)[], func?: CraftingFunction, prefix?: string): WorkbenchShapedRecipe;
 
     /**
      * Adds new shapeless crafting recipe. For example: 
@@ -65,7 +65,7 @@ declare namespace Recipes {
      * @param prefix recipe prefix. Use a non-empty values to register recipes
      * for custom workbenches
      */
-    function addShapeless(result: ItemInstance, data: { id: number, data: number }[], func?: CraftingFunction, prefix?: string): void;
+    function addShapeless(result: ItemInstance, data: { id: number, data: number }[], func?: CraftingFunction, prefix?: string): WorkbenchShapelessRecipe;
 
     /**
      * Deletes recipe by its result 
@@ -323,6 +323,53 @@ declare namespace Recipes {
          */
         getCallback(): Nullable<CraftingFunction>;
 
+        addToVanillaWorkbench(): void;
+
+        getEntryCodes(): java.util.ArrayList<java.lang.Long>;
+
+        getEntryCollection(): java.util.Collection<RecipeEntry>;
+
+        getRecipeUid(): number;
+
+        isPossibleForInventory(inv: java.util.HashMap<java.lang.Long, java.lang.Integer>): boolean;
+
+        isVanilla(): boolean;
+
+        provideRecipe(field: WorkbenchField): Nullable<ItemInstance>;
+
+        provideRecipeForPlayer(field: WorkbenchField, player: number): Nullable<ItemInstance>;
+
+        putIntoTheField(field: WorkbenchField, player: number): void;
+
+        setEntries(entries: java.util.HashMap<java.lang.Character, RecipeEntry>): void;
+
+        /**
+         * @returns reference to itself to be used in sequential calls
+         */
+        setVanilla(isVanilla: boolean): WorkbenchRecipe;
+
+    }
+
+    /**
+     * Object representing workbench shaped recipe
+     */
+    interface WorkbenchShapedRecipe extends WorkbenchRecipe {
+
+        addVariants(variants: java.util.ArrayList<WorkbenchRecipe>): void;
+
+        setPattern(pattern: string[]): void;
+
+        setPattern(pattern: RecipeEntry[][]): void;
+
+    }
+
+    /**
+     * Object representing workbench shapeless recipe
+     */
+    interface WorkbenchShapelessRecipe extends WorkbenchRecipe {
+
+        addVariants(variants: java.util.ArrayList<WorkbenchRecipe>): void;
+
     }
 
 
@@ -330,6 +377,12 @@ declare namespace Recipes {
      * Object representing furnace recipe
      */
     interface FurnaceRecipe extends java.lang.Object {
+
+        readonly inData: number;
+        readonly inId: number;
+        readonly resData: number;
+        readonly resId: number;
+
         /**
          * @returns true, if the recipe is valid, false otherwise
          */
@@ -358,6 +411,9 @@ declare namespace Recipes {
          * false otherwise
          */
         isMatchingPrefix(prefix: string): boolean;
+
+        getInputKey(): number;
+
     }
 
 
@@ -435,5 +491,6 @@ declare namespace Recipes {
          */
         isMatching(entry: RecipeEntry): boolean;
     }
+
 }
 
