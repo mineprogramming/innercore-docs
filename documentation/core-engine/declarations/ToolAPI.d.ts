@@ -384,8 +384,10 @@ declare namespace ToolAPI {
          * @param coords coordinates where the block is destroyed
          * @param carried an item in player's hand
          * @param fullTile block that was destroyed
+         * @param blockSource [[BlockSource]] object of the world where the block was destroyed
+         * @param player entity uid of the player that destroyed the block
          */
-        onMineBlock?: (coords: Callback.ItemUseCoordinates, carried: ItemInstance, fullTile: Tile) => void,
+        onMineBlock?: (coords: Callback.ItemUseCoordinates, carried: ItemInstance, fullTile: Tile, blockSource: BlockSource, player: number) => void,
 
 		/**
          * Any other user-defined methods and properties
