@@ -16,6 +16,7 @@
     Minecraft
 
     - [Attributes](/en/page/guides/minecraft/attributes.md)
+    - [Player Containers](/en/page/guides/minecraft/playercontainers.md)
 
     Mod Api
 
