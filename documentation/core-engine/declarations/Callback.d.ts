@@ -10,155 +10,156 @@ declare namespace Callback {
      * @param name callback name, should be one of the pre-defined or a custom
      * name if invoked via [[Callback.invokeCallback]]
      * @param func function to be called when an event occurs
+     * @param priority the more this value is, the earlier your callback handler will be called when an event occurs
      */
-    function addCallback(name: string, func: Function): void;
+    function addCallback(name: string, func: Function, priority?: number): void;
 
-    function addCallback(name: "CraftRecipePreProvided", func: CraftRecipePreProvidedFunction): void;
+    function addCallback(name: "CraftRecipePreProvided", func: CraftRecipePreProvidedFunction, priority?: number): void;
 
-    function addCallback(name: "CraftRecipeProvidedFunction", func: CraftRecipeProvidedFunction): void;
+    function addCallback(name: "CraftRecipeProvidedFunction", func: CraftRecipeProvidedFunction, priority?: number): void;
 
-    function addCallback(name: "VanillaWorkbenchCraft", func: VanillaWorkbenchCraftFunction): void;
+    function addCallback(name: "VanillaWorkbenchCraft", func: VanillaWorkbenchCraftFunction, priority?: number): void;
 
-    function addCallback(name: "VanillaWorkbenchPostCraft", func: VanillaWorkbenchCraftFunction): void;
+    function addCallback(name: "VanillaWorkbenchPostCraft", func: VanillaWorkbenchCraftFunction, priority?: number): void;
 
-    function addCallback(name: "VanillaWorkbenchRecipeSelected", func: VanillaWorkbenchRecipeSelectedFunction): void;
+    function addCallback(name: "VanillaWorkbenchRecipeSelected", func: VanillaWorkbenchRecipeSelectedFunction, priority?: number): void;
 
-    function addCallback(name: "ContainerClosed", func: ContainerClosedFunction): void;
+    function addCallback(name: "ContainerClosed", func: ContainerClosedFunction, priority?: number): void;
 
-    function addCallback(name: "ContainerOpened", func: ContainerOpenedFunction): void;
+    function addCallback(name: "ContainerOpened", func: ContainerOpenedFunction, priority?: number): void;
 
-    function addCallback(name: "CustomWindowOpened", func: CustomWindowOpenedFunction): void;
+    function addCallback(name: "CustomWindowOpened", func: CustomWindowOpenedFunction, priority?: number): void;
 
-    function addCallback(name: "CustomWindowClosed", func: CustomWindowClosedFunction): void;
+    function addCallback(name: "CustomWindowClosed", func: CustomWindowClosedFunction, priority?: number): void;
 
-    function addCallback(name: "CoreConfigured", func: CoreConfiguredFunction): void;
+    function addCallback(name: "CoreConfigured", func: CoreConfiguredFunction, priority?: number): void;
 
-    function addCallback(name: "LevelSelected", func: LevelSelectedFunction): void;
+    function addCallback(name: "LevelSelected", func: LevelSelectedFunction, priority?: number): void;
 
-    function addCallback(name: "DimensionLoaded", func: DimensionLoadedFunction): void;
+    function addCallback(name: "DimensionLoaded", func: DimensionLoadedFunction, priority?: number): void;
 
-    function addCallback(name: "DestroyBlock", func: DestroyBlockFunction): void;
+    function addCallback(name: "DestroyBlock", func: DestroyBlockFunction, priority?: number): void;
 
-    function addCallback(name: "DestroyBlockStart", func: DestroyBlockFunction): void;
+    function addCallback(name: "DestroyBlockStart", func: DestroyBlockFunction, priority?: number): void;
 
-    function addCallback(name: "DestroyBlockContinue", func: DestroyBlockContinueFunction): void;
+    function addCallback(name: "DestroyBlockContinue", func: DestroyBlockContinueFunction, priority?: number): void;
 
-    function addCallback(name: "BuildBlock", func: BuildBlockFunction): void;
+    function addCallback(name: "BuildBlock", func: BuildBlockFunction, priority?: number): void;
 
-    function addCallback(name: "BlockChanged", func: BlockChangedFunction): void;
+    function addCallback(name: "BlockChanged", func: BlockChangedFunction, priority?: number): void;
 
-    function addCallback(name: "ItemUse", func: ItemUseFunction): void;
+    function addCallback(name: "ItemUse", func: ItemUseFunction, priority?: number): void;
 
-    function addCallback(name: "ItemUseLocalServer", func: ItemUseFunction): void;
+    function addCallback(name: "ItemUseLocalServer", func: ItemUseFunction, priority?: number): void;
 
-    function addCallback(name: "Explosion", func: ExplosionFunction): void;
+    function addCallback(name: "Explosion", func: ExplosionFunction, priority?: number): void;
 
-    function addCallback(name: "FoodEaten", func: FoodEatenFunction): void;
+    function addCallback(name: "FoodEaten", func: FoodEatenFunction, priority?: number): void;
 
-    function addCallback(name: "ExpAdd", func: ExpAddFunction): void;
+    function addCallback(name: "ExpAdd", func: ExpAddFunction, priority?: number): void;
 
-    function addCallback(name: "ExpLevelAdd", func: ExpLevelAddFunction): void;
+    function addCallback(name: "ExpLevelAdd", func: ExpLevelAddFunction, priority?: number): void;
 
-    function addCallback(name: "NativeCommand", func: NativeCommandFunction): void;
+    function addCallback(name: "NativeCommand", func: NativeCommandFunction, priority?: number): void;
 
-    function addCallback(name: "PlayerAttack", func: PlayerAttackFunction): void;
+    function addCallback(name: "PlayerAttack", func: PlayerAttackFunction, priority?: number): void;
 
-    function addCallback(name: "EntityAdded", func: EntityAddedFunction): void;
+    function addCallback(name: "EntityAdded", func: EntityAddedFunction, priority?: number): void;
 
-    function addCallback(name: "EntityRemoved", func: EntityRemovedFunction): void;
+    function addCallback(name: "EntityRemoved", func: EntityRemovedFunction, priority?: number): void;
 
-    function addCallback(name: "EntityDeath", func: EntityDeathFunction): void;
+    function addCallback(name: "EntityDeath", func: EntityDeathFunction, priority?: number): void;
 
-    function addCallback(name: "EntityHurt", func: EntityHurtFunction): void;
+    function addCallback(name: "EntityHurt", func: EntityHurtFunction, priority?: number): void;
 
-    function addCallback(name: "EntityInteract", func: EntityInteractFunction): void;
+    function addCallback(name: "EntityInteract", func: EntityInteractFunction, priority?: number): void;
 
-    function addCallback(name: "ProjectileHit", func: ProjectileHitFunction): void;
+    function addCallback(name: "ProjectileHit", func: ProjectileHitFunction, priority?: number): void;
 
-    function addCallback(name: "RedstoneSignal", func: RedstoneSignalFunction): void;
+    function addCallback(name: "RedstoneSignal", func: RedstoneSignalFunction, priority?: number): void;
 
-    function addCallback(name: "PopBlockResources", func: PopBlockResourcesFunction): void;
+    function addCallback(name: "PopBlockResources", func: PopBlockResourcesFunction, priority?: number): void;
 
-    function addCallback(name: "ItemIconOverride", func: ItemIconOverrideFunction): void;
+    function addCallback(name: "ItemIconOverride", func: ItemIconOverrideFunction, priority?: number): void;
 
-    function addCallback(name: "ItemNameOverride", func: ItemNameOverrideFunction): void;
+    function addCallback(name: "ItemNameOverride", func: ItemNameOverrideFunction, priority?: number): void;
 
-    function addCallback(name: "ItemUseNoTarget", func: ItemUseNoTargetFunction): void;
+    function addCallback(name: "ItemUseNoTarget", func: ItemUseNoTargetFunction, priority?: number): void;
 
-    function addCallback(name: "ItemUsingReleased", func: ItemUsingReleasedFunction): void;
+    function addCallback(name: "ItemUsingReleased", func: ItemUsingReleasedFunction, priority?: number): void;
 
-    function addCallback(name: "ItemUsingComplete", func: ItemUsingCompleteFunction): void;
+    function addCallback(name: "ItemUsingComplete", func: ItemUsingCompleteFunction, priority?: number): void;
 
-    function addCallback(name: "ItemDispensed", func: ItemDispensedFunction): void;
+    function addCallback(name: "ItemDispensed", func: ItemDispensedFunction, priority?: number): void;
 
-    function addCallback(name: "NativeGuiChanged", func: NativeGuiChangedFunction): void;
+    function addCallback(name: "NativeGuiChanged", func: NativeGuiChangedFunction, priority?: number): void;
 
-    function addCallback(name: "GenerateChunk", func: GenerateChunkFunction): void;
+    function addCallback(name: "GenerateChunk", func: GenerateChunkFunction, priority?: number): void;
 
     /**
      * @deprecated
      */
-    function addCallback(name: "GenerateChunkUnderground", func: GenerateChunkFunction): void;
+    function addCallback(name: "GenerateChunkUnderground", func: GenerateChunkFunction, priority?: number): void;
 
-    function addCallback(name: "GenerateNetherChunk", func: GenerateChunkFunction): void;
+    function addCallback(name: "GenerateNetherChunk", func: GenerateChunkFunction, priority?: number): void;
 
-    function addCallback(name: "GenerateEndChunk", func: GenerateChunkFunction): void;
+    function addCallback(name: "GenerateEndChunk", func: GenerateChunkFunction, priority?: number): void;
 
-    function addCallback(name: "GenerateChunkUniversal", func: GenerateChunkFunction): void;
+    function addCallback(name: "GenerateChunkUniversal", func: GenerateChunkFunction, priority?: number): void;
 
-    function addCallback(name: "GenerateBiomeMap", func: GenerateChunkFunction): void;
+    function addCallback(name: "GenerateBiomeMap", func: GenerateChunkFunction, priority?: number): void;
 
-    function addCallback(name: "ReadSaves", func: SavesFunction): void;
+    function addCallback(name: "ReadSaves", func: SavesFunction, priority?: number): void;
 
-    function addCallback(name: "WriteSaves", func: SavesFunction): void;
+    function addCallback(name: "WriteSaves", func: SavesFunction, priority?: number): void;
 
-    function addCallback(name: "CustomBlockTessellation", func: CustomBlockTessellationFunction): void;
+    function addCallback(name: "CustomBlockTessellation", func: CustomBlockTessellationFunction, priority?: number): void;
 
-    function addCallback(name: "ServerPlayerTick", func: ServerPlayerTickFunction): void;
+    function addCallback(name: "ServerPlayerTick", func: ServerPlayerTickFunction, priority?: number): void;
 
-    function addCallback(name: "CustomDimensionTransfer", func: CustomDimensionTransferFunction): void;
+    function addCallback(name: "CustomDimensionTransfer", func: CustomDimensionTransferFunction, priority?: number): void;
 
-    function addCallback(name: "BlockEventEntityInside", func: Block.EntityInsideFunction): void;
+    function addCallback(name: "BlockEventEntityInside", func: Block.EntityInsideFunction, priority?: number): void;
 
-    function addCallback(name: "BlockEventEntityStepOn", func: Block.EntityStepOnFunction): void;
+    function addCallback(name: "BlockEventEntityStepOn", func: Block.EntityStepOnFunction, priority?: number): void;
 
-    function addCallback(name: "BlockEventNeighbourChange", func: Block.NeighbourChangeFunction): void;
+    function addCallback(name: "BlockEventNeighbourChange", func: Block.NeighbourChangeFunction, priority?: number): void;
 
-    function addCallback(name: "ConnectingToHost", func: ConnectingToHostFunction): void;
+    function addCallback(name: "ConnectingToHost", func: ConnectingToHostFunction, priority?: number): void;
 
-    function addCallback(name: "DimensionUnloaded", func: DimensionUnloadedFunction): void;
+    function addCallback(name: "DimensionUnloaded", func: DimensionUnloadedFunction, priority?: number): void;
 
-    function addCallback(name: "LevelPreLeft", func: {(): void}): void;
+    function addCallback(name: "LevelPreLeft", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "LevelLeft", func: {(): void}): void;
+    function addCallback(name: "LevelLeft", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "ItemUseLocal", func: ItemUseLocalFunction): void;
+    function addCallback(name: "ItemUseLocal", func: ItemUseLocalFunction, priority?: number): void;
 
-    function addCallback(name: "SystemKeyEventDispatched", func: SystemKeyEventDispatchedFunction): void;
+    function addCallback(name: "SystemKeyEventDispatched", func: SystemKeyEventDispatchedFunction, priority?: number): void;
 
-    function addCallback(name: "NavigationBackPressed", func: {(): void}): void;
+    function addCallback(name: "NavigationBackPressed", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "LevelCreated", func: {(): void}): void;
+    function addCallback(name: "LevelCreated", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "LevelDisplayed", func: {(): void}): void;
+    function addCallback(name: "LevelDisplayed", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "LevelPreLoaded", func: LevelLoadedFunction): void;
+    function addCallback(name: "LevelPreLoaded", func: LevelLoadedFunction, priority?: number): void;
 
-    function addCallback(name: "LevelLoaded", func: LevelLoadedFunction): void;
+    function addCallback(name: "LevelLoaded", func: LevelLoadedFunction, priority?: number): void;
 
-    function addCallback(name: "LocalLevelLoaded", func: {(): void}): void;
+    function addCallback(name: "LocalLevelLoaded", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "LocalTick", func: {(): void}): void;
+    function addCallback(name: "LocalTick", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "AppSuspended", func: {(): void}): void;
+    function addCallback(name: "AppSuspended", func: {(): void}, priority?: number): void;
 
-    function addCallback(name: "EntityPickUpDrop", func: EntityPickUpDropFunction): void;
+    function addCallback(name: "EntityPickUpDrop", func: EntityPickUpDropFunction, priority?: number): void;
 
-    function addCallback(name: "ServerPlayerLoaded", func: PlayerFunction): void;
+    function addCallback(name: "ServerPlayerLoaded", func: PlayerFunction, priority?: number): void;
     
-    function addCallback(name: "ServerPlayerLeft", func: PlayerFunction): void;
+    function addCallback(name: "ServerPlayerLeft", func: PlayerFunction, priority?: number): void;
 
-    function addCallback(name: "GenerateCustomDimensionChunk", func: GenerateCustomDimensionChunkFunction): void;
+    function addCallback(name: "GenerateCustomDimensionChunk", func: GenerateCustomDimensionChunkFunction, priority?: number): void;
 
     /**
      * Invokes callback with any name and up to 10 additional parameters. You
