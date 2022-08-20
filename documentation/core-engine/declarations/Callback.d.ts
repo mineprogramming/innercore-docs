@@ -125,6 +125,8 @@ declare namespace Callback {
 
     function addCallback(name: "BlockEventNeighbourChange", func: Block.NeighbourChangeFunction, priority?: number): void;
 
+    function addCallback(name: "PopBlockResources", func: PopBlockResourcesFunction, priority?: number): void;
+
     function addCallback(name: "ConnectingToHost", func: ConnectingToHostFunction, priority?: number): void;
 
     function addCallback(name: "DimensionUnloaded", func: DimensionUnloadedFunction, priority?: number): void;
@@ -483,11 +485,10 @@ declare namespace Callback {
      * Function used in "PopBlockResources" callback
      * @param coords coordinates of the block that was broken
      * @param block information about the block that was broken
-     * @param f some floating point value
-     * @param i some integer value
+     * @param i unknown parameter, supposed to always be zero
      */
     interface PopBlockResourcesFunction {
-        (coords: Vector, block: Tile, f: number, i: number, region: BlockSource): void
+        (coords: Vector, block: Tile, explosionRadius: number, i: number, region: BlockSource): void
     }
 
     /**
