@@ -644,9 +644,10 @@ declare namespace Block {
 	 * where it is destroyed
 	 * @param block information about block that is broken
 	 * @param region BlockSource object
+	 * @param i unknown parameter, supposed to always be zero
 	 */
 	interface PopResourcesFunction {
-		(blockCoords: Vector, block: Tile, region: BlockSource): void
+		(blockCoords: Vector, block: Tile, region: BlockSource, explosionRadius: number, i: number): void
 	}
 
 
