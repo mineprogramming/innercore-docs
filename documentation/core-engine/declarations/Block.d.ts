@@ -721,6 +721,12 @@ declare namespace Block {
 	function getDropFunction(id: number): Block.DropFunction;
 
 	/**
+	 * @returns place function of the block with given numeric id,
+	 * or undefined if it was not specified
+	 */
+	function getPlaceFunc(id: number): Block.PlaceFunction;
+
+	/**
 	 * @returns given block's material numeric id
 	 */
 	function getMaterial(id: number): number;
