@@ -9,6 +9,13 @@ declare namespace Game {
     function prevent(): void;
 
     /**
+     * @returns true if the current callback function has already been
+     * prevented from being called in Minecraft using [[Game.prevent]],
+     * false otherwise
+     */
+    function isActionPrevented(): boolean;
+
+    /**
      * Writes message to the chat. Message can be formatted using 
      * [[Native.Color]] values
      * @param msg message to be displayed
