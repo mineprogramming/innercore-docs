@@ -83,7 +83,7 @@ declare module com {
                         setSlotAddTransferPolicy(slotName: string, policy: ItemContainerFuncs.TransferPolicy): ItemContainer;
                         setSlotGetTransferPolicy(slotName: string, policy: ItemContainerFuncs.TransferPolicy): ItemContainer;
                         setGlobalDirtySlotListener(listener: ItemContainerFuncs.DirtySlotListener): ItemContainer;
-                        setDirtySlotListener(listener: ItemContainerFuncs.DirtySlotListener): void;
+                        setDirtySlotListener(slotName: string, listener: ItemContainerFuncs.DirtySlotListener): void;
                         sealSlot(slotName: string): void;
                         sealAllSlots(): void;
                         getAddTransferPolicy(slot: string): ItemContainerFuncs.TransferPolicy;
