@@ -209,7 +209,7 @@ declare namespace TileEntity {
         /**
          * Called on client side, returns the window to open
          */
-        getScreenByName?: (screenName?: string) => com.zhekasmirnov.innercore.api.mod.ui.window.IWindow;
+        getScreenByName?: (screenName?: string, container?: ItemContainer) => Nullable<com.zhekasmirnov.innercore.api.mod.ui.window.IWindow>;
 
         /**
          * Called when more liquid is required
