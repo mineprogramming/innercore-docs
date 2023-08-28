@@ -36,11 +36,14 @@
     - [Dimensions](/en/page/guides/world/dimensions.md)
 
   - Mods:
-    [IndustrialCraft](/en/page/mod/IndustrialCraft2.md)
+      [IndustrialCraft](/en/page/mod/IndustrialCraft2.md)
+
+  - Mod Libraries:
+      [Core Utility](/en/page/mod-lib/CoreUtility.md)
+      [Dungeon Utility](/en/page/mod-lib/DungeonUtility.md)
 
   - Libraries:
-    [Dungeon Utility](/en/page/lib/DungeonUtility.md)
-    [BackpackAPI](/en/page/lib/BackpackAPI.md)
+      [BackpackAPI](/en/page/lib/BackpackAPI.md)
 
 - [Contributing](/en/page/other/contributing.md)
   - [Creating new pages[OLD]](/en/page/other/create-page.md)
