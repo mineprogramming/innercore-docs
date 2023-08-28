@@ -314,4 +314,7 @@ declare module UI {
 	 */
     export function getContext(): android.app.Activity;
 
+
+	export function getMinecraftUiScale(): number;
+	export function getRelMinecraftUiScale(): number;
 }

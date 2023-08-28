@@ -92,6 +92,14 @@ declare namespace Particles {
          */
         color?: [number, number, number, number];
         /**
+         * Four component color of the particle (RGBA), default is [1, 1, 1, 1]
+         */
+        color2?: [number, number, number, number];
+        /**
+         * default value 10
+         */
+        rebuildDelay: number;
+        /**
          * If true, particle won't go through blocks. It reduces performance if
          * there are lots of these particles, default is false.
          */

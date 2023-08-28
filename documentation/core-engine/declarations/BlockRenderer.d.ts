@@ -82,6 +82,13 @@ declare namespace BlockRenderer {
          * Adds new [[RenderMesh]] to the model
          */
         addMesh(mesh: RenderMesh): void;
+
+        addBlock(id: number, data: number, par: boolean): void;
+        addBlock(id: number, data: number): void;
+        addBlock(id: number): void;
+
+        buildGuiModel(resolve: boolean): com.zhekasmirnov.innercore.api.mod.ui.GuiBlockModel;
+        clear(): void;
     }
 
     /**

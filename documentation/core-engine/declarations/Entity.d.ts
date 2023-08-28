@@ -484,6 +484,22 @@ declare namespace Entity {
     function getCarriedItem(ent: number): ItemInstance;
 
     /**
+     * @param bool1 parameter is no longer supported and should not be used
+     * @param bool2 parameter is no longer supported and should not be used
+     * @returns entity's current offhand item information
+     */
+    function getOffhandItem(ent: number): ItemInstance;
+
+    /**
+     * Sets current offhand item for the entity
+     * @param id item id
+     * @param count item count
+     * @param data item data
+     * @param extra item extra
+     */
+    function setOffhandItem(ent: number, id: number, count: number, data: number, extra?: ItemExtraData): void;
+
+    /**
      * Sets current carried item for the entity
      * @param id item id
      * @param count item count
@@ -525,6 +541,8 @@ declare namespace Entity {
      * the way to get there
      */
     function getPathNavigation(ent: number): PathNavigation;
+
+    function getAllInsideBox(pos1: Vector, pos2: Vector, type?: number, flag?: boolean)
 
     /**
      * @param effectId numeric id of the potion effect,
